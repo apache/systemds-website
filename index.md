@@ -37,7 +37,7 @@ algorithms locally without need of a distributed cluster. Algorithms can be dist
 This flexibility allows the utilization of an organization's existing resources and expertise. In addition, SystemML
  can be operated via Java, Scala, and Python. SystemML also features an embedded API for scoring models. 
 
-{% highlight r %} ../spark-bin-hadoop2.3/bin/spark-submit \
+{% highlight r %} ../spark-bin-hadoop/bin/spark-submit \
       --class com.ibm.bi.dml.api.DMLScript \
       --master yarn-client \
       --num-executors 6 \
