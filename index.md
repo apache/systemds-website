@@ -1,6 +1,7 @@
 ---
 layout: page
-title: Home
+title: Apache SystemML - Declarative Large-Scale Machine Learning
+type: Home
 tagline: Apache Project !
 ---
 
