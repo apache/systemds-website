@@ -36,4 +36,6 @@ source_repository_mirror: https://github.com/apache/incubator-systemml
 website_repository: https://git-wip-us.apache.org/repos/asf/incubator-systemml-website.git
 website_repository_mirror: https://github.com/apache/incubator-systemml-website
 
+documentation: https://apache.github.io/incubator-systemml
+
 podling: true
