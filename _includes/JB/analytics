@@ -1,6 +1,6 @@
-{% if site.safe and site.JB.analytics.provider and page.JB.analytics != false %}
+{% if site.analytics_on == true %}
 
-{% case site.JB.analytics.provider %}
+{% case site.analytics_provider %}
 {% when "google_classic" %}
   {% include JB/analytics-providers/google-classic %}
 {% when "google_universal" %}
