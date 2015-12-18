@@ -32,13 +32,13 @@ SystemML computations can be executed in a variety of different modes.  To begin
 
 {% highlight sh %}
 // Standalone
-./bin/systemml test.dml 
+./bin/systemml test.dml
 
 // Spark
-$SPARK_HOME/bin/spark-submit SystemML.jar -f test.dml
+$SPARK_HOME/bin/spark-submit SystemML.jar -f test.dml -exec hybrid_spark
 
 // Hadoop MapReduce
-hadoop jar SystemML.jar -f test.dml
+hadoop jar SystemML.jar -f test.dml -exec hybrid
 {% endhighlight %}
    
 ### Automatic Optimization

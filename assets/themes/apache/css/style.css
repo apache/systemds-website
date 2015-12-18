@@ -354,3 +354,7 @@ and (max-width : 1024px) {
       padding-right: 0;
   }
 }
+
+code {
+  font-family: Menlo,Consolas,"Courier New",monospace;
+}
