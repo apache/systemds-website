@@ -76,7 +76,7 @@
 - name: Shirish Tatikonda
   apache_id: shirisht
   pmc: true
-  affiliation: IBM
+  affiliation: Target
 
 - name: Xiangrui Meng
   apache_id: meng
