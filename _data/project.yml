@@ -1,11 +1,9 @@
 # Apache Project configurations
 
 #
-name: Apache SystemML (incubating)
+name: Apache SystemML
 short_name: SystemML
 description: Apache SystemML is a distributed and declarative machine learning platform.
-
-#download: http://www.github.com/SparkTC/systemml/releases
 
 dev_list: dev@systemml.incubator.apache.org
 dev_list_subscribe: dev-subscribe@systemml.incubator.apache.org
@@ -35,6 +33,8 @@ source_repository_mirror: https://github.com/apache/incubator-systemml
 
 website_repository: https://git-wip-us.apache.org/repos/asf/incubator-systemml-website.git
 website_repository_mirror: https://github.com/apache/incubator-systemml-website
+
+download: /download.html
 
 documentation: https://apache.github.io/incubator-systemml
 
