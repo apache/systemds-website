@@ -23,6 +23,7 @@
             </li>
             <li><a href="{{ site.data.project.source_repository_mirror }}">GitHub</a></li>
             <li><a href="{{ site.data.project.documentation }}">Documentation</a></li>
+            {% if site.data.project.download %}<li><a href="{{ site.data.project.download }}">Download</a></li>{% endif %}
             <li id="apache">
               <a href="#" data-toggle="dropdown" class="dropdown-toggle">Apache<b class="caret"></b></a>
                <ul class="dropdown-menu">
