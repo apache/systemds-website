@@ -37,7 +37,6 @@ You will be prompted for a mirror - if the file is not found on yours, please be
             <!--td><a href="http://www.apache.org/dist/incubator/systemml/0.9.0-incubating/systemml-0.9.0-incubating.tar.gz.sha1">SHA-1</a></td-->
             <td><a href="http://www.apache.org/dist/incubator/systemml/0.9.0-incubating/systemml-0.9.0-incubating.tar.gz.asc">ASC</a></td>
         </tr>
-
         <tr>
             <td>SystemML-0.9.0-incubating (zip) </td><td> <a href="http://www.apache.org/dyn/closer.lua/incubator/systemml/0.9.0-incubating/systemml-0.9.0-incubating.zip">zip</a></td>
             <td><a href="http://www.apache.org/dist/incubator/systemml/0.9.0-incubating/systemml-0.9.0-incubating.zip.md5">MD5</a></td>
@@ -51,7 +50,6 @@ You will be prompted for a mirror - if the file is not found on yours, please be
             <!--td><a href="http://www.apache.org/dist/incubator/systemml/0.9.0-incubating/systemml-0.9.0-incubating-src.tar.gz.sha1">SHA-1</a></td-->
             <td><a href="http://www.apache.org/dist/incubator/systemml/0.9.0-incubating/systemml-0.9.0-incubating-src.tar.gz.asc">ASC</a></td>
         </tr>
-
         <tr>
             <td>SystemML-0.9.0-incubating (Source zip) </td><td> <a href="http://www.apache.org/dyn/closer.lua/incubator/systemml/0.9.0-incubating/systemml-0.9.0-incubating-src.zip">zip</a></td>
             <td><a href="http://www.apache.org/dist/incubator/systemml/0.9.0-incubating/systemml-0.9.0-incubating-src.zip.md5">MD5</a></td>
@@ -75,7 +73,7 @@ You will be prompted for a mirror - if the file is not found on yours, please be
         </table>
 
         <p>Instructions for checking hashes and signatures is indicated on the <a href="http://www.apache.org/info/verification.html">Verifying Apache Software Foundation Releases</a> page.</p>
-        <p>You can also retrieve the source files from our svn repository by typing :</p>
+        <p>You can also retrieve the source files from our git repository by typing :</p>
 
         <pre>git clone {{ site.data.project.source_repository_mirror }}</pre>
 
