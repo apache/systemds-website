@@ -1,7 +1,35 @@
+# Mac
+.DS_Store
+
+# Eclipse
+.classpath
+.project
+.settings/
+
+# Intellij
+.idea/
+.idea_modules/
+*.iml
+*.iws
+*.class
+*.log
+
+# sbt specific
+.cache
+.history
+.lib/
+dist/*
+target/
+lib_managed/
+src_managed/
+project/boot/
+project/plugins/project/
+
+# Scala-IDE specific
+.scala_dependencies
+.worksheet
+
+#Jekyll
 _site
-.idea
 .sass-cache
 .jekyll-metadata
-apache-website-template.iml
-podling-site-template.iml
-.project
