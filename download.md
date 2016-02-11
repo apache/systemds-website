@@ -77,7 +77,7 @@ You will be prompted for a mirror - if the file is not found on yours, please be
         <p>Instructions for checking hashes and signatures is indicated on the <a href="http://www.apache.org/info/verification.html">Verifying Apache Software Foundation Releases</a> page.</p>
         <p>You can also retrieve the source files from our svn repository by typing :</p>
 
-        <pre>git clone {{ site.data.project.source_repository }}</pre>
+        <pre>git clone {{ site.data.project.source_repository_mirror }}</pre>
 
 
         <h4> Using Maven </h4>
@@ -90,7 +90,7 @@ You will be prompted for a mirror - if the file is not found on yours, please be
 
         <strong>Server:</strong>
         <pre>&lt;dependency&gt;
-    &lt;groupId&gt;org.apache.systemmlk&lt;/groupId&gt;
+    &lt;groupId&gt;org.apache.systemml&lt;/groupId&gt;
     &lt;artifactId&gt;systemml&lt;/artifactId&gt;
     &lt;version&gt;0.9.0-incubating&lt;/version&gt;
 &lt;/dependency&gt;</pre>
