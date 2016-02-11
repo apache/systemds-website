@@ -1,0 +1,54 @@
+---
+layout: page
+title: SystemML 0.9.0-incubating Release Notes
+description: Project Release Notes
+group: nav-right
+---
+{% include JB/setup %}
+
+<br/><br/><br/>
+
+Apache SystemML 0.9.0-incubating is the first release of SystemML since it joined Apache as an incubator project on November 2nd, 2015.
+
+Extensive updates have been made to the project in several areas. These include APIs, data ingestion, optimizations, language and runtime operators, new algorithms, testing, and online documentation.
+
+### APIs
+- Improvements to MLContext and to MLPipeline wrappers
+
+### Data Ingestion
+- Data conversion utilities (from RDDs and DataFrames)
+- Data transformations on raw data sets
+
+### Optimizations
+- Extensions to compilation chain, including IPA
+- Improvements to parfor
+- Improved execution of concurrent Spark jobs
+- New rewrites, including eager RDD caching and repartitioning
+- Improvements to buffer pool caching
+- Partitioning-preserving operations
+- On-demand creation of SparkContext
+- Efficient use of RDD checkpointing
+
+### Language and Runtime Operators
+- New matrix multiplication operators (e.g., ZipMM)
+- New multi-threaded readers and operators
+- Extended aggregation-outer operations for different relational operators
+- Sample capability
+
+### New Algorithms
+- Alternating Least Squares (Conjugate Gradient)
+- Cubic Splines (Conjugate Gradient and Direct Solve)
+
+### Testing
+- PyDML algorithm tests
+- Test suite refactoring
+- Improvements to performance tests
+
+### Online Documentation
+- GitHub README
+- Quick Start Guide
+- DML and PyDML Programming Guide
+- MLContext Programming Guide
+- Algorithms Reference
+- DML Language Reference
+- Debugger Guide
