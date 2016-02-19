@@ -26,6 +26,14 @@ commits_list_archive: http://mail-archives.apache.org/mod_mbox/systemml-commits/
 commits_list_archive_mailarchive: https://www.mail-archive.com/commits@systemml.incubator.apache.org/
 commits_list_archive_markmail:
 
+issues_list: issues@systemml.incubator.apache.org
+issues_list_subscribe: issues-subscribe@systemml.incubator.apache.org
+issues_list_unsubscribe: issues-unsubscribe@systemml.incubator.apache.org
+issues_list_archive: http://mail-archives.apache.org/mod_mbox/systemml-issues/
+issues_list_archive_mailarchive: https://www.mail-archive.com/issues@systemml.incubator.apache.org/
+issues_list_archive_markmail:
+
+
 jira: SYSTEMML
 
 source_repository: https://git-wip-us.apache.org/repos/asf/incubator-systemml.git
