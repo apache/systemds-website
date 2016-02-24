@@ -12,7 +12,7 @@ group: nav-right
 
 {{ site.data.project.name }} is released as a source artifact.
 
-Binary artifacts (including the ones available in maven) are made available for your convenience.
+Binary artifacts (including the ones available in Maven) are made available for your convenience.
 
 You will be prompted for a mirror - if the file is not found on yours, please be patient, as it may take 24 hours to reach all mirrors.
 
@@ -32,26 +32,39 @@ You will be prompted for a mirror - if the file is not found on yours, please be
         </tr>
 
         <tr>
-            <td>SystemML-0.9.0-incubating (tar.gz)</td><td><a href="http://www.apache.org/dyn/closer.lua/incubator/systemml/0.9.0-incubating/systemml-0.9.0-incubating.tar.gz">tar.gz</a></td>
+            <td>systemml-0.9.0-incubating (tar.gz)</td><td><a href="http://www.apache.org/dyn/closer.lua/incubator/systemml/0.9.0-incubating/systemml-0.9.0-incubating.tar.gz">tar.gz</a></td>
             <td><a href="http://www.apache.org/dist/incubator/systemml/0.9.0-incubating/systemml-0.9.0-incubating.tar.gz.md5">MD5</a> </td>
             <!--td><a href="http://www.apache.org/dist/incubator/systemml/0.9.0-incubating/systemml-0.9.0-incubating.tar.gz.sha1">SHA-1</a></td-->
             <td><a href="http://www.apache.org/dist/incubator/systemml/0.9.0-incubating/systemml-0.9.0-incubating.tar.gz.asc">ASC</a></td>
         </tr>
         <tr>
-            <td>SystemML-0.9.0-incubating (zip) </td><td> <a href="http://www.apache.org/dyn/closer.lua/incubator/systemml/0.9.0-incubating/systemml-0.9.0-incubating.zip">zip</a></td>
+            <td>systemml-0.9.0-incubating (zip) </td><td> <a href="http://www.apache.org/dyn/closer.lua/incubator/systemml/0.9.0-incubating/systemml-0.9.0-incubating.zip">zip</a></td>
             <td><a href="http://www.apache.org/dist/incubator/systemml/0.9.0-incubating/systemml-0.9.0-incubating.zip.md5">MD5</a></td>
             <!--td><a href="http://www.apache.org/dist/incubator/systemml/0.9.0-incubating/systemml-0.9.0-incubating.zip.sha1">SHA-1</a></td-->
             <td><a href="http://www.apache.org/dist/incubator/systemml/0.9.0-incubating/systemml-0.9.0-incubating.zip.asc">ASC</a></td>
         </tr>
 
         <tr>
-            <td>SystemML-0.9.0-incubating (Source tar.gz) </td><td> <a href="http://www.apache.org/dyn/closer.lua/incubator/systemml/0.9.0-incubating/systemml-0.9.0-incubating-src.tar.gz">tar.gz</a></td>
+            <td>systemml-0.9.0-incubating-standalone (tar.gz)</td><td><a href="http://www.apache.org/dyn/closer.lua/incubator/systemml/0.9.0-incubating/systemml-0.9.0-incubating-standalone.tar.gz">tar.gz</a></td>
+            <td><a href="http://www.apache.org/dist/incubator/systemml/0.9.0-incubating/systemml-0.9.0-incubating-standalone.tar.gz.md5">MD5</a> </td>
+            <!--td><a href="http://www.apache.org/dist/incubator/systemml/0.9.0-incubating/systemml-0.9.0-incubating-standalone.tar.gz.sha1">SHA-1</a></td-->
+            <td><a href="http://www.apache.org/dist/incubator/systemml/0.9.0-incubating/systemml-0.9.0-incubating-standalone.tar.gz.asc">ASC</a></td>
+        </tr>
+        <tr>
+            <td>systemml-0.9.0-incubating-standalone (zip) </td><td> <a href="http://www.apache.org/dyn/closer.lua/incubator/systemml/0.9.0-incubating/systemml-0.9.0-incubating-standalone.zip">zip</a></td>
+            <td><a href="http://www.apache.org/dist/incubator/systemml/0.9.0-incubating/systemml-0.9.0-incubating-standalone.zip.md5">MD5</a></td>
+            <!--td><a href="http://www.apache.org/dist/incubator/systemml/0.9.0-incubating/systemml-0.9.0-incubating-standalone.zip.sha1">SHA-1</a></td-->
+            <td><a href="http://www.apache.org/dist/incubator/systemml/0.9.0-incubating/systemml-0.9.0-incubating-standalone.zip.asc">ASC</a></td>
+        </tr>
+
+        <tr>
+            <td>systemml-0.9.0-incubating (Source tar.gz) </td><td> <a href="http://www.apache.org/dyn/closer.lua/incubator/systemml/0.9.0-incubating/systemml-0.9.0-incubating-src.tar.gz">tar.gz</a></td>
             <td><a href="http://www.apache.org/dist/incubator/systemml/0.9.0-incubating/systemml-0.9.0-incubating-src.tar.gz.md5">MD5</a></td>
             <!--td><a href="http://www.apache.org/dist/incubator/systemml/0.9.0-incubating/systemml-0.9.0-incubating-src.tar.gz.sha1">SHA-1</a></td-->
             <td><a href="http://www.apache.org/dist/incubator/systemml/0.9.0-incubating/systemml-0.9.0-incubating-src.tar.gz.asc">ASC</a></td>
         </tr>
         <tr>
-            <td>SystemML-0.9.0-incubating (Source zip) </td><td> <a href="http://www.apache.org/dyn/closer.lua/incubator/systemml/0.9.0-incubating/systemml-0.9.0-incubating-src.zip">zip</a></td>
+            <td>systemml-0.9.0-incubating (Source zip) </td><td> <a href="http://www.apache.org/dyn/closer.lua/incubator/systemml/0.9.0-incubating/systemml-0.9.0-incubating-src.zip">zip</a></td>
             <td><a href="http://www.apache.org/dist/incubator/systemml/0.9.0-incubating/systemml-0.9.0-incubating-src.zip.md5">MD5</a></td>
             <!--td><a href="http://www.apache.org/dist/incubator/systemml/0.9.0-incubating/systemml-0.9.0-incubating-src.zip.sha1">SHA-1</a></td-->
             <td><a href="http://www.apache.org/dist/incubator/systemml/0.9.0-incubating/systemml-0.9.0-incubating-src.zip.asc">ASC</a></td>
@@ -72,21 +85,20 @@ You will be prompted for a mirror - if the file is not found on yours, please be
         </tr-->
         </table>
 
-        <p>Instructions for checking hashes and signatures is indicated on the <a href="http://www.apache.org/info/verification.html">Verifying Apache Software Foundation Releases</a> page.</p>
-        <p>You can also retrieve the source files from our git repository by typing :</p>
+        <p>Instructions for checking hashes and signatures is described on the <a href="http://www.apache.org/info/verification.html">Verifying Apache Software Foundation Releases</a> page.</p>
+        <p>You can also retrieve the source files from our git repository by typing:</p>
 
         <pre>git clone {{ site.data.project.source_repository_mirror }}</pre>
 
 
-        <h4> Using Maven </h4>
+        <h3>Using Maven</h3>
 
-        <p>We strongly encourage our users to configure a Maven repository mirror closer to their location, please read <a href="http://maven.apache.org/guides/mini/guide-mirror-settings.html">How to Use Mirrors for Repositories</a>.
+        <p>We strongly encourage our users to configure a Maven repository mirror closer to their location. Please read <a href="http://maven.apache.org/guides/mini/guide-mirror-settings.html">How to Use Mirrors for Repositories</a>.
 
-        <strong>Dependencies</strong>
+        <h4>Dependencies</h4>
 
         <p>Add the following dependencies to your Maven pom.xml.</p>
 
-        <strong>Server:</strong>
         <pre>&lt;dependency&gt;
     &lt;groupId&gt;org.apache.systemml&lt;/groupId&gt;
     &lt;artifactId&gt;systemml&lt;/artifactId&gt;
