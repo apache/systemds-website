@@ -88,7 +88,7 @@ You will be prompted for a mirror - if the file is not found on yours, please be
         <p>Instructions for checking hashes and signatures is described on the <a href="http://www.apache.org/info/verification.html">Verifying Apache Software Foundation Releases</a> page.</p>
 
         <h3>Nightly Experimental Builds</h3>
-        <p> Nighly experimental builds can be obtained from <a href="https://sparktc.ibmcloud.com/repo/latest/">our nightly build</a> page.
+        <p>Nighly experimental builds can be obtained from <a href="https://sparktc.ibmcloud.com/repo/latest/">our nightly build</a> page.</p>
 
         <h3>Bleeding-Edge</h3>
         <p>You can also retrieve the source files from our <a href="https://github.com/apache/incubator-systemml">Git repository</a> and create a bleeding-edge build by typing:</p>
