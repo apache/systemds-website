@@ -86,10 +86,16 @@ You will be prompted for a mirror - if the file is not found on yours, please be
         </table>
 
         <p>Instructions for checking hashes and signatures is described on the <a href="http://www.apache.org/info/verification.html">Verifying Apache Software Foundation Releases</a> page.</p>
-        <p>You can also retrieve the source files from our git repository by typing:</p>
 
-        <pre>git clone {{ site.data.project.source_repository_mirror }}</pre>
+        <h3>Nightly Experimental Builds</h3>
+        <p> Nighly experimental builds can be obtained from <a href="https://sparktc.ibmcloud.com/repo/latest/">our nightly build</a> page.
 
+        <h3>Bleeding-Edge</h3>
+        <p>You can also retrieve the source files from our <a href="https://github.com/apache/incubator-systemml">Git repository</a> and create a bleeding-edge build by typing:</p>
+
+        <pre>git clone {{ site.data.project.source_repository_mirror }}
+cd incubator-systemml
+mvn clean package</pre>
 
         <h3>Using Maven</h3>
 
