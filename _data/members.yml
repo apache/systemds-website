@@ -23,6 +23,11 @@
   pmc: true
   affiliation: IBM
 
+- name: Faraz Makari
+  apache_id: fmakari
+  pmc: true
+  affiliation: IBM
+
 - name: Fred Reiss
   apache_id: freiss
   pmc: true
