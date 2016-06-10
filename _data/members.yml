@@ -33,6 +33,11 @@
   pmc: true
   affiliation: IBM
 
+- name: Glenn Weidner
+  apache_id: gweidner
+  pmc: true
+  affiliation: IBM
+
 - name: Holden Karau
   apache_id: holden
   pmc: true
