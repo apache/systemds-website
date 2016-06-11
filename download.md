@@ -36,7 +36,7 @@ You will be prompted for a mirror - if the file is not found on yours, please be
 
 {{ site.data.project.name }} is distributed under the [Apache License, version 2.0](http://www.apache.org/licenses/LICENSE-2.0).
 
-<h2>Download {{ site.data.project.name }} 0.9.0</h2>
+<h2>Download {{ site.data.project.name }} 0.10.0-incubating</h2>
 
 <div class="row">
     <div class="span10">
@@ -50,46 +50,46 @@ You will be prompted for a mirror - if the file is not found on yours, please be
         </tr>
 
         <tr>
-            <td>systemml-0.9.0-incubating (tar.gz)</td><td><a href="http://www.apache.org/dyn/closer.lua/incubator/systemml/0.9.0-incubating/systemml-0.9.0-incubating.tar.gz">tar.gz</a></td>
-            <td><a href="http://www.apache.org/dist/incubator/systemml/0.9.0-incubating/systemml-0.9.0-incubating.tar.gz.md5">MD5</a> </td>
-            <!--td><a href="http://www.apache.org/dist/incubator/systemml/0.9.0-incubating/systemml-0.9.0-incubating.tar.gz.sha1">SHA-1</a></td-->
-            <td><a href="http://www.apache.org/dist/incubator/systemml/0.9.0-incubating/systemml-0.9.0-incubating.tar.gz.asc">ASC</a></td>
+            <td>systemml-0.10.0-incubating (tar.gz)</td><td><a href="http://www.apache.org/dyn/closer.lua/incubator/systemml/0.10.0-incubating/systemml-0.10.0-incubating.tar.gz">tar.gz</a></td>
+            <td><a href="http://www.apache.org/dist/incubator/systemml/0.10.0-incubating/systemml-0.10.0-incubating.tar.gz.md5">MD5</a> </td>
+            <!--td><a href="http://www.apache.org/dist/incubator/systemml/0.10.0-incubating/systemml-0.10.0-incubating.tar.gz.sha1">SHA-1</a></td-->
+            <td><a href="http://www.apache.org/dist/incubator/systemml/0.10.0-incubating/systemml-0.10.0-incubating.tar.gz.asc">ASC</a></td>
         </tr>
         <tr>
-            <td>systemml-0.9.0-incubating (zip) </td><td> <a href="http://www.apache.org/dyn/closer.lua/incubator/systemml/0.9.0-incubating/systemml-0.9.0-incubating.zip">zip</a></td>
-            <td><a href="http://www.apache.org/dist/incubator/systemml/0.9.0-incubating/systemml-0.9.0-incubating.zip.md5">MD5</a></td>
-            <!--td><a href="http://www.apache.org/dist/incubator/systemml/0.9.0-incubating/systemml-0.9.0-incubating.zip.sha1">SHA-1</a></td-->
-            <td><a href="http://www.apache.org/dist/incubator/systemml/0.9.0-incubating/systemml-0.9.0-incubating.zip.asc">ASC</a></td>
-        </tr>
-
-        <tr>
-            <td>systemml-0.9.0-incubating-standalone (tar.gz)</td><td><a href="http://www.apache.org/dyn/closer.lua/incubator/systemml/0.9.0-incubating/systemml-0.9.0-incubating-standalone.tar.gz">tar.gz</a></td>
-            <td><a href="http://www.apache.org/dist/incubator/systemml/0.9.0-incubating/systemml-0.9.0-incubating-standalone.tar.gz.md5">MD5</a> </td>
-            <!--td><a href="http://www.apache.org/dist/incubator/systemml/0.9.0-incubating/systemml-0.9.0-incubating-standalone.tar.gz.sha1">SHA-1</a></td-->
-            <td><a href="http://www.apache.org/dist/incubator/systemml/0.9.0-incubating/systemml-0.9.0-incubating-standalone.tar.gz.asc">ASC</a></td>
-        </tr>
-        <tr>
-            <td>systemml-0.9.0-incubating-standalone (zip) </td><td> <a href="http://www.apache.org/dyn/closer.lua/incubator/systemml/0.9.0-incubating/systemml-0.9.0-incubating-standalone.zip">zip</a></td>
-            <td><a href="http://www.apache.org/dist/incubator/systemml/0.9.0-incubating/systemml-0.9.0-incubating-standalone.zip.md5">MD5</a></td>
-            <!--td><a href="http://www.apache.org/dist/incubator/systemml/0.9.0-incubating/systemml-0.9.0-incubating-standalone.zip.sha1">SHA-1</a></td-->
-            <td><a href="http://www.apache.org/dist/incubator/systemml/0.9.0-incubating/systemml-0.9.0-incubating-standalone.zip.asc">ASC</a></td>
+            <td>systemml-0.10.0-incubating (zip) </td><td> <a href="http://www.apache.org/dyn/closer.lua/incubator/systemml/0.10.0-incubating/systemml-0.10.0-incubating.zip">zip</a></td>
+            <td><a href="http://www.apache.org/dist/incubator/systemml/0.10.0-incubating/systemml-0.10.0-incubating.zip.md5">MD5</a></td>
+            <!--td><a href="http://www.apache.org/dist/incubator/systemml/0.10.0-incubating/systemml-0.10.0-incubating.zip.sha1">SHA-1</a></td-->
+            <td><a href="http://www.apache.org/dist/incubator/systemml/0.10.0-incubating/systemml-0.10.0-incubating.zip.asc">ASC</a></td>
         </tr>
 
         <tr>
-            <td>systemml-0.9.0-incubating (Source tar.gz) </td><td> <a href="http://www.apache.org/dyn/closer.lua/incubator/systemml/0.9.0-incubating/systemml-0.9.0-incubating-src.tar.gz">tar.gz</a></td>
-            <td><a href="http://www.apache.org/dist/incubator/systemml/0.9.0-incubating/systemml-0.9.0-incubating-src.tar.gz.md5">MD5</a></td>
-            <!--td><a href="http://www.apache.org/dist/incubator/systemml/0.9.0-incubating/systemml-0.9.0-incubating-src.tar.gz.sha1">SHA-1</a></td-->
-            <td><a href="http://www.apache.org/dist/incubator/systemml/0.9.0-incubating/systemml-0.9.0-incubating-src.tar.gz.asc">ASC</a></td>
+            <td>systemml-0.10.0-incubating-standalone (tar.gz)</td><td><a href="http://www.apache.org/dyn/closer.lua/incubator/systemml/0.10.0-incubating/systemml-0.10.0-incubating-standalone.tar.gz">tar.gz</a></td>
+            <td><a href="http://www.apache.org/dist/incubator/systemml/0.10.0-incubating/systemml-0.10.0-incubating-standalone.tar.gz.md5">MD5</a> </td>
+            <!--td><a href="http://www.apache.org/dist/incubator/systemml/0.10.0-incubating/systemml-0.10.0-incubating-standalone.tar.gz.sha1">SHA-1</a></td-->
+            <td><a href="http://www.apache.org/dist/incubator/systemml/0.10.0-incubating/systemml-0.10.0-incubating-standalone.tar.gz.asc">ASC</a></td>
         </tr>
         <tr>
-            <td>systemml-0.9.0-incubating (Source zip) </td><td> <a href="http://www.apache.org/dyn/closer.lua/incubator/systemml/0.9.0-incubating/systemml-0.9.0-incubating-src.zip">zip</a></td>
-            <td><a href="http://www.apache.org/dist/incubator/systemml/0.9.0-incubating/systemml-0.9.0-incubating-src.zip.md5">MD5</a></td>
-            <!--td><a href="http://www.apache.org/dist/incubator/systemml/0.9.0-incubating/systemml-0.9.0-incubating-src.zip.sha1">SHA-1</a></td-->
-            <td><a href="http://www.apache.org/dist/incubator/systemml/0.9.0-incubating/systemml-0.9.0-incubating-src.zip.asc">ASC</a></td>
+            <td>systemml-0.10.0-incubating-standalone (zip) </td><td> <a href="http://www.apache.org/dyn/closer.lua/incubator/systemml/0.10.0-incubating/systemml-0.10.0-incubating-standalone.zip">zip</a></td>
+            <td><a href="http://www.apache.org/dist/incubator/systemml/0.10.0-incubating/systemml-0.10.0-incubating-standalone.zip.md5">MD5</a></td>
+            <!--td><a href="http://www.apache.org/dist/incubator/systemml/0.10.0-incubating/systemml-0.10.0-incubating-standalone.zip.sha1">SHA-1</a></td-->
+            <td><a href="http://www.apache.org/dist/incubator/systemml/0.10.0-incubating/systemml-0.10.0-incubating-standalone.zip.asc">ASC</a></td>
         </tr>
 
         <tr>
-            <td>Release Notes </td><td> <a href="/0.9.0-incubating/release_notes.html">0.9.0-incubating</a></td>
+            <td>systemml-0.10.0-incubating (Source tar.gz) </td><td> <a href="http://www.apache.org/dyn/closer.lua/incubator/systemml/0.10.0-incubating/systemml-0.10.0-incubating-src.tar.gz">tar.gz</a></td>
+            <td><a href="http://www.apache.org/dist/incubator/systemml/0.10.0-incubating/systemml-0.10.0-incubating-src.tar.gz.md5">MD5</a></td>
+            <!--td><a href="http://www.apache.org/dist/incubator/systemml/0.10.0-incubating/systemml-0.10.0-incubating-src.tar.gz.sha1">SHA-1</a></td-->
+            <td><a href="http://www.apache.org/dist/incubator/systemml/0.10.0-incubating/systemml-0.10.0-incubating-src.tar.gz.asc">ASC</a></td>
+        </tr>
+        <tr>
+            <td>systemml-0.10.0-incubating (Source zip) </td><td> <a href="http://www.apache.org/dyn/closer.lua/incubator/systemml/0.10.0-incubating/systemml-0.10.0-incubating-src.zip">zip</a></td>
+            <td><a href="http://www.apache.org/dist/incubator/systemml/0.10.0-incubating/systemml-0.10.0-incubating-src.zip.md5">MD5</a></td>
+            <!--td><a href="http://www.apache.org/dist/incubator/systemml/0.10.0-incubating/systemml-0.10.0-incubating-src.zip.sha1">SHA-1</a></td-->
+            <td><a href="http://www.apache.org/dist/incubator/systemml/0.10.0-incubating/systemml-0.10.0-incubating-src.zip.asc">ASC</a></td>
+        </tr>
+
+        <tr>
+            <td>Release Notes </td><td> <a href="/0.10.0-incubating/release_notes.html">0.10.0-incubating</a></td>
             <td></td>
             <td></td>
             <td></td>
@@ -126,7 +126,7 @@ mvn clean package</pre>
         <pre>&lt;dependency&gt;
     &lt;groupId&gt;org.apache.systemml&lt;/groupId&gt;
     &lt;artifactId&gt;systemml&lt;/artifactId&gt;
-    &lt;version&gt;0.9.0-incubating&lt;/version&gt;
+    &lt;version&gt;0.10.0-incubating&lt;/version&gt;
 &lt;/dependency&gt;</pre>
     </div>
 
