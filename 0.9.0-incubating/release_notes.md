@@ -22,8 +22,6 @@ See the License for the specific language governing permissions and
 limitations under the License.
 {% endcomment %}
 -->
-{% include JB/setup %}
-
 <br/><br/><br/>
 
 Apache SystemML 0.9.0-incubating is the first release of SystemML since it joined Apache as an incubator project on November 2nd, 2015.

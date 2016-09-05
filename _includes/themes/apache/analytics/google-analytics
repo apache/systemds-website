@@ -6,5 +6,4 @@
 
   ga('create', '{{ site.analytics_google_universal_tracking_id }}', 'auto');
   ga('send', 'pageview');
-
 </script>

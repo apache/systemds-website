@@ -22,8 +22,6 @@ See the License for the specific language governing permissions and
 limitations under the License.
 {% endcomment %}
 -->
-{% include JB/setup %}
-
 <br/><br/><br/>
 
 The **Apache SystemML 0.10.0-incubating release** was approved on June 3rd, 2016. It is the second release of Apache SystemML since it

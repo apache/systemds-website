@@ -22,8 +22,6 @@ See the License for the specific language governing permissions and
 limitations under the License.
 {% endcomment %}
 -->
-{% include JB/setup %}
-
 <br/><br/><br/>
 
 ## {{ site.data.project.name }} Downloads
