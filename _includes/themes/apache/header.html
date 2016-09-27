@@ -1,0 +1,41 @@
+<header class="site-header">
+    <h1 class="logo"><a class="url" href="https://systemml.apache.org/"><i class="logo-mark"></i><span class="fn org">Apache SystemML</span></a></h1>
+    <nav class="main-nav">
+        <ul>
+            {% for entry in site.data.navigation.topnav %}
+            <li role="presentation">
+                {% if entry.subcategories %}
+                <a class="nav-link--hover" href="#">{{ entry.title }}<i class="icon icon-chevron-down"></i></a>
+                <ul>
+                    {% for subitem in entry.subcategories %}
+                    {% if subitem.url contains "http" %}
+                    {% assign target = "_blank" %}{% else %}
+                    {% assign target = "_self" %}{% endif %}
+                    <li><a href="{{ subitem.url }}" target="{{ target }}">{{ subitem.title }}</a></li>
+                    {% endfor %}
+                </ul>
+                {% else %}
+                {% if entry.url contains "http" %}
+                {% assign target = "_blank" %}{% else %}
+                {% assign target = "_self" %}{% endif %}
+                <a href="{{ entry.url }}" target="{{ target }}">{{ entry.title }}</a>
+                {% endif %}
+            </li>
+            {% endfor %}
+        </ul>
+    </nav>
+</header>
+
+{% if page.type == "Home" %}
+<section class="hero-banner hero-home">
+    <div class="banner-overlay">
+        <div class="banner-content">
+            <h1>Apache SystemML</h1>
+            <p>A machine learning platform optimal for big data.</p>
+            <a class="video-link jq-modal-trigger" href="#introduction"><i class="icon play-button"></i>Introduction to Apache SystemML</a>
+            <a class="button button-primary" href="download.html">Download SystemML</a>
+        </div>
+    </div>
+    <video src="/assets/media/hero.mp4" autoplay loop></video>
+</section>
+{% endif %}
