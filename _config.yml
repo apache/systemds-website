@@ -6,10 +6,10 @@
 # 'jekyll serve'. If you change this file, please restart the server process.
 
 # Site settings
-title: Apache SystemML (incubating)
+author: Apache SystemML
+title: Apache SystemML - Declarative Large-Scale Machine Learning
 email: dev@systemml.incubator.apache.org
-description: > # this means to ignore newlines until "baseurl:"
-  Apache SystemML (incubating) is a flexible, scalable machine learning (ML) system.
+description: Apache SystemML provides an optimal workplace for Machine Learning using big data
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://systemml.apache.org" # the base hostname & protocol for your site
 twitter_username: systemml

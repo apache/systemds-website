@@ -1,8 +1,7 @@
 ---
-layout: page
+layout: home
 title: Apache SystemML - Declarative Large-Scale Machine Learning
 type: Home
-tagline: Apache Project !
 ---
 <!--
 {% comment %}
