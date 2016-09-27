@@ -2,12 +2,27 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
     <title>{{ page.title }}</title>
-    {% if page.description %}<meta name="description" content="{{ page.description }}">{% endif %}
-    <meta name="author" content="{{ site.author.name }}">
+    {% if page.description %}
+    <meta name="description" content="{{ page.description }}">
+    {% else %}
+    <meta name="description" content="{{ site.description }}">
+    {% endif %}
+    <meta name="author" content="{{ site.author }}">
 
     <!-- Enable responsive viewport -->
+    <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- You can use Open Graph tags to customize link previews.
+    Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+    <meta property="og:url"           content="https://systemml.apache.org/" />
+    <meta property="og:type"          content="website" />
+    <meta property="og:title"         content="{{ page.title }}" />
+    <meta property="og:description"   content="{{ site.description }}" />
+    <meta property="og:image"         content="" />
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
     <!--[if lt IE 9]>
@@ -15,37 +30,23 @@
     <![endif]-->
 
     <!-- Le styles -->
+    <link rel="stylesheet" href="/assets/css/bundle.css">
     <link href="/assets/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <!--
     <link href="/assets/css/style.css?body=1" rel="stylesheet" type="text/css">
+        -->
     <link href="/assets/css/syntax.css" rel="stylesheet"  type="text/css" media="screen" />
-    <!-- Le fav and touch icons -->
-    <link rel="shortcut icon" href="/favicon.png">
-    <!-- Update these with your own images
-    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
-  -->
 
+
+    <!-- favicons -->
+    <link rel="shortcut icon" href="/assets/img/favicon.png">
   </head>
 
-  <body>
+  <body class="ap-container vcard">
+    {% include themes/apache/header.html %}
 
-    {% include themes/apache/_navigation.html %}
-
-    <div class="container">
-      {{ content }}
-      <hr>
-      <footer>
-        <!-- <p>&copy; {{ site.time | date: '%Y' }} {{ site.author.name }}</p>-->
-        {% include themes/apache/footer.html %}
-      </footer>
-    </div>
-
-
-    <script src="/assets/jquery/jquery-2.1.1.min.js"></script>
-
-    <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
-
-
+    {{ content }}
+    <hr>
+    {% include themes/apache/footer.html %}
   </body>
 </html>

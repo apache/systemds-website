@@ -66,3 +66,6 @@ topnav:
     url: http://www.apache.org/foundation/thanks.html
   - title: Privacy Policy
     url: /privacy-policy
+
+- title: About
+  url: /about
