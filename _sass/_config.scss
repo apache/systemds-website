@@ -1,0 +1,243 @@
+// ==========================================================================
+// = Global Variables
+// ==========================================================================
+
+// Colors
+// =============
+
+// UI Colors
+$color-primary                 : color('blue', 90);
+$color-secondary               : color('blue', 80);
+$color-tertiary                : color('blue', 70);
+
+// Grays
+$color-gray-70                 : color('gray', 70);
+$color-gray-60                 : color('gray', 60);
+$color-gray-50                 : color('gray', 50);
+$color-gray-40                 : color('gray', 40);
+$color-gray-30                 : color('gray', 30);
+$color-gray-20                 : color('gray', 20);
+$color-gray-10                 : color('gray', 10);
+
+$color-cool-20                 : color('cool white', 20);
+$color-cool-30                 : color('cool white', 30);
+$color-cool-40                 : color('cool white', 40);
+
+$color-white                   : color('white', core);
+$color-black                   : color('black', core);
+
+//Active Colors
+$color-active--darker           : color('magenta', 70);
+$color-active                   : color('magenta', 60);
+$color-active--lighter          : color('magenta', 50);
+
+$color-active-dark--darker      : color('teal', 40);
+$color-active-dark              : color('teal', 30);
+$color-active-dark--lighter     : color('teal', 20);
+
+//Accent Colors
+$color-accent                   : color('blue', 50);
+$color-accent-dark              : color('blue', 20);
+
+$color-systemml-accent          : #FF5003;
+$color-systemml-accent-dark     : #D74108;
+
+//Status Colors
+$color-success                  : color('green', 50);
+$color-success-dark             : color('green', 30);
+$color-warning                  : color('yellow', 20);
+$color-error                    : color('red', 50);
+$color-info                     : color('blue', 50);
+$color-info-dark                : color('blue', 20);
+
+//Focus Colors
+//$color-focus                    : rgba(color('blue', 20), .75);
+//$color-focus-dark               : rgba(color('blue', 50), .75);
+
+//Type Colors
+$color-text                     : $color-primary;
+$color-text-dark                : $color-cool-20;
+
+$color-text-systemml            : #A6AFAF;
+
+// Link colors
+$color-link                     : $color-active;
+$color-link-hover               : $color-active;
+$color-link-active              : $color-active--lighter;
+
+$color-link-dark                : $color-active-dark;
+$color-link-hover-dark          : $color-active-dark;
+$color-link-active-dark         : $color-active-dark--lighter;
+
+// Button colors
+$color-button                 : $color-active;
+$color-button-light           : $color-active-dark--darker;
+
+$color-button-dark            : $color-active-dark;
+$color-button-disabled        : $color-gray-30;
+$color-button-dark-disabled   : $color-gray-50;
+
+$color-button-primary         : $color-systemml-accent;
+
+// Checkbox Colors
+$color-checkbox                 : $color-active;
+$color-checkbox-border          : $color-secondary;
+$color-checkbox-disabled        : $color-gray-30;
+
+$color-checkbox-dark            : $color-active-dark;
+$color-checkbox-dark-border     : $color-cool-20;
+$color-checkbox-dark-disabled   : $color-gray-50;
+
+// Radio Colors
+$color-radio                  : $color-active;
+$color-radio-border           : $color-secondary;
+$color-radio-disabled         : $color-gray-30;
+
+$color-radio-dark             : $color-active-dark;
+$color-radio-dark-border      : $color-cool-20;
+$color-radio-dark-disabled    : $color-gray-50;
+
+// Select Box Colors
+$color-select                 : $color-active;
+$color-select-bg              : $color-gray-10;
+$color-select-option          : $color-secondary;
+$color-select-hover           : $color-white;
+
+$color-select-dark            : $color-active-dark;
+$color-select-bg-dark         : $color-tertiary;
+$color-select-option-dark     : $color-cool-20;
+$color-select-dark-hover      : $color-primary;
+
+// Slider Colors
+$color-slider-right             : $color-gray-10;
+$color-slider-left              : $color-active;
+$color-slider-front             : $color-active--darker;
+$color-slider-disabled          : $color-gray-30;
+
+$color-slider-right-dark        : $color-gray-30;
+$color-slider-left-dark         : $color-active-dark;
+$color-slider-front-dark        : $color-active-dark--darker;
+$color-slider-disableda         : $color-gray-60;
+$color-slider-disabledb         : $color-gray-50;
+
+// Table Colors
+$color-table-background         : $color-white;
+$color-table-title              : $color-secondary;
+$color-table-subtitle           : $color-gray-50;
+$color-table-border1            : $color-gray-10;
+$color-table-border2            : $color-gray-20;
+$color-table-first-column       : $color-gray-10;
+$color-table-text               : $color-gray-50;
+//$color-table-hover-background   : rgba($color-gray-10, .2);
+$color-table-hover-top          : $color-primary;
+
+// Text Field Colors
+$color-textfield              : $color-gray-60;
+$color-textfield-border       : $color-gray-50;
+$color-textfield-focus        : $color-secondary;
+
+$color-textfield-dark         : $color-gray-20;
+$color-textfield-border-dark  : $color-gray-30;
+$color-textfield-dark-focus   : $color-cool-20;
+
+$color-validation-info        : $color-secondary;
+$color-validation-info-dark   : $color-cool-20;
+
+// Toggle Colors
+$color-toggle-on                : $color-active;
+$color-toggle-off               : $color-gray-30;
+$color-toggle-front             : $color-white;
+$color-toggle-check             : $color-cool-20;
+$color-toggle-disabled          : $color-gray-30;
+$color-toggle-on-dark           : $color-active-dark;
+$color-toggle-off-dark          : $color-gray-30;
+$color-toggle-front-dark        : $color-tertiary;
+$color-toggle-check-dark        : $color-primary;
+$color-toggle-disabled-dark     : $color-gray-50;
+
+
+// Gradients
+$gradient-light             :repeating-linear-gradient(45deg, $color-gray-20, $color-gray-20 2px, $color-gray-30 2px, $color-gray-30 8px);
+$gradient-dark              :repeating-linear-gradient(45deg, $color-gray-60, $color-gray-60 2px, $color-gray-50 2px, $color-gray-50 8px);
+
+// Search Colors
+$color-search                   : $color-secondary;
+$color-search-placeholder       : $color-gray-60;
+$color-search-border            : $color-gray-50;
+$color-auto                     : $color-gray-60;
+$color-auto-focus               : $color-active;
+$color-auto-bg                  : $color-gray-10;
+$color-auto-bg-focus            : $color-white;
+
+
+$color-search-dark              : $color-cool-20;
+$color-search-placeholder-dark  : $color-gray-20;
+$color-search-border-dark       : $color-gray-30;
+$color-auto-dark                : $color-gray-20;
+$color-auto-focus-dark          : $color-active-dark;
+$color-auto-bg-dark             : $color-tertiary;
+$color-auto-bg-focus-dark       : $color-primary;
+
+// Base Sizes
+// ==========
+
+$base-font-size                 : 16px;
+$large-font-size                : 22px;
+
+$base-line-height               : 1.68;
+
+// Font Stacks
+// ===========
+
+$font-family-default            : 'Helvetica Neue for IBM', 'Helvetica Neue', Helvetica, Arial, Roboto, sans-serif;
+$font-family-monospace          : 'Source Code Pro', Lucida Console, Andale Mono, monospace;
+
+// Font Weights
+// ============
+
+$font-weight-light              : 300;
+$font-weight-medium             : 400;
+$font-weight-roman              : 500;
+$font-weight-bold               : 700;
+
+//
+// Define z-indexes for various elements
+// @link http://www.sitepoint.com/using-sass-maps/
+// @type number
+//
+
+// z-index reference
+$zindex: (
+  modal                       : 9000,
+  overlay                     : 8000,
+  header                      : 7000,
+  dropdown                    : 6000
+  );
+
+// Transitions
+// ============
+
+$transition-default             : all .2s ease-in-out;
+$transition-nav                 : all .25s ease-in-out;
+
+//Used for Drop Downs
+$ibm-bezier                     : cubic-bezier(.5, .08, 0, 1);
+
+$button-speed                   : $transition-default;
+$button-speed--faster           : all .1s ease-in-out;
+
+// Shadow
+// ============
+
+$shadow-color           : rgba(0, 0, 0, .1);
+$shadow-default         : 0 2px 2px 0 $shadow-color; //double check this
+$shadow-toggle-color    : rgb(77, 144, 254);
+$shadow-toggle          : 0 0 5px 2px $shadow-toggle-color; // #4D90FE
+$shadow-checkbox-color  : rgba(77, 144, 254, .5);
+
+//Breakpoints
+//=============
+
+$bp-small               : 30em; // changed from 21em;
+$bp-medium              : 64em;
+$bp-large               : 90em;
