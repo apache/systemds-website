@@ -1,0 +1,80 @@
+.icon {
+  position: relative;
+	display: inline-block;
+	text-indent: 0;
+	line-height: 1;
+	background-size: 100%;
+  background-position: center;
+	background-repeat: no-repeat;
+  &.icon-chevron-down {
+		background-image: none, url('../img/icon-chevron-down.svg');
+    background-size: 11px 6px;
+    width: 11px; height: 6px;
+	}
+	&.play-button {
+		background-image: none, url('../img/play-button.svg');
+    background-size: 34px 34px;
+    width: 34px; height: 34px;
+	}
+  &.icon-data {
+		background-image: none, url('../img/icon-data.svg');
+    background-size: 45px 20.25px;
+    width: 45px; height: 45px;
+	}
+  &.icon-code {
+		background-image: none, url('../img/icon-code.svg');
+    background-size: 45px 23px;
+    width: 45px; height: 45px;
+	}
+  &.icon-math {
+		background-image: none, url('../img/icon-math.svg');
+    background-size: 45px 45px;
+    width: 45px; height: 45px;
+	}
+  &.icon-close {
+		background-image: none, url('../img/icon-close.svg');
+    background-size: 24px 24px;
+    width: 24px; height: 24px;
+	}
+  // Partner Logos
+  &.spark-logo {
+		background-image: none, url('../img/spark-logo.png');
+    background-size: 70px 45px;
+    width: 70px; height: 55px;
+	}
+  &.hadoop-logo {
+		background-image: none, url('../img/hadoop-logo.png');
+    background-size: 60px 45px;
+    width: 60px; height: 55px;
+	}
+  &.jupyter-logo {
+		background-image: none, url('../img/jupyter-logo.png');
+    background-size: 51px 55px;
+    width: 51px; height: 55px;
+	}
+  &.zeppelin-logo {
+		background-image: none, url('../img/zeppelin-logo.png');
+    background-size: 58px 35px;
+    width: 58px; height: 55px;
+	}
+  &.dsx-logo {
+		background-image: none, url('../img/dsx-logo.png');
+    background-size: 64px 27px;
+    width: 64px; height: 55px;
+	}
+  &.python-logo {
+		background-image: none, url('../img/python-logo-generic.svg');
+    background-size: 64px 27px;
+    width: 64px; height: 55px;
+	}
+  &.r-logo {
+		background-image: none, url('../img/r-logo.svg');
+    background-size: 64px 27px;
+    width: 64px; height: 55px;
+	}
+  &.icon-announcement {
+		background-image: none, url('../img/icon-announcment.svg');
+    background-size: 60px 40px;
+    width: 60px; height: 40px;
+	}
+}
