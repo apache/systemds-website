@@ -22,6 +22,9 @@ markdown: kramdown
 analytics_on: true
 analytics_provider: google_universal
 analytics_google_universal_tracking_id : UA-71553733-1
-sass:
-  style: compressed
-  sass_dir: _sass
+
+exclude:
+  - package.json
+  - node_modules
+  - gulpfile.js
+  - src
