@@ -1,0 +1,62 @@
+.ap-container {
+  h1 {
+    font-size: 36px;
+    font-weight: $font-weight-bold;
+  }
+  h2 {
+    font-size: 32px;
+    font-weight: $font-weight-bold;
+  }
+
+  h3 {
+    font-size: 18px;
+    font-weight: $font-weight-bold;
+  }
+
+  h4 {
+    font-size: 18px;
+    font-weight: $font-weight-medium;
+  }
+
+  p {
+    color: $color-text-systemml;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  pre {
+    padding: 1em;
+    background: #f9f9fb;
+    border: 1px solid #e0e0e0;
+    margin: 1em 0;
+  }
+
+  .text-center {
+    text-align: center;
+  }
+
+  a {
+    color: $color-systemml-accent;
+    -moz-transition: all 0.2s ease-in-out;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    &:hover {
+      color: $color-systemml-accent-dark;
+    }
+  }
+
+  .button-primary {
+    color: #fff;
+    background: $color-systemml-accent;
+    border-color: $color-systemml-accent;
+    @include border-radius(3px);
+    &:hover {
+      background: $color-systemml-accent-dark;
+      border-color: $color-systemml-accent-dark;
+    }
+  }
+}

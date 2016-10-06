@@ -1,0 +1,71 @@
+## Topnav single links
+## if you want to list an external url, use external_url instead of url. the theme will apply a different link base.
+#    - title: Sample
+#      url: /mydoc/sample.html
+#      audience: developers, consumers
+#      platform: all
+#      product: all
+#      version: all
+#      output: web
+
+
+#        <nav class="navbar-collapse collapse" role="navigation">
+#          <ul class="nav navbar-nav navbar-right">
+#            <li id="community">
+#                <a href="#" data-toggle="dropdown" class="dropdown-toggle">Community<b class="caret"></b></a>
+#                <ul class="dropdown-menu dropdown-left">
+#                    <li><a href="/community.html">Get Involved</a></li>
+#                    <li><a href="/community-members.html">Who we are</a></li>
+#                </ul>
+#            </li>
+#            <li><a href="{{ site.data.project.source_repository_mirror }}">GitHub</a></li>
+#            <li><a href="{{ site.data.project.documentation }}">Documentation</a></li>
+#            {% if site.data.project.download %}<li><a href="{{ site.data.project.download }}">Download</a></li>{% endif %}
+#            <li id="apache">
+#              <a href="#" data-toggle="dropdown" class="dropdown-toggle">Apache<b class="caret"></b></a>
+#               <ul class="dropdown-menu">
+#                <li><a href="http://www.apache.org/foundation/how-it-works.html">Apache Software Foundation</a></li>
+#                <li><a href="http://www.apache.org/licenses/">Apache License</a></li>
+#                <li><a href="http://www.apache.org/foundation/sponsorship.html">Sponsorship</a></li>
+#                <li><a href="http://www.apache.org/foundation/thanks.html">Thanks</a></li>
+#                <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+#                </ul>
+#            </li>
+#          </ul>
+#        </nav><!--/.navbar-collapse -->
+
+
+topnav:
+
+- title: Community
+  subcategories:
+  - title: Get Involved
+    url: /community
+  - title: Issue Tracker
+    url: https://issues.apache.org/jira/browse/SYSTEMML
+  - title: Source Code
+    url: https://github.com/apache/incubator-systemml
+  - title: Project Committers
+    url: /community-members
+
+- title: GitHub
+  url: https://github.com/apache/incubator-systemml
+
+- title: Documentation
+  url: https://apache.github.io/incubator-systemml
+
+- title: Apache
+  subcategories:
+  - title: Apache Software Foundation
+    url: http://www.apache.org/foundation/how-it-works.html
+  - title: Apache License
+    url: http://www.apache.org/licenses/
+  - title: Sponsorship
+    url: http://www.apache.org/foundation/sponsorship
+  - title: Thanks
+    url: http://www.apache.org/foundation/thanks.html
+  - title: Privacy Policy
+    url: /privacy-policy
+
+- title: About
+  url: /about
