@@ -1,0 +1,28 @@
+.modal {
+  position: fixed;
+  top: 0;
+  z-index: 200;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,.85);
+  .icon-close {
+    text-indent: -999px;
+    position: absolute;
+    overflow: hidden;
+    top: 20px;
+    right: 20px;
+  }
+  .embed-container {
+    max-width: 1280px;
+    margin: 60px auto;
+    border: 1px solid $color-text-systemml;
+  }
+  iframe,
+  embed,
+  object {
+    max-width: 100%;
+  }
+}
