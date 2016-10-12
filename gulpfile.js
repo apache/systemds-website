@@ -16,6 +16,10 @@ const config = {
       '_src/_scripts/jquery.fitvids.js',
       '_src/_scripts/ap-components.min.js',
       '_src/_scripts/main.js'
+    ],
+    markupFiles: [
+      '_src/**/*.md',
+      '_src/**/*.html'
     ]
   },
   messages: {
@@ -44,7 +48,7 @@ gulp.task('jekyll:build', (done) => {
     .on('close', done);
 });
 
-gulp.task('jekyll:rebuild', ['jekyll:build'], () => {
+gulp.task('jekyll:rebuild', ['css', 'jekyll:build'], () => {
     browserSync.reload();
 });
 
@@ -60,9 +64,9 @@ gulp.task('browser-sync', ['css', 'jekyll:build'], () => {
 });
 
 gulp.task('watch', () => {
-  gulp.watch(config.paths.cssFiles, ['css']);
+  gulp.watch(config.paths.cssFiles, ['css', 'jekyll:build']);
   gulp.watch(config.paths.jsFiles, ['js', 'jekyll:build']);
-  gulp.watch(['_src/**/*.md', '_src/**/*.html'], ['jekyll:build']);
+  gulp.watch(config.paths.markupFiles, ['jekyll:build']);
 });
 
 gulp.task('default', ['browser-sync', 'watch'])
