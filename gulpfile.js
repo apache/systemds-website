@@ -62,6 +62,7 @@ gulp.task('browser-sync', ['css', 'jekyll:build'], () => {
 gulp.task('watch', () => {
   gulp.watch(config.paths.cssFiles, ['css']);
   gulp.watch(config.paths.jsFiles, ['js', 'jekyll:build']);
+  gulp.watch(['_src/**/*.md', '_src/**/*.html'], ['jekyll:build']);
 });
 
 gulp.task('default', ['browser-sync', 'watch'])

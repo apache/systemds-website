@@ -1,0 +1,27 @@
+<header class="site-header">
+  <h1 class="logo"><a class="url" href="https://systemml.apache.org/"><i class="logo-mark"></i><span class="fn org">Apache SystemML</span></a></h1>
+  <nav class="main-nav">
+    <ul>
+      {% for entry in site.data.navigation.topnav %}
+      <li role="presentation">
+        {% if entry.subcategories %}
+        <a class="nav-link--hover" href="#">{{ entry.title }}<i class="icon icon-chevron-down"></i></a>
+        <ul>
+          {% for subitem in entry.subcategories %}
+          {% if subitem.url contains "http" %}
+          {% assign target = "_blank" %}{% else %}
+          {% assign target = "_self" %}{% endif %}
+          <li><a href="{{ subitem.url }}" target="{{ target }}">{{ subitem.title }}</a></li>
+          {% endfor %}
+        </ul>
+        {% else %}
+        {% if entry.url contains "http" %}
+        {% assign target = "_blank" %}{% else %}
+        {% assign target = "_self" %}{% endif %}
+        <a href="{{ entry.url }}" target="{{ target }}">{{ entry.title }}</a>
+        {% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+  </nav>
+</header>

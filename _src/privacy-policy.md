@@ -22,11 +22,8 @@ See the License for the specific language governing permissions and
 limitations under the License.
 {% endcomment %}
 -->
-<br/><br/><br/>
 
 ## {{ site.data.project.name }} Privacy Policy
-
-<br/><br/>
 
 Information about your use of this website is collected using server access logs and a tracking cookie. The collected information consists of the following:
 
