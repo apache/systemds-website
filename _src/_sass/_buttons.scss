@@ -1,0 +1,21 @@
+.button-primary {
+  color: #fff;
+  background: $color-systemml-accent;
+  border-color: $color-systemml-accent;
+  @include border-radius(3px);
+  &:hover {
+    background: $color-systemml-accent-dark;
+    border-color: $color-systemml-accent-dark;
+  }
+}
+
+.button-secondary {
+  color: #fff;
+  background: $color-systemml-accent2;
+  border-color: $color-systemml-accent2;
+  @include border-radius(3px);
+  &:hover {
+    background: $color-systemml-accent2-dark;
+    border-color: $color-systemml-accent2-dark;
+  }
+}
