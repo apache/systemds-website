@@ -4,7 +4,7 @@ const uglify = require('gulp-uglify');
 const sass = require('gulp-sass');
 const child = require('child_process');
 const gutil = require('gulp-util');
-const browserSync = require('browser-sync').create();
+const browserSync = require('browser-sync');
 
 // PATHS
 const config = {
@@ -17,13 +17,16 @@ const config = {
       '_src/_scripts/ap-components.min.js',
       '_src/_scripts/main.js'
     ]
+  },
+  messages: {
+    jekyllBuild: '<span style="color: grey">Running:</span> $ jekyll build'
   }
 };
 
 //Sass to CSS Task
 gulp.task('css', () => {
   gulp.src(config.paths.cssFiles)
-  .pipe(sass())
+  .pipe(sass().on('error', sass.logError))
   .pipe(concat('main.css'))
   .pipe(gulp.dest('./_src/assets/css'));
 });
@@ -35,32 +38,30 @@ gulp.task('js', () => {
   .pipe(gulp.dest('./_src/assets/js'));
 });
 
-gulp.task('jekyll', () => {
-  const jekyll = child.spawn('jekyll', ['build',
-    '--incremental',
-    '--drafts'
-  ]);
-
-  const jekyllLogger = (buffer) => {
-    buffer.toString()
-      .split(/\n/)
-      .forEach((message) => gutil.log('Jekyll: ' + message));
-  };
-
-  jekyll.stdout.on('data', jekyllLogger);
-  jekyll.stderr.on('data', jekyllLogger);
+gulp.task('jekyll:build', (done) => {
+  browserSync.notify(config.messages.jekyllBuild);
+  const jekyll = child.spawn('jekyll', ['build', '--incremental', '--drafts'], {stdio: 'inherit'})
+    .on('close', done);
 });
 
-gulp.task('serve', () => {
-  browserSync.init({
-    files: [config.dist + '/**'],
-    port: 3000,
+gulp.task('jekyll:rebuild', ['jekyll:build'], () => {
+    browserSync.reload();
+});
+
+gulp.task('browser-sync', ['css', 'jekyll:build'], () => {
+  browserSync({
     server: {
-      baseDir: config.dist
+      baseDir: config.dist,
+      serveStaticOptions: {
+        extensions: ['html']
+      }
     }
-  });
-  gulp.watch(config.paths.cssFiles, ['css', 'jekyll']);
-  gulp.watch(config.paths.jsFiles, ['js', 'jekyll']);
+  })
 });
 
-gulp.task('default', ['css', 'js', 'jekyll', 'serve']);
+gulp.task('watch', () => {
+  gulp.watch(config.paths.cssFiles, ['css']);
+  gulp.watch(config.paths.jsFiles, ['js', 'jekyll:build']);
+});
+
+gulp.task('default', ['browser-sync', 'watch'])
