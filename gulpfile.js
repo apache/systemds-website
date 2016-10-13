@@ -30,16 +30,18 @@ const config = {
 //Sass to CSS Task
 gulp.task('css', () => {
   gulp.src(config.paths.cssFiles)
-  .pipe(sass().on('error', sass.logError))
-  .pipe(concat('main.css'))
-  .pipe(gulp.dest('./_src/assets/css'));
+      .pipe(sass({
+        includePaths: ['node_modules/susy/sass']
+      }).on('error', sass.logError))
+      .pipe(concat('main.css'))
+      .pipe(gulp.dest('./_src/assets/css'));
 });
 
 gulp.task('js', () => {
   gulp.src(config.paths.jsFiles)
-  .pipe(concat('bundle.min.js'))
-  .pipe(uglify())
-  .pipe(gulp.dest('./_src/assets/js'));
+      .pipe(concat('bundle.min.js'))
+      .pipe(uglify())
+      .pipe(gulp.dest('./_src/assets/js'));
 });
 
 gulp.task('jekyll:build', (done) => {
