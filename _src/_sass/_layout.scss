@@ -1,6 +1,8 @@
-.content-container {
-  max-width: 860px;
-  margin: 50px auto;
+@import 'layout/index';
+
+.container {
+  @include container(80em);
+  margin: 100px auto;
   padding: 0 20px;
 }
 

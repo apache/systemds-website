@@ -16,6 +16,10 @@ const config = {
       '_src/_scripts/jquery.fitvids.js',
       '_src/_scripts/ap-components.min.js',
       '_src/_scripts/main.js'
+    ],
+    markupFiles: [
+      '_src/**/*.md',
+      '_src/**/*.html'
     ]
   },
   messages: {
@@ -26,16 +30,18 @@ const config = {
 //Sass to CSS Task
 gulp.task('css', () => {
   gulp.src(config.paths.cssFiles)
-  .pipe(sass().on('error', sass.logError))
-  .pipe(concat('main.css'))
-  .pipe(gulp.dest('./_src/assets/css'));
+      .pipe(sass({
+        includePaths: ['node_modules/susy/sass']
+      }).on('error', sass.logError))
+      .pipe(concat('main.css'))
+      .pipe(gulp.dest('./_src/assets/css'));
 });
 
 gulp.task('js', () => {
   gulp.src(config.paths.jsFiles)
-  .pipe(concat('bundle.min.js'))
-  .pipe(uglify())
-  .pipe(gulp.dest('./_src/assets/js'));
+      .pipe(concat('bundle.min.js'))
+      .pipe(uglify())
+      .pipe(gulp.dest('./_src/assets/js'));
 });
 
 gulp.task('jekyll:build', (done) => {
@@ -44,7 +50,7 @@ gulp.task('jekyll:build', (done) => {
     .on('close', done);
 });
 
-gulp.task('jekyll:rebuild', ['jekyll:build'], () => {
+gulp.task('jekyll:rebuild', ['css', 'jekyll:build'], () => {
     browserSync.reload();
 });
 
@@ -60,8 +66,9 @@ gulp.task('browser-sync', ['css', 'jekyll:build'], () => {
 });
 
 gulp.task('watch', () => {
-  gulp.watch(config.paths.cssFiles, ['css']);
+  gulp.watch(config.paths.cssFiles, ['css', 'jekyll:build']);
   gulp.watch(config.paths.jsFiles, ['js', 'jekyll:build']);
+  gulp.watch(config.paths.markupFiles, ['jekyll:build']);
 });
 
 gulp.task('default', ['browser-sync', 'watch'])

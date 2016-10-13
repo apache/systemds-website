@@ -22,34 +22,33 @@ See the License for the specific language governing permissions and
 limitations under the License.
 {% endcomment %}
 -->
-<br/><br/><br/>
 
 
-### {{ site.data.project.short_name }} Team Members
+<h1>{{ site.data.project.short_name }} Team Members</h1>
 
 {% if site.data.contributors %}
 <table class="table table-hover sortable">
-    <thead>
-        <tr>
-            <th><b></b></th>
-            <th><b>Full Name</b></th>
-            <th><b>Apache ID</b></th>
-            <th><b>GitHub</b></th>
-            <th><b>Role</b></th>
-            <th><b>Affiliation</b></th>
-        </tr>
-    </thead>
-    <tbody>
-    {% for member in site.data.contributors %}
-        <tr>
-            <td><a href="http://github.com/{{ member.githubId }}"><img width="64" src="{% unless c.avatar %}http://github.com/{{ member.githubId }}.png{% else %}{{ member.avatar }}{% endunless %}"></a></td>
-            <td>{{member.name}}</td>
-            <td>{{member.apacheId}}</td>
-            <td><a href="http://github.com/{{ member.githubId }}">{{ member.githubId }}</a></td>
-            <td>{{member.role}}</td>
-            <td>{{member.org}}</td>
-        </tr>
-    {% endfor %}
-    </tbody>
+  <thead>
+    <tr>
+      <th><b></b></th>
+      <th><b>Full Name</b></th>
+      <th><b>Apache ID</b></th>
+      <th><b>GitHub</b></th>
+      <th><b>Role</b></th>
+      <th><b>Affiliation</b></th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for member in site.data.contributors %}
+    <tr>
+      <td><a href="http://github.com/{{ member.githubId }}"><img width="64" src="{% unless c.avatar %}http://github.com/{{ member.githubId }}.png{% else %}{{ member.avatar }}{% endunless %}"></a></td>
+      <td>{{member.name}}</td>
+      <td>{{member.apacheId}}</td>
+      <td><a href="http://github.com/{{ member.githubId }}">{{ member.githubId }}</a></td>
+      <td>{{member.role}}</td>
+      <td>{{member.org}}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
 </table>
 {% endif %}
