@@ -4813,10 +4813,16 @@ a {
     width: 60px;
     height: 40px; }
 
-.content-container {
-  max-width: 860px;
+.container {
+  max-width: 80em;
+  margin-left: auto;
+  margin-right: auto;
   margin: 100px auto;
   padding: 0 20px; }
+  .container:after {
+    content: " ";
+    display: block;
+    clear: both; }
 
 .content-group {
   text-align: center;
@@ -4983,6 +4989,3 @@ a {
   text-align: center;
   font-size: 12px;
   padding: 50px 0; }
-
-body {
-  color: color("gray", 50); }
