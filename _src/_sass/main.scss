@@ -1,17 +1,17 @@
 @import "vendor/ap-components.min.scss";
 @import "config.scss";
 
+// Mixins
+@import "mixins.scss";
+
 //@import "scss/_mobile-nav.scss";
 @import "navigation.scss";
 
 // Base Styles
 @import "base.scss";
 
-// Mixins
-@import "mixins.scss";
-
 // Typography
-@import "typography.scss";
+@import "buttons.scss";
 
 //Site header
 @import "header.scss";
@@ -27,3 +27,7 @@
 
 // Modals
 @import "modals.scss";
+
+body {
+  color: $color-gray-50;
+}
