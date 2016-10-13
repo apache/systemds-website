@@ -4700,7 +4700,7 @@ a {
   flex-direction: column;
   align-items: center;
   padding: 0 20px;
-  background: rgba(0, 0, 0, 0.9); }
+  background-color: rgba(0, 0, 0, 0.9); }
   @media (min-width: 64em) {
     .site-header {
       flex-direction: row;
@@ -4710,7 +4710,9 @@ a {
         position: fixed;
         left: 0;
         top: -80px;
-        background: rgba(0, 0, 0, 0.9); } }
+        background-color: rgba(0, 0, 0, 0.9); }
+      .site-header--not-home {
+        background-color: rgba(0, 0, 0, 0.9); } }
   .site-header .logo {
     font-size: 20px;
     font-weight: 400;
@@ -4813,7 +4815,7 @@ a {
 
 .content-container {
   max-width: 860px;
-  margin: 0px auto;
+  margin: 100px auto;
   padding: 0 20px; }
 
 .content-group {

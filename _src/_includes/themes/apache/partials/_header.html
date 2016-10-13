@@ -1,11 +1,11 @@
-<header class="site-header{% if page.layout == 'home' %}--{% endif %}">
-  <h1 class="logo"><a class="url" href="https://systemml.apache.org/"><i class="logo-mark"></i><span class="fn org">Apache SystemML</span></a></h1>
+<header class="site-header{% if page.layout != 'home' %} site-header--not-home{% endif %}">
+  <h1 class="logo"><a class="url" href="/"><i class="logo-mark"></i><span class="fn org">Apache SystemML</span></a></h1>
   <nav class="main-nav">
     <ul>
       {% for entry in site.data.navigation.topnav %}
       <li role="presentation">
         {% if entry.subcategories %}
-        <a class="nav-link--hover" href="#">{{ entry.title }}<i class="icon icon-chevron-down"></i></a>
+        <a class="nav-link--hover" href="/community">{{ entry.title }}<i class="icon icon-chevron-down"></i></a>
         <ul>
           {% for subitem in entry.subcategories %}
           {% if subitem.url contains "http" %}
