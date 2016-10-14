@@ -1,48 +1,64 @@
 @import 'layout/index';
 
-.container {
+// constrain content width to 1280px
+.ml-container {
   @include container(80em);
-  margin: 100px auto;
-  padding: 0 20px;
 }
 
+// alternate background color
+.background-stripe{
+  &:nth-child(even) {
+    background-color: #f9f9fb;
+  }
+}
+
+// content styling
 .content-group {
+  // default styling mobile first
   text-align: center;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
   align-items: center;
-  .icon-announcement {
-    margin: 0 20px 0 0;
-  }
+  padding: 5em;
+
+  // tablet and web styling
   @media (min-width: $bp-medium) {
     text-align: left;
     flex-direction: row;
   }
+
+  // grid system for content
+  .content-text {
+    &--col-2 {
+      //.content-text--col-2
+      @include span(2 of 12);
+    }
+    &--col-3 {
+      @include span(3 of 12);
+    }
+    &--col-4 {
+      @include span(4 of 12);
+    }
+    &--col-6 {
+      @include span(6 of 12);
+    }
+    &--col-12 {
+      @include span(12 of 12);
+    }
+  }
+
+  .button-group {
+    a{
+      margin-right: 1em;
+    }
+  }
   .wrap {
     display: block;
   }
-  .content-text {
-    @media (min-width: $bp-medium) {
-      width: 50%;
-      &.elevator-text {
-        width: 60%;
-      }
-    }
-  }
-  img {
-    width: 300px;
-    height: 300px;
-  }
-  &.elevator-group {
-    margin-top: 50px;
-    img {
-      width: 250px;
-      height: 250px;
-    }
-  }
-}
 
-.elevator-text p {
-  font-size: 18px;
+  .icon-announcement {
+    margin: 0 10px 0 0;
+  }
+
 }
