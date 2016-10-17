@@ -4848,6 +4848,10 @@ a {
     .content-group {
       text-align: left;
       flex-direction: row; } }
+  .content-group .code-block {
+    border: solid gray 1px;
+    border-radius: 5px;
+    background-color: #f9f9fb; }
   .content-group .content-text--col-2 {
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
@@ -4902,16 +4906,19 @@ a {
   @media (min-width: 64em) {
     .hero-banner {
       top: 0; } }
-  .hero-banner.hero-home, .hero-banner.hero-about {
+  .hero-banner.hero-home, .hero-banner.hero-about, .hero-banner.hero-subpage {
     position: relative;
     min-height: 300px;
     background: transparent url(../img/hero-home.jpg) 0 0 no-repeat;
     background-size: cover;
     overflow: hidden; }
     @media (min-width: 64em) {
-      .hero-banner.hero-home, .hero-banner.hero-about {
+      .hero-banner.hero-home, .hero-banner.hero-about, .hero-banner.hero-subpage {
         min-height: 500px; } }
-    .hero-banner.hero-home.hero-about, .hero-banner.hero-about.hero-about {
+    .hero-banner.hero-home.hero-about, .hero-banner.hero-about.hero-about, .hero-banner.hero-subpage.hero-about {
+      background: #1D3649 url(../img/hero-about.svg) center bottom no-repeat;
+      background-size: cover; }
+    .hero-banner.hero-home.hero-subpage, .hero-banner.hero-about.hero-subpage, .hero-banner.hero-subpage.hero-subpage {
       background: #1D3649 url(../img/hero-about.svg) center bottom no-repeat;
       background-size: cover; }
   .hero-banner .banner-overlay {

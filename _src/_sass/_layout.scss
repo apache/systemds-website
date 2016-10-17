@@ -28,6 +28,12 @@
     flex-direction: row;
   }
 
+  .code-block {
+    border: solid gray 1px;
+    border-radius: 5px;
+    background-color: #f9f9fb;
+  }
+
   // grid system for content
   .content-text {
     &--col-2 {
