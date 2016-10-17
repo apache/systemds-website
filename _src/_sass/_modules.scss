@@ -1,0 +1,24 @@
+.profile {
+  &--img {
+    border-radius: 100%;;
+    width: 5.5em;
+  }
+  &--info,
+  &--info a {
+    font-weight: $font-weight-medium;
+    color: $color-text-systemml;
+    li {
+      font-size: 14px;
+      line-height: 1.4;
+      font-weight: $font-weight-light
+    }
+  }
+}
+
+.content {
+  text-align: center;
+}
+
+.content-g {
+  padding: 3em;
+}
