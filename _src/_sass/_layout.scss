@@ -62,3 +62,31 @@
   }
 
 }
+
+.profile {
+  @include gallery(4 of 12);
+  display: flex;
+  margin-bottom: 1.953125%;
+  align-items: center;
+  &--img {
+    &:first-child {
+      margin-right: 1em;
+    }
+  }
+}
+
+.content-g {
+  @include clearfix;
+  &.contribute {
+    display: flex;
+  }
+}
+
+
+.content {
+  @include span(4 of 12);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
