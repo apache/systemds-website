@@ -3,5 +3,13 @@ $susy: (
   gutters: 1.953125,
   math: fluid,
   output: float,
-  gutter-position: inside,
+  gutter-position: inside
 );
+
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
