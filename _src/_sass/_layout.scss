@@ -3,6 +3,12 @@
 // constrain content width to 1280px
 .ml-container {
   @include container(80em);
+  margin: 5em auto;
+
+  &--section-end{
+    padding-bottom: 4em;
+    border-bottom: 1px solid #e0e0e0;
+  }
 }
 
 // alternate background color
@@ -20,7 +26,11 @@
   justify-content: space-between;
   flex-direction: column;
   align-items: center;
-  padding: 5em;
+
+  p {
+    margin: 0 0 1em 0;
+  }
+
 
   // tablet and web styling
   @media (min-width: $bp-medium) {
@@ -31,7 +41,6 @@
   // grid system for content
   .content-text {
     &--col-2 {
-      //.content-text--col-2
       @include span(2 of 12);
     }
     &--col-3 {
@@ -43,9 +52,16 @@
     &--col-6 {
       @include span(6 of 12);
     }
+    &--col-8 {
+      @include span(8 of 12);
+    }
+    &--col-9 {
+      @include span(9 of 12);
+    }
     &--col-12 {
       @include span(12 of 12);
     }
+
   }
 
   .button-group {
@@ -81,4 +97,23 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+}
+
+
+.steps {
+  ol{
+    list-style: none;
+  }
+}
+
+.circle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: $color-systemml-accent2;
+  color: white;
+  text-align: center;
+  line-height: 35px;
+  display: inline-block;
+  margin-right: 1em;
 }

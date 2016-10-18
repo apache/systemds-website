@@ -36,10 +36,14 @@ ul {
 }
 
 pre {
-  padding: 1em;
-  background: #f9f9fb;
+  padding-left: 2em;
+  background: #ffffff;
   border: 1px solid #e0e0e0;
-  margin: 1em 0;
+  margin: 0 0 3em 0;
+}
+
+code {
+  margin: 0;
 }
 
 .text-center {
@@ -54,4 +58,13 @@ a {
   &:hover {
     color: $color-systemml-accent-dark;
   }
+}
+
+hr {
+  color: green;
+  width: 80em;
+}
+
+ol {
+  padding: 0;
 }

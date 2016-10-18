@@ -16,7 +16,7 @@
   @media (min-width: $bp-medium) {
     top: 0;
   }
-  &.hero-home, &.hero-about {
+  &.hero-home, &.hero-about, &.hero-subpage {
     position: relative;
     min-height: 300px;
     background: transparent url(../img/hero-home.jpg) 0 0 no-repeat;
@@ -29,6 +29,12 @@
       background: #1D3649 url(../img/hero-about.svg) center bottom no-repeat;
       background-size: cover;
     }
+
+    &.hero-subpage {
+      background: #1D3649 url(../img/hero-about.svg) center bottom no-repeat;
+      background-size: cover;
+    }
+
   }
   .banner-overlay {
     position: absolute;
