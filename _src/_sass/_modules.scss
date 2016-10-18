@@ -1,24 +1,41 @@
 .profile {
+  text-align: center;
+  margin-bottom: 2em;
   &--img {
     border-radius: 100%;;
     width: 5.5em;
   }
+  &--name {
+    font-size: 18px;
+  }
   &--info,
   &--info a {
     font-weight: $font-weight-medium;
-    color: $color-text-systemml;
+    color: #313131;
     li {
-      font-size: 14px;
       line-height: 1.4;
-      font-weight: $font-weight-light
+      font-weight: $font-weight-light;
     }
   }
 }
 
 .content {
   text-align: center;
+  p {
+    margin-bottom: 2em;
+  }
 }
 
 .content-g {
   padding: 3em;
+}
+
+.link-list {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5em;
+  li {
+    margin: 0 2em;
+  }
 }
