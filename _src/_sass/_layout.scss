@@ -3,19 +3,6 @@
 // constrain content width to 1280px
 .ml-container {
   @include container(80em);
-  margin: 5em auto;
-
-  &--section-end{
-    padding-bottom: 4em;
-    border-bottom: 1px solid #e0e0e0;
-  }
-}
-
-// alternate background color
-.background-stripe{
-  &:nth-child(even) {
-    background-color: #f9f9fb;
-  }
 }
 
 // content styling

@@ -23,17 +23,9 @@ limitations under the License.
 {% endcomment %}
 -->
 
-<!-- <section class="hero-banner hero-home">
-  <div class="banner-overlay">
-    <div class="banner-content">
-      <h1>{{ site.data.project.name }} Community</h1>
-    </div>
-  </div>
-</section> -->
-
-<section class="full-stripe full-stripe--hero-context">
+<section class="full-stripe clear-header">
   <div class="ml-container">
-    <h1>{{ site.data.project.name }} Community</h1>
+    <h1 class="full-stripe--heading-center">{{ site.data.project.name }} Community</h1>
   </div>
 </section>
 
@@ -89,28 +81,29 @@ Before submitting an issue, please:
 * Search the issue tracker to verify there is no existing issue reporting the bug you've found.
 * Consider tracking down the bug yourself in the Wink's source and submitting a patch along with your bug report. This is a great time saver for the Wink developers and helps ensure the bug will be fixed quickly. -->
 
-<div class="ml-container">
-  <section class="content-g contribute">
+<section class="full-stripe full-stripe--alternate">
+  <div class="ml-container">
     <div class="content">
       <h2>Github</h2>
       <p>You can find all of Apache SystemML’s code on Github, including example notebooks. Fork it, try it out and contribute yourself.</p>
-      <a href="#" class="button button-primary">Go To Github</a>
+      <a href="{{ site.data.project.source_repository }}" class="button button-primary">Go To Github</a>
     </div>
     <div class="content">
       <h2>Jira</h2>
       <p>
-Keep track of the daily updates going on with SystemML and start your own Jira to note issues and bugs you come across, acting as part of the SystemML community.</p>
+        Keep track of the daily updates going on with SystemML and start your own Jira to note issues and bugs you come across, acting as part of the SystemML community.</p>
       <a href="https://issues.apache.org/jira/browse/{{ site.data.project.jira }}" class="button button-primary">Go To Jira</a>
     </div>
     <div class="content">
       <h2>Mailing List</h2>
       <p>Because Apache SystemML is open source, all changes are documented in the mailing list. Sign up today to be updated on all of the changes happening.</p>
-      <a href="#" class="button button-primary">Go to Archive</a>
+      <a href="{{ site.data.project.dev_list_archive_mailarchive }}" class="button button-primary">Go to Archive</a>
     </div>
-  </section>
-
-  <section class="full-stripe">
-    <h2>{{ site.data.project.short_name }} Contributors</h2>
+  </div>
+</section>
+<section class="full-stripe">
+  <div class="ml-container">
+    <h2 class="full-stripe--heading-center">{{ site.data.project.short_name }} Contributors</h2>
     <div class="content-g">
       {% if site.data.contributors %}
         {% for member in site.data.contributors %}
@@ -130,20 +123,36 @@ Keep track of the daily updates going on with SystemML and start your own Jira t
         {% endfor %}
       {% endif %}
     </div>
-  </section>
-</div>
-
-<section class="full-stripe full-stripe--dark">
-  <div class="ml-container">
-    <ul class="link-list">
-      <li><a class="icon icon-youtube" href="https://www.youtube.com/channel/UCQwUHIc5SjqNIppUH6xbxXQ"></a></li>
-      <li><a class="icon icon-github" href="{{ site.data.project.source_repository }}"></a></li>
-      <li><a class="icon icon-twitter" href="https://twitter.com/ApacheSystemML"></a></li>
-      <li><a class="icon icon-medium" href="https://medium.com/@apachesystemmlvideos"></a></li>
-    </ul>
-    <p>To contribute code to SystemML, you can contact us directly at <a href="mailto:dev@systemml.incubator.apache.org">dev@systemml.incubator.apache.org</a></p>
   </div>
 </section>
+<section class="full-stripe">
+  <div class="ml-container">
+    <div class="content">
+      <h2>Contribute to {{ site.data.project.short_name }}</h2>
+      <p>You can find all of {{ site.data.project.name }}’s code on Github, including example notebooks. Fork it, try it out and contribute yourself.</p>
+      <a href="mailto:{{ site.data.project.dev_list_subscribe }}?subject=send this email to subscribe">Subscribe</a>
+      <a href="mailto:{{ site.data.project.dev_list_unsubscribe }}?subject=send this email to unsubscribe">Unsubscribe</a>
+      <a href="{{ site.data.project.dev_list_archive_mailarchive }}">Archive</a>
+    </div>
+    <div class="content">
+      <h2>To commit messages and patches to {{ site.data.project.short_name }}</h2>
+      <p>Keep track of the daily updates going on with {{ site.data.project.short_name }} and start your own Jira to note issues and bugs you come across, acting as part of the SystemML community.</p>
+      <a href="mailto:{{ site.data.project.commits_list_subscribe }}?subject=send this email to subscribe">Subscribe</a>
+      <a href="mailto:{{ site.data.project.commits_list_unsubscribe }}?subject=send this email to unsubscribe">Unsubscribe</a>
+      <a href="{{ site.data.project.commits_list_archive_mailarchive }}">Archive</a>
+
+    </div>
+    <div class="content">
+      <h2>To issues workflow notifications to {{ site.data.project.short_name }}</h2>
+      <p>Because {{ site.data.project.name }} is open source, all changes are documented in the mailing list. Sign up today to be updated on all of the changes happening.</p>
+      <a href="mailto:{{ site.data.project.issues_list }}">Subscribe</a>
+      <a href="mailto:{{ site.data.project.issues_list_unsubscribe }}?subject=send this email to unsubscribe">Unsubscribe</a>
+      <a href="{{ site.data.project.issues_list_archive_mailarchive }}">Archive</a>
+    </div>
+  </div>
+</section>
+
+{% include themes/apache/partials/banners/get-involved.html %}
 
 <!-- #### Feature Requests
 

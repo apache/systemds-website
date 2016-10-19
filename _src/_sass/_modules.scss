@@ -19,16 +19,19 @@
   }
 }
 
-
 .content {
   text-align: center;
+  h1, h2, h3 {
+    font-size: 24px;
+    line-height: 1;
+    margin-bottom: 1em;
+  }
   p {
     margin-bottom: 2em;
   }
-}
-
-.content-g {
-  padding: 3em;
+  a {
+    display: inline;
+  }
 }
 
 .link-list {
