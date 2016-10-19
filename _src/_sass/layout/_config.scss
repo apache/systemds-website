@@ -1,0 +1,15 @@
+$susy: (
+  columns: 12,
+  gutters: 1.953125,
+  math: fluid,
+  output: float,
+  gutter-position: inside
+);
+
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}

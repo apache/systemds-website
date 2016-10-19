@@ -4,7 +4,7 @@ const uglify = require('gulp-uglify');
 const sass = require('gulp-sass');
 const child = require('child_process');
 const gutil = require('gulp-util');
-const browserSync = require('browser-sync').create();
+const browserSync = require('browser-sync');
 
 // PATHS
 const config = {
@@ -16,51 +16,59 @@ const config = {
       '_src/_scripts/jquery.fitvids.js',
       '_src/_scripts/ap-components.min.js',
       '_src/_scripts/main.js'
+    ],
+    markupFiles: [
+      '_src/**/*.md',
+      '_src/**/*.html'
     ]
+  },
+  messages: {
+    jekyllBuild: '<span style="color: grey">Running:</span> $ jekyll build'
   }
 };
 
 //Sass to CSS Task
 gulp.task('css', () => {
   gulp.src(config.paths.cssFiles)
-  .pipe(sass())
-  .pipe(concat('main.css'))
-  .pipe(gulp.dest('./_src/assets/css'));
+      .pipe(sass({
+        includePaths: ['node_modules/susy/sass']
+      }).on('error', sass.logError))
+      .pipe(concat('main.css'))
+      .pipe(gulp.dest('./_src/assets/css'));
 });
 
 gulp.task('js', () => {
   gulp.src(config.paths.jsFiles)
-  .pipe(concat('bundle.min.js'))
-  .pipe(uglify())
-  .pipe(gulp.dest('./_src/assets/js'));
+      .pipe(concat('bundle.min.js'))
+      .pipe(uglify())
+      .pipe(gulp.dest('./_src/assets/js'));
 });
 
-gulp.task('jekyll', () => {
-  const jekyll = child.spawn('jekyll', ['build',
-    '--incremental',
-    '--drafts'
-  ]);
-
-  const jekyllLogger = (buffer) => {
-    buffer.toString()
-      .split(/\n/)
-      .forEach((message) => gutil.log('Jekyll: ' + message));
-  };
-
-  jekyll.stdout.on('data', jekyllLogger);
-  jekyll.stderr.on('data', jekyllLogger);
+gulp.task('jekyll:build', (done) => {
+  browserSync.notify(config.messages.jekyllBuild);
+  const jekyll = child.spawn('jekyll', ['build', '--incremental', '--drafts'], {stdio: 'inherit'})
+    .on('close', done);
 });
 
-gulp.task('serve', () => {
-  browserSync.init({
-    files: [config.dist + '/**'],
-    port: 3000,
+gulp.task('jekyll:rebuild', ['css', 'jekyll:build'], () => {
+    browserSync.reload();
+});
+
+gulp.task('browser-sync', ['css', 'jekyll:build'], () => {
+  browserSync({
     server: {
-      baseDir: config.dist
+      baseDir: config.dist,
+      serveStaticOptions: {
+        extensions: ['html']
+      }
     }
-  });
-  gulp.watch(config.paths.cssFiles, ['css', 'jekyll']);
-  gulp.watch(config.paths.jsFiles, ['js', 'jekyll']);
+  })
 });
 
-gulp.task('default', ['css', 'js', 'jekyll', 'serve']);
+gulp.task('watch', () => {
+  gulp.watch(config.paths.cssFiles, ['css', 'jekyll:build']);
+  gulp.watch(config.paths.jsFiles, ['js', 'jekyll:build']);
+  gulp.watch(config.paths.markupFiles, ['jekyll:build']);
+});
+
+gulp.task('default', ['browser-sync', 'watch'])

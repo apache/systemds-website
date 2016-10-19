@@ -1,49 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-    <title>{{ page.title }}</title>
-    {% if page.description %}
-    <meta name="description" content="{{ page.description }}">
-    {% else %}
-    <meta name="description" content="{{ site.description }}">
-    {% endif %}
-    <meta name="author" content="{{ site.author }}">
-
-    <!-- Enable responsive viewport -->
-    <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- You can use Open Graph tags to customize link previews.
-    Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
-    <meta property="og:url"           content="https://systemml.apache.org/" />
-    <meta property="og:type"          content="website" />
-    <meta property="og:title"         content="{{ page.title }}" />
-    <meta property="og:description"   content="{{ site.description }}" />
-    <meta property="og:image"         content="" />
-
-    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
-    <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
-    <!-- Le styles -->
-    <link rel="stylesheet" href="/assets/css/main.css">
-
-    <!-- favicons -->
-    <link rel="shortcut icon" href="/assets/img/favicon.png">
-  </head>
-
-  <body class="ap-container vcard">
-    {% include themes/apache/header.html %}
-
-    {{ content }}
-    <hr>
-    {% include themes/apache/footer.html %}
-
+  {% include themes/apache/partials/_head.html %} <!-- META -->
+  <body class="vcard">
+    {% include themes/apache/partials/_header.html %} <!-- GLOBAL HEADER -->
+    {{ content }} 
+    {% include themes/apache/partials/_footer.html %} <!-- GLOBAL FOOTER-->
     <script src="assets/js/bundle.min.js"></script>
-
   </body>
 </html>

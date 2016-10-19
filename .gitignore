@@ -36,3 +36,5 @@ _site
 
 #npm
 node_modules
+
+_src/assets/css/main.css
