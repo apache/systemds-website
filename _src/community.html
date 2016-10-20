@@ -1,0 +1,172 @@
+---
+layout: page
+title: Community
+description: Project Community Page
+group: nav-right
+---
+<!--
+{% comment %}
+Licensed to the Apache Software Foundation (ASF) under one or more
+contributor license agreements.  See the NOTICE file distributed with
+this work for additional information regarding copyright ownership.
+The ASF licenses this file to you under the Apache License, Version 2.0
+(the "License"); you may not use this file except in compliance with
+the License.  You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+{% endcomment %}
+-->
+
+<section class="full-stripe clear-header">
+  <div class="ml-container">
+    <h1 class="full-stripe--heading-center">{{ site.data.project.name }} Community</h1>
+  </div>
+</section>
+
+<!-- You can:
+
+* Use our project and provide a feedback.
+* Provide us with the use-cases.
+* Report bugs and submit patches.
+* Contribute code, javadocs, documentation.
+
+Visit the [Contributing] page for more information.
+### Mailing list
+Get help using {{ site.data.project.short_name }} or contribute to the project on our mailing lists:
+
+{% if site.data.project.user_list %}
+  [{{ site.data.project.user_list }}](mailto:{{ site.data.project.user_list }}) is for usage questions, help, and announcements.
+
+  [subscribe](mailto:{{ site.data.project.user_list_subscribe }}?subject=send this email to subscribe),
+  [unsubscribe](mailto:{{ site.data.project.user_list_unsubscribe }}?subject=send this email to unsubscribe),
+  [archives]({{ site.data.project.user_list_archive_mailarchive }})
+
+{% endif %}
+
+[{{ site.data.project.dev_list }}](mailto:{{ site.data.project.dev_list }}) is for people who want to contribute code to {{ site.data.project.short_name }}.
+
+[subscribe](mailto:{{ site.data.project.dev_list_subscribe }}?subject=send this email to subscribe),
+[unsubscribe](mailto:{{ site.data.project.dev_list_unsubscribe }}?subject=send this email to unsubscribe),
+[archives]({{ site.data.project.dev_list_archive_mailarchive }})
+
+[{{ site.data.project.commits_list }}](mailto:{{ site.data.project.commits_list }}) is for commit messages and patches to {{ site.data.project.short_name }}.
+
+[subscribe](mailto:{{ site.data.project.commits_list_subscribe }}?subject=send this email to subscribe),
+[unsubscribe](mailto:{{ site.data.project.commits_list_unsubscribe }}?subject=send this email to unsubscribe),
+[archives]({{ site.data.project.commits_list_archive_mailarchive }})
+
+{% if site.data.project.issues_list %}
+  [{{ site.data.project.issues_list }}](mailto:{{ site.data.project.issues_list }}) is for issues workflow notifications. [subscribe](mailto:{{ site.data.project.issues_list_subscribe }}?subject=send this email to subscribe),
+  [unsubscribe](mailto:{{ site.data.project.issues_list_unsubscribe }}?subject=send this email to unsubscribe),
+  [archives]({{ site.data.project.issues_list_archive_mailarchive }})
+{% endif %}
+
+### Issue tracker
+
+
+
+#### Bug Reports
+
+Found bug? Enter an issue in the [Issue Tracker](https://issues.apache.org/jira/browse/{{ site.data.project.jira }}).
+
+Before submitting an issue, please:
+
+* Verify that the bug does in fact exist.
+* Search the issue tracker to verify there is no existing issue reporting the bug you've found.
+* Consider tracking down the bug yourself in the Wink's source and submitting a patch along with your bug report. This is a great time saver for the Wink developers and helps ensure the bug will be fixed quickly. -->
+
+<section class="full-stripe full-stripe--alternate">
+  <div class="ml-container">
+    <div class="content">
+      <h2>Github</h2>
+      <p>You can find all of Apache SystemML’s code on Github, including example notebooks. Fork it, try it out and contribute yourself.</p>
+      <a href="{{ site.data.project.source_repository }}" class="button button-primary">Go To Github</a>
+    </div>
+    <div class="content">
+      <h2>Jira</h2>
+      <p>
+        Keep track of the daily updates going on with SystemML and start your own Jira to note issues and bugs you come across, acting as part of the SystemML community.</p>
+      <a href="https://issues.apache.org/jira/browse/{{ site.data.project.jira }}" class="button button-primary">Go To Jira</a>
+    </div>
+    <div class="content">
+      <h2>Mailing List</h2>
+      <p>Because Apache SystemML is open source, all changes are documented in the mailing list. Sign up today to be updated on all of the changes happening.</p>
+      <a href="{{ site.data.project.dev_list_archive_mailarchive }}" class="button button-primary">Go to Archive</a>
+    </div>
+  </div>
+</section>
+<section class="full-stripe">
+  <div class="ml-container">
+    <h2 class="full-stripe--heading-center">{{ site.data.project.short_name }} Contributors</h2>
+    <div class="content-g">
+      {% if site.data.contributors %}
+        {% for member in site.data.contributors %}
+          <div class="profile">
+            <a href="http://github.com/{{ member.githubId }}">
+              <img class="profile--img" src="{% unless c.avatar %}http://github.com/{{ member.githubId }}.png{% else %}{{ member.avatar }}{% endunless %}">
+            </a>
+            <div class="profile--info">
+              <a class="profile--name" href="http://github.com/{{ member.githubId }}">{{member.name}}</a>
+              <ul>
+                <li></li>
+                <li>{{member.role}}</li>
+                <li>{{member.org}}</li>
+              </ul>
+            </div>
+          </div>
+        {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+</section>
+<section class="full-stripe">
+  <div class="ml-container">
+    <div class="content">
+      <h2>Contribute to {{ site.data.project.short_name }}</h2>
+      <p>You can find all of {{ site.data.project.name }}’s code on Github, including example notebooks. Fork it, try it out and contribute yourself.</p>
+      <a href="mailto:{{ site.data.project.dev_list_subscribe }}?subject=send this email to subscribe">Subscribe</a>
+      <a href="mailto:{{ site.data.project.dev_list_unsubscribe }}?subject=send this email to unsubscribe">Unsubscribe</a>
+      <a href="{{ site.data.project.dev_list_archive_mailarchive }}">Archive</a>
+    </div>
+    <div class="content">
+      <h2>To commit messages and patches to {{ site.data.project.short_name }}</h2>
+      <p>Keep track of the daily updates going on with {{ site.data.project.short_name }} and start your own Jira to note issues and bugs you come across, acting as part of the SystemML community.</p>
+      <a href="mailto:{{ site.data.project.commits_list_subscribe }}?subject=send this email to subscribe">Subscribe</a>
+      <a href="mailto:{{ site.data.project.commits_list_unsubscribe }}?subject=send this email to unsubscribe">Unsubscribe</a>
+      <a href="{{ site.data.project.commits_list_archive_mailarchive }}">Archive</a>
+
+    </div>
+    <div class="content">
+      <h2>To issues workflow notifications to {{ site.data.project.short_name }}</h2>
+      <p>Because {{ site.data.project.name }} is open source, all changes are documented in the mailing list. Sign up today to be updated on all of the changes happening.</p>
+      <a href="mailto:{{ site.data.project.issues_list }}">Subscribe</a>
+      <a href="mailto:{{ site.data.project.issues_list_unsubscribe }}?subject=send this email to unsubscribe">Unsubscribe</a>
+      <a href="{{ site.data.project.issues_list_archive_mailarchive }}">Archive</a>
+    </div>
+  </div>
+</section>
+
+{% include themes/apache/partials/banners/get-involved.html %}
+
+<!-- #### Feature Requests
+
+Enhancement requests for new features are also welcome. The more concrete and rationale the request is, the greater the chance it will incorporated into future releases.
+
+
+  [https://issues.apache.org/jira/browse/{{ site.data.project.jira }}](https://issues.apache.org/jira/browse/{{ site.data.project.jira }})
+
+
+### Source Code
+
+The project sources are accessible via the [source code repository]({{ site.data.project.source_repository }}) which is also mirrored in [GitHub]({{ site.data.project.source_repository_mirror }})
+
+
+### Website Source Code
+
+The project website sources are accessible via the [website source code repository]({{ site.data.project.website_repository }}) which is also mirrored in [GitHub]({{ site.data.project.website_repository_mirror }}) -->

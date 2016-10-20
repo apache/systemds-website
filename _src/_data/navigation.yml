@@ -3,8 +3,8 @@ topnav:
 - title: Download
   url: /download
 
-- title: Tutorials
-  url: /tutorials
+# - title: Tutorials
+#   url: /tutorials
 
 - title: Documentation
   url: https://apache.github.io/incubator-systemml

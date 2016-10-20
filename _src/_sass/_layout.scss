@@ -1,22 +1,8 @@
-<<<<<<< HEAD
-.content-container {
-  max-width: 860px;
-  margin: 100px auto;
-  padding: 0 20px;
-=======
 @import 'layout/index';
 
 // constrain content width to 1280px
 .ml-container {
   @include container(80em);
->>>>>>> 1340b91... tutorials page, buttons, css stylings
-}
-
-// alternate background color
-.background-stripe{
-  &:nth-child(even) {
-    background-color: #f9f9fb;
-  }
 }
 
 // content styling
@@ -27,7 +13,11 @@
   justify-content: space-between;
   flex-direction: column;
   align-items: center;
-  padding: 5em;
+
+  p {
+    margin: 0 0 1em 0;
+  }
+
 
   // tablet and web styling
   @media (min-width: $bp-medium) {
@@ -38,7 +28,6 @@
   // grid system for content
   .content-text {
     &--col-2 {
-      //.content-text--col-2
       @include span(2 of 12);
     }
     &--col-3 {
@@ -50,9 +39,16 @@
     &--col-6 {
       @include span(6 of 12);
     }
+    &--col-8 {
+      @include span(8 of 12);
+    }
+    &--col-9 {
+      @include span(9 of 12);
+    }
     &--col-12 {
       @include span(12 of 12);
     }
+
   }
 
   .button-group {
@@ -67,5 +63,44 @@
   .icon-announcement {
     margin: 0 10px 0 0;
   }
+}
 
+.profile {
+  @include gallery(4 of 12);
+  margin-bottom: 1.953125%;
+}
+
+.content-g {
+  @include clearfix;
+  &.contribute {
+    display: flex;
+  }
+}
+
+
+.content {
+  @include span(4 of 12);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.steps {
+  ol{
+    list-style: none;
+  }
+}
+
+.circle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: $color-systemml-accent2;
+  color: white;
+  text-align: center;
+  line-height: 35px;
+  display: inline-block;
+  margin-right: 1em;
 }

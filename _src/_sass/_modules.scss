@@ -1,0 +1,45 @@
+.profile {
+  text-align: center;
+  margin-bottom: 2em;
+  &--img {
+    border-radius: 100%;;
+    width: 5.5em;
+  }
+  &--name {
+    font-size: 18px;
+  }
+  &--info,
+  &--info a {
+    font-weight: $font-weight-medium;
+    color: #313131;
+    li {
+      line-height: 1.4;
+      font-weight: $font-weight-light;
+    }
+  }
+}
+
+.content {
+  text-align: center;
+  h1, h2, h3 {
+    font-size: 24px;
+    line-height: 1;
+    margin-bottom: 1em;
+  }
+  p {
+    margin-bottom: 2em;
+  }
+  a {
+    display: inline;
+  }
+}
+
+.link-list {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5em;
+  li {
+    margin: 0 2em;
+  }
+}
