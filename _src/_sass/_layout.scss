@@ -1,18 +1,14 @@
 @import 'layout/index';
 
-// constrain content width to 1280px
+// constrain content width to 1024px
 .ml-container {
-  @include container(80em);
+  @include container(64em);
   padding: 2em;
 
   &--narrow{
     width: 40em;
     padding: 0;
     margin: auto;
-  }
-
-  &--medium-width{
-    width: 64em;
   }
 
   &--vertically-centered {
@@ -25,6 +21,7 @@
       vertical-align: middle;
     }
   }
+
 }
 
 // separator
@@ -72,7 +69,7 @@
 
 .button-group {
   a{
-    margin: 0 1em 0 0;
+    margin: 0 1em;
   }
 }
 
@@ -122,6 +119,11 @@
 
   }
 
+  .button-group {
+    a{
+      margin-right: 1em;
+    }
+  }
   .wrap {
     display: block;
   }
