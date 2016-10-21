@@ -3,6 +3,74 @@
 // constrain content width to 1280px
 .ml-container {
   @include container(80em);
+  padding: 2em;
+
+  &--narrow{
+    width: 40em;
+    padding: 0;
+    margin: auto;
+  }
+
+  &--vertically-centered {
+    display: table;
+    table-layout: fixed;
+
+    .col {
+      display: table-cell;
+      float: none;
+      vertical-align: middle;
+    }
+  }
+
+}
+
+// separator
+.border {
+  border-bottom: 1px solid #e0e0e0;
+}
+
+// grid system for content
+.col {
+  &-2 {
+    @include span(2 of 12);
+  }
+  &-3 {
+    @include span(3 of 12);
+  }
+  &-4 {
+    @include span(4 of 12);
+  }
+  &-6 {
+    @include span(6 of 12);
+  }
+  &-8 {
+    @include span(8 of 12);
+  }
+  &-9 {
+    @include span(9 of 12);
+  }
+  &-12 {
+    @include span(12 of 12);
+  }
+}
+
+.block-content {
+  &--center{
+    text-align: center;
+    h3, p{
+      margin-top: 1em;
+    }
+  }
+}
+
+.block-heading {
+  text-align: center;
+}
+
+.button-group {
+  a{
+    margin: 0 1em;
+  }
 }
 
 // content styling

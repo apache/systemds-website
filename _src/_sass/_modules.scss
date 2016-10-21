@@ -43,3 +43,25 @@
     margin: 0 2em;
   }
 }
+
+// bigger text for featured content
+.feature-content{
+  h3 {
+    font-size: 1.375em;
+    margin-bottom: 1.5em;
+  }
+  p {
+    font-size: 1.125em;
+    margin-bottom: 1em;
+  }
+  &--center{
+    text-align: center;
+  }
+}
+
+.preview-image {
+  text-align: center;
+  img{
+    width: 300px;
+  }
+}
