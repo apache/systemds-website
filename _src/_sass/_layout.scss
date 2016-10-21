@@ -1,8 +1,8 @@
 @import 'layout/index';
 
-// constrain content width to 1280px
+// constrain content width to 1024px
 .ml-container {
-  @include container(80em);
+  @include container(64em);
   padding: 2em;
 
   &--narrow{
