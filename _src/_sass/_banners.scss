@@ -1,14 +1,18 @@
-.full-stripe { //A block spans the full page
-  padding: 5em 0;
-  &--heading-center {
-    text-align: center;
-    margin-bottom: 1em;
-  }
-  &--content-center {
-    text-align: center;
-  }
+.full-stripe { //A block spans the full page width
+  padding: 4em;
+  background-color: #ffffff;
   &--alternate {
     background-color: #f9f9fb;
+  }
+  &--dark {
+    background-color: #1d3649;
+    color: white;
+  }
+  &--hero-context {
+    padding-top: 10em;
+  }
+  &--center{
+    text-align: center;
   }
 }
 
