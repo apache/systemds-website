@@ -1,0 +1,111 @@
+---
+layout: page
+title: Roadmap
+description: Apache SystemML Roadmap
+group: nav-right
+---
+
+<div class="ml-container clear-header">
+
+  <h1>{{ site.data.project.name }} Roadmap</h1>
+  <h2>Next {{ site.data.project.shortname }} 0.11.x</h2>
+
+  <ul>
+    <li>
+      Features
+      <ul>
+        <li>SystemML frames</li>
+        <li>New MLContext API</li>
+        <li>Transform functions based on SystemML frames</li>
+      </ul>
+    </li>
+    <li>Bug fixes</li>
+    <li>
+      Experimental Features / algorithms
+      <ul>
+        <li>New built-in functions for deep learning (convolution and pooling)</li>
+        <li>Deep learning library (DML bodied functions)</li>
+        <li>Python DSL integration</li>
+        <li>GPU support</li>
+        <li>Compressed Linear Algebra</li>
+        <li>
+          New Algorithms
+          <ul>
+            <li>Lasso</li>
+            <li>kNN</li>
+            <li>Lanczos</li>
+            <li>PPCA</li>
+            <li>Deep Learning: CNN (Lenet), RBM</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+
+  <h2>Planned for future SystemML 1.0</h2>
+  <ul>
+    <li>Rigorous performance and scalability testing (bug fixes)</li>
+    <li>Remove deprecated APIs</li>
+    <li>Remove deprecated functions</li>
+  </ul>
+
+  <h1>Planned for future Releases</h1>
+  <ul>
+    <li>Completion of prior experimental features</li>
+    <li>New algorithms: Non-linear SVMs, solvers, decomposition, inversion, etc.</li>
+    <li>DSLs (e.g. Scala, Python) and common DSL architecture</li>
+    <li>R interfaces: R DSL and R wrappers</li>
+    <li>Native Zeppelin Notebook support</li>
+    <li>Code generation</li>
+    <li>Sum product optimizations</li>
+    <li>Tree-based data structures</li>
+    <li>Global dataflow optimizations</li>
+  </ul>
+
+
+  <h2>Prior Releases</h2>
+  <ul>
+    <li>
+      SystemML 0.10.0-incubating (<a href="https://github.com/apache/incubator-systemml-website/blob/master/0.10.0-incubating/release_notes.md">released in June, 2016</a>)
+      <ul>
+        <li>Different types of Spark Matrix Blocks: MCSR, CSR, COO</li>
+        <li>SystemML Frame support in JMLC/CP</li>
+        <li>Initial Deep Learning support</li>
+        <li>API/Scripts: parser error handling, SystemML configuration handling,</li>
+      </ul>
+    </li>
+    <li>
+      include algorithms in SystemML jar, print matrix
+      <ul>
+        <li>New fused operator: wdivmm with variations</li>
+        <li>Performance Features: cache-conscious operations, more multithreaded</li>
+      </ul>
+    </li>
+    <li>
+      operations, new simplications rewrites
+      <ul>
+        <li>New Algorithms: kNN</li>
+        <li>Documentation: javadocs, Jupyter/Zeppeling notebook examples</li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      SystemML 0.9.0-incubating (<a href="https://github.com/apache/incubator-systemml-website/blob/master/0.9.0-incubating/release_notes.md">released in Jan, 2016</a>)
+      <ul>
+        <li>Improvements to MLContext and MLPipeline wrappers</li>
+        <li>New converter utilities for RDDs and DataFrames)</li>
+        <li>New Optimizations for Spark Backend, e.g. eager RDD caching and</li>
+      </ul>
+    </li>
+    <li>
+      repartitioning, RDD checkpointing, on-demand creation of SparkContext
+      <ul>
+        <li>New Runtime Operators for mmult, multihreaded readers and operators.</li>
+        <li>New Algoriths: ALS, Cubic Splines</li>
+        <li>Online documentation</li>
+      </ul>
+    </li>
+  </ul>
+</div>

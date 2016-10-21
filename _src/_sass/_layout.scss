@@ -11,9 +11,6 @@
     margin: auto;
   }
 
-  &--medium-width{
-    width: 64em;
-  }
   &--vertically-centered {
     display: table;
     table-layout: fixed;
@@ -24,6 +21,7 @@
       vertical-align: middle;
     }
   }
+
 }
 
 // separator
@@ -71,7 +69,7 @@
 
 .button-group {
   a{
-    margin: 0 1em 0 0;
+    margin: 0 1em;
   }
 }
 
@@ -121,6 +119,11 @@
 
   }
 
+  .button-group {
+    a{
+      margin-right: 1em;
+    }
+  }
   .wrap {
     display: block;
   }

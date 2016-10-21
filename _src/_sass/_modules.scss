@@ -44,28 +44,8 @@
   }
 }
 
-// bigger text for featured content
-.feature-content{
-  h3 {
-    font-size: 1.375em;
-    margin-bottom: 1.5em;
-  }
-  p {
-    font-size: 1.125em;
-    margin-bottom: 1em;
-  }
-  &--center{
-    text-align: center;
-  }
-}
-
-.preview-image {
-  text-align: center;
-  img{
-    width: 300px;
-  }
-}
-
-.coming-soon {
-  filter: blur(5px) grayscale(80%);
+.bullet-pointless {
+  padding: 0;
+  margin: 0;
+  list-style: none;
 }
