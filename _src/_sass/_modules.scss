@@ -44,6 +44,30 @@
   }
 }
 
+// bigger text for featured content
+.feature-content{
+  h2 {
+    font-size: 2em;
+  }
+  p {
+    font-size: 1.125em;
+  }
+
+  a {
+    margin-top: 1.5em;
+  }
+  &--center{
+    text-align: center;
+  }
+}
+
+.preview-image {
+  text-align: center;
+  img{
+    width: 500px;
+  }
+}
+
 .bullet-pointless {
   padding: 0;
   margin: 0;
