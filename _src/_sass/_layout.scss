@@ -2,7 +2,7 @@
 
 // constrain content width to 1024px
 .ml-container {
-  @include container(64em);
+  @include container(75em);
   padding: 2em;
 
   &--narrow{
