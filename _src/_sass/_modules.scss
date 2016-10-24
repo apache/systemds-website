@@ -72,3 +72,31 @@
   margin: 0;
   list-style: none;
 }
+
+// bigger text for featured content
+.feature-content{
+  h2 {
+    font-size: 2em;
+  }
+  p {
+    font-size: 1.125em;
+  }
+
+  a {
+    margin-top: 1.5em;
+  }
+  &--center{
+    text-align: center;
+  }
+}
+
+.coming-soon {
+  filter: blur(5px) grayscale(80%);
+}
+
+.preview-image {
+  text-align: center;
+  img{
+    width: 500px;
+  }
+}
