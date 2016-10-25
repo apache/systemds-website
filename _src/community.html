@@ -23,9 +23,9 @@ limitations under the License.
 {% endcomment %}
 -->
 
-<section class="full-stripe clear-header">
+<section class="full-stripe full-stripe--center clear-header secondary-banner">
   <div class="ml-container">
-    <h1 class="full-stripe--heading-center">{{ site.data.project.name }} Community</h1>
+    <h1 >{{ site.data.project.name }} Community</h1>
   </div>
 </section>
 
@@ -81,18 +81,18 @@ Before submitting an issue, please:
 * Search the issue tracker to verify there is no existing issue reporting the bug you've found.
 * Consider tracking down the bug yourself in the Wink's source and submitting a patch along with your bug report. This is a great time saver for the Wink developers and helps ensure the bug will be fixed quickly. -->
 
-<section class="full-stripe full-stripe--alternate">
+<section class="full-stripe full-stripe--alternate hero">
   <div class="ml-container">
     <div class="content">
       <h2>Github</h2>
       <p>You can find all of Apache SystemML’s code on Github, including example algorithms, notebooks. Fork it, try it out and contribute yourself.</p>
-      <a href="{{ site.data.project.source_repository }}" class="button button-primary">Go To Github</a>
+      <a href="{{ site.data.project.source_repository }}" target="_blank" class="button button-primary">Go To Github</a>
     </div>
     <div class="content">
       <h2>Jira</h2>
       <p>
         Keep track of the daily updates going on with SystemML and create your own Jira to report issues and bugs you come across, acting as part of the SystemML community.</p>
-      <a href="https://issues.apache.org/jira/browse/{{ site.data.project.jira }}" class="button button-primary">Go To Jira</a>
+      <a href="https://issues.apache.org/jira/browse/{{ site.data.project.jira }}" target="_blank" class="button button-primary">Go To Jira</a>
     </div>
     <div class="content">
       <h2>Mailing List</h2>
@@ -103,7 +103,7 @@ Before submitting an issue, please:
 </section>
 <section class="full-stripe">
   <div class="ml-container">
-    <h2 class="full-stripe--heading-center">{{ site.data.project.short_name }} Contributors</h2>
+    <h2 class="full-stripe--center">{{ site.data.project.short_name }} Contributors</h2><br>
     <div class="content-g">
       {% if site.data.contributors %}
         {% for member in site.data.contributors %}
