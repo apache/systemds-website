@@ -9,7 +9,7 @@ dev_list: dev@systemml.incubator.apache.org
 dev_list_subscribe: dev-subscribe@systemml.incubator.apache.org
 dev_list_unsubscribe: dev-unsubscribe@systemml.incubator.apache.org
 dev_list_archive: http://mail-archives.apache.org/mod_mbox/systemml-dev/
-dev_list_archive_mailarchive: https://www.mail-archive.com/dev@systemml.incubator.apache.org/
+dev_list_archive_mailarchive: https://www.mail-archive.com/dev@systemml.apache.org/
 dev_list_archive_markmail:
 
 user_list:
@@ -23,7 +23,7 @@ commits_list: commits@systemml.incubator.apache.org
 commits_list_subscribe: commits-subscribe@systemml.incubator.apache.org
 commits_list_unsubscribe: commits-unsubscribe@systemml.incubator.apache.org
 commits_list_archive: http://mail-archives.apache.org/mod_mbox/systemml-commits/
-commits_list_archive_mailarchive: https://www.mail-archive.com/commits@systemml.incubator.apache.org/
+commits_list_archive_mailarchive: https://www.mail-archive.com/commits@systemml.apache.org/
 commits_list_archive_markmail:
 
 issues_list: issues@systemml.incubator.apache.org
