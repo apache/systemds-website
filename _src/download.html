@@ -89,7 +89,11 @@ limitations under the License.
       <h3>Bleeding-Edge</h3>
       <p>You can also retrieve the source files from our <a href="https://github.com/apache/incubator-systemml">Git repository</a> and create a bleeding-edge build by typing:</p>
 
-      <pre>git clone {{ site.data.project.source_repository_mirror }} cd incubator-systemml mvn clean package</pre>
+      <pre>
+git clone {{ site.data.project.source_repository_mirror }}
+cd incubator-systemml
+mvn clean package
+      </pre>
 
       <h3>Using Maven</h3>
 
@@ -100,11 +104,11 @@ limitations under the License.
       <p>Add the following dependencies to your Maven pom.xml.</p>
 
       <pre>
-        &lt;dependency&gt;
-        &lt;groupId&gt;org.apache.systemml&lt;/groupId&gt;
-        &lt;artifactId&gt;systemml&lt;/artifactId&gt;
-        &lt;version&gt;0.10.0-incubating&lt;/version&gt;
-        &lt;/dependency&gt;
+&lt;dependency&gt;
+   &lt;groupId&gt;org.apache.systemml&lt;/groupId&gt;
+   &lt;artifactId&gt;systemml&lt;/artifactId&gt;
+   &lt;version&gt;0.10.0-incubating&lt;/version&gt;
+&lt;/dependency&gt;
       </pre>
     </div>
 
