@@ -20,8 +20,8 @@ topnav:
 - title: Download
   url: /download
 
-# - title: Tutorials
-#   url: /tutorials
+- title: Get Started
+  url: /get-started
 
 - title: Documentation
   url: https://apache.github.io/incubator-systemml
@@ -32,10 +32,6 @@ topnav:
     url: /community
   - title: Issue Tracker
     url: https://issues.apache.org/jira/browse/SYSTEMML
-  - title: Source Code
-    url: https://github.com/apache/incubator-systemml
-  - title: Project Committers
-    url: /community-members
   - title: GitHub
     url: https://github.com/apache/incubator-systemml
   - title: Roadmap
