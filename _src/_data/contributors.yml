@@ -32,7 +32,7 @@
   apacheId: fmakari
   githubId: fmakari
   role: PMC Member
-  org: IBM
+  org: Daimler TSS
 
 - name: Fred Reiss
   apacheId: freiss
@@ -82,7 +82,7 @@
   role: PMC Member
   org: IBM
 
-- name: Patrick WendelL
+- name: Patrick Wendell
   apacheId: pwendell
   githubId: pwendell
   role: PMC Member, Mentor
