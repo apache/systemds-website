@@ -17,11 +17,30 @@ limitations under the License.
 {% endcomment %}
 -->
 
-<section class="full-stripe full-stripe--center">
-  <div class="ml-container ml-container--narrow button-group feature-content">
-      <h2>Subscribe to Our Mailing Lists</h2>
-      <p>For SystemML updates and news, subscribe to our development mailing list. As SystemML grows, so will our community. Check out <a href="community.html#mailing-list">All Mailing Lists</a></p>
-      <a href="mailto:{{ site.data.project.dev_list_subscribe }}?subject=send this email to subscribe" class="button button-primary">Subscribe</a>
-      <a href="{{ site.data.project.dev_list_archive_mailarchive }}" target="_blank" class="button button-secondary">View Archive</a>
+<section class="full-stripe full-stripe--alternate" id="mailing-list">
+  <div class="ml-container feature-content">
+    <h2 class="full-stripe--center">Subscribe to Our Mailing Lists</h2>
+    <p class="full-stripe--center">For SystemML updates and news, subscribe to our mailing lists. As SystemML grows, so will our community.</p>
+    <div class="content">
+      <h2>Developer list</h2>
+      <p>User questions, design discussions, and other {{ site.data.project.short_name }} related items are discussed on the dev mailling list.</p>
+      <a href="mailto:{{ site.data.project.dev_list_subscribe }}?subject=send this email to subscribe">Subscribe</a>
+      <a href="mailto:{{ site.data.project.dev_list_unsubscribe }}?subject=send this email to unsubscribe">Unsubscribe</a>
+      <a href="{{ site.data.project.dev_list_archive_mailarchive }} " target="_blank">Archive</a>
+    </div>
+    <div class="content">
+      <h2>Issues list</h2>
+      <p>JIRA notifications are sent to this list when issues are created, modified or pull requests are submitted.</p>
+      <a href="mailto:{{ site.data.project.issues_list }}">Subscribe</a>
+      <a href="mailto:{{ site.data.project.issues_list_unsubscribe }}?subject=send this email to unsubscribe">Unsubscribe</a>
+      <a href="{{ site.data.project.issues_list_archive_mailarchive }} " target="_blank">Archive</a>
+    </div>
+    <div class="content">
+      <h2>Commits list</h2>
+      <p>Notifications with code diffs are sent to this list when changes are committed to the SystemML source tree.</p>
+      <a href="mailto:{{ site.data.project.commits_list_subscribe }}?subject=send this email to subscribe">Subscribe</a>
+      <a href="mailto:{{ site.data.project.commits_list_unsubscribe }}?subject=send this email to unsubscribe">Unsubscribe</a>
+      <a href="{{ site.data.project.commits_list_archive_mailarchive }} " target="_blank">Archive</a>
+    </div>
   </div>
 </section>
