@@ -5,6 +5,10 @@
   @include container(75em);
   padding: 2em;
 
+  &--less-padding{
+    padding: .5em 2em;
+  }
+
   &--narrow{
     width: 40em;
     padding: 1em;
