@@ -23,7 +23,7 @@ limitations under the License.
       {% for entry in site.data.navigation.topnav %}
       <li role="presentation">
         {% if entry.subcategories %}
-        <a class="nav-link--hover" href="/community">{{ entry.title }}<i class="icon icon-chevron-down"></i></a>
+        <a class="nav-link--hover">{{ entry.title }} <i class="icon icon-chevron-down"></i></a>
         <ul>
           {% for subitem in entry.subcategories %}
           {% if subitem.url contains "http" %}
