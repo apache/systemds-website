@@ -54,7 +54,7 @@ limitations under the License.
 
     <nav class="navbar-collapse collapse" role="navigation">
         <ul class="nav navbar-nav navbar-right">
-            {% for entry in site.data.navigation.topnav %}
+          {% for entry in site.data.navigation.topnav %}
             <li id="{{ entry.title | slugify }}">
                 {% if entry.subcategories %}
                 <a href="#" data-toggle="dropdown" class="dropdown-toggle">{{ entry.title }}<b class="caret"></b></a>
