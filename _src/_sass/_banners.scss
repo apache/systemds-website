@@ -21,13 +21,10 @@
     color: #fff;
   }
 
-  // &--center{
-  //   text-align: center;
-  // }
-  //
-  // @media (min-width: 75em) {
-  //   padding: 4em;
-  // }
+  // give each stripe more padding when browser reaches a certain size
+  @media (min-width: $bp-medium) {
+    padding: 2em;
+  }
 
 }
 

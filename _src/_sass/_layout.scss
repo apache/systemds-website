@@ -3,7 +3,6 @@
 // container for all content
 .ml-container {
   // mobile first default setting
-  // stacks columns on top of each other
   display: -webkit-flex;
   display: flex;
   -webkit-flex-flow: row wrap;
@@ -11,45 +10,42 @@
   padding: 3em 1em;
 
 
+  &--reverse-order{
+    direction: rtl;
+  }
+
   // full screen container
   &--full-screen {
     height: 100vh;
-  }
-
-  // vertical centering using table display
-  &--vertically-centered{
+    // temporary fix
     display: table;
     table-layout: fixed;
-
     .col {
       display: table-cell;
       float: none;
       vertical-align: middle;
     }
+  }
 
+  // vertical centering using table display
+  &--vertically-centered{
+    @media (min-width: $bp-medium){
+      display: table;
+      table-layout: fixed;
+      .col {
+        display: table-cell;
+        float: none;
+        vertical-align: middle;
+      }
+    }
   }
 
   // full screen view
-  // @media (min-width: 75em){
-  //   // constrain content width to 1024px
-  //   @include container(75em);
-  //   padding: 2em;
-  //   text-align: left;
-  //
-  //   &--less-padding{
-  //     padding: .5em 2em;
-  //   }
-  //
-  //   &--narrow{
-  //     width: 40em;
-  //     padding: 1em;
-  //     margin: auto;
-  //   }
-  //
-  //   &--medium-width{
-  //     width: 64em;
-  //   }
-  // }
+  @media (min-width: 75em){
+    // constrain content width to 1200px
+    @include container(75em);
+  }
+
 }
 
 // grid system for content
@@ -58,7 +54,7 @@
   width: 100%;
 
   // column system applies at 1024px width
-  @media (min-width: 64em){
+  @media (min-width: $bp-medium){
     &-1 {
       @include span(1 of 12);
     }
@@ -86,25 +82,38 @@
   }
 }
 
+
 // content styling
 .content-group {
   // default styling mobile first
   text-align: left;
-  // display: flex;
   justify-content: space-between;
   flex-direction: column;
   align-items: left;
+  // display: flex;
 
-  // centered image with margin bottom
   img {
     margin: auto;
     margin-bottom: 2em;
+    @media (min-width: $bp-medium){
+      margin-bottom: 0;
+    }
   }
 
   h2 {
     font-size: 1.5em;
     line-height: 1.3em;
     margin-bottom: 1em;
+    @media (min-width: $bp-medium){
+      font-size: 2em;
+      margin-bottom: .5em;
+    }
+  }
+
+  p {
+    @media (min-width: $bp-medium){
+      font-size: 1.125em;
+    }
   }
 
   a {
@@ -123,6 +132,12 @@
     text-align: center;
   }
 
+  &--more-padding{
+    @media (min-width: $bp-medium){
+      padding: 0 4em;
+    }
+  }
+
   // hero call to action at the bottom
   &--hero {
     a{
@@ -134,7 +149,6 @@
 
   // tablet and web styling
   // @media (min-width: $bp-medium) {
-  //   text-align: left;
   //   flex-direction: row;
   // }
 
@@ -148,17 +162,13 @@
 
 }
 
+// button styling when there are more than two buttons
 .button-group {
   .button-primary, .button-secondary {
     margin-right: 1em;
   }
 }
 
-
-// separator
-.border {
-  border-bottom: 1px solid #e0e0e0;
-}
 
 
 .block-content {
@@ -174,9 +184,6 @@
   text-align: center;
 }
 
-
-
-
 .profile {
   @include gallery(4 of 12);
   margin-bottom: 1.953125%;
@@ -189,7 +196,6 @@
   }
 }
 
-
 .content {
   @include span(4 of 12);
   display: flex;
@@ -198,6 +204,10 @@
   align-items: center;
 }
 
+// separator
+.border {
+  border-bottom: 1px solid #e0e0e0;
+}
 
 .steps {
   ol{
