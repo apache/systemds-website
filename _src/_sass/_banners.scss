@@ -1,35 +1,59 @@
-.full-stripe { //A block spans the full page width
-  padding: 4em;
+//A block spans the full page width
+.full-stripe {
+
+  // default background
   background-color: #ffffff;
+
+  // gray background
   &--alternate {
     background-color: #f9f9fb;
   }
-  &--dark {
-    background-color: #1d3649;
-    color: white;
+
+  // front page hero background
+  &--video {
+    // hero full screen only for mobile
+    height: 100vh;
+    background-image: url("../img/hero-mobile.png");
+    background-size: cover;
+    color: #fff;
+
+    @media (min-width: $bp-medium) {
+      height: 70vh;
+    }
   }
-  &--hero-context {
-    padding-top: 10em;
+
+  // secondary page hero background
+  &--subpage-header {
+    background: #1D3649 url(../img/hero-about.svg) center bottom no-repeat;
+    background-size: cover;
+    color: #fff;
+    text-align: center;
   }
+
   &--center{
     text-align: center;
   }
+  // give each block more padding when screen reaches browser size
+  @media (min-width: $bp-medium) {
+    padding: 3em;
+  }
+
 }
 
+// clear top nav
 .clear-header {
-  margin-top: 4em;
+  margin-top: 9.5em;
+  @media (min-width: 64em){
+  margin-top: 4.125em;
+  }
 }
 
-.secondary-banner {
-  background: #1D3649 url(../img/hero-about.svg) center bottom no-repeat;
-  background-size: cover;
-  color: #fff;
-}
-
+// old hero banner
 .hero-banner {
   color: #fff;
   position: relative;
   top: 115px;
+
   @media (min-width: $bp-medium) {
     top: 0;
   }

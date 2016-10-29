@@ -40,7 +40,13 @@
   justify-content: center;
   margin-bottom: 1.5em;
   li {
-    margin: 0 2em;
+    margin: .75em;
+  }
+
+  @media (min-width: 75em) {
+    li {
+      margin: 0 2em;
+    }
   }
 }
 

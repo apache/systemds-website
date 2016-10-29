@@ -23,9 +23,12 @@ limitations under the License.
 {% endcomment %}
 -->
 
-<section class="full-stripe full-stripe--center clear-header secondary-banner">
-  <div class="ml-container">
-    <h1 >{{ site.data.project.name }} Community</h1>
+<!-- Hero  -->
+<section class="full-stripe full-stripe--subpage-header clear-header">
+  <div class="ml-container ml-container--horizontally-center">
+    <div class="col col-12 content-group content-group--center-content content-group--center-align">
+      <h1>{{ page.title }}</h1>
+    </div>
   </div>
 </section>
 
@@ -82,29 +85,37 @@ Before submitting an issue, please:
 * Consider tracking down the bug yourself in the Wink's source and submitting a patch along with your bug report. This is a great time saver for the Wink developers and helps ensure the bug will be fixed quickly. -->
 
 <section class="full-stripe full-stripe--alternate hero">
-  <div class="ml-container">
-    <div class="content">
+  <div class="ml-container ml-container--three-column">
+    <!-- section 1 -->
+    <div class="col col-4">
       <h2>Github</h2>
       <p>You can find all of Apache SystemML’s code on Github, including example algorithms, notebooks. Fork it, try it out and contribute yourself.</p>
       <a href="https://github.com/apache/incubator-systemml" target="_blank" class="button button-primary">Go To Github</a>
     </div>
-    <div class="content">
+    <!-- section 2 -->
+    <div class="col col-4">
       <h2>Jira</h2>
-      <p>
-        Keep track of the daily updates going on with SystemML and create your own Jira to report issues and bugs you come across, acting as part of the SystemML community.</p>
+      <p>Keep track of the daily updates going on with SystemML and create your own Jira to report issues and bugs you come across, acting as part of the SystemML community.</p>
       <a href="https://issues.apache.org/jira/browse/{{ site.data.project.jira }}" target="_blank" class="button button-primary">Go To Jira</a>
     </div>
-    <div class="content">
-      <h2>Mailing List</h2>
-      <p>Because Apache SystemML is open source, all changes are documented in the mailing list. Sign up today to be updated on all of the changes happening.</p>
-      <a href="http://mail-archives.apache.org/mod_mbox/incubator-systemml-dev/" target="_blank" class="button button-primary">Go to Archive</a>
+    <!-- section 3 -->
+    <div class="col col-4">
+      <h2>Roadmap</h2>
+      <p>Click here to view the SystemML roadmap for a comprehensive blueprint of both completed features from past versions as well as what lies ahead.</p>
+      <a href="roadmap.html" target="_blank" class="button button-primary">Go to Roadmap</a>
     </div>
   </div>
+
 </section>
+
+
+<!-- SystemML Project Committers -->
 <section class="full-stripe">
   <div class="ml-container">
-    <h2 class="full-stripe--center">{{ site.data.project.short_name }} Project Committers</h2><br>
-    <div class="content-g">
+    <div class="col col-12 content-group content-group--center-align">
+      <h2>{{ site.data.project.short_name }} Project Committers</h2><br>
+    </div>
+    <div class="col col-12 content-g">
       {% if site.data.contributors %}
         {% for member in site.data.contributors %}
           <div class="profile">
@@ -126,50 +137,52 @@ Before submitting an issue, please:
   </div>
 </section>
 
+<!-- Mailing List Description -->
 <section class="full-stripe full-stripe--alternate" id="mailing-list">
-  <!-- Mailing List Description -->
-  <div class="ml-container ml-container--medium-width feature-content">
-    <h2 class="full-stripe--center">Subscribe to Our Mailing Lists</h2>
-    <p class="full-stripe--center">For SystemML updates and news, subscribe to our mailing lists. As SystemML grows, so will our community. <br>
-      To unsubscribe, change the recipient from "subscribe" to "unsubscribe."</p>
+
+  <!-- Mailin List Header -->
+  <div class="ml-container ml-container--horizontally-center">
+    <div class="col col-12 content-group">
+      <h2>Subscribe to Our Mailing Lists</h2>
+      <p>For SystemML updates and news, subscribe to our mailing lists. As SystemML grows, so will our community. To unsubscribe, change the recipient from "subscribe" to "unsubscribe."</p>
+    </div>
   </div>
 
   <!-- Mailing List 1 -->
-  <div class="ml-container ml-container--less-padding feature-content button-group">
-    <div class="col-8">
+  <div class="ml-container ml-container--narrow-list feature-content button-group">
+    <div class="col col-8">
       <h3>Developer List</h3>
       <p>Questions, feedback, and other SystemML related items are discussed on the dev mailing list. Once subscribed, join the conversation here: <a href="mailto:{{ site.data.project.dev_list }}">dev@systemml.incubator.apache.org</a></p>
     </div>
-    <div class="col-4">
+    <div class="col col-4">
       <a href="mailto:{{ site.data.project.dev_list_subscribe }}?subject=send this email to subscribe" class="button button-primary">Subscribe</a>
       <a href="{{ site.data.project.dev_list_archive_mailarchive }}" target="_blank" class="button button-secondary">View Archives</a>
     </div>
   </div>
 
   <!-- Mailing List 2 -->
-  <div class="ml-container ml-container--less-padding feature-content button-group">
-    <div class="col-8">
+  <div class="ml-container ml-container--narrow-list feature-content button-group">
+    <div class="col col-8">
       <h3>Issues list</h3>
       <p>JIRA notifications are sent to this list when issues are created, modified or pull requests are submitted.</p>
     </div>
-    <div class="col-4">
+    <div class="col col-4">
       <a href="mailto:{{ site.data.project.issues_list_subscribe }}?subject=send this email to subscribe" class="button button-primary">Subscribe</a>
       <a href="{{ site.data.project.issues_list_archive_mailarchive }}" target="_blank" class="button button-secondary">View Archives</a>
     </div>
   </div>
 
   <!-- Mailing List 3 -->
-  <div class="ml-container ml-container--less-padding feature-content button-group">
-    <div class="col-8">
+  <div class="ml-container ml-container--narrow-list feature-content button-group">
+    <div class="col col-8">
       <h3>Commits list</h3>
       <p>Notifications with code diffs are sent to this list when changes are committed to the SystemML source tree.</p>
     </div>
-    <div class="col-4">
+    <div class="col col-4">
       <a href="mailto:{{ site.data.project.commits_list_subscribe }}?subject=send this email to subscribe" class="button button-primary">Subscribe</a>
       <a href="{{ site.data.project.commits_list_archive_mailarchive }}" target="_blank" class="button button-secondary">View Archives</a>
     </div>
   </div>
-
 
 </section>
 

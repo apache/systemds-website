@@ -24,229 +24,171 @@ limitations under the License.
 -->
 
 <!-- Hero  -->
-<section class="full-stripe full-stripe--center clear-header secondary-banner">
-  <div class="ml-container">
-    <h1>{{ page.title }}</h1>
+<!-- <section class="full-stripe full-stripe--subpage-header clear-header">
+  <div class="ml-container ml-container--horizontally-center">
+    <div class="col col-12 content-group">
+      <h1>Tutorials</h1>
+    </div>
   </div>
-</section>
+</section> -->
 
 <!-- Overview-->
-<section class="full-stripe">
-  <div class="ml-container ml-container--vertically-centered">
-    <div class="col col-6 feature-content feature-content--more-padding">
-      <h2>SystemML Beginner Tutorial</h2>
-      <h4><strong>Difficulty Level:</strong> Beginner <strong>Time:</strong> 20 minutes</h4><br>
-      <p>How to set up and run Apache SystemML locally.</p>
-      <a class="button button-secondary" href="https://apache.github.io/incubator-systemml">Docs</a>
+<section class="full-stripe clear-header">
+  <div class="ml-container ml-container--vertically-centered ml-container--reverse-order">
+    <div class="col col-6 content-group content-group--more-padding">
+      <img src="/assets/img/robotTutorialSm.png" alt="What is Apache SystemML?">
     </div>
-    <div class="col col-6 preview-image feature-content feature-content--more-padding">
-      <img src="/assets/img/robotTutorial.png" alt="What is Apache SystemML?">
+    <div class="col col-6 content-group content-group--more-padding">
+      <h2>SystemML Beginner Tutorial</h2>
+      <h4><strong>Level:</strong> Beginner &nbsp; &vert; &nbsp; <strong>Time:</strong> 20 minutes</h4><br>
+      <p><bdi>How to set up and run Apache SystemML locally.</bdi></p>
+      <a class="button button-secondary" href="https://apache.github.io/incubator-systemml" target="_blank">Docs</a>
     </div>
   </div>
 </section>
 
-<!-- Tutorial Instructionss -->
+<!-- Tutorial Instructions -->
 <section class="full-stripe full-stripe--alternate">
 
-  <!-- Assumptions Header -->
-  <section class="ml-container content-group steps">
-    <ol>
-      <section class="ml-container">
-        <div class="col-12">
-          <h2>Assumptions</h2>
-          <p>If you haven’t run Apache SystemML before, make sure to set up your environment first.</p>
-        </div>
-      </section>
+  <!-- Section 1 -->
+  <div class="ml-container content-group content-group--tutorial border">
+    <!-- Section Header -->
+    <div class="col col-12 content-group--medium-bottom-margin">
+      <h2>Assumptions</h2>
+      <p>If you haven’t run Apache SystemML before, make sure to set up your environment first.</p>
+    </div>
 
-      <!-- step 1 -->
-      <li class="ml-container">
-        <div class="col-1">
-          <div class="circle">1</div>
-        </div>
-        <div class="col-3">
-          <h3>Install Homebrew</h3>
-        </div>
-        <div class="col-8">
-          <pre>
-            <code>
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    <!-- Step 1 Instructions -->
+    <div class="col col-12">
+      <h3><span class="circle">1</span>Install Homebrew</h3>
+    </div>
+
+    <!-- Step 1 Code -->
+    <div class="col col-12">
+      <pre><code>/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 # Linux
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install)"</code>
-          </pre>
-        </div>
-      </li>
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install)"</code></pre>
+    </div>
 
-      <!-- step 2 -->
-      <li class="ml-container ml-container--section-end border">
-        <!-- instruction -->
-        <div class="col-1">
-          <div class="circle">2</div>
-        </div>
-        <div class="col-3">
-          <h3>Install Java</h3>
-        </div>
+    <!-- Step 2 Instructions -->
+    <div class="col col-12">
+      <h3><span class="circle">2</span>Install Java</h3>
+    </div>
 
-        <div class="col-8">
-        <!-- code -->
-          <pre>
-            <code>
-brew tap caskroom/cask
+    <!-- Step 2 Code -->
+    <div class="col col-12">
+      <pre><code>brew tap caskroom/cask
 brew install Caskroom/cask/java
 
 brew install python
-pip install jupyter matplotlib numpy</code>
-          </pre>
-        </div>
-      </li>
+pip install jupyter matplotlib numpy</code></pre>
+    </div>
+  </div>
 
-      <!-- Download Section -->
-      <section class="ml-container">
-        <div class="col-12">
-          <h2>Downloads</h2>
-          <p>Download this Spark and SystemML</p>
-        </div>
-      </section>
+  <!-- Section 2 -->
+  <div class="ml-container content-group content-group--tutorial border">
+    <!-- Section Header -->
+    <div class="col col-12 content-group--medium-bottom-margin">
+      <h2>Downloads</h2>
+      <p>Download this Spark and SystemML</p>
+    </div>
 
-      <!-- Step 3 -->
-      <li class="ml-container">
-        <!-- instruction -->
-        <div class="col-1">
-          <div class="circle">3</div>
-        </div>
-        <div class="col-3">
-          <h3>Download and Install Spark 1.6</h3>
-        </div>
-        <!-- code -->
-        <div class="col-8">
-          <pre>
-            <code>
-brew tap homebrew/versions
-brew install apache-spark16</code>
-          </pre>
-        </div>
-      </li>
-      <!-- Step 4 -->
-      <li class="ml-container border">
-        <!-- instruction -->
-        <div class="col-1">
-          <div class="circle">4</div>
-        </div>
-        <div class="col-3">
-          <h3>Download and Install SystemML</h3>
-        </div>
-        <!-- code -->
-        <div class="col-8">
-          <p>Download systemml-0.11.0-incubating.zip and unzip it to a location of your choice.
-          <a>https://systemml.apache.org/download.html</a>
+    <!-- Step 3 Instructions -->
+    <div class="col col-12">
+      <h3><span class="circle">3</span>Download and Install Spark 1.6</h3>
+    </div>
+
+    <!-- Step 3 Code -->
+    <div class="col col-12">
+      <pre><code>brew tap homebrew/versions
+brew install apache-spark16</code></pre>
+    </div>
+
+    <!-- Step 4 Instructions -->
+    <div class="col col-12">
+      <h3><span class="circle">4</span>Download and Install SystemML</h3>
+    </div>
+
+    <!-- Step 4 Code -->
+    <div class="col col-12">
+      <p>Download systemml-0.11.0-incubating.zip and unzip it to a location of your choice.
+          <a>https://systemml.apache.org/download.html</a>.<br>
           This is optional, but will be much easier in the long run: move SystemML to your bash profile. </p>
-          <pre>
-            <code>
-vim .bash_profile
+          <pre><code>vim .bash_profile
 i
 # 1 line:
 export SYSTEMML_HOME=/Users/stc/Documents/systemml-0.10.0-incubating
-:wq</code>
-          </pre>
+:wq</code></pre>
           <p>
 Similar to the Scala API, SystemML also provides a Python MLContext API. In addition to the regular SystemML.jar file, you’ll need to install the Python API as follows:</p>
-          <pre>
-            <code>
-Python 2:
+          <pre><code>Python 2:
 pip install systemml
 # Bleeding edge: pip install git+git://github.com/apache/incubator-systemml.git#subdirectory=src/main/python
 
-
 Python 3:
 pip3 install systemml
-# Bleeding edge: pip3 install git+git://github.com/apache/incubator-systemml.git#subdirectory=src/main/python</code>
-          </pre>
+# Bleeding edge: pip3 install git+git://github.com/apache/incubator-systemml.git#subdirectory=src/main/python</code></pre>
         </div>
-      </li>
+    </div>
 
-      <!-- Ways to Use Spark Section -->
-      <section class="ml-container">
-        <div class="col-12">
-          <h2>Ways to Use</h2>
-          <p>How to Use SystemML</p>
-        </div>
-      </section>
+    <!-- Section 3 -->
+    <div class="ml-container content-group content-group--tutorial">
+      <!-- Section Header -->
+      <div class="col col-12 content-group--medium-bottom-margin">
+        <h2>Ways to Use</h2>
+        <p>How to Use SystemML</p>
+      </div>
 
-      <!-- Step 5 -->
-      <li class="ml-container">
-        <!-- instruction -->
-        <div class="col-1">
-          <div class="circle">5</div>
-        </div>
-        <div class="col-3">
-          <h3>In Jupyter Notebook</h3>
-        </div>
-        <!-- code -->
-        <div class="col-8">
-          <h4>Get Started</h4>
-          <p>Start up your Jupyter notebook by moving to the folder where you saved the notebook. Then copying and pasting the line below:</p>
-          <pre>
-            <code>
-Python 2:
+      <!-- Step 5 Instructions -->
+      <div class="col col-12">
+        <h3><span class="circle">5</span>In Jupyter Notebook</h3>
+      </div>
+
+      <!-- Step 5 Code -->
+      <div class="col col-12">
+        <h4>Get Started</h4>
+        <p>Start up your Jupyter notebook by moving to the folder where you saved the notebook. Then copy and paste the line below:</p>
+        <pre><code>Python 2:
 PYSPARK_DRIVER_PYTHON=jupyter PYSPARK_DRIVER_PYTHON_OPTS="notebook" pyspark --master local[*] --driver-class-path SystemML.jar --jars SystemML.jar--conf "spark.driver.memory=12g" --conf spark.driver.maxResultSize=0 --conf spark.akka.frameSize=128 --conf spark.default.parallelism=100
-Python 3:
-PYSPARK_PYTHON=python3 PYSPARK_DRIVER_PYTHON=jupyter PYSPARK_DRIVER_PYTHON_OPTS="notebook" pyspark --master local[*] --driver-class-path SystemML.jar --jars SystemML.jar --conf "spark.driver.memory=12g" --conf spark.driver.maxResultSize=0 --conf spark.akka.frameSize=128 --conf spark.default.parallelism=100</code>
-          </pre>
-          <a class="button button-primary" href="#">Download Example Jupyter Notebook</a>
-        </div>
-      </li>
 
-      <!-- Step 6 -->
-      <li class="ml-container">
-        <!-- instruction -->
-        <div class="col-1">
-          <div class="circle">6</div>
-        </div>
-        <div class="col-3">
-          <h3>To Run SystemML in the Spark Shell</h3>
-        </div>
-        <!-- code -->
-        <div class="col-8">
-          <h4>Start Spark Shell with SystemML</h4>
-          <p> To use SystemML with Spark Shell, the SystemML jar can be referenced using Spark Shell’s --jars option.
-          Start the Spark Shell with SystemML with the following line of code in your terminal:</p>
-          <pre>
-            <code>
-spark-shell --executor-memory 4G --driver-memory 4G --jars SystemML.jar</code>
-          </pre>
-          <h4>Create the MLContext</h4>
-          <p>To begin, start an MLContext by typing the code below. Once successful, you should see a “Welcome to Apache SystemML!” message.</p>
-          <pre>
-            <code>
-import org.apache.sysml.api.mlcontext._
+Python 3:
+PYSPARK_PYTHON=python3 PYSPARK_DRIVER_PYTHON=jupyter PYSPARK_DRIVER_PYTHON_OPTS="notebook" pyspark --master local[*] --driver-class-path SystemML.jar --jars SystemML.jar --conf "spark.driver.memory=12g" --conf spark.driver.maxResultSize=0 --conf spark.akka.frameSize=128 --conf spark.default.parallelism=100</code></pre>
+
+      </div>
+
+      <!-- Step 6 Instructions -->
+      <div class="col col-12">
+        <h3><span class="circle">6</span>To Run SystemML in the Spark Shell</h3>
+      </div>
+
+      <!-- Step 6 Code -->
+      <div class="col col-12">
+        <h4>Start Spark Shell with SystemML</h4>
+        <p> To use SystemML with Spark Shell, the SystemML jar can be referenced using Spark Shell’s --jars option. Start the Spark Shell with SystemML with the following line of code in your terminal:</p>
+        <pre><code>spark-shell --executor-memory 4G --driver-memory 4G --jars SystemML.jar</code></pre>
+        <h4>Create the MLContext</h4>
+        <p>To begin, start an MLContext by typing the code below. Once successful, you should see a “Welcome to Apache SystemML!” message.</p>
+        <pre><code>import org.apache.sysml.api.mlcontext._
 import org.apache.sysml.api.mlcontext.ScriptFactory._
-val ml = new MLContext(sc)</code>
-          </pre>
-          <h4>Hello World</h4>
-          <p>The ScriptFactory class allows DML and PYDML scripts to be created from Strings, Files, URLs, and InputStreams. Here, we’ll use the dmlmethod to create a DML “hello world” script based on a String.  We execute the script using MLContext’s execute method, which displays “hello world” to the console. The execute method returns an MLResults object, which contains no results since the script has no outputs.</p>
-          <pre>
-            <code>
-val helloScript = dml("print('hello world')")
-ml.execute(helloScript)</code>
-          </pre>
-          <h4>DataFrame Example</h4>
-          <p>As an example of how to use SystemML, we’ll first use Spark to create a DataFrame called df of random doubles from 0 to 1 consisting of 10,000 rows and 1,000 columns.</p>
-          <pre>
-            <code>
-import org.apache.spark.sql._
+val ml = new MLContext(sc)</code></pre>
+        <h4>Hello World</h4>
+        <p>The ScriptFactory class allows DML and PYDML scripts to be created from Strings, Files, URLs, and InputStreams. Here, we’ll use the dmlmethod to create a DML “hello world” script based on a String.  We execute the script using MLContext’s execute method, which displays “hello world” to the console. The execute method returns an MLResults object, which contains no results since the script has no outputs.</p>
+        <pre><code>val helloScript = dml("print('hello world')")
+ml.execute(helloScript)</code></pre>
+        <h4>DataFrame Example</h4>
+        <p>As an example of how to use SystemML, we’ll first use Spark to create a DataFrame called df of random doubles from 0 to 1 consisting of 10,000 rows and 1,000 columns.</p>
+        <pre><code>import org.apache.spark.sql._
 import org.apache.spark.sql.types.{StructType,StructField,DoubleType}
 import scala.util.Random
 val numRows = 10000
 val numCols = 1000
 val data = sc.parallelize(0 to numRows-1).map { _ => Row.fromSeq(Seq.fill(numCols)(Random.nextDouble)) }
 val schema = StructType((0 to numCols-1).map { i => StructField("C" + i, DoubleType, true) } )
-val df = sqlContext.createDataFrame(data, schema)</code>
-          </pre>
-          <p>We’ll create a DML script using the ScriptFactory dml method to find the minimum, maximum, and mean values in a matrix. This script has one input variable, matrix Xin, and three output variables, minOut, maxOut, and meanOut.
-          For performance, we’ll specify metadata indicating that the matrix has 10,000 rows and 1,000 columns.
-          We execute the script and obtain the results as a Tuple by calling getTuple on the results, specifying the types and names of the output variables.</p>
-          <pre>
-            <code>
-val minMaxMean =
+val df = sqlContext.createDataFrame(data, schema)</code></pre>
+        <p>We’ll create a DML script using the ScriptFactory dml method to find the minimum, maximum, and mean values in a matrix. This script has one input variable, matrix Xin, and three output variables, minOut, maxOut, and meanOut.
+For performance, we’ll specify metadata indicating that the matrix has 10,000 rows and 1,000 columns.
+We execute the script and obtain the results as a Tuple by calling getTuple on the results, specifying the types and names of the output variables.</p>
+        <pre><code>val minMaxMean =
 """
 minOut = min(Xin)
 maxOut = max(Xin)
@@ -254,14 +196,11 @@ meanOut = mean(Xin)
 """
 val mm = new MatrixMetadata(numRows, numCols)
 val minMaxMeanScript = dml(minMaxMean).in("Xin", df, mm).out("minOut", "maxOut", "meanOut")
-val (min, max, mean) = ml.execute(minMaxMeanScript).getTuple[Double, Double, Double]("minOut", "maxOut", "meanOut")</code>
-          </pre>
-          <p>Many different types of input and output variables are automatically allowed. These types include Boolean, Long, Double, String, Array[Array[Double]], RDD<String> and JavaRDD<String> in CSV (dense) and IJV (sparse) formats, DataFrame, BinaryBlockMatrix,Matrix, and Frame. RDDs and JavaRDDs are assumed to be CSV format unless MatrixMetadata is supplied indicating IJV format.</p>
-          <h4>RDD Example:</h4>
-          <p>Let’s take a look at an example of input matrices as RDDs in CSV format. We’ll create two 2x2 matrices and input these into a DML script. This script will sum each matrix and create a message based on which sum is greater. We will output the sums and the message.</p>
-          <pre>
-            <code>
-val rdd1 = sc.parallelize(Array("1.0,2.0", "3.0,4.0"))
+val (min, max, mean) = ml.execute(minMaxMeanScript).getTuple[Double, Double, Double]("minOut", "maxOut", "meanOut")</code></pre>
+        <p>Many different types of input and output variables are automatically allowed. These types include Boolean, Long, Double, String, Array[Array[Double]], RDD<String> and JavaRDD<String> in CSV (dense) and IJV (sparse) formats, DataFrame, BinaryBlockMatrix,Matrix, and Frame. RDDs and JavaRDDs are assumed to be CSV format unless MatrixMetadata is supplied indicating IJV format.</p>
+        <h4>RDD Example:</h4>
+        <p>Let’s take a look at an example of input matrices as RDDs in CSV format. We’ll create two 2x2 matrices and input these into a DML script. This script will sum each matrix and create a message based on which sum is greater. We will output the sums and the message.</p>
+<pre><code>val rdd1 = sc.parallelize(Array("1.0,2.0", "3.0,4.0"))
 val rdd2 = sc.parallelize(Array("5.0,6.0", "7.0,8.0"))
 val sums = """
 s1 = sum(m1);
@@ -283,13 +222,12 @@ val message = sumResults.getString("message")
 val rdd1Metadata = new MatrixMetadata(2, 2)
 val rdd2Metadata = new MatrixMetadata(2, 2)
 val sumScript = dmlFromFile("sums.dml").in(Seq(("m1", rdd1, rdd1Metadata), ("m2", rdd2, rdd2Metadata))).out("s1", "s2", "message")
-val (firstSum, secondSum, sumMessage) = ml.execute(sumScript).getTuple[Double, Double, String]("s1", "s2", "message")</code>
-          </pre>
-          <p>Congratulations! You’ve now run examples in Apache SystemML!</p>
-        </div>
-      </li>
-    </ol>
-  </section>
+val (firstSum, secondSum, sumMessage) = ml.execute(sumScript).getTuple[Double, Double, String]("s1", "s2", "message")</code></pre>
+      <p>Congratulations! You’ve now run examples in Apache SystemML!</p>
+    </div>
   </div>
+
+
+
 
 </section>
