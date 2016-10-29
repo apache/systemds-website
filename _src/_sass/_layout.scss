@@ -10,11 +10,13 @@
   flex-flow: row wrap;
   padding: 3em 1em;
 
-  &--full-width {
+
+  // full screen container
+  &--full-screen {
     height: 100vh;
   }
 
-  // horizonal display
+  // vertical centering using table display
   &--vertically-centered{
     display: table;
     table-layout: fixed;
@@ -28,26 +30,26 @@
   }
 
   // full screen view
-  @media (min-width: 75em){
-    // constrain content width to 1024px
-    @include container(75em);
-    padding: 2em;
-    text-align: left;
-
-    &--less-padding{
-      padding: .5em 2em;
-    }
-
-    &--narrow{
-      width: 40em;
-      padding: 1em;
-      margin: auto;
-    }
-
-    &--medium-width{
-      width: 64em;
-    }
-  }
+  // @media (min-width: 75em){
+  //   // constrain content width to 1024px
+  //   @include container(75em);
+  //   padding: 2em;
+  //   text-align: left;
+  //
+  //   &--less-padding{
+  //     padding: .5em 2em;
+  //   }
+  //
+  //   &--narrow{
+  //     width: 40em;
+  //     padding: 1em;
+  //     margin: auto;
+  //   }
+  //
+  //   &--medium-width{
+  //     width: 64em;
+  //   }
+  // }
 }
 
 // grid system for content
@@ -56,8 +58,7 @@
   width: 100%;
 
   // column system applies at 1024px width
-  @media (min-width: 75em){
-
+  @media (min-width: 64em){
     &-1 {
       @include span(1 of 12);
     }
@@ -94,10 +95,10 @@
   flex-direction: column;
   align-items: left;
 
+  // centered image with margin bottom
   img {
     margin: auto;
     margin-bottom: 2em;
-
   }
 
   h2 {
@@ -108,36 +109,50 @@
 
   a {
     text-align: center;
-    width: 49%;
   }
 
-  &--center-align {
+  .button-primary, .button-secondary {
+    margin-top: 1em;
+  }
+
+  &--center-content {
     margin: auto;
   }
 
+  &--center-align {
+    text-align: center;
+  }
+
+  // hero call to action at the bottom
   &--hero {
     a{
       width: auto;
       position: absolute;
-      bottom: 4em;``
+      bottom: 4em;
     }
   }
 
   // tablet and web styling
-  @media (min-width: $bp-medium) {
-    text-align: left;
-    flex-direction: row;
-  }
+  // @media (min-width: $bp-medium) {
+  //   text-align: left;
+  //   flex-direction: row;
+  // }
 
   .wrap {
     display: block;
   }
 
-  .icon-announcement {
-    margin: 0 10px 0 0;
-  }
+  // .icon-announcement {
+  //   margin: 0 10px 0 0;
+  // }
+
 }
 
+.button-group {
+  .button-primary, .button-secondary {
+    margin-right: 1em;
+  }
+}
 
 
 // separator
@@ -159,11 +174,7 @@
   text-align: center;
 }
 
-.button-group {
-  a{
-    margin: 0 1em 0 0;
-  }
-}
+
 
 
 .profile {

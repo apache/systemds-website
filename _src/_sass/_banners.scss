@@ -10,8 +10,13 @@
   // blue background
   &--video {
     height: 100vh;
-    // background: #1D3649;
-    background-image: url("../img/hero-home.jpg");
+    background-image: url("../img/hero-mobile.png");
+    background-size: cover;
+    color: #fff;
+  }
+
+  &--subpage-header {
+    background: #1D3649 url(../img/hero-about.svg) center bottom no-repeat;
     background-size: cover;
     color: #fff;
   }
@@ -19,10 +24,10 @@
   // &--center{
   //   text-align: center;
   // }
-
-  @media (min-width: 75em) {
-    padding: 4em;
-  }
+  //
+  // @media (min-width: 75em) {
+  //   padding: 4em;
+  // }
 
 }
 
@@ -30,11 +35,6 @@
   margin-top: 4em;
 }
 
-.secondary-banner {
-  background: #1D3649 url(../img/hero-about.svg) center bottom no-repeat;
-  background-size: cover;
-  color: #fff;
-}
 
 .hero-banner {
   color: #fff;
