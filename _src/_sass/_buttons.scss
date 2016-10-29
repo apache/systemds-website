@@ -19,3 +19,17 @@
     border-color: $color-systemml-accent2-dark;
   }
 }
+
+.award {
+  background-image: url("/assets/img/mobile-award.png");
+  background-size: 167px 47px;
+  width: 167px;
+  height: 47px;
+
+  @media (min-width: 75em) {
+    background-image: url("/assets/img/award.png");
+    background-size: 170px 100px;
+    width: 170px;
+    height: 100px;
+  }
+}

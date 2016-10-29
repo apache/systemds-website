@@ -1,24 +1,21 @@
 @import 'layout/index';
 
-// constrain content width to 1024px
+// container for all content
 .ml-container {
-  @include container(75em);
-  padding: 2em;
+  // mobile first default setting
+  // stacks columns on top of each other
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+  flex-flow: row wrap;
+  padding: 3em 1em;
 
-  &--less-padding{
-    padding: .5em 2em;
+  &--full-width {
+    height: 100vh;
   }
 
-  &--narrow{
-    width: 40em;
-    padding: 1em;
-    margin: auto;
-  }
-
-  &--medium-width{
-    width: 64em;
-  }
-  &--vertically-centered {
+  // horizonal display
+  &--vertically-centered{
     display: table;
     table-layout: fixed;
 
@@ -27,41 +24,127 @@
       float: none;
       vertical-align: middle;
     }
+
+  }
+
+  // full screen view
+  @media (min-width: 75em){
+    // constrain content width to 1024px
+    @include container(75em);
+    padding: 2em;
+    text-align: left;
+
+    &--less-padding{
+      padding: .5em 2em;
+    }
+
+    &--narrow{
+      width: 40em;
+      padding: 1em;
+      margin: auto;
+    }
+
+    &--medium-width{
+      width: 64em;
+    }
   }
 }
+
+// grid system for content
+.col {
+  // mobile first all columns full-width
+  width: 100%;
+
+  // column system applies at 1024px width
+  @media (min-width: 75em){
+
+    &-1 {
+      @include span(1 of 12);
+    }
+    &-2 {
+      @include span(2 of 12);
+    }
+    &-3 {
+      @include span(3 of 12);
+    }
+    &-4 {
+      @include span(4 of 12);
+    }
+    &-6 {
+      @include span(6 of 12);
+    }
+    &-8 {
+      @include span(8 of 12);
+    }
+    &-9 {
+      @include span(9 of 12);
+    }
+    &-12 {
+      @include span(12 of 12);
+    }
+  }
+}
+
+// content styling
+.content-group {
+  // default styling mobile first
+  text-align: left;
+  // display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: left;
+
+  img {
+    margin: auto;
+    margin-bottom: 2em;
+
+  }
+
+  h2 {
+    font-size: 1.5em;
+    line-height: 1.3em;
+    margin-bottom: 1em;
+  }
+
+  a {
+    text-align: center;
+    width: 49%;
+  }
+
+  &--center-align {
+    margin: auto;
+  }
+
+  &--hero {
+    a{
+      width: auto;
+      position: absolute;
+      bottom: 4em;``
+    }
+  }
+
+  // tablet and web styling
+  @media (min-width: $bp-medium) {
+    text-align: left;
+    flex-direction: row;
+  }
+
+  .wrap {
+    display: block;
+  }
+
+  .icon-announcement {
+    margin: 0 10px 0 0;
+  }
+}
+
+
 
 // separator
 .border {
   border-bottom: 1px solid #e0e0e0;
 }
 
-// grid system for content
-.col {
-  &-1 {
-    @include span(1 of 12);
-  }
-  &-2 {
-    @include span(2 of 12);
-  }
-  &-3 {
-    @include span(3 of 12);
-  }
-  &-4 {
-    @include span(4 of 12);
-  }
-  &-6 {
-    @include span(6 of 12);
-  }
-  &-8 {
-    @include span(8 of 12);
-  }
-  &-9 {
-    @include span(9 of 12);
-  }
-  &-12 {
-    @include span(12 of 12);
-  }
-}
 
 .block-content {
   &--center{
@@ -82,34 +165,6 @@
   }
 }
 
-// content styling
-.content-group {
-  // default styling mobile first
-  text-align: center;
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-  align-items: center;
-
-  p {
-    margin: 0 0 1em 0;
-  }
-
-
-  // tablet and web styling
-  @media (min-width: $bp-medium) {
-    text-align: left;
-    flex-direction: row;
-  }
-
-  .wrap {
-    display: block;
-  }
-
-  .icon-announcement {
-    margin: 0 10px 0 0;
-  }
-}
 
 .profile {
   @include gallery(4 of 12);

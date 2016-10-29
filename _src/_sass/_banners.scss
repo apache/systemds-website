@@ -1,19 +1,29 @@
 .full-stripe { //A block spans the full page width
-  padding: 4em;
+  // default background
   background-color: #ffffff;
+
+  // gray background
   &--alternate {
     background-color: #f9f9fb;
   }
-  &--dark {
-    background-color: #1d3649;
-    color: white;
+
+  // blue background
+  &--video {
+    height: 100vh;
+    // background: #1D3649;
+    background-image: url("../img/hero-home.jpg");
+    background-size: cover;
+    color: #fff;
   }
-  &--hero-context {
-    padding-top: 10em;
+
+  // &--center{
+  //   text-align: center;
+  // }
+
+  @media (min-width: 75em) {
+    padding: 4em;
   }
-  &--center{
-    text-align: center;
-  }
+
 }
 
 .clear-header {
@@ -30,6 +40,7 @@
   color: #fff;
   position: relative;
   top: 115px;
+
   @media (min-width: $bp-medium) {
     top: 0;
   }
