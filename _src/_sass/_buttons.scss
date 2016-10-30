@@ -20,17 +20,17 @@
   }
 }
 
-.award {
+#award {
   background-image: url("/assets/img/mobile-award.png");
   background-size: 167px 47px;
   width: 167px;
   height: 47px;
   margin-bottom: 2em;
 
-  // @media (min-width: 75em) {
-  //   background-image: url("/assets/img/award.png");
-  //   background-size: 170px 100px;
-  //   width: 170px;
-  //   height: 100px;
-  // }
+  @media (min-width: 64em) {
+    background-image: url("/assets/img/award.png");
+    background-size: 170px 100px;
+    width: 170px;
+    height: 100px;
+  }
 }

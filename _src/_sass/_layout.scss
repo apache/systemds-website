@@ -1,7 +1,8 @@
 @import 'layout/index';
 
-// container for all content
+// content container
 .ml-container {
+
   // mobile first default setting
   display: -webkit-flex;
   display: flex;
@@ -9,9 +10,34 @@
   flex-flow: row wrap;
   padding: 3em 1em;
 
-
+  // reverse order of elements
   &--reverse-order{
     direction: rtl;
+  }
+
+  // vertical centering using table display
+  &--vertically-centered{
+    @media (min-width: $bp-medium){
+      display: table;
+      table-layout: fixed;
+      .col {
+        display: table-cell;
+        float: none;
+        vertical-align: middle;
+      }
+    }
+  }
+
+  // awards
+  &--narrow {
+    // too specific, clean up
+    @media (min-width: 64em){
+      width: 40em;
+      padding: 1em;
+      #award, p{
+        margin-bottom: 0;
+      }
+    }
   }
 
   // full screen container
@@ -27,17 +53,10 @@
     }
   }
 
-  // vertical centering using table display
-  &--vertically-centered{
-    @media (min-width: $bp-medium){
-      display: table;
-      table-layout: fixed;
-      .col {
-        display: table-cell;
-        float: none;
-        vertical-align: middle;
-      }
-    }
+  // full screen view
+  @media (min-width: 64em){
+    // constrain content width to 1024px
+    @include container(64em);
   }
 
   // full screen view
@@ -82,7 +101,6 @@
   }
 }
 
-
 // content styling
 .content-group {
   // default styling mobile first
@@ -124,12 +142,19 @@
     margin-top: 1em;
   }
 
-  &--center-content {
-    margin: auto;
-  }
-
+  // center align text
   &--center-align {
     text-align: center;
+  }
+
+  // left align text
+  &--left-align {
+    text-align: left;
+  }
+
+  // center align content
+  &--center-content {
+    margin: auto;
   }
 
   &--more-padding{
@@ -168,8 +193,6 @@
     margin-right: 1em;
   }
 }
-
-
 
 .block-content {
   &--center{

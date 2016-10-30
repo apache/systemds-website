@@ -1,4 +1,6 @@
-.full-stripe { //A block spans the full page width
+//A block spans the full page width
+.full-stripe {
+
   // default background
   background-color: #ffffff;
 
@@ -7,7 +9,7 @@
     background-color: #f9f9fb;
   }
 
-  // blue background
+  // front page hero background
   &--video {
     height: 100vh;
     background-image: url("../img/hero-mobile.png");
@@ -15,24 +17,26 @@
     color: #fff;
   }
 
+  // secondary page hero background
   &--subpage-header {
     background: #1D3649 url(../img/hero-about.svg) center bottom no-repeat;
     background-size: cover;
     color: #fff;
   }
 
-  // give each stripe more padding when browser reaches a certain size
+  // give each block more padding when screen reaches browser size
   @media (min-width: $bp-medium) {
-    padding: 2em;
+    padding: 3em;
   }
 
 }
 
+// clear top nav
 .clear-header {
   margin-top: 4em;
 }
 
-
+// old hero banner
 .hero-banner {
   color: #fff;
   position: relative;
