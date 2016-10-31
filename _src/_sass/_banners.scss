@@ -11,10 +11,15 @@
 
   // front page hero background
   &--video {
+    // hero full screen only for mobile
     height: 100vh;
     background-image: url("../img/hero-mobile.png");
     background-size: cover;
     color: #fff;
+    // hero takes up 80% for web
+    @media (min-width: 64em) {
+      height: 80vh;
+    }
   }
 
   // secondary page hero background

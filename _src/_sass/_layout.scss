@@ -11,13 +11,13 @@
   padding: 3em 1em;
 
   // reverse order of elements
-  &--reverse-order{
+  &--reverse-order {
     direction: rtl;
   }
 
   // vertical centering using table display
   &--vertically-centered{
-    @media (min-width: $bp-medium){
+    @media (min-width: $bp-medium) {
       display: table;
       table-layout: fixed;
       .col {
@@ -28,14 +28,35 @@
     }
   }
 
-  // awards
+  // left align mobile, center align web
+  &--horizontally-center {
+    @media (min-width: 64em) {
+      width: 40em;
+      h2, p, a {
+        text-align: center;
+      }
+      .button-group {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+      }
+    }
+  }
+
   &--narrow {
     // too specific, clean up
-    @media (min-width: 64em){
+    padding: 2em 1em;
+    p {
+      margin-bottom: 0;
+    }
+    @media (min-width: 64em) {
       width: 40em;
       padding: 1em;
-      #award, p{
+      #award {
         margin-bottom: 0;
+      }
+      h3, p{
+        text-align: left;
       }
     }
   }
@@ -43,6 +64,7 @@
   // full screen container
   &--full-screen {
     height: 100vh;
+    width: 40em;
     // temporary fix
     display: table;
     table-layout: fixed;
@@ -50,6 +72,9 @@
       display: table-cell;
       float: none;
       vertical-align: middle;
+    }
+    @media (min-width: 64em) {
+      height: 80vh;
     }
   }
 
@@ -166,8 +191,12 @@
   // hero call to action at the bottom
   &--hero {
     a{
-      width: auto;
       position: absolute;
+      bottom: 4em;
+    }
+
+    @media (min-width: 64em) {
+      position: relative;
       bottom: 4em;
     }
   }
