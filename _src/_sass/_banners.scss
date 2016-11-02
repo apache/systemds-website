@@ -16,9 +16,9 @@
     background-image: url("../img/hero-mobile.png");
     background-size: cover;
     color: #fff;
-    // hero takes up 80% for web
-    @media (min-width: 64em) {
-      height: 80vh;
+
+    @media (min-width: $bp-medium) {
+      height: 70vh;
     }
   }
 
@@ -38,7 +38,10 @@
 
 // clear top nav
 .clear-header {
-  margin-top: 4em;
+  margin-top: 9.5em;
+  @media (min-width: 64em){
+  margin-top: 4.125em;
+  }
 }
 
 // old hero banner

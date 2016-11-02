@@ -31,14 +31,16 @@ p {
 }
 
 pre {
-  padding-left: 1em;
+  padding: 2em;
   background: #ffffff;
   border: 1px solid #e0e0e0;
-  margin: 0 0 1em 0;
-}
-
-code {
-  margin: 0;
+  // responsive pre tags
+  word-break: break-all; /* webkit */
+  word-wrap: break-word;
+  white-space: pre;
+  white-space: -moz-pre-wrap; /* fennec */
+  white-space: pre-wrap;
+  white-space: pre\9; /* IE7+ */
 }
 
 .text-center {

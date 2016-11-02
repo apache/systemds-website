@@ -28,11 +28,18 @@
     }
   }
 
+
+  &--halfway{
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
   // left align mobile, center align web
   &--horizontally-center {
     @media (min-width: 64em) {
       width: 40em;
-      h2, p, a {
+      h1, h2, p, a {
         text-align: center;
       }
       .button-group {
@@ -120,6 +127,9 @@
     &-9 {
       @include span(9 of 12);
     }
+    &-10 {
+      @include span(10 of 12);
+    }
     &-12 {
       @include span(12 of 12);
     }
@@ -167,6 +177,19 @@
     margin-top: 1em;
   }
 
+
+  &--tutorial {
+    h2{
+      line-height: .5em;
+    }
+    pre {
+      margin: 0 0 2em 0;
+    }
+    h3{
+      margin-bottom: 1em;
+    }
+  }
+
   // center align text
   &--center-align {
     text-align: center;
@@ -182,9 +205,20 @@
     margin: auto;
   }
 
-  &--more-padding{
-    @media (min-width: $bp-medium){
+  &--more-padding {
+    @media (min-width: $bp-medium) {
       padding: 0 4em;
+    }
+  }
+
+  &--small-bottom-margin {
+    margin-bottom: 1em;
+  }
+
+  &--medium-bottom-margin {
+    margin-bottom: 1em;
+    @media (min-width: $bp-medium){
+      margin-bottom: 2em;
     }
   }
 
@@ -201,18 +235,9 @@
     }
   }
 
-  // tablet and web styling
-  // @media (min-width: $bp-medium) {
-  //   flex-direction: row;
-  // }
-
   .wrap {
     display: block;
   }
-
-  // .icon-announcement {
-  //   margin: 0 10px 0 0;
-  // }
 
 }
 
@@ -259,12 +284,7 @@
 // separator
 .border {
   border-bottom: 1px solid #e0e0e0;
-}
-
-.steps {
-  ol{
-    list-style: none;
-  }
+  margin-bottom: 2em;
 }
 
 .circle {
@@ -274,6 +294,7 @@
   background-color: $color-systemml-accent2;
   color: white;
   text-align: center;
-  line-height: 35px;
+  line-height: 34px;
   display: inline-block;
+  margin-right: 1em;
 }
