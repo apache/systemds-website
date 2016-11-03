@@ -27,8 +27,12 @@
     background: #1D3649 url(../img/hero-about.svg) center bottom no-repeat;
     background-size: cover;
     color: #fff;
+    text-align: center;
   }
 
+  &--center{
+    text-align: center;
+  }
   // give each block more padding when screen reaches browser size
   @media (min-width: $bp-medium) {
     padding: 3em;
