@@ -15,9 +15,9 @@
 # limitations under the License.
 #
 
-name: Apache SystemML
-short_name: SystemML
-description: Apache SystemML is a distributed and declarative machine learning platform.
+name: Apache SystemML™
+short_name: SystemML™
+description: Apache SystemML™ is a distributed and declarative machine learning platform.
 
 dev_list: dev@systemml.incubator.apache.org
 dev_list_subscribe: dev-subscribe@systemml.incubator.apache.org
