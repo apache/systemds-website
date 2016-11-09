@@ -210,6 +210,13 @@
     text-align: left;
   }
 
+  &--right-align {
+    text-align: center;
+    @media (min-width: $bp-medium){
+      text-align: right;
+    }
+  }
+
   // center align content
   &--center-content {
     margin: auto;
