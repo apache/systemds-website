@@ -17,26 +17,16 @@ limitations under the License.
 {% endcomment %}
 -->
 <footer class="site-footer">
-  <!-- container -->
   <div class="ml-container">
-    <!-- social media icons -->
-    <div class="col col-6 content-group--medium-bottom-margin">
-      <ul class="link-list bullet-pointless">
-        <li><a class="icon icon-youtube" href="https://www.youtube.com/channel/UCQwUHIc5SjqNIppUH6xbxXQ" target="_blank"></a></li>
-        <li><a class="icon icon-github" href="{{ site.data.project.source_repository_mirror }}" target="_blank"></a></li>
-        <li><a class="icon icon-twitter" href="https://twitter.com/ApacheSystemML" target="_blank"></a></li>
-        <li><a class="icon icon-medium" href="https://medium.com/@apachesystemml" target="_blank"></a></li>
-      </ul>
-    </div>
-    <div class="col col-6 content-group content-group--right-align content-group--medium-bottom-margin">
-      <a href="http://incubator.apache.org"><img src="/assets/img/apache-incubator-logo.png" alt="Apache Incubator"/></a>
-    </div>
-    <div>
+    <div class="footer-col-wrapper">
       {% if site.data.project.podling %}
       {{ site.data.project.name }} is an effort undergoing <a href="https://incubator.apache.org/index.html">Incubation</a> at The Apache Software Foundation (ASF), sponsored by the Incubator. Incubation is required of all newly accepted projects until a further review indicates that the infrastructure, communications, and decision making process have stabilized in a manner consistent with other successful ASF projects. While incubation status is not necessarily a reflection of the completeness or stability of the code, it does indicate that the project has yet to be fully endorsed by the ASF.
       {% endif %}
       <div style="text-align:center;">
       {% if site.data.project.podling %}
+        <div style="margin-top: 20px; margin-bottom: 20px;">
+            <a href="http://incubator.apache.org"><img src="/assets/img/apache-incubator-logo.png" alt="Apache Incubator"/></a>
+        </div>
       {% endif %}
         <div>
         Copyright &copy; 2016 <a href="http://www.apache.org">The Apache Software Foundation</a>.
