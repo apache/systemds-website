@@ -16,20 +16,93 @@ See the License for the specific language governing permissions and
 limitations under the License.
 {% endcomment %}
 -->
-<!-- Hero -->
-{% include themes/apache/partials/banners/banner_header_hero.html %}
 
-<!-- News -->
-{% include themes/apache/partials/banners/banner_announcements.html %}
+<!-- Hero -->
+<section class="full-stripe full-stripe--video">
+  <div class="ml-container ml-container--horizontally-center ml-container--halfway">
+    <div class="col col-12 content-group">
+      <h1>{{ site.data.project.name }}</h1>
+      <p>A machine learning platform optimal for big data</p>
+    </div>
+    <div class="col col-12 content-group button-group">
+      <a class="button button-primary" href="download.html">Download SystemML</a>
+    </div>
+  </div>
+</section>
+
+<!-- Awards -->
+<section class="full-stripe full-stripe--alternate">
+  <div class="ml-container ml-container--narrow">
+    <div class="col col-4 content-group content-group--center-content" id="award">
+      <!-- <a href="http://vldb2016.persistent.com/awards.php"></a> -->
+    </div>
+    <div class="col col-8 content-group content-group--center-align content-group--center-content">
+      <h3>VLDB 2016 Best Paper and Demonstration</h3>
+      <p>Read Compressed Linear Algebra for Large-Scale Machine Learning.<a href="http://www.vldb.org/pvldb/vol9/p960-elgohary.pdf" target="_blank"> Download Paper</a></p>
+    </div>
+  </div>
+</section>
 
 <!-- About -->
-{% include themes/apache/partials/banners/banner_what_is_systemml.html %}
+<section class="full-stripe">
+  <div class="ml-container ml-container--vertically-centered ml-container--reverse-order">
+    <div class="col col-6 content-group content-group--more-padding">
+      <img src="/assets/img/diagramAnim-v4.gif" alt="What is Apache SystemML?">
+    </div>
+    <div class="col col-6 content-group content-group--more-padding">
+      <!-- bdi tag prevents reverse punctuation when rtl direction property is applied -->
+      <h2><bdi>What is SystemML?</bdi></h2>
+      <p><bdi>Apache SystemML provides an optimal workplace for machine learning using big data.
+        It can be run on top of Apache Spark, where it automatically scales your data, line by line,
+        determining whether your code should be run on the driver or an Apache Spark cluster.</bdi></p>
+    </div>
+  </div>
+</section>
 
 <!-- Beginner Tutorial -->
-{% include themes/apache/partials/banners/banner_beginner_tutorial.html %}
+<section class="full-stripe full-stripe--alternate">
+  <div class="ml-container ml-container--vertically-centered">
+    <div class="col col-6 content-group content-group--more-padding">
+      <img src="/assets/img/robotTutorialSm.png" alt="What is Apache SystemML?">
+    </div>
+    <div class="col col-6 content-group content-group--more-padding button-group">
+      <h2>Get Started</h2>
+      <p>New to Apache SystemML? Try our Get Started tutorial that will walk you through setting up your environment and getting you up and going with SystemML.</p>
+      <a class="button button-primary" href="get-started.html">Begin Tutorial</a>
+      <a class="button button-secondary" href="https://apache.github.io/incubator-systemml/" target="_blank">Docs</a>
+    </div>
+  </div>
+</section>
 
-<!-- Contact us -->
-{% include themes/apache/partials/banners/banner_mailing_list.html %}
+<!-- Contact Us -->
+<section class="full-stripe">
+  <div class="ml-container ml-container--horizontally-center">
+    <div class="col col-12 content-group ">
+      <h2>Subscribe to Our Mailing Lists</h2>
+      <p>Subscribe to our development mailing list for SystemML updates and news. Once subscribed, <a href="mailto:{{ site.data.project.dev_list }}">join the conversation</a>.
+      As SystemML grows, so will our community. Check out <a href="community.html#mailing-list">All Mailing Lists</a>.
+      </p>
+    </div>
+    <div class="col col-12 content-group button-group">
+      <a href="mailto:{{ site.data.project.dev_list_subscribe }}?subject=send this email to subscribe" class="button button-primary">Subscribe</a>
+      <a href="http://mail-archives.apache.org/mod_mbox/incubator-systemml-dev/" target="_blank" class="button button-secondary">View Archive</a>
+    </div>
+  </div>
+</section>
 
 <!-- Social Media Icons -->
-{% include themes/apache/partials/banners/banner_social.html %}
+<section class="full-stripe full-stripe--alternate">
+  <div class="ml-container">
+    <div class="col col-12 content-group content-group--center-content content-group--center-align">
+      <h2>Follow Us</h2>
+    </div>
+    <div class="col col-12">
+      <ul class="link-list bullet-pointless">
+        <li><a class="icon icon-youtube" href="https://www.youtube.com/channel/UCQwUHIc5SjqNIppUH6xbxXQ" target="_blank"></a></li>
+        <li><a class="icon icon-github" href="{{ site.data.project.source_repository_mirror }}" target="_blank"></a></li>
+        <li><a class="icon icon-twitter" href="https://twitter.com/ApacheSystemML" target="_blank"></a></li>
+        <li><a class="icon icon-medium" href="https://medium.com/@apachesystemml" target="_blank"></a></li>
+      </ul>
+    </div>
+  </div>
+</section>
