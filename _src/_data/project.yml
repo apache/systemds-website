@@ -47,8 +47,10 @@ issues_list_archive: http://mail-archives.apache.org/mod_mbox/systemml-issues/
 issues_list_archive_mailarchive: https://www.mail-archive.com/issues@systemml.incubator.apache.org/
 issues_list_archive_markmail:
 
-
 jira: SYSTEMML
+
+release_name: systemml
+release_version: 0.11.0-incubating
 
 source_repository: https://git-wip-us.apache.org/repos/asf/incubator-systemml.git
 source_repository_mirror: https://github.com/apache/incubator-systemml
