@@ -11,14 +11,34 @@
 
   // front page hero background
   &--video {
-    // hero full screen only for mobile
+    // full screen hero image for mobile
     height: 100vh;
-    background-image: url("../img/hero-mobile.png");
+    background: #1d3649 url(../img/hero-mobile.png) 0 0 no-repeat;
     background-size: cover;
+    overflow: hidden;
     color: #fff;
+    position: relative;
 
     @media (min-width: $bp-medium) {
       height: 70vh;
+      background: #1d3649 url(../img/hero-home.png) 0 0 no-repeat;
+    }
+
+    #video-background {
+        // default mobile settings
+        // method for vertically and horizontally centering an element
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        -webkit-transform: translateY(-50%) translateX(-50%);
+        transform: translateY(-50%) translateX(-50%);
+        display: none;
+
+        // video only plays on desktop
+        @media (min-width: $bp-medium) {
+          width: 100%;
+          display: block;
+        }
     }
   }
 

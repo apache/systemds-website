@@ -9,6 +9,7 @@
   -webkit-flex-flow: row wrap;
   flex-flow: row wrap;
   padding: 3em 1em;
+  z-index: 50;
 
   // reverse order of elements
   &--reverse-order {
