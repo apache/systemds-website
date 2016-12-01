@@ -5,6 +5,7 @@ const sass = require('gulp-sass');
 const child = require('child_process');
 const gutil = require('gulp-util');
 const browserSync = require('browser-sync');
+const sourcemaps = require('gulp-sourcemaps');
 
 // PATHS
 const config = {
@@ -30,10 +31,12 @@ const config = {
 //Sass to CSS Task
 gulp.task('css', () => {
   gulp.src(config.paths.cssFiles)
+      .pipe(sourcemaps.init())
       .pipe(sass({
         includePaths: ['node_modules/susy/sass']
       }).on('error', sass.logError))
       .pipe(concat('main.css'))
+      .pipe(sourcemaps.write())
       .pipe(gulp.dest('./_src/assets/css'));
 });
 
