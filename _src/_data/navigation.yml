@@ -24,7 +24,7 @@ topnav:
   url: /get-started
 
 - title: Documentation
-  url: https://apache.github.io/incubator-systemml
+  url: /documentation
 
 - title: Community
   subcategories:

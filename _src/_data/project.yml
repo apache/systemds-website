@@ -60,6 +60,6 @@ website_repository_mirror: https://github.com/apache/incubator-systemml-website
 
 download: /download.html
 
-documentation: https://apache.github.io/incubator-systemml
+documentation: /documentation.html
 
 podling: true
