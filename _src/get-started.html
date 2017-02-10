@@ -40,7 +40,7 @@ limitations under the License.
     </div>
     <div class="col col-6 content-group content-group--more-padding">
       <h2>SystemML Beginner Tutorial</h2>
-      <h4><strong>Level:</strong> Beginner &nbsp; &vert; &nbsp; <strong>Time:</strong> 20 minutes</h4><br>
+      <h4><strong>Level:</strong> Beginner &nbsp; | &nbsp; <strong>Time:</strong> 20 minutes</h4><br>
       <p><bdi>How to set up and run Apache SystemML locally.</bdi></p>
       <a class="button button-secondary" href="https://apache.github.io/incubator-systemml" target="_blank">Docs</a>
     </div>
@@ -102,6 +102,8 @@ pip install jupyter matplotlib numpy</code></pre>
     <div class="col col-12">
       <pre><code>brew tap homebrew/versions
 brew install apache-spark16</code></pre>
+
+    <p> Alternatively, you can <a href="http://spark.apache.org/downloads.html">download Spark</a> directly. </p>
     </div>
 
     <!-- Step 4 Instructions -->
@@ -111,23 +113,24 @@ brew install apache-spark16</code></pre>
 
     <!-- Step 4 Code -->
     <div class="col col-12">
-      <p>Download <a href="http://www.apache.org/dyn/closer.cgi/pub/apache/incubator/systemml/0.10.0-incubating/systemml-0.10.0-incubating.zip" target="_blank">systemml-0.10.0-incubating.zip</a> and unzip it to a location of your choice.<br>
-          This is optional, but will be much easier in the long run: move SystemML to your bash profile. </p>
-          <pre><code>vim .bash_profile
-i
-# 1 line:
-export SYSTEMML_HOME=/Users/stc/Documents/systemml-0.10.0-incubating
-:wq</code></pre>
-          <p>
-Similar to the Scala API, SystemML also provides a Python MLContext API. In addition to the regular SystemML.jar file, you’ll need to install the Python API as follows:</p>
-          <pre><code>Python 2:
+
+	<p>
+	If you are a python user, we recommend that you download and install Apache SystemML via pip:
+	</p>
+	<pre><code>Python 2:
 pip install systemml
 # Bleeding edge: pip install git+git://github.com/apache/incubator-systemml.git#subdirectory=src/main/python
 
 Python 3:
 pip3 install systemml
 # Bleeding edge: pip3 install git+git://github.com/apache/incubator-systemml.git#subdirectory=src/main/python</code></pre>
-        </div>
+
+	<p>
+	Alternatively, if you intend to use SystemML via spark-shell (or spark-submit), you only need systemml-0.12.0-incubating.jar, which is packaged into our official binary release (<a href="http://www.apache.org/dyn/closer.cgi/pub/apache/incubator/systemml/0.12.0-incubating/systemml-0.12.0-incubating.zip" target="_blank">systemml-0.12.0-incubating.zip</a>).
+	Note: If you have installed SystemML via pip, you can get the location of this jar by executing following command:
+	</p>
+	<pre><code>python -c 'import imp; import os; print os.path.join(imp.find_module("systemml")[1], "systemml-java")'</code></pre>
+
     </div>
 
     <!-- Section 3 -->
@@ -135,7 +138,31 @@ pip3 install systemml
       <!-- Section Header -->
       <div class="col col-12 content-group--medium-bottom-margin">
         <h2>Ways to Use</h2>
-        <p>How to Use SystemML.</p>
+        <p>You can use SystemML in one of the following ways:
+	<ol>
+		<li>On Cluster (using our programmatic APIs):
+			<ul>
+				<li>Using pyspark: Please see our <a href="http://apache.github.io/incubator-systemml/beginners-guide-python">beginner's guide for python users</a>.</li>
+				<li>Using Jupyter: Described below in step 5.</li>
+				<li>Using spark-shell: Described below in step 6.</li>
+			</ul>
+		</li>
+
+		<li>On Cluster (command-line batch mode):
+			<ul>
+				<li>Using spark-submit: Please see our <a href="http://apache.github.io/incubator-systemml/spark-batch-mode">spark batch mode tutorial</a>.</li>
+				<li>Using hadoop: Please see our <a href="http://apache.github.io/incubator-systemml/hadoop-batch-mode">hadoop batch model tutorial</a>.</li>
+			</ul>
+		</li>
+
+		<li>On laptop (command-line batch mode) without installing Spark or Hadoop: Please see our <a href="http://apache.github.io/incubator-systemml/standalone-guide">standalone mode tutorial</a>.</li>
+
+		<li>In-memory mode (as part of another Java application for scoring): Please see our <a href="http://apache.github.io/incubator-systemml/jmlc">JMLC tutorial</a>.</li>
+	</ol>
+
+	<p>
+	Note that you can also run pyspark, spark-shell, spark-submit on you laptop using "--master local[*]" parameter.
+	</p>
       </div>
 
       <!-- Step 5 Instructions -->
