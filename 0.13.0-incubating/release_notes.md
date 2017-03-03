@@ -1,6 +1,6 @@
 ---
 layout: page
-title: SystemML 0.12.0-incubating Release Notes
+title: SystemML 0.13.0-incubating Release Notes
 description: Project Release Notes
 group: nav-right
 ---
@@ -24,7 +24,7 @@ limitations under the License.
 -->
 <br/><br/><br/>
 
-The **Apache SystemML 0.13.0-incubating release** was approved on March 3, 2017. It is the fifth release of Apache SystemML since it
+The **Apache SystemML 0.13.0-incubating release** was approved on March 2, 2017. It is the fifth release of Apache SystemML since it
 became an incubator project on November 2nd, 2015. Updates have been made to the project in several areas, as detailed below.
 
 
