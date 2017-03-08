@@ -93,6 +93,12 @@
   role: PMC Member
   org: IBM
 
+- name: Nakul Jindal
+  apacheId: nakul02
+  githubId: nakul02
+  role: PMC Member
+  org: IBM
+
 - name: Niketan Pansare
   apacheId: niketanpansare
   githubId: niketanpansare
