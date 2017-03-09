@@ -63,6 +63,12 @@
   role: PMC Member
   org: IBM
 
+- name: Henry Saputra
+  apacheId: hsaputra
+  githubId: hsaputra
+  role: PMC Member, Mentor
+  org: eBay
+
 - name: Holden Karau
   apacheId: holden
   githubId: holdenk
@@ -78,7 +84,7 @@
 - name: Luciano Resende
   apacheId: lresende
   githubId: lresende
-  role: PMC Member
+  role: PMC Member, Mentor
   org: IBM
 
 - name: Matthias Boehm
