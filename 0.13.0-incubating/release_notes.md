@@ -37,8 +37,7 @@ became an incubator project on November 2nd, 2015. Updates have been made to the
 - Versioned documentation
 
 ### Experimental Features / Algorithms
-- Compressed Linear Algebra - Hardening Sample-Based Estimators (special cases)
-- Compressed Linear Algebra - Debugging Tools (compression plans, stats)
+- Compressed Linear Algebra v2 (new DDC encoding format, hardened sample-based estimators, debugging tools, new column grouping algorithm, additional operations)
 
 ### Various Fixes
 * Bug fixes for diverse issues.  See [JIRA release notes](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12319522&version=12339247) for complete list.
