@@ -43,6 +43,10 @@ pre {
   white-space: pre\9; /* IE7+ */
 }
 
+code {
+  overflow: scroll;
+}
+
 .text-center {
   text-align: center;
 }
