@@ -95,26 +95,26 @@ pip install jupyter matplotlib numpy{% endhighlight %}
     <!-- Section Header -->
     <div class="col col-12 content-group--medium-bottom-margin">
       <h2>Downloads</h2>
-      <p>Download Spark and SystemML.</p>
+      <p>Download Apache Spark and Apache SystemML.</p>
     </div>
 
     <!-- Step 3 Instructions -->
     <div class="col col-12">
-      <h3><span class="circle">3</span>Download and Install Spark 1.6</h3>
+      <h3><span class="circle">3</span>Download and Install Apache Spark</h3>
     </div>
 
     <!-- Step 3 Code -->
     <div class="col col-12">
       {% highlight bash %}
 brew tap homebrew/versions
-brew install apache-spark16{% endhighlight %}
+brew install apache-spark{% endhighlight %}
 
-    <p> Alternatively, you can <a href="http://spark.apache.org/downloads.html">download Spark</a> directly. </p>
+    <p> Alternatively, you can <a href="http://spark.apache.org/downloads.html">download Apache Spark</a> directly. </p>
     </div>
 
     <!-- Step 4 Instructions -->
     <div class="col col-12">
-      <h3><span class="circle">4</span>Download and Install SystemML</h3>
+      <h3><span class="circle">4</span>Download and Install Apache SystemML</h3>
     </div>
 
     <!-- Step 4 Code -->
@@ -136,11 +136,19 @@ pip3 install systemml
 
 
     	<p>
-    	Alternatively, if you intend to use SystemML via spark-shell (or spark-submit), you only need systemml-0.12.0-incubating.jar, which is packaged into our official binary release (<a href="http://www.apache.org/dyn/closer.lua/incubator/systemml/0.12.0-incubating/systemml-0.12.0-incubating-bin.zip" target="_blank">systemml-0.12.0-incubating.zip</a>).
+    	Alternatively, if you intend to use SystemML via spark-shell (or spark-submit), you only need systemml-{{ site.data.project.release_version }}.jar, which is packaged into our official binary release (<a href="http://www.apache.org/dyn/closer.lua/incubator/systemml/{{ site.data.project.release_version }}/systemml-{{ site.data.project.release_version }}-bin.zip" target="_blank">systemml-{{ site.data.project.release_version }}-bin.zip</a>).
     	Note: If you have installed SystemML via pip, you can get the location of this jar by executing following command:
     	</p>
       {% highlight bash %}
 python -c 'import imp; import os; print os.path.join(imp.find_module("systemml")[1], "systemml-java")'{% endhighlight %}
+
+    	<p>
+    	Note - For Spark 1.6 users only, include a version specifier to download and install compatible Apache SystemML via pip:
+    	</p>
+      {% highlight bash %}
+# For Spark 1.6 users with Python 2:
+pip install "systemml<0.13.0"
+{% endhighlight %}
 
     </div>
 
