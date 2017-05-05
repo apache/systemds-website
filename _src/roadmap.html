@@ -39,8 +39,10 @@ limitations under the License.
       <h2>Planned for Future SystemML 1.0</h2>
       <ul>
         <li>Rigorous Performance and Scalability Testing (Bug Fixes)</li>
-        <li>Remove Deprecated APIs</li>
-        <li>Remove Deprecated Functions</li>
+        <li>Remove Deprecated APIs/Functions</li>
+        <li>Compression (additional operations)</li>
+        <li>Decomposition Algorithms</li>
+        <li>Experimental Features Improvements (Native BLAS, Single GPU, Deep Learning, Code Generation, Python DSL)
       </ul>
     </div>
 
@@ -48,19 +50,50 @@ limitations under the License.
       <h2>Planned for Future Releases</h2>
       <ul>
         <li>Completion of Prior Experimental Features</li>
-        <li>New Algorithms: Non-linear SVMs, Solvers, Decomposition, Inversion, etc.</li>
-        <li>DSLs (e.g. Scala, Python) and Common DSL Architecture</li>
+        <li>New Algorithms</li>
+        <li>Common DSL Architecture</li>
         <li>R Interfaces: R DSL and R Wrappers</li>
         <li>Native Zeppelin Notebook Support</li>
-        <li>Code Generation</li>
         <li>Sum Product Optimizations</li>
         <li>Tree-based Data Structures</li>
         <li>Global Dataflow Optimizations</li>
+        <li>Tooling</li>
       </ul>
     </div>
 
     <div class="col col-12">
       <h2>Current Release</h2>
+      <ul>
+        <li>
+          <strong>SystemML 0.14.0-incubating (<a href="https://github.com/apache/incubator-systemml-website/blob/master/0.14.0-incubating/release_notes.md">released</a> in May, 2017)
+          <a href="https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12319522&version=12340322">details</a></strong>
+          <ul>
+            <li>Runtime feature extensions (new libsvm-binary data converters, parfor spark buffer pool handling, parfor block partitioning of fixed size batches of rows or columns, native dataset support in parfor spark datapartition-execute)</li>
+            <li>Compiler feature extensions (improved parfor execution type selection, improved literal replacement for nrow/ncol, simplified instruction generation across back-ends, consolidated static/dynamic rewrite utilities)</li>
+          </ul>
+        </li>
+        <li>
+          Experimental Features
+          <ul>
+            <li>New Code Generation capabilities for automatic operator fusion (basic code generator, compiler integration, runtime integration, in-memory source code compilation, extended explain tool, support for right indexing and replace in cellwise and row aggregate templates, support for row, column, or no aggregation in rowwise template).
+            Note code generation provides significant performance gains with fewer read/write intermediates, reduced scans of inputs and intermediates, and enhanced sparsity exploitation. To enable this feature, set codegen.enabled property to true in SystemML-config.xml file.</li>
+            <li>New layers for Deep Learning DML Library (batch normalization, spatial batch normalization, 1D/2D "Scale & Shift")</li>
+            <li>New instructions and operators for GPU support (relu_maxpooling, conv2d_bias_add, bias_multiply)</li>
+          </ul>
+        </li>
+        <li>
+          Removals
+          <ul>
+            <li>Removed support for Java 6 and Java 7</li>
+            <li>Removed parfor perftesttool and cost estimator</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div class="col col-12">
+      <h2>Prior Releases</h2>
+  
       <ul>
         <li>
           <strong>SystemML 0.13.0-incubating (<a href="https://github.com/apache/incubator-systemml-website/blob/master/0.13.0-incubating/release_notes.md">released</a> in March, 2017)
@@ -100,10 +133,7 @@ limitations under the License.
           </ul>
         </li>
       </ul>
-    </div>
 
-    <div class="col col-12">
-      <h2>Prior Releases</h2>
       <ul>
         <li>
           <strong>SystemML 0.12.0-incubating (<a href="https://github.com/apache/incubator-systemml-website/blob/master/0.12.0-incubating/release_notes.md">released</a> in February, 2017)
