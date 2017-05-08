@@ -34,7 +34,6 @@ became an incubator project on November 2nd, 2015. Updates have been made to the
 
 ### Experimental Features
 - New Code Generation capabilities for automatic operator fusion (basic code generator, compiler integration, runtime integration, in-memory source code compilation, extended explain tool, support for right indexing and replace in cellwise and row aggregate templates, support for row, column, or no aggregation in rowwise template).  Note code generation provides significant performance gains with fewer read/write intermediates, reduced scans of inputs and intermediates, and enhanced sparsity exploitation.  To enable this feature, set `codegen.enabled` property to `true` in SystemML-config.xml file.
-- New layers for Deep Learning DML Library (batch normalization, spatial batch normalization, 1D/2D "Scale & Shift")
 - New instructions and operators for GPU support (relu\_maxpooling, conv2d\_bias\_add, bias\_multiply)
 
 ### Removals
