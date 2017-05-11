@@ -22,7 +22,18 @@ See the License for the specific language governing permissions and
 limitations under the License.
 {% endcomment %}
 -->
-<br/><br/><br/>
+
+<section class="full-stripe full-stripe--subpage-header clear-header">
+  <div class="ml-container ml-container--horizontally-center">
+    <div class="col col-12 content-group content-group--center-content content-group--center-align">
+      <h1>{{ site.data.project.name }} 0.14.0-incubating Release Notes</h1>
+    </div>
+  </div>
+</section>
+
+<section class="full-stripe full-stripe--alternate">
+  <div class="ml-container">
+    <div class="col col-12 content-group content-group--medium-bottom-margin" markdown="1">
 
 The **Apache SystemML 0.14.0-incubating release** was approved on May 8, 2017. It is the sixth release of Apache SystemML since it
 became an incubator project on November 2nd, 2015. Updates have been made to the project in several areas, as detailed below.
@@ -42,3 +53,5 @@ became an incubator project on November 2nd, 2015. Updates have been made to the
 
 ### Various Fixes
 * Bug fixes for diverse issues.  See [JIRA release notes](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12319522&version=12340322) for complete list.
+
+
