@@ -1,6 +1,6 @@
 ---
 layout: page
-title: SystemML 0.13.0-incubating Release Notes
+title: SystemML 0.12.0-incubating Release Notes
 description: Project Release Notes
 group: nav-right
 ---
@@ -22,22 +22,35 @@ See the License for the specific language governing permissions and
 limitations under the License.
 {% endcomment %}
 -->
-<br/><br/><br/>
 
-The **Apache SystemML 0.13.0-incubating release** was approved on March 2, 2017. It is the fifth release of Apache SystemML since it
+<section class="full-stripe full-stripe--subpage-header clear-header">
+  <div class="ml-container ml-container--horizontally-center">
+    <div class="col col-12 content-group content-group--center-content content-group--center-align">
+      <h1>{{ site.data.project.name }} 0.12.0-incubating Release Notes</h1>
+    </div>
+  </div>
+</section>
+
+<section class="full-stripe full-stripe--alternate">
+  <div class="ml-container">
+    <div class="col col-12 content-group content-group--medium-bottom-margin" markdown="1">
+
+The **Apache SystemML 0.12.0-incubating release** was approved on February 7, 2017. It is the fourth release of Apache SystemML since it
 became an incubator project on November 2nd, 2015. Updates have been made to the project in several areas, as detailed below.
 
 
-### New Features and Capabilities
-- Updated build for Spark 2.1.0 and Hadoop 2.6.0
-- New simplification rewrites for stratstats
-- New fused operator tack+* in CP and Spark
-- New dmlFromResource capability in Python (equivalent to Scala)
-- Add input float support to MLContext
-- Versioned documentation
+### New Features
+- Support pip install of new python package
+- Allow NumPy arrays, Pandas DataFrame and SciPy matrices as input to MLContext
+- Improve SystemML Python DSL for NumPy
+- Updated build for Spark 1.6.0
+- DML utility script to shuffle input dataset
 
 ### Experimental Features / Algorithms
-- Compressed Linear Algebra v2 (new DDC encoding format, hardened sample-based estimators, debugging tools, new column grouping algorithm, additional operations)
+- GPU Enhancements
 
 ### Various Fixes
-* Bug fixes for diverse issues.  See [JIRA release notes](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12319522&version=12339247) for complete list.
+* Several bug fixes for diverse issues
+
+
+
