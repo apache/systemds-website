@@ -27,17 +27,10 @@
 }
 
 #award {
-  background-image: url("/assets/img/mobile-award.png");
-  background-size: 167px 47px;
-  width: 167px;
-  height: 47px;
-  margin-bottom: 2em;
-
   @media (min-width: 64em) {
-    background-image: url("/assets/img/award.png");
-    background-size: 170px 100px;
-    width: 170px;
-    height: 100px;
+    background-image: url("/assets/img/apache-foundation-logo.png");
+    background-repeat: no-repeat;
+    background-size: contain;
   }
 }
 
