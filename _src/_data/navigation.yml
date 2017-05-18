@@ -23,8 +23,11 @@ topnav:
 - title: Get Started
   url: /get-started
 
-- title: Documentation
+- title: Docs
   url: /documentation
+
+- title: Roadmap
+  url: /roadmap
 
 - title: Community
   subcategories:
