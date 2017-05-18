@@ -125,3 +125,25 @@
 	width: 100%;
 	height: 100%;
 }
+
+//Notebook Cards
+.nb-card {
+  display: flex;
+  flex: 0 1 1;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 1.25em;
+  background-color: #ffffff;
+  box-shadow: $shadow-default;
+  margin: 1em;
+  h3 {
+    margin-bottom: 1em;
+  }
+  .nb-link {
+    display: flex;
+    align-items: center;
+    .icon {
+      margin-right: 10px;
+    }
+  }
+}

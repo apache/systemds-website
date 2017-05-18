@@ -234,7 +234,7 @@ $button-speed--faster           : all .1s ease-in-out;
 // ============
 
 $shadow-color           : rgba(0, 0, 0, .1);
-$shadow-default         : 0 2px 2px 0 $shadow-color; //double check this
+$shadow-default         : 0px 2px 2px 0px $shadow-color; //double check this
 $shadow-toggle-color    : rgb(77, 144, 254);
 $shadow-toggle          : 0 0 5px 2px $shadow-toggle-color; // #4D90FE
 $shadow-checkbox-color  : rgba(77, 144, 254, .5);
