@@ -96,4 +96,154 @@ limitations under the License.
         </li>
       </ul>
     </div>
+
+    <div class="col col-12">
+      <h2>Prior Releases</h2>
+
+      <ul>
+        <li>
+          <strong>SystemML 0.13.0-incubating (<a href="release-notes/systemml-release-notes-0.13.0-incubating.html">released</a> in March, 2017)
+          <a href="https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12319522&version=12339247">details</a></strong>
+          <ul>
+            <li>Updated build for Spark 2.1.0</li>
+			<li>New simplification rewrites for stratstats</li>
+			<li>New fused operator tack+* in CP and Spark</li>
+            <li>New dmlFromResource capability in Python (equivalent to Scala)</li>
+			<li>Add input float support to MLContext</li>
+          </ul>
+        </li>
+        <li>
+          Documentation Enhancements
+          <ul>
+            <li>Deploy versioned documentation to main project website</li>
+			<li>Add python mlcontext example to engine dev guide</li>
+			<li>Add MLContext info functionality to docs</li>
+			<li>Update DML Language Reference for write description parameter</li>
+          </ul>
+        </li>
+        <li>
+          Deprecations, Removals
+          <ul>
+            <li>Deprecate old MLContext API</li>
+			<li>Deprecate parfor perftesttool</li>
+			<li>Deprecate SQLContext methods</li>
+			<li>Replace deprecated Accumulator with AccumulatorV2</li>
+			<li>Replace append with cbind for matrices</li>
+			<li>Migrate Vector and LabeledPoint classes from mllib to ml</li>
+          </ul>
+        </li>
+        <li>
+          Experimental Features / Algorithms
+          <ul>
+            <li>Compressed Linear Algebra v2 (new DDC encoding format, hardened sample-based estimators, debugging tools, new column grouping algorithm, additional operations)</li>
+          </ul>
+        </li>
+      </ul>
+
+      <ul>
+        <li>
+          <strong>SystemML 0.12.0-incubating (<a href="release-notes/systemml-release-notes-0.12.0-incubating.html">released</a> in February, 2017)
+          <a href="https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12319522&version=12339246">details</a></strong>
+          <ul>
+            <li>Support pip install of new python package</li>
+            <li>Allow NumPy arrays, Pandas DataFrame and SciPy matrices as input to MLContext</li>
+            <li>Improve SystemML Python DSL for NumPy</li>
+			<li>Updated build for Spark 1.6.0</li>
+			<li>DML utility script to shuffle input dataset</li>
+          </ul>
+        </li>
+        <li>
+          Experimental Features / Algorithms
+          <ul>
+            <li>GPU Enhancements</li>
+          </ul>
+        </li>
+      </ul>
+
+      <ul>
+        <li>
+          <strong>SystemML 0.11.0-incubating (<a href="release-notes/systemml-release-notes-0.11.0-incubating.html">released</a> in November, 2016)
+          <a href="https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12319522&version=12335820">details</a></strong>
+          <ul>
+            <li>SystemML frames</li>
+            <li>New MLContext API</li>
+            <li>Transform functions based on SystemML frames</li>
+          </ul>
+        </li>
+        <li>
+          Experimental Features / Algorithms
+          <ul>
+            <li>New built-in functions for deep learning (convolution and pooling)</li>
+            <li>Deep learning library (DML bodied functions)</li>
+            <li>Python DSL Integration</li>
+            <li>GPU Support</li>
+            <li>Compressed Linear Algebra</li>
+          </ul>
+        </li>
+        <li>
+          New Algorithms
+          <ul>
+            <li>Lasso</li>
+            <li>kNN</li>
+            <li>Lanczos</li>
+            <li>PPCA</li>
+          </ul>
+        </li>
+        <li>
+          Deep Learning Algorithms
+          <ul>
+            <li>CNN (Lenet)</li>
+            <li>RBM</li>
+          </ul>
+        </li>
+      </ul>
+
+      <ul>
+        <li>
+          <strong>SystemML 0.10.0-incubating (<a href="release-notes/systemml-release-notes-0.10.0-incubating.html">released</a> in June, 2016)
+          <a href="https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12319522&version=12334651">details</a></strong>
+          <ul>
+            <li>Different types of Spark Matrix Blocks: MCSR, CSR, COO</li>
+            <li>SystemML Frame support in JMLC/CP</li>
+            <li>Initial Deep Learning support</li>
+            <li>API/Scripts: parser error handling, SystemML configuration handling,</li>
+          </ul>
+        </li>
+        <li>
+          Include Algorithms in SystemML jar, print matrix
+          <ul>
+            <li>New fused operator: wdivmm with variations</li>
+            <li>Performance Features: cache-conscious operations, more multithreaded</li>
+          </ul>
+        </li>
+        <li>
+          Operations, New Simplications Rewrites
+          <ul>
+            <li>New Algorithms: kNN</li>
+            <li>Documentation: javadocs, Jupyter/Zeppeling notebook examples</li>
+          </ul>
+        </li>
+      </ul>
+
+      <ul>
+        <li>
+          <strong>SystemML 0.9.0-incubating (<a href="release-notes/systemml-release-notes-0.9.0-incubating.html">released</a> in January, 2016)
+          <a href="https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12319522&version=12334650">details</a></strong>
+          <ul>
+            <li>Improvements to MLContext and MLPipeline wrappers</li>
+            <li>New converter utilities for RDDs and DataFrames</li>
+            <li>New Optimizations for Spark Backend, e.g. eager RDD caching and</li>
+          </ul>
+        </li>
+        <li>
+          Repartitioning, RDD Checkpointing, On-Demand Creation of SparkContext
+          <ul>
+            <li>New Runtime Operators for mmult, multihreaded readers and operators.</li>
+            <li>New Algoriths: ALS, Cubic Splines</li>
+            <li>Online Documentation</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
 </section>
