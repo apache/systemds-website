@@ -148,3 +148,29 @@
     }
   }
 }
+
+//Horizontal Tabs
+ul.ml-tabs {
+  list-style: none;
+  margin: 0 0 -3px 1em;
+  position: relative;
+  z-index: 2;
+  li {
+    display: inline-block;
+    padding: .5em 1em;
+    cursor: pointer;
+    &.current {
+      font-weight: 400;
+      background: #fff;
+      border: 1px solid #e0e0e0;
+      border-bottom: 0;
+    }
+  }
+}
+.tab-content {
+  display: none;
+  margin-top: 2px;
+  &.current {
+    display: block;
+  }
+}
