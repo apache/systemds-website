@@ -1,5 +1,20 @@
 @import 'layout/index';
 
+.flex-container {
+  @media (min-width: 80em) {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    h4 {
+      text-align: center;
+    }
+    .nb-card {
+      flex-basis: 30%;
+    }
+  }
+}
+
 // content container
 .ml-container {
 
@@ -27,6 +42,10 @@
         vertical-align: middle;
       }
     }
+  }
+
+  &--stretch {
+    align-items: stretch;
   }
 
   &--halfway{
