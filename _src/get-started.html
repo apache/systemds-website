@@ -32,257 +32,65 @@ limitations under the License.
   </div>
 </section> -->
 
-<!-- Overview-->
-<section class="full-stripe clear-header">
+<!-- Install SystemML -->
+<section class="full-stripe full-stripe--alternate">
   <div class="ml-container ml-container--vertically-centered ml-container--reverse-order">
     <div class="col col-6 content-group content-group--more-padding">
       <img src="/assets/img/robotTutorialSm.png" alt="What is Apache SystemML?">
     </div>
-    <div class="col col-6 content-group content-group--more-padding">
-      <h2>SystemML Beginner Tutorial</h2>
+    <div class="col col-6 content-group content-group--more-padding button-group">
+      <h2>Install SystemML</h2>
       <h4><strong>Level:</strong> Beginner &nbsp; | &nbsp; <strong>Time:</strong> 20 minutes</h4><br>
-      <p><bdi>How to set up and run Apache SystemML locally.</bdi></p>
+      <p>New to Apache SystemML? Try our Get Started tutorial that will walk you through setting up your environment and getting you up and going with SystemML.</p>
       <a class="button button-secondary" href="https://apache.github.io/incubator-systemml" target="_blank">Docs</a>
+      <a class="button button-primary" href="install-systemml.html">Install SystemML</a>
     </div>
   </div>
-</section>
-
-<!-- Tutorial Instructions -->
-<section class="full-stripe full-stripe--alternate">
-
-  <!-- Section 1 -->
-  <div class="ml-container content-group content-group--tutorial border">
-    <!-- Section Header -->
-    <div class="col col-12 content-group--medium-bottom-margin">
-      <h2>Assumptions</h2>
-      <p>If you haven’t run Apache SystemML before, make sure to set up your environment first.</p>
+  <!-- Sample Notebooks -->
+  <h2 class="text-center">Sample Notebooks</h2>
+  <div class="flex-container">
+    <div class="nb-card">
+        <h3>Autoencoder</h3>
+        <p>This notebook demonstrates the invocation of the SystemML autoencoder script, and alternative ways of passing in/out data.</p>
+        <a class="nb-link" href="https://github.com/apache/incubator-systemml/blob/master/samples/jupyter-notebooks/Autoencoder.ipynb" target="_blank"><span class="icon jupyter-logo"></span><span>View on Github</span></a>
+    </div>
+    <div class="nb-card">
+        <h3>Deep Learning Image Classification</h3>
+        <p>This notebook shows SystemML Deep Learning functionality to map images of single digit numbers to their corresponding numeric representations.</p>
+        <a class="nb-link" href="https://github.com/apache/incubator-systemml/blob/master/samples/jupyter-notebooks/Deep_Learning_Image_Classification.ipynb" target="_blank"><span class="icon jupyter-logo"></span><span>View on Github</span></a>
+    </div>
+    <div class="nb-card">
+        <h3>Linear Regression Algorithms Demo</h3>
+        This notebook shows:
+          <ul>
+            <li>Install SystemML Python package and jar file</li>
+            <ul>
+              <li>pip</li>
+              <li>SystemML 'Hello World'</li>
+            </ul>
+          </ul>
+        <a class="nb-link" href="https://github.com/apache/incubator-systemml/blob/master/samples/jupyter-notebooks/Linear_Regression_Algorithms_Demo.ipynb" target="_blank"><span class="icon jupyter-logo"></span><span>View on Github</span></a>
+    </div>
+    <div class="nb-card">
+        <h3>SystemML PySpark Recommendation Demo</h3>
+        <p>This demonstrates using SystemML for product recommendationg using Poisson NonNegative Matrix Factorization (PNMF) with PNMF algorithm written using R like syntax.</p>
+        <a class="nb-link" href="https://github.com/apache/incubator-systemml/blob/master/samples/jupyter-notebooks/SystemML-PySpark-Recommendation-Demo.ipynb" target="_blank"><span class="icon jupyter-logo"></span><span>View on Github</span></a>
+    </div>
+    <div class="nb-card">
+        <h3>SystemML Scala Tutorial</h3>
+        <p>This tutorial includes simple example to run DML script and display output.</p>
+        <a class="nb-link" href="https://github.com/apache/incubator-systemml/blob/master/samples/jupyter-notebooks/tutorial1.ipynb" target="_blank"><span class="icon jupyter-logo"></span><span>View on Github</span></a>
+    </div>
+    <div class="nb-card">
+        <h3>SystemML LinearRegCG</h3>
+        <p>SystemML Linear Regression in Zeppelin Notebook.</p>
+        <a class="nb-link" href="https://github.com/apache/incubator-systemml/blob/master/samples/zeppelin-notebooks/SystemML_LinearRegCG.json" target="_blank"><span class="icon zeppelin-logo"></span><span>View on Github</span></a>
+    </div>
+    <div class="nb-card">
+        <h3>SystemML Zeppelin Tutorial</h3>
+        <p>SystemML Zeppelin tutorial.</p>
+        <a class="nb-link" href="https://github.com/apache/incubator-systemml/blob/master/samples/zeppelin-notebooks/tutorial1_zeppelin.json" target="_blank"><span class="icon zeppelin-logo"></span><span>View on Github</span></a>
     </div>
 
-    <!-- Step 1 Instructions -->
-    <div class="col col-12">
-      <h3><span class="circle">1</span>Install Homebrew</h3>
-    </div>
-
-    <!-- Step 1 Code -->
-    <div class="col col-12">
-
-
-      {% highlight bash %}
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-# Linux
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install)"{% endhighlight %}
-
-    </div>
-
-    <!-- Step 2 Instructions -->
-    <div class="col col-12">
-      <h3><span class="circle">2</span>Install Java</h3>
-    </div>
-
-    <!-- Step 2 Code -->
-    <div class="col col-12">
-      {% highlight bash %}
-brew tap caskroom/cask
-brew install Caskroom/cask/java
-
-brew install python
-pip install jupyter matplotlib numpy{% endhighlight %}
-    </div>
   </div>
-
-  <!-- Section 2 -->
-  <div class="ml-container content-group content-group--tutorial border">
-    <!-- Section Header -->
-    <div class="col col-12 content-group--medium-bottom-margin">
-      <h2>Downloads</h2>
-      <p>Download Apache Spark and Apache SystemML.</p>
-    </div>
-
-    <!-- Step 3 Instructions -->
-    <div class="col col-12">
-      <h3><span class="circle">3</span>Download and Install Apache Spark</h3>
-    </div>
-
-    <!-- Step 3 Code -->
-    <div class="col col-12">
-      {% highlight bash %}
-brew tap homebrew/versions
-brew install apache-spark{% endhighlight %}
-
-    <p> Alternatively, you can <a href="http://spark.apache.org/downloads.html">download Apache Spark</a> directly. </p>
-    </div>
-
-    <!-- Step 4 Instructions -->
-    <div class="col col-12">
-      <h3><span class="circle">4</span>Download and Install Apache SystemML</h3>
-    </div>
-
-    <!-- Step 4 Code -->
-    <div class="col col-12">
-
-    	<p>
-    	If you are a python user, we recommend that you download and install Apache SystemML via pip:
-    	</p>
-      {% highlight bash %}
-# Python 2
-pip install systemml
-# Bleeding edge: pip install git+git://github.com/apache/incubator-systemml.git#subdirectory=src/main/python{% endhighlight %}
-
-      {% highlight bash %}
-# Python 3:
-pip3 install systemml
-# Bleeding edge: pip3 install git+git://github.com/apache/incubator-systemml.git#subdirectory=src/main/python{% endhighlight %}
-
-
-
-    	<p>
-    	Alternatively, if you intend to use SystemML via spark-shell (or spark-submit), you only need systemml-{{ site.data.project.release_version }}.jar, which is packaged into our official binary release (<a href="http://www.apache.org/dyn/closer.lua/incubator/systemml/{{ site.data.project.release_version }}/systemml-{{ site.data.project.release_version }}-bin.zip" target="_blank">systemml-{{ site.data.project.release_version }}-bin.zip</a>).
-    	Note: If you have installed SystemML via pip, you can get the location of this jar by executing following command:
-    	</p>
-      {% highlight bash %}
-python -c 'import imp; import os; print os.path.join(imp.find_module("systemml")[1], "systemml-java")'{% endhighlight %}
-
-    	<p>
-    	Note - For Spark 1.6 users only, include a version specifier to download and install compatible Apache SystemML via pip:
-    	</p>
-      {% highlight bash %}
-# For Spark 1.6 users with Python 2:
-pip install "systemml<0.13.0"
-{% endhighlight %}
-
-    </div>
-
-    <!-- Section 3 -->
-    <div class="ml-container content-group content-group--tutorial">
-      <!-- Section Header -->
-      <div class="col col-12 content-group--medium-bottom-margin">
-        <h2>Ways to Use</h2>
-        <p>You can use SystemML in one of the following ways:</p>
-      	<ol>
-      		<li>On Cluster (using our programmatic APIs):
-      			<ul>
-      				<li>Using pyspark: Please see our <a href="http://apache.github.io/incubator-systemml/beginners-guide-python">beginner's guide for python users</a>.</li>
-      				<li>Using Jupyter: Described below in step 5.</li>
-      				<li>Using spark-shell: Described below in step 6.</li>
-      			</ul>
-      		</li>
-
-      		<li>On Cluster (command-line batch mode):
-      			<ul>
-      				<li>Using spark-submit: Please see our <a href="http://apache.github.io/incubator-systemml/spark-batch-mode">spark batch mode tutorial</a>.</li>
-      				<li>Using hadoop: Please see our <a href="http://apache.github.io/incubator-systemml/hadoop-batch-mode">hadoop batch model tutorial</a>.</li>
-      			</ul>
-      		</li>
-
-      		<li>On laptop (command-line batch mode) without installing Spark or Hadoop: Please see our <a href="http://apache.github.io/incubator-systemml/standalone-guide">standalone mode tutorial</a>.</li>
-
-      		<li>In-memory mode (as part of another Java application for scoring): Please see our <a href="http://apache.github.io/incubator-systemml/jmlc">JMLC tutorial</a>.</li>
-      	</ol>
-
-      	<p>
-      	Note that you can also run pyspark, spark-shell, spark-submit on you laptop using "--master local[*]" parameter.
-      	</p>
-      </div>
-
-      <!-- Step 5 Instructions -->
-      <div class="col col-12">
-        <h3><span class="circle">5</span>In Jupyter Notebook</h3>
-      </div>
-
-      <!-- Step 5 Code -->
-      <div class="col col-12">
-        <h4>Get Started</h4>
-        <p>Start up your Jupyter notebook by moving to the folder where you saved the notebook. Then copy and paste the line below:</p>
-        {% highlight python %}
-# Python 2:
-PYSPARK_DRIVER_PYTHON=jupyter PYSPARK_DRIVER_PYTHON_OPTS="notebook" pyspark --master local[*] --driver-class-path SystemML.jar --jars SystemML.jar--conf "spark.driver.memory=12g" --conf spark.driver.maxResultSize=0 --conf spark.akka.frameSize=128 --conf spark.default.parallelism=100{% endhighlight %}
-        {% highlight python %}
-# Python 3:
-PYSPARK_PYTHON=python3 PYSPARK_DRIVER_PYTHON=jupyter PYSPARK_DRIVER_PYTHON_OPTS="notebook" pyspark --master local[*] --driver-class-path SystemML.jar --jars SystemML.jar --conf "spark.driver.memory=12g" --conf spark.driver.maxResultSize=0 --conf spark.akka.frameSize=128 --conf spark.default.parallelism=100{% endhighlight %}
-
-      </div>
-
-      <!-- Step 6 Instructions -->
-      <div class="col col-12">
-        <h3><span class="circle">6</span>To Run SystemML in the Spark Shell</h3>
-      </div>
-
-      <!-- Step 6 Code -->
-      <div class="col col-12">
-        <h4>Start Spark Shell with SystemML</h4>
-        <p> To use SystemML with Spark Shell, the SystemML jar can be referenced using Spark Shell’s --jars option. Start the Spark Shell with SystemML with the following line of code in your terminal:</p>
-        {% highlight bash %}
-spark-shell --executor-memory 4G --driver-memory 4G --jars SystemML.jar{% endhighlight %}
-        <!-- <pre><code>spark-shell --executor-memory 4G --driver-memory 4G --jars SystemML.jar</code></pre> -->
-        <h4>Create the MLContext</h4>
-        <p>To begin, start an MLContext by typing the code below. Once successful, you should see a “Welcome to Apache SystemML!” message.</p>
-        {% highlight bash %}
-import org.apache.sysml.api.mlcontext._
-import org.apache.sysml.api.mlcontext.ScriptFactory._
-val ml = new MLContext(sc){% endhighlight %}
-
-        <h4>Hello World</h4>
-        <p>The ScriptFactory class allows DML and PYDML scripts to be created from Strings, Files, URLs, and InputStreams. Here, we’ll use the dmlmethod to create a DML “hello world” script based on a String.  We execute the script using MLContext’s execute method, which displays “hello world” to the console. The execute method returns an MLResults object, which contains no results since the script has no outputs.</p>
-        {% highlight python %}
-val helloScript = dml("print('hello world')")
-ml.execute(helloScript){% endhighlight %}
-        <h4>DataFrame Example</h4>
-        <p>As an example of how to use SystemML, we’ll first use Spark to create a DataFrame called df of random doubles from 0 to 1 consisting of 10,000 rows and 1,000 columns.</p>
-        {% highlight python %}
-import org.apache.spark.sql._
-import org.apache.spark.sql.types.{StructType,StructField,DoubleType}
-import scala.util.Random
-val numRows = 10000
-val numCols = 1000
-val data = sc.parallelize(0 to numRows-1).map { _ => Row.fromSeq(Seq.fill(numCols)(Random.nextDouble)) }
-val schema = StructType((0 to numCols-1).map { i => StructField("C" + i, DoubleType, true) } )
-val df = sqlContext.createDataFrame(data, schema){% endhighlight %}
-
-        <p>We’ll create a DML script using the ScriptFactory dml method to find the minimum, maximum, and mean values in a matrix. This script has one input variable, matrix Xin, and three output variables, minOut, maxOut, and meanOut.
-For performance, we’ll specify metadata indicating that the matrix has 10,000 rows and 1,000 columns.
-We execute the script and obtain the results as a Tuple by calling getTuple on the results, specifying the types and names of the output variables.</p>
-        {% highlight python %}
-val minMaxMean =
-"""
-minOut = min(Xin)
-maxOut = max(Xin)
-meanOut = mean(Xin)
-"""
-val mm = new MatrixMetadata(numRows, numCols)
-val minMaxMeanScript = dml(minMaxMean).in("Xin", df, mm).out("minOut", "maxOut", "meanOut")
-val (min, max, mean) = ml.execute(minMaxMeanScript).getTuple[Double, Double, Double]("minOut", "maxOut", "meanOut"){% endhighlight %}
-        <p>Many different types of input and output variables are automatically allowed. These types include Boolean, Long, Double, String, Array[Array[Double]], RDD<String> and JavaRDD<String> in CSV (dense) and IJV (sparse) formats, DataFrame, BinaryBlockMatrix,Matrix, and Frame. RDDs and JavaRDDs are assumed to be CSV format unless MatrixMetadata is supplied indicating IJV format.</p>
-        <h4>RDD Example:</h4>
-        <p>Let’s take a look at an example of input matrices as RDDs in CSV format. We’ll create two 2x2 matrices and input these into a DML script. This script will sum each matrix and create a message based on which sum is greater. We will output the sums and the message.</p>
-        {% highlight python %}
-val rdd1 = sc.parallelize(Array("1.0,2.0", "3.0,4.0"))
-val rdd2 = sc.parallelize(Array("5.0,6.0", "7.0,8.0"))
-val sums = """
-s1 = sum(m1);
-s2 = sum(m2);
-if (s1 > s2) {
-message = "s1 is greater"
-} else if (s2 > s1) {
-message = "s2 is greater"
-} else {
-message = "s1 and s2 are equal"
-}
-"""
-scala.tools.nsc.io.File("sums.dml").writeAll(sums)
-val sumScript = dmlFromFile("sums.dml").in(Map("m1"-> rdd1, "m2"-> rdd2)).out("s1", "s2", "message")
-val sumResults = ml.execute(sumScript)
-val s1 = sumResults.getDouble("s1")
-val s2 = sumResults.getDouble("s2")
-val message = sumResults.getString("message")
-val rdd1Metadata = new MatrixMetadata(2, 2)
-val rdd2Metadata = new MatrixMetadata(2, 2)
-val sumScript = dmlFromFile("sums.dml").in(Seq(("m1", rdd1, rdd1Metadata), ("m2", rdd2, rdd2Metadata))).out("s1", "s2", "message")
-val (firstSum, secondSum, sumMessage) = ml.execute(sumScript).getTuple[Double, Double, String]("s1", "s2", "message"){% endhighlight %}
-      <p>Congratulations! You’ve now run examples in Apache SystemML!</p>
-    </div>
-  </div>
-
-
-
-
 </section>

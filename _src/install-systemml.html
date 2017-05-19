@@ -1,0 +1,174 @@
+---
+layout: page
+title: Get Started
+description: Get-Started Page
+group: nav-right
+---
+<!--
+{% comment %}
+Licensed to the Apache Software Foundation (ASF) under one or more
+contributor license agreements.  See the NOTICE file distributed with
+this work for additional information regarding copyright ownership.
+The ASF licenses this file to you under the Apache License, Version 2.0
+(the "License"); you may not use this file except in compliance with
+the License.  You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+{% endcomment %}
+-->
+
+<!-- Hero  -->
+<!-- <section class="full-stripe full-stripe--subpage-header clear-header">
+  <div class="ml-container ml-container--horizontally-center">
+    <div class="col col-12 content-group">
+      <h1>Tutorials</h1>
+    </div>
+  </div>
+</section> -->
+
+
+<!-- Tutorial Instructions -->
+<section class="full-stripe full-stripe--alternate">
+
+  <!-- Section 1 -->
+  <div class="ml-container content-group content-group--tutorial border">
+    <!-- Section Header -->
+    <div class="col col-12 content-group--medium-bottom-margin">
+      <h2>Install SystemML</h2>
+    </div>
+
+    <!-- Step 1 Instructions -->
+    <div class="col col-12">
+      <h3><span class="circle">1</span>Pre-requisite</h3>
+    </div>
+
+    <!-- Step 1 Code -->
+    <div class="col col-12">
+
+      <p class="indent">Apache Spark 2.x</p>
+      <p class="indent">Set SPARK_HOME to a location where Spark 2.x has installed.</p>
+
+    </div>
+
+    <!-- Step 2 Instructions -->
+    <div class="col col-12">
+      <h3><span class="circle">2</span>Setup</h3>
+    </div>
+
+    <!-- Step 2 Code -->
+    <ul class="ml-tabs">
+		<li class="tab-link current" data-tab="tab-1">2.1 Python</li>
+		<li class="tab-link" data-tab="tab-2">2.2 Scala</li>
+		<li class="tab-link" data-tab="tab-3">2.3 Dev Python (Latest code)</li>
+		<li class="tab-link" data-tab="tab-4">2.4 Dev Scala (Latest code)</li>
+	</ul>
+
+	<div id="tab-1" class="col col-12 tab-content current">
+		  {% highlight bash %}
+      # Install SystemML
+      pip install systemml
+      {% endhighlight %}
+    </code>
+	</div>
+	<div id="tab-2" class="col col-12 tab-content">
+    <pre>Download and extract SystemML jar (systemml-0.14.0-incubating-SNAPSHOT.jar) file from systemml-0.14.0-incubating-bin.tgz or systemml-0.14.0-incubating-bin.tgz file located on <a href="https://dist.apache.org/repos/dist/release/incubator/systemml/0.14.0-incubating/">https://dist.apache.org/repos/dist/release/incubator/systemml/0.14.0-incubating/</a></pre>
+	</div>
+	<div id="tab-3" class="col col-12 tab-content">
+    {% highlight bash %}# Install latest SystemML
+pip install https://sparktc.ibmcloud.com/repo/latest/systemml-1.0.0-incubating-SNAPSHOT-python.tgz{% endhighlight %}
+	</div>
+	<div id="tab-4" class="col col-12 tab-content">
+		<pre>Download SystemML jar (systemml-1.0.0-incubating-SNAPSHOT.jar) from <a href="https://sparktc.ibmcloud.com/repo/latest/">https://sparktc.ibmcloud.com/repo/latest/</a></pre>
+	</div>
+
+  <!-- Step 3 Instructions -->
+  <div class="col col-12">
+    <h3><span class="circle">3</span>Configure Jupyter Notebook</h3>
+  </div>
+
+    <!-- Step 3 Code -->
+    <div class="col col-12">
+      <h4 class="indent">3.1 Toree Kernel Setup (Required for Scala Kernel)</h4>
+      <p class="indent">Toree installation</p>
+      {% highlight bash %}# For detail instructions visit https://github.com/apache/incubator-toree
+pip install https://dist.apache.org/repos/dist/dev/incubator/toree/0.2.0/snapshots/dev1/toree-pip/toree-0.2.0.dev1.tar.gz{% endhighlight %}
+
+    <p class="indent">Installation of Toree component in Jupyter</p>
+    {% highlight bash %}# For detail instructions visit  https://toree.apache.org/docs/current/user/installation/
+jupyter toree install —-replace —-interpreters=Scala,PySpark --spark_opts="--master=local --jars <SystemML JAR File>” --spark_home=${SPARK_HOME}{% endhighlight %}
+    <h4 class="indent">3.2 Start Jupyter Notebook Server</h4>
+    {% highlight bash %}PYSPARK_DRIVER_PYTHON=jupyter PYSPARK_DRIVER_PYTHON_OPTS="notebook" pyspark --master local[*] --conf "spark.driver.memory=12g" --conf spark.driver.maxResultSize=0 --conf spark.akka.frameSize=128 --conf spark.default.parallelism=100{% endhighlight %}
+    <p>This will a default browser with contents from current directory where above command has run.
+You can create your own notebook example or download sample notebooks from SystemML resository <a href="https://github.com/apache/incubator-systemml/tree/master/samples/jupyter-notebooks">https://github.com/apache/incubator-systemml/tree/master/samples/jupyter-notebooks</a></p>
+    <figure class="img-border"><img src="/assets/img/systemml-juypter-install.jpeg" alt="Start Jupyter Notebook Server"></figure>
+    </div>
+
+    <!-- Step 4 Instructions -->
+    <div class="col col-12">
+      <h3><span class="circle">4</span>Run SystemML in batch mode</h3>
+    </div>
+
+    <!-- Step 4 Code -->
+    <div class="col col-12">
+
+    	<prev>Download systemml-0.14.0-incubating-bin.tgz or systemml-0.14.0-incubating-bin.tgz file located on <a href="https://dist.apache.org/repos/dist/release/incubator/systemml/0.14.0-incubating/">https://dist.apache.org/repos/dist/release/incubator/systemml/0.14.0-incubating/</a>  and extract into a directory say SYSTEMML_HOME
+Once you extract zip.tgz file you will have files required to run steps outlined in instructions link: <a href="http://apache.github.io/incubator-systemml/spark-batch-mode">http://apache.github.io/incubator-systemml/spark-batch-mode</a></pre>
+
+    </div>
+  </div>
+
+
+    <h2 class="text-center">Sample Notebooks</h2>
+    <div class="flex-container">
+      <div class="nb-card">
+          <h3>Autoencoder</h3>
+          <p>This notebook demonstrates the invocation of the SystemML autoencoder script, and alternative ways of passing in/out data.</p>
+          <a class="nb-link" href="https://github.com/apache/incubator-systemml/blob/master/samples/jupyter-notebooks/Autoencoder.ipynb" target="_blank"><span class="icon jupyter-logo"></span><span>View on Github</span></a>
+      </div>
+      <div class="nb-card">
+          <h3>Deep Learning Image Classification</h3>
+          <p>This notebook shows SystemML Deep Learning functionality to map images of single digit numbers to their corresponding numeric representations.</p>
+          <a class="nb-link" href="https://github.com/apache/incubator-systemml/blob/master/samples/jupyter-notebooks/Deep_Learning_Image_Classification.ipynb" target="_blank"><span class="icon jupyter-logo"></span><span>View on Github</span></a>
+      </div>
+      <div class="nb-card">
+          <h3>Linear Regression Algorithms Demo</h3>
+          This notebook shows:
+            <ul>
+              <li>Install SystemML Python package and jar file</li>
+              <ul>
+                <li>pip</li>
+                <li>SystemML 'Hello World'</li>
+              </ul>
+            </ul>
+          <a class="nb-link" href="https://github.com/apache/incubator-systemml/blob/master/samples/jupyter-notebooks/Linear_Regression_Algorithms_Demo.ipynb" target="_blank"><span class="icon jupyter-logo"></span><span>View on Github</span></a>
+      </div>
+      <div class="nb-card">
+          <h3>SystemML PySpark Recommendation Demo</h3>
+          <p>This demonstrates using SystemML for product recommendationg using Poisson NonNegative Matrix Factorization (PNMF) with PNMF algorithm written using R like syntax.</p>
+          <a class="nb-link" href="https://github.com/apache/incubator-systemml/blob/master/samples/jupyter-notebooks/SystemML-PySpark-Recommendation-Demo.ipynb" target="_blank"><span class="icon jupyter-logo"></span><span>View on Github</span></a>
+      </div>
+      <div class="nb-card">
+          <h3>SystemML Scala Tutorial</h3>
+          <p>This tutorial includes simple example to run DML script and display output.</p>
+          <a class="nb-link" href="https://github.com/apache/incubator-systemml/blob/master/samples/jupyter-notebooks/tutorial1.ipynb" target="_blank"><span class="icon jupyter-logo"></span><span>View on Github</span></a>
+      </div>
+      <div class="nb-card">
+          <h3>SystemML LinearRegCG</h3>
+          <p>SystemML Linear Regression in Zeppelin Notebook.</p>
+          <a class="nb-link" href="https://github.com/apache/incubator-systemml/blob/master/samples/zeppelin-notebooks/SystemML_LinearRegCG.json" target="_blank"><span class="icon zeppelin-logo"></span><span>View on Github</span></a>
+      </div>
+      <div class="nb-card">
+          <h3>SystemML Zeppelin Tutorial</h3>
+          <p>SystemML Zeppelin tutorial.</p>
+          <a class="nb-link" href="https://github.com/apache/incubator-systemml/blob/master/samples/zeppelin-notebooks/tutorial1_zeppelin.json" target="_blank"><span class="icon zeppelin-logo"></span><span>View on Github</span></a>
+      </div>
+
+    </div>
+
+</section>
