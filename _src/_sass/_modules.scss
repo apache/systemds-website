@@ -118,13 +118,13 @@
 	padding-top: 25px;
 	height: 0;
   margin: 1em 0;
-}
-.video-wrapper iframe {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
+  iframe {
+  	position: absolute;
+  	top: 0;
+  	left: 0;
+  	width: 100%;
+  	height: 100%;
+  }
 }
 
 //Notebook Cards
@@ -172,5 +172,35 @@ ul.ml-tabs {
   margin-top: 2px;
   &.current {
     display: block;
+  }
+}
+
+//Modals
+.modal-trigger {
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+  .play-button {
+    margin-right: 20px;
+  }
+}
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0,0,0,.8);
+  z-index: 500;
+  .video-wrapper {
+    width: 80%;
+    margin: 0 auto;
+  }
+  .icon-close {
+    position: absolute;
+    top: 50px;
+    right: 50px;
   }
 }

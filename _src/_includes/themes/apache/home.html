@@ -51,15 +51,14 @@ limitations under the License.
 <section class="full-stripe">
   <div class="ml-container ml-container--vertically-top ml-container--reverse-order">
     <div class="col col-6 content-group">
-      <!--<img src="/assets/img/diagramAnim-v4.gif" alt="What is Apache SystemML?">-->
-      <div class="video-wrapper">
-        <iframe src="https://www.youtube.com/embed/r-kFYkYoD_4" frameborder="0" allowfullscreen></iframe>
-      </div>
+      <img src="/assets/img/diagramAnim-v4.gif" alt="What is Apache SystemML?">
     </div>
     <div class="col col-6 content-group content-group--more-padding">
       <!-- bdi tag prevents reverse punctuation when rtl direction property is applied -->
       <h2><bdi>What is SystemML?</bdi></h2>
+
       <p>Apache SystemML provides an optimal workplace for machine learning using big data. It can be run on top of Apache Spark, where it automatically scales your data, line by line, determining whether your code should be run on the driver or an Apache Spark cluster. Future SystemML developments include additional deep learning with GPU capabilities such as importing and running neural network architectures and pre-trained models for training.</p>
+      <p><a href="#systemml-video" class="modal-trigger jq-modal-trigger"><span class="icon play-button"></span><span>Learn more about SystemML</span></a></p>
     </div>
   </div>
 </section>
@@ -71,51 +70,13 @@ limitations under the License.
       <img src="/assets/img/robotTutorialSm.png" alt="What is Apache SystemML?">
     </div>
     <div class="col col-6 content-group content-group--more-padding button-group">
-      <h2>Get Started</h2>
-      <p>New to Apache SystemML? Try our Get Started tutorial that will walk you through setting up your environment and getting you up and going with SystemML.</p>
+      <h2>Install SystemML</h2>
+      <p>New to Apache SystemML? Try our guick install guide that will walk you through setting up your environment and getting you up and going with SystemML.</p>
       <a class="button button-primary" href="install-systemml.html">Install SystemML</a>
       <a class="button button-secondary" href="documentation.html" target="_blank">Docs</a>
     </div>
   </div>
-  <h2 class="text-center">Sample Notebooks</h2>
-  <div class="flex-container">
-    <div class="nb-card">
-        <h3>SystemML LinearRegCG</h3>
-        <p>SystemML Linear Regression in Zeppelin Notebook.</p>
-        <a class="nb-link" href="https://github.com/apache/incubator-systemml/blob/master/samples/zeppelin-notebooks/SystemML_LinearRegCG.json" target="_blank"><span class="icon zeppelin-logo"></span><span>View on Github</span></a>
-    </div>
-    <div class="nb-card">
-        <h3>Deep Learning Image Classification</h3>
-        <p>This notebook shows SystemML Deep Learning functionality to map images of single digit numbers to their corresponding numeric representations.</p>
-        <a class="nb-link" href="https://github.com/apache/incubator-systemml/blob/master/samples/jupyter-notebooks/Deep_Learning_Image_Classification.ipynb" target="_blank"><span class="icon jupyter-logo"></span><span>View on Github</span></a>
-    </div>
-    <div class="nb-card">
-        <h3>Linear Regression Algorithms Demo</h3>
-        <p>This notebook shows: Install SystemML Python package and jar file, pip, SystemML 'Hello World'.</p>
-        <a class="nb-link" href="https://github.com/apache/incubator-systemml/blob/master/samples/jupyter-notebooks/Linear_Regression_Algorithms_Demo.ipynb" target="_blank"><span class="icon jupyter-logo"></span><span>View on Github</span></a>
-    </div>
-    <div class="nb-card">
-        <h3>SystemML PySpark Recommendation Demo</h3>
-        <p>This demonstrates using SystemML for product recommendation using Poisson NonNegative Matrix Factorization (PNMF) with PNMF algorithm written using R like syntax.</p>
-        <a class="nb-link" href="https://github.com/apache/incubator-systemml/blob/master/samples/jupyter-notebooks/SystemML-PySpark-Recommendation-Demo.ipynb" target="_blank"><span class="icon jupyter-logo"></span><span>View on Github</span></a>
-    </div>
-    <div class="nb-card">
-        <h3>SystemML Scala Tutorial</h3>
-        <p>This tutorial includes simple example to run DML script and display output.</p>
-        <a class="nb-link" href="https://github.com/apache/incubator-systemml/blob/master/samples/jupyter-notebooks/tutorial1.ipynb" target="_blank"><span class="icon jupyter-logo"></span><span>View on Github</span></a>
-    </div>
-    <div class="nb-card">
-        <h3>Autoencoder</h3>
-        <p>This notebook demonstrates the invocation of the SystemML autoencoder script, and alternative ways of passing in/out data.</p>
-        <a class="nb-link" href="https://github.com/apache/incubator-systemml/blob/master/samples/jupyter-notebooks/Autoencoder.ipynb" target="_blank"><span class="icon jupyter-logo"></span><span>View on Github</span></a>
-    </div>
-    <div class="nb-card">
-        <h3>SystemML Zeppelin Tutorial</h3>
-        <p>SystemML Zeppelin tutorial.</p>
-        <a class="nb-link" href="https://github.com/apache/incubator-systemml/blob/master/samples/zeppelin-notebooks/tutorial1_zeppelin.json" target="_blank"><span class="icon zeppelin-logo"></span><span>View on Github</span></a>
-    </div>
-
-  </div>
+  <h4 class="text-center"><a href="https://systemml.apache.org/get-started">Veiw Sample Notebooks</a></h4>
 
 </section>
 
@@ -151,3 +112,10 @@ limitations under the License.
     </div>
   </div>
 </section>
+
+<div id="systemml-video" class="modal-overlay">
+  <a href="#" class="icon icon-close jq-close"></a>
+  <div class="video-wrapper">
+    <iframe src="https://www.youtube.com/embed/r-kFYkYoD_4" frameborder="0" allowfullscreen></iframe>
+  </div>
+</div>

@@ -10,7 +10,7 @@ In order to build this project you will need the latest version of [node.js and 
 
 #### Gulp
 
-We use Gulp to compile Sass and JS aswell as run the Jekyll build. You can install it with npm:
+We use Gulp to compile Sass and JS as well as run the Jekyll build. You can install it with npm:
 
 ```
 $ sudo npm install -g gulp
