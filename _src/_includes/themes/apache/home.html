@@ -50,7 +50,7 @@ limitations under the License.
 <!-- About -->
 <section class="full-stripe">
   <div class="ml-container ml-container--vertically-top ml-container--reverse-order">
-    <div class="col col-6 content-group content-group--more-padding">
+    <div class="col col-6 content-group">
       <!--<img src="/assets/img/diagramAnim-v4.gif" alt="What is Apache SystemML?">-->
       <div class="video-wrapper">
         <iframe src="https://www.youtube.com/embed/r-kFYkYoD_4" frameborder="0" allowfullscreen></iframe>
@@ -59,14 +59,12 @@ limitations under the License.
     <div class="col col-6 content-group content-group--more-padding">
       <!-- bdi tag prevents reverse punctuation when rtl direction property is applied -->
       <h2><bdi>What is SystemML?</bdi></h2>
-      <p><bdi>Apache SystemML provides declarative, large-scalable machine learning and deep learning. Data scientists are able to implement algorithms and neural network architectures in a high-level language without knowledge of distributed programming or Apache Spark. Depending on data characteristics such as data size/shape and data sparsity (dense/sparse), and cluster characteristics such as cluster size and memory configurations, SystemML's cost-based optimizing compiler automatically generates hybrid runtime execution plans that are composed of single-node and distributed operations on a Apache Spark cluster for best performance.</bdi></p>
-
-      <p><bdi>Very soon, additional deep learning capabilities will allow for importing and running popular neural network architectures and pre-trained models from Caffe for training and scoring in SystemML.</bdi></p>
+      <p>Apache SystemML provides an optimal workplace for machine learning using big data. It can be run on top of Apache Spark, where it automatically scales your data, line by line, determining whether your code should be run on the driver or an Apache Spark cluster. Future SystemML developments include additional deep learning with GPU capabilities such as importing and running neural network architectures and pre-trained models for training.</p>
     </div>
   </div>
 </section>
 
-<!-- Beginner Tutorial -->
+<!-- BGet Started -->
 <section class="full-stripe full-stripe--alternate">
   <div class="ml-container ml-container--vertically-centered">
     <div class="col col-6 content-group content-group--more-padding">
@@ -75,24 +73,27 @@ limitations under the License.
     <div class="col col-6 content-group content-group--more-padding button-group">
       <h2>Get Started</h2>
       <p>New to Apache SystemML? Try our Get Started tutorial that will walk you through setting up your environment and getting you up and going with SystemML.</p>
-      <a class="button button-primary" href="get-started.html">Begin Tutorial</a>
+      <a class="button button-primary" href="install-systemml.html">Install SystemML</a>
       <a class="button button-secondary" href="documentation.html" target="_blank">Docs</a>
     </div>
   </div>
+
+  <h4 class="text-center"><a href="get-started.html">View Sample Notebooks</a></h4>
+
 </section>
 
 <!-- Contact Us -->
 <section class="full-stripe">
   <div class="ml-container ml-container--horizontally-center">
     <div class="col col-12 content-group ">
-      <h2>Subscribe to Our Mailing Lists</h2>
-      <p>Subscribe to our development mailing list for SystemML updates and news. Once subscribed, <a href="mailto:{{ site.data.project.dev_list }}">join the conversation</a>.
-      As SystemML grows, so will our community. Check out <a href="community.html#mailing-list">All Mailing Lists</a>.
+      <h2>Contribute</h2>
+      <p>Contribute to Apache SystemML<sup>TM</sup> by subscribing to our developer mailing list for updates and news. Check out <a href="community.html#mailing-list">All Mailing Lists</a>.
       </p>
     </div>
     <div class="col col-12 content-group button-group">
       <a href="mailto:{{ site.data.project.dev_list_subscribe }}?subject=send this email to subscribe" class="button button-primary">Subscribe</a>
       <a href="http://mail-archives.apache.org/mod_mbox/incubator-systemml-dev/" target="_blank" class="button button-secondary">View Archive</a>
+      <a href="https://systemml.apache.org/roadmap" target="_blank" class="button button-secondary">Roadmap</a>
     </div>
   </div>
 </section>

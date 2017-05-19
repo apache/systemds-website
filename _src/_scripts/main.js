@@ -18,6 +18,17 @@ $(document).ready(function() {
 
     $('.jq-modal').fitVids();
 
+    //Call tabs for Install page
+    $('ul.ml-tabs li').click(function(){
+		var tab_id = $(this).attr('data-tab');
+
+		$('ul.ml-tabs li').removeClass('current');
+		$('.tab-content').removeClass('current');
+
+		$(this).addClass('current');
+		$("#"+tab_id).addClass('current');
+	});
+
 });
 
 //End Ready......................................
