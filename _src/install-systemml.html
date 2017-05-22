@@ -99,14 +99,14 @@ pip install https://sparktc.ibmcloud.com/repo/latest/systemml-1.0.0-incubating-S
 
     <!-- Step 3 Code -->
     <div id="tab-5" class="col col-12 tab-content current">
-  		<pre>Start Jupyter Notebook Server
-jupyter notebook</pre>
+  		<pre># Start Jupyter Notebook Server
+PYSPARK_DRIVER_PYTHON=jupyter PYSPARK_DRIVER_PYTHON_OPTS="notebook" pyspark --master local[*] --conf "spark.driver.memory=12g" --conf spark.driver.maxResultSize=0 --conf spark.akka.frameSize=128 --conf spark.default.parallelism=100</pre>
   	</div>
 
     <div id="tab-6" class="col col-12 tab-content">
       <pre><h4>Toree Kernel Setup (Required for Scala Kernel)</h4><p>Toree installation</p>{% highlight bash %}# For detail instructions visit https://github.com/apache/incubator-toree
 pip install https://dist.apache.org/repos/dist/dev/incubator/toree/0.2.0/snapshots/dev1/toree-pip/toree-0.2.0.dev1.tar.gz{% endhighlight %}<p>Installation of Toree component in Jupyter</p>{% highlight bash %}# For detail instructions visit  https://toree.apache.org/docs/current/user/installation/
-jupyter toree install —-replace —-interpreters=Scala,PySpark --spark_opts="--master=local --jars <SystemML JAR File>” --spark_home=${SPARK_HOME}{% endhighlight %}<h4>Start Jupyter Notebook Server</h4>{% highlight bash %}PYSPARK_DRIVER_PYTHON=jupyter PYSPARK_DRIVER_PYTHON_OPTS="notebook" pyspark --master local[*] --conf "spark.driver.memory=12g" --conf spark.driver.maxResultSize=0 --conf spark.akka.frameSize=128 --conf spark.default.parallelism=100{% endhighlight %}<p>This will a default browser with contents from current directory where above command has run. You can create your own notebook example or download sample notebooks from SystemML resository <a href="https://github.com/apache/incubator-systemml/tree/master/samples/jupyter-notebooks">https://github.com/apache/incubator-systemml/tree/master/samples/jupyter-notebooks</a></p><figure class="img-border"><img src="/assets/img/systemml-juypter-install.jpeg" alt="Start Jupyter Notebook Server"></figure><figure class="img-border"><img src="/assets/img/systemml-juypter-install-2.jpeg" alt="Start Jupyter Notebook Server"></figure></pre></div>
+jupyter toree install —-replace —-interpreters=Scala,PySpark --spark_opts="--master=local --jars <SystemML JAR File>” --spark_home=${SPARK_HOME}{% endhighlight %}<h4>Start Jupyter Notebook Server</h4>{% highlight bash %}jupyter notebook{% endhighlight %}<p>This will start a default browser with contents from current directory where above command has run. You can create your own notebook example or download sample notebooks from SystemML resository <a href="https://github.com/apache/incubator-systemml/tree/master/samples/jupyter-notebooks">https://github.com/apache/incubator-systemml/tree/master/samples/jupyter-notebooks</a></p><figure class="img-border"><img src="/assets/img/systemml-juypter-install.jpeg" alt="Start Jupyter Notebook Server"></figure><figure class="img-border"><img src="/assets/img/systemml-juypter-install-2.jpeg" alt="Start Jupyter Notebook Server"></figure></pre></div>
 
     <!-- Step 4 Instructions -->
     <div class="col col-12">
