@@ -311,13 +311,21 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 ------------------
 
-- jQuery
+- jQuery, jQuery UI, and Sizzle
 
 Copyright jQuery Foundation and other contributors, https://jquery.org/
 
 This software consists of voluntary contributions made by many
 individuals. For exact contribution history, see the revision history
 available at https://github.com/jquery/jquery
+
+This software consists of voluntary contributions made by many
+individuals. For exact contribution history, see the revision history
+available at https://github.com/jquery/jquery-ui
+
+This software consists of voluntary contributions made by many
+individuals. For exact contribution history, see the revision history
+available at https://github.com/jquery/sizzle
 
 The following license applies to all parts of this software except as
 documented below:
