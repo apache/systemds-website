@@ -8,7 +8,7 @@
 # Site settings
 author: Apache SystemML
 title: Apache SystemML - Declarative Large-Scale Machine Learning
-email: dev@systemml.incubator.apache.org
+email: dev@systemml.apache.org
 description: Apache SystemML provides an optimal workplace for Machine Learning using big data
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://systemml.apache.org" # the base hostname & protocol for your site
