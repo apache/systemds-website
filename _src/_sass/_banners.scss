@@ -8,6 +8,9 @@
   &--alternate {
     background-color: #f9f9fb;
   }
+  &--alternate-2 {
+    background-color: #f0f2f4;
+  }
 
   // front page hero background
   &--video {
@@ -244,6 +247,23 @@
   background: #1D3649;
   .button-primary {
     margin-top: 50px;
+  }
+}
+
+//Announcement banner
+
+.vldb2016 {
+  background-image: url("/assets/img/mobile-award.png");
+  background-size: 167px 47px;
+  width: 167px;
+  height: 47px;
+  margin-bottom: 2em;
+
+  @media (min-width: 64em) {
+    background-image: url("/assets/img/award.png");
+    background-size: 170px 100px;
+    width: 170px;
+    height: 100px;
   }
 }
 
