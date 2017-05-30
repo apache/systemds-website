@@ -11,3 +11,5 @@
 *.lib binary
 *.pdb binary
 *.exe binary
+*.ai binary
+*.pdf binary
