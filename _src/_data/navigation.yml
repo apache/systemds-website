@@ -36,9 +36,9 @@ topnav:
   - title: Issue Tracker
     url: https://issues.apache.org/jira/browse/SYSTEMML
   - title: Source Code
-    url: https://github.com/apache/incubator-systemml
+    url: https://github.com/apache/systemml
   - title: Website Source Code
-    url: https://github.com/apache/incubator-systemml-website
+    url: https://github.com/apache/systemml-website
   - title: Roadmap
     url: /roadmap
 
