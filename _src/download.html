@@ -40,6 +40,8 @@ limitations under the License.
     </div>
     <div class="col col-12 content-group">
       <h2>Download SystemML {{ site.data.project.release_version }} for Spark 2.0.2 and above</h2>
+      
+      <h3><i>Note: Apache Mirror support is current broken (see <a href="https://issues.apache.org/jira/browse/INFRA-14250">[INFRA-14250]</a>), so downloads are currently made available directly from dist.apache.org.</i></h3>
     </div>
 
     <div class="col col-12 content-group row">
@@ -51,29 +53,44 @@ limitations under the License.
             <th><b>Signature</b></th>
           </tr>
           <tr>
-            <td><a href="http://www.apache.org/dyn/closer.lua/incubator/systemml/{{ site.data.project.release_version }}/systemml-{{ site.data.project.release_version }}-bin.tgz" target="_blank"> {{ site.data.project.release_name }}-{{ site.data.project.release_version }} (Binary tgz)</a></td>
-            <td><a href="https://www.apache.org/dist/incubator/systemml/{{ site.data.project.release_version }}/systemml-{{ site.data.project.release_version }}-bin.tgz.md5">MD5</a> </td>
-            <td><a href="https://www.apache.org/dist/incubator/systemml/{{ site.data.project.release_version }}/systemml-{{ site.data.project.release_version }}-bin.tgz.asc">ASC</a></td>
+<!--             <td><a href="http://www.apache.org/dyn/closer.lua/systemml/{{ site.data.project.release_version }}/systemml-{{ site.data.project.release_version }}-bin.tgz" target="_blank"> {{ site.data.project.release_name }}-{{ site.data.project.release_version }} (Binary tgz)</a></td>
+            <td><a href="https://www.apache.org/dist/systemml/{{ site.data.project.release_version }}/systemml-{{ site.data.project.release_version }}-bin.tgz.md5">MD5</a> </td>
+            <td><a href="https://www.apache.org/dist/systemml/{{ site.data.project.release_version }}/systemml-{{ site.data.project.release_version }}-bin.tgz.asc">ASC</a></td> -->
+            <td><a href="https://dist.apache.org/repos/dist/release/systemml/0.14.0-incubating/systemml-0.14.0-incubating-bin.tgz"> {{ site.data.project.release_name }}-{{ site.data.project.release_version }} (Binary tgz)</a></td>
+            <td><a href="https://dist.apache.org/repos/dist/release/systemml/0.14.0-incubating/systemml-0.14.0-incubating-bin.tgz.md5">MD5</a> </td>
+            <td><a href="https://dist.apache.org/repos/dist/release/systemml/0.14.0-incubating/systemml-0.14.0-incubating-bin.tgz.asc">ASC</a></td>
           </tr>
           <tr>
-            <td><a href="http://www.apache.org/dyn/closer.lua/incubator/systemml/{{ site.data.project.release_version }}/systemml-{{ site.data.project.release_version }}-bin.zip" target="_blank">{{ site.data.project.release_name }}-{{ site.data.project.release_version }} (Binary zip)</a></td>
-            <td><a href="https://www.apache.org/dist/incubator/systemml/{{ site.data.project.release_version }}/systemml-{{ site.data.project.release_version }}-bin.zip.md5">MD5</a></td>
-            <td><a href="https://www.apache.org/dist/incubator/systemml/{{ site.data.project.release_version }}/systemml-{{ site.data.project.release_version }}-bin.zip.asc">ASC</a></td>
+<!--             <td><a href="http://www.apache.org/dyn/closer.lua/systemml/{{ site.data.project.release_version }}/systemml-{{ site.data.project.release_version }}-bin.zip" target="_blank">{{ site.data.project.release_name }}-{{ site.data.project.release_version }} (Binary zip)</a></td>
+            <td><a href="https://www.apache.org/dist/systemml/{{ site.data.project.release_version }}/systemml-{{ site.data.project.release_version }}-bin.zip.md5">MD5</a></td>
+            <td><a href="https://www.apache.org/dist/systemml/{{ site.data.project.release_version }}/systemml-{{ site.data.project.release_version }}-bin.zip.asc">ASC</a></td> -->
+            <td><a href="https://dist.apache.org/repos/dist/release/systemml/0.14.0-incubating/systemml-0.14.0-incubating-bin.zip"> {{ site.data.project.release_name }}-{{ site.data.project.release_version }} (Binary zip)</a></td>
+            <td><a href="https://dist.apache.org/repos/dist/release/systemml/0.14.0-incubating/systemml-0.14.0-incubating-bin.zip.md5">MD5</a> </td>
+            <td><a href="https://dist.apache.org/repos/dist/release/systemml/0.14.0-incubating/systemml-0.14.0-incubating-bin.zip.asc">ASC</a></td>
           </tr>
           <tr>
-            <td><a href="http://www.apache.org/dyn/closer.lua/incubator/systemml/{{ site.data.project.release_version }}/systemml-{{ site.data.project.release_version }}-src.tgz" target="_blank">{{ site.data.project.release_name }}-{{ site.data.project.release_version }} (Source tgz)</a></td>
-            <td><a href="https://www.apache.org/dist/incubator/systemml/{{ site.data.project.release_version }}/systemml-{{ site.data.project.release_version }}-src.tgz.md5">MD5</a></td>
-            <td><a href="https://www.apache.org/dist/incubator/systemml/{{ site.data.project.release_version }}/systemml-{{ site.data.project.release_version }}-src.tgz.asc">ASC</a></td>
+<!--             <td><a href="http://www.apache.org/dyn/closer.lua/systemml/{{ site.data.project.release_version }}/systemml-{{ site.data.project.release_version }}-src.tgz" target="_blank">{{ site.data.project.release_name }}-{{ site.data.project.release_version }} (Source tgz)</a></td>
+            <td><a href="https://www.apache.org/dist/systemml/{{ site.data.project.release_version }}/systemml-{{ site.data.project.release_version }}-src.tgz.md5">MD5</a></td>
+            <td><a href="https://www.apache.org/dist/systemml/{{ site.data.project.release_version }}/systemml-{{ site.data.project.release_version }}-src.tgz.asc">ASC</a></td> -->
+            <td><a href="https://dist.apache.org/repos/dist/release/systemml/0.14.0-incubating/systemml-0.14.0-incubating-src.tgz"> {{ site.data.project.release_name }}-{{ site.data.project.release_version }} (Source tgz)</a></td>
+            <td><a href="https://dist.apache.org/repos/dist/release/systemml/0.14.0-incubating/systemml-0.14.0-incubating-src.tgz.md5">MD5</a> </td>
+            <td><a href="https://dist.apache.org/repos/dist/release/systemml/0.14.0-incubating/systemml-0.14.0-incubating-src.tgz.asc">ASC</a></td>
           </tr>
           <tr>
-            <td><a href="http://www.apache.org/dyn/closer.lua/incubator/systemml/{{ site.data.project.release_version }}/systemml-{{ site.data.project.release_version }}-src.zip" target="_blank">{{ site.data.project.release_name }}-{{ site.data.project.release_version }} (Source zip)</a></td>
-            <td><a href="https://www.apache.org/dist/incubator/systemml/{{ site.data.project.release_version }}/systemml-{{ site.data.project.release_version }}-src.zip.md5">MD5</a></td>
-            <td><a href="https://www.apache.org/dist/incubator/systemml/{{ site.data.project.release_version }}/systemml-{{ site.data.project.release_version }}-src.zip.asc">ASC</a></td>
+<!--             <td><a href="http://www.apache.org/dyn/closer.lua/systemml/{{ site.data.project.release_version }}/systemml-{{ site.data.project.release_version }}-src.zip" target="_blank">{{ site.data.project.release_name }}-{{ site.data.project.release_version }} (Source zip)</a></td>
+            <td><a href="https://www.apache.org/dist/systemml/{{ site.data.project.release_version }}/systemml-{{ site.data.project.release_version }}-src.zip.md5">MD5</a></td>
+            <td><a href="https://www.apache.org/dist/systemml/{{ site.data.project.release_version }}/systemml-{{ site.data.project.release_version }}-src.zip.asc">ASC</a></td> -->
+            <td><a href="https://dist.apache.org/repos/dist/release/systemml/0.14.0-incubating/systemml-0.14.0-incubating-src.zip"> {{ site.data.project.release_name }}-{{ site.data.project.release_version }} (Source zip)</a></td>
+            <td><a href="https://dist.apache.org/repos/dist/release/systemml/0.14.0-incubating/systemml-0.14.0-incubating-src.zip.md5">MD5</a> </td>
+            <td><a href="https://dist.apache.org/repos/dist/release/systemml/0.14.0-incubating/systemml-0.14.0-incubating-src.zip.asc">ASC</a></td>
           </tr>
           <tr>
-            <td><a href="http://www.apache.org/dyn/closer.lua/incubator/systemml/{{ site.data.project.release_version }}/systemml-{{ site.data.project.release_version }}-python.tgz" target="_blank">{{ site.data.project.release_name }}-{{ site.data.project.release_version }} (Python package .tgz)</a></td>
-            <td><a href="https://www.apache.org/dist/incubator/systemml/{{ site.data.project.release_version }}/systemml-{{ site.data.project.release_version }}-python.tgz.md5">MD5</a></td>
-            <td><a href="https://www.apache.org/dist/incubator/systemml/{{ site.data.project.release_version }}/systemml-{{ site.data.project.release_version }}-python.tgz.asc">ASC</a></td>
+<!--             <td><a href="http://www.apache.org/dyn/closer.lua/systemml/{{ site.data.project.release_version }}/systemml-{{ site.data.project.release_version }}-python.tgz" target="_blank">{{ site.data.project.release_name }}-{{ site.data.project.release_version }} (Python package .tgz)</a></td>
+            <td><a href="https://www.apache.org/dist/systemml/{{ site.data.project.release_version }}/systemml-{{ site.data.project.release_version }}-python.tgz.md5">MD5</a></td>
+            <td><a href="https://www.apache.org/dist/systemml/{{ site.data.project.release_version }}/systemml-{{ site.data.project.release_version }}-python.tgz.asc">ASC</a></td> -->
+            <td><a href="https://dist.apache.org/repos/dist/release/systemml/0.14.0-incubating/systemml-0.14.0-incubating-python.tgz"> {{ site.data.project.release_name }}-{{ site.data.project.release_version }} (Python package .tgz)</a></td>
+            <td><a href="https://dist.apache.org/repos/dist/release/systemml/0.14.0-incubating/systemml-0.14.0-incubating-python.tgz.md5">MD5</a> </td>
+            <td><a href="https://dist.apache.org/repos/dist/release/systemml/0.14.0-incubating/systemml-0.14.0-incubating-python.tgz.asc">ASC</a></td>
           </tr>
 
           <tr>
@@ -84,7 +101,7 @@ limitations under the License.
           </table>
 
           <p>Instructions for checking hashes and signatures is described on the <a href="http://www.apache.org/info/verification.html" target="_blank">Verifying Apache Software Foundation Releases</a> page.
-          These <a href="https://www.apache.org/dist/incubator/systemml/KEYS" target="_blank">KEYS</a> can be used to <a href="http://www.apache.org/dyn/closer.cgi#verify" target="_blank">verify</a> the integrity of the downloaded artifact using PGP signature (.asc).
+          These <a href="https://archive.apache.org/dist/incubator/systemml/KEYS" target="_blank">KEYS</a> can be used to <a href="http://www.apache.org/dyn/closer.cgi#verify" target="_blank">verify</a> the integrity of the downloaded artifact using PGP signature (.asc).
           </p>
 
 
