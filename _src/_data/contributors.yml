@@ -42,7 +42,7 @@
 - name: Deron Eriksson
   apacheId: deron
   githubId: deroneriksson
-  role: PMC Member
+  role: PMC Member, Chair
   org: IBM
 
 - name: Faraz Makari
@@ -50,6 +50,12 @@
   githubId: fmakari
   role: PMC Member
   org: Daimler TSS
+
+- name: Felix Schüler
+  apacheId: fschueler
+  githubId: fschueler
+  role: PMC Member
+  org: DIMA at TU Berlin
 
 - name: Fred Reiss
   apacheId: freiss
