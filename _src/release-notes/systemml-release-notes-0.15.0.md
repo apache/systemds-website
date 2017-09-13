@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Documentation
-description: Project Documentation Page
+title: SystemML 0.15.0 Release Notes
+description: Project Release Notes
 group: nav-right
 ---
 <!--
@@ -23,27 +23,35 @@ limitations under the License.
 {% endcomment %}
 -->
 
-<!-- Hero  -->
 <section class="full-stripe full-stripe--subpage-header clear-header">
   <div class="ml-container ml-container--horizontally-center">
     <div class="col col-12 content-group content-group--center-content content-group--center-align">
-      <h1>{{ site.data.project.name }} Documentation</h1>
+      <h1>{{ site.data.project.name }} 0.15.0 Release Notes</h1>
     </div>
   </div>
 </section>
-<!-- Publish website test -->
+
 <section class="full-stripe full-stripe--alternate">
   <div class="ml-container">
-    <div class="col col-12 content-group content-group--medium-bottom-margin">
-      <h2>{{ site.data.project.name }} Documentation</h2>
-      <p>Documentation such as programming guides, reference guides, and API docs is available online for each version of SystemML below:</p>
-      <ul>
-        <li><a href="http://apache.github.io/systemml/">Latest</a></li>
-        <li><a href="docs/0.15.0/index.html">0.15.0</a></li>
-        <li><a href="docs/0.14.0/index.html">0.14.0</a></li>
-        <li><a href="docs/0.13.0/index.html">0.13.0</a></li>
-        <li><a href="docs/0.12.0/index.html">0.12.0</a></li>
-      </ul>
-    </div>
-  </div>
-</section>
+    <div class="col col-12 content-group content-group--medium-bottom-margin" markdown="1">
+
+The **Apache SystemML 0.15.0 release** was approved on September 13, 2017. It is the first release of Apache SystemML since it
+[became a Top-Level Project (TLP)](https://blogs.apache.org/foundation/entry/the-apache-software-foundation-announces13) on May 31, 2017. Updates have been made to the project in several areas, as detailed below.
+
+
+### New Features and Capabilities
+- Added several new 2D convolution layers.
+- Graduated `nn` library from staging to `scripts/nn`.
+
+### Experimental Features
+- Expanded Code Generation for broader performance improvements.
+- Enhanced GPU support and scalability.
+
+### Removals
+- Removed file-based transform.
+- Removed original MLContext API.
+
+### Various Fixes
+* Bug fixes for diverse issues.  See [JIRA release notes](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12319522&version=12341587) for complete list.
+
+

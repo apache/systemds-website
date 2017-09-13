@@ -50,7 +50,7 @@ issues_list_archive_markmail:
 jira: SYSTEMML
 
 release_name: systemml
-release_version: 0.14.0-incubating
+release_version: 0.15.0
 
 source_repository: https://git-wip-us.apache.org/repos/asf/systemml.git
 source_repository_mirror: https://github.com/apache/systemml
