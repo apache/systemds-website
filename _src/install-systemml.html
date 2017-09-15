@@ -74,23 +74,23 @@ limitations under the License.
 pip install systemml{% endhighlight %}
 2) For more information, please see the SystemML project documentation:<br/>
 <pre>
-<a href="http://systemml.apache.org/docs/0.14.0/index.html">http://systemml.apache.org/docs/0.14.0/index.html</a>
-<a href="http://systemml.apache.org/docs/0.14.0/beginners-guide-python">http://systemml.apache.org/docs/0.14.0/beginners-guide-python</a>
+<a href="http://systemml.apache.org/docs/{{ site.data.project.release_version }}/index.html">http://systemml.apache.org/docs/{{ site.data.project.release_version }}/index.html</a>
+<a href="http://systemml.apache.org/docs/{{ site.data.project.release_version }}/beginners-guide-python">http://systemml.apache.org/docs/{{ site.data.project.release_version }}/beginners-guide-python</a>
 </pre>
 	</div>
 	<div id="setup-tabs-2">
 1) Download Apache SystemML binary release (tgz or zip):<br/>
-<pre><a href="http://www.apache.org/dyn/closer.lua/incubator/systemml/0.14.0-incubating/systemml-0.14.0-incubating-bin.tgz">http://www.apache.org/dyn/closer.lua/incubator/systemml/0.14.0-incubating/systemml-0.14.0-incubating-bin.tgz</a></pre>
+<pre><a href="http://www.apache.org/dyn/closer.lua/systemml/{{ site.data.project.release_version }}/systemml-{{ site.data.project.release_version }}-bin.tgz">http://www.apache.org/dyn/closer.lua/systemml/{{ site.data.project.release_version }}/systemml-{{ site.data.project.release_version }}-bin.tgz</a></pre>
 
 2) Extract binary release contents:<br/>
-<pre>tar -xvzf systemml-0.14.0-incubating-bin.tgz</pre>
+<pre>tar -xvzf systemml-{{ site.data.project.release_version }}-bin.tgz</pre>
 
 3) Go to project root directory:</br>
-<pre>cd systemml-0.14.0-incubating-bin</pre>
+<pre>cd systemml-{{ site.data.project.release_version }}-bin</pre>
 
 4) Start Spark Shell with SystemML jar file:<br/>
 <pre>
-spark-shell --executor-memory 4G --driver-memory 4G --jars lib/systemml-0.14.0-incubating.jar
+spark-shell --executor-memory 4G --driver-memory 4G --jars lib/systemml-{{ site.data.project.release_version }}.jar
 </pre>
 
 5) You're all set to run SystemML on Spark:<br/>
@@ -104,8 +104,8 @@ ml.execute(helloScript)
 
 6) For more information, please see the SystemML project documentation:<br/>
 <pre>
-<a href="http://systemml.apache.org/docs/0.14.0/index.html">http://systemml.apache.org/docs/0.14.0/index.html</a>
-<a href="http://systemml.apache.org/docs/0.14.0/spark-mlcontext-programming-guide">http://systemml.apache.org/docs/0.14.0/spark-mlcontext-programming-guide</a>
+<a href="http://systemml.apache.org/docs/{{ site.data.project.release_version }}/index.html">http://systemml.apache.org/docs/{{ site.data.project.release_version }}/index.html</a>
+<a href="http://systemml.apache.org/docs/{{ site.data.project.release_version }}/spark-mlcontext-programming-guide">http://systemml.apache.org/docs/{{ site.data.project.release_version }}/spark-mlcontext-programming-guide</a>
 </pre>
 
 	</div>
