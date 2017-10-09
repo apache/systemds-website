@@ -135,7 +135,7 @@ pip install https://sparktc.ibmcloud.com/repo/latest/systemml-1.0.0-SNAPSHOT-pyt
 	<div id="configure-jupyter-tabs-1">
 		{% highlight bash %}
 # Start Jupyter Notebook Server
-PYSPARK_DRIVER_PYTHON=jupyter PYSPARK_DRIVER_PYTHON_OPTS="notebook" pyspark --master local[*] --conf "spark.driver.memory=12g" --conf spark.driver.maxResultSize=0 --conf spark.akka.frameSize=128 --conf spark.default.parallelism=100
+PYSPARK_DRIVER_PYTHON=jupyter PYSPARK_DRIVER_PYTHON_OPTS="notebook" pyspark --master local[*] --conf "spark.driver.memory=12g" --conf spark.driver.maxResultSize=0 --conf spark.default.parallelism=100
 		{% endhighlight %}
 	</div>
 	<div id="configure-jupyter-tabs-2">
