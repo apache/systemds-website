@@ -36,19 +36,75 @@ limitations under the License.
 <section class="full-stripe full-stripe--alternate">
   <div class="ml-container ml-container--narrow content-group">
     <div class="col col-12">
-      <h2>Planned for Future SystemML 1.0</h2>
+      <h2>Planned for Future SystemML 1.1</h2>
       <ul>
-        <li>Compression (additional operations)</li>
-        <li>Experimental Features:
+        <li>Algorithms & builtin functions
           <ul>
-            <li>Deep Learning</li>
-            <li>Single GPU support</li>
-            <li>Native BLAS support</li>
-            <li>Code Generation</li>
+            <li>NN layers-based factorization machines with regression & classification capabilities</li>
+            <li>NN optimization test suite with well known optimization test functions</li>
+            <li>Model selection & hyper parameter tuning</li>
+            <li>Additional distribution functions, e.g. weibull, gamma</li>
+            <li>Generalization of operations, such as xor, and other operations</li>
           </ul>
         </li>
-        <li>Rigorous Performance and Scalability Testing (Bug Fixes)</li>
-        <li>Remove Deprecated APIs/Functions</li>
+        <li>Enhanced Deep Learning support
+          <ul>
+            <li>Coherent sparse operations on CPU/GPU</li>
+            <li>Coherent single-precision support on CPU/GPU</li>
+            <li>Distributed DL operations</li>
+          </ul>
+        </li>
+        <li>GPU Support
+          <ul>
+            <li>Full compiler integration (cost-based, automatic placement)</li>
+            <li>Multi GPUs</li>
+            <li>Distributed GPUs</li>
+          </ul>
+        </li>
+        <li>Code generation
+          <ul>
+            <li>Deep learning operationss</li>
+            <li>Heterogeneous HW, incl GPUs</li>
+          </ul>
+        </li>
+        <li>Compressed Linear Algebra
+          <ul>
+            <li>Matrix-matrix multiplications</li>
+            <li>Deep learning operations</li>
+            <li>Ultra-sparse datasets</li>
+          </ul>
+        </li>
+        <li>Misc Runtime
+          <ul>
+            <li>Large dense matrix blocks > 16GB</li>
+            <li>NUMA-awareness (thread pools, matrix partitioning)</li>
+            <li>Unified memory management (ops, bufferpool, RDDs/broadcasts)</li>
+            <li>Support additional external formats such as feather format for matrices and frames</li>
+            <li>Parfor support for broadcasts</li>
+            <li>Extended support for multi-threaded operations</li>
+            <li>Boolean matrices</li>
+          </ul>
+        </li>
+        <li>Misc Compiler
+          <ul>
+            <li>Support single-output UDFs in expressions</li>
+            <li>Consolidate replicated compilation chain (e.g., diff APIs)</li>
+            <li>Holistic sum-product optimization and operator fusion</li>
+            <li>Extended sparsity estimators</li>
+            <li>Rewrites and compiler improvements for mini-batching including prefetching</li>
+            <li>Parfor optimizer support for shared reads</li>
+            <li>SPOOF compiler improvement</li>
+          </ul>
+        </li>
+        <li>APIs
+          <ul>
+            <li>Python Binding for JMLC API</li>
+            <li>Consistency Python/Java APIs</li>
+          </ul>
+
+        </li>
+
+
       </ul>
     </div>
 
@@ -70,6 +126,40 @@ limitations under the License.
 
     <div class="col col-12">
       <h2>Current Release</h2>
+      <ul>
+        <li>
+          <strong>SystemML 1.0.0 (<a href="release-notes/systemml-release-notes-1.0.0.html">released</a> in December, 2017)
+          <a href="https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12319522&version=12338328">details</a></strong>
+          <ul>
+            <li>Enhanced Deep Learning support with enhanced NN layers and functions, Caffe2DML, and operator implementation</li>
+            <li>Native BLAS support</li>
+            <li>Additional algorithms: autoencoder, enhanced PCA</li>
+            <li>Enhanced rewrites, IPA, vectorization, and instruction generation</li>
+            <li>Enhanced JMLC API, e.g. prepared scripts with thread affinity for outputs and configs, script cloning, configuration management</li>
+            <li>SystemML Lite artifact</li>
+            <li>Compression on by default</li>
+          </ul>
+        </li>
+        <li>
+          Experimental Features
+          <ul>
+            <li>Keras2DML.</li>
+            <li>Enhanced code generation, code gen optimizer, and multi-threaded codegen operators/li>
+              <li>Enhanced GPU support</li>
+          </ul>
+          </li>
+          <li>
+            Removals
+            <ul>
+              <li>Dropped JDK 7 support</li>
+            </ul>
+          </li>
+      </ul>
+    </div>
+
+    <div class="col col-12">
+      <h2>Prior Releases</h2>
+
       <ul>
         <li>
           <strong>SystemML 0.15.0 (<a href="release-notes/systemml-release-notes-0.15.0.html">released</a> in September, 2017)
@@ -94,10 +184,6 @@ limitations under the License.
           </ul>
         </li>
       </ul>
-    </div>
-
-    <div class="col col-12">
-      <h2>Prior Releases</h2>
 
       <ul>
         <li>
@@ -111,8 +197,9 @@ limitations under the License.
         <li>
           Experimental Features
           <ul>
-            <li>New Code Generation capabilities for automatic operator fusion (basic code generator, compiler integration, runtime integration, in-memory source code compilation, extended explain tool, support for right indexing and replace in cellwise and row aggregate templates, support for row, column, or no aggregation in rowwise template).
-            Note code generation provides significant performance gains with fewer read/write intermediates, reduced scans of inputs and intermediates, and enhanced sparsity exploitation. To enable this feature, set codegen.enabled property to true in SystemML-config.xml file.</li>
+            <li>New Code Generation capabilities for automatic operator fusion (basic code generator, compiler integration, runtime integration, in-memory source code compilation, extended explain tool, support for right indexing and replace in cellwise and
+              row aggregate templates, support for row, column, or no aggregation in rowwise template). Note code generation provides significant performance gains with fewer read/write intermediates, reduced scans of inputs and intermediates, and enhanced
+              sparsity exploitation. To enable this feature, set codegen.enabled property to true in SystemML-config.xml file.</li>
             <li>New instructions and operators for GPU support (relu_maxpooling, conv2d_bias_add, bias_multiply)</li>
           </ul>
         </li>
@@ -131,30 +218,30 @@ limitations under the License.
           <a href="https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12319522&version=12339247">details</a></strong>
           <ul>
             <li>Updated build for Spark 2.1.0</li>
-			<li>New simplification rewrites for stratstats</li>
-			<li>New fused operator tack+* in CP and Spark</li>
+            <li>New simplification rewrites for stratstats</li>
+            <li>New fused operator tack+* in CP and Spark</li>
             <li>New dmlFromResource capability in Python (equivalent to Scala)</li>
-			<li>Add input float support to MLContext</li>
+            <li>Add input float support to MLContext</li>
           </ul>
         </li>
         <li>
           Documentation Enhancements
           <ul>
             <li>Deploy versioned documentation to main project website</li>
-			<li>Add python mlcontext example to engine dev guide</li>
-			<li>Add MLContext info functionality to docs</li>
-			<li>Update DML Language Reference for write description parameter</li>
+            <li>Add python mlcontext example to engine dev guide</li>
+            <li>Add MLContext info functionality to docs</li>
+            <li>Update DML Language Reference for write description parameter</li>
           </ul>
         </li>
         <li>
           Deprecations, Removals
           <ul>
             <li>Deprecate old MLContext API</li>
-			<li>Deprecate parfor perftesttool</li>
-			<li>Deprecate SQLContext methods</li>
-			<li>Replace deprecated Accumulator with AccumulatorV2</li>
-			<li>Replace append with cbind for matrices</li>
-			<li>Migrate Vector and LabeledPoint classes from mllib to ml</li>
+            <li>Deprecate parfor perftesttool</li>
+            <li>Deprecate SQLContext methods</li>
+            <li>Replace deprecated Accumulator with AccumulatorV2</li>
+            <li>Replace append with cbind for matrices</li>
+            <li>Migrate Vector and LabeledPoint classes from mllib to ml</li>
           </ul>
         </li>
         <li>
@@ -173,8 +260,8 @@ limitations under the License.
             <li>Support pip install of new python package</li>
             <li>Allow NumPy arrays, Pandas DataFrame and SciPy matrices as input to MLContext</li>
             <li>Improve SystemML Python DSL for NumPy</li>
-			<li>Updated build for Spark 1.6.0</li>
-			<li>DML utility script to shuffle input dataset</li>
+            <li>Updated build for Spark 1.6.0</li>
+            <li>DML utility script to shuffle input dataset</li>
           </ul>
         </li>
         <li>
