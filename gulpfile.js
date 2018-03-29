@@ -49,7 +49,7 @@ gulp.task('js', () => {
 
 gulp.task('jekyll:build', (done) => {
   browserSync.notify(config.messages.jekyllBuild);
-  const jekyll = child.spawn('jekyll', ['build', '--incremental', '--drafts'], {stdio: 'inherit'})
+  const jekyll = child.spawn('jekyll', ['build', '--drafts'], {stdio: 'inherit'})
     .on('close', done);
 });
 
