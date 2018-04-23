@@ -81,11 +81,23 @@
   role: PMC Member
   org: IBM
 
+- name: Janardhan Pulivarthi
+  apacheId: janardhan
+  githubId: j143
+  role: Committer
+  org:
+
 - name: Joseph Bradley
   apacheId: jkbradley
   githubId: jkbradley
   role: PMC Member
   org: Databricks
+
+- name: Krishna Kalyan
+  apacheId: kkalyan
+  githubId: krishnakalyan3
+  role: Committer
+  org:
 
 - name: Luciano Resende
   apacheId: lresende
