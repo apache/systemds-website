@@ -36,15 +36,17 @@ limitations under the License.
 <section class="full-stripe full-stripe--alternate">
   <div class="ml-container ml-container--narrow content-group">
     <div class="col col-12">
-      <h2>Planned for Future SystemML 1.2</h2>
+      <h2>Planned for Future Releases</h2>
       <ul>
+        <li>Completion of Prior Experimental Features</li>
         <li>Algorithms & builtin functions
           <ul>
             <li>NN layers-based factorization machines with regression & classification capabilities</li>
             <li>NN optimization test suite with well known optimization test functions</li>
             <li>Model selection & hyper parameter tuning</li>
             <li>Additional distribution functions, e.g. weibull, gamma</li>
-            <li>Generalization of operations, such as xor, and other operations</li>
+     	    <li>Time Series Analysis and Anomaly Detection</li>
+            <li>Scalable Decomposition Algorithms</li>
           </ul>
         </li>
         <li>Enhanced Deep Learning support
@@ -73,6 +75,7 @@ limitations under the License.
             <li>Ultra-sparse datasets</li>
           </ul>
         </li>
+	<li>Model Serving</li>
         <li>Misc Runtime
           <ul>
             <li>NUMA-awareness (thread pools, matrix partitioning)</li>
@@ -83,43 +86,50 @@ limitations under the License.
         </li>
         <li>Misc Compiler
           <ul>
-            <li>Consolidate replicated compilation chain (e.g., diff APIs)</li>
             <li>Holistic sum-product optimization and operator fusion</li>
-            <li>Extended sparsity estimators</li>
-            <li>Rewrites and compiler improvements for mini-batching including prefetching</li>
-            <li>Parfor optimizer support for shared reads</li>
             <li>SPOOF compiler improvement</li>
+            <li>Tree-based Data Structures</li>
+            <li>Global Dataflow Optimizations</li>
           </ul>
         </li>
-        <li>APIs
-          <ul>
-            <li>Python Binding for JMLC API</li>
-          </ul>
-
-        </li>
-
-
-      </ul>
-    </div>
-
-    <div class="col col-12">
-      <h2>Feature Candidates for Future Releases</h2>
-      <ul>
-        <li>Completion of Prior Experimental Features</li>
-        <li>Python DSL</li>
-        <li>New Algorithms -- e.g. Decomposition Algorithms</li>
-        <li>Common DSL Architecture</li>
-        <li>R Interfaces: R DSL and R Wrappers</li>
-        <li>Native Zeppelin Notebook Support</li>
-        <li>Sum Product Optimizations</li>
-        <li>Tree-based Data Structures</li>
-        <li>Global Dataflow Optimizations</li>
         <li>Tooling</li>
+        <li>Common DSL Architecture</li>
       </ul>
     </div>
 
     <div class="col col-12">
       <h2>Current Release</h2>
+      <ul>
+        <li>
+          <strong>SystemML 1.2.0 (<a href="release-notes/systemml-release-notes-1.2.0.html">released</a> in Aug, 2018)
+          <a href="https://issues.apache.org/jira/secure/ReleaseNote.jspa?version=12342959&projectId=12319522">details</a></strong>
+          <ul>
+	    <li>New data type list for lists and structs</li>
+	    <li>Built in deep learning functions, e.g. convolution, maxpooling, bias</li>
+	    <li>DML eval function</li>
+	    <li>Multiple new builtin functions, e.g. exists, lower.tri, upper.tri</li>
+	    <li>Code motion, global subexpression elimination, rewrites for codegen</li>
+	    <li>Performance improvements for ultra-sparse data and instruction generation
+          </ul>
+        </li>
+        <li>
+          Experimental Features
+          <ul>
+            <li>Parameter server</li>
+	    <li>Sparsity estimators</li>
+          </ul>
+        </li>
+        <li>
+          Removals
+          <ul>
+            <li>Opt level 4</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div class="col col-12">
+      <h2>Prior Releases</h2>
       <ul>
         <li>
           <strong>SystemML 1.1.0 (<a href="release-notes/systemml-release-notes-1.1.0.html">released</a> in March, 2018)
@@ -133,12 +143,6 @@ limitations under the License.
             <li>Performance improvements</li>
           </ul>
         </li>
-      </ul>
-    </div>
-
-    <div class="col col-12">
-      <h2>Prior Releases</h2>
-      <ul>
         <li>
           <strong>SystemML 1.0.0 (<a href="release-notes/systemml-release-notes-1.0.0.html">released</a> in December, 2017)
           <a href="https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12319522&version=12338328">details</a></strong>
