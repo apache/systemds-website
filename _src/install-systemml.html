@@ -54,11 +54,69 @@ limitations under the License.
       <p class="indent">Apache Spark 2.x</p>
       <p class="indent">Set SPARK_HOME to a location where Spark 2.x is installed.</p>
 
+	<div id="prerequisite-tabs">
+        	<ul>
+                	<li><a href="#prerequisite-tabs-1">MacOS/Linux</a></li>
+                	<li><a href="#prerequisite-tabs-2">Windows</a></li>
+        	</ul>
+
+        	<div id="prerequisite-tabs-1">
+		1) Java	<br />
+		Make sure Java version is >= 1.8 and JAVA_HOME environment variable is set:
+		{% highlight bash %} 
+java -version 
+export JAVA_HOME="$(/usr/libexec/java_home)"{% endhighlight %}
+
+		2) Spark <br />
+		Download Spark from <a href="https://spark.apache.org/downloads.html">https://spark.apache.org/downloads.html</a> and move to home directory, and extract. Also, set environment variables to point to the extracted directory
+		{% highlight bash %} 
+export SPARK_HOME="$HOME/spark-2.1.0-bin-hadoop2.7"
+export HADOOP_HOME=$SPARK_HOME
+export SPARK_LOCAL_IP=127.0.0.1{% endhighlight %}
+
+		3) Python and Jupyter <br />
+		Download and install Anaconda Python 3+ from <a href="https://www.anaconda.com/distribution/#download-section">https://www.anaconda.com/distribution/#download-section</a> (includes jupyter, and pip)
+		{% highlight bash %} 
+export PYSPARK_DRIVER_PYTHON=jupyter
+export PYSPARK_DRIVER_PYTHON_OPTS='notebook' $SPARK_HOME/bin/pyspark --master local[*] --driver-memory 8G{% endhighlight %}
+		</div>
+
+		<div id="prerequisite-tabs-2">
+		1) Java <br />
+                Make sure Java version is >= 1.8. Also, set JAVA_HOME environment variable and include %JAVA_HOME%\bin in the environment variable PATH:
+                {% highlight bash %} 
+java -version  
+ls "%JAVA_HOME%"{% endhighlight %}
+
+                2) Spark <br />
+                Download Spark from <a href="https://spark.apache.org/downloads.html">https://spark.apache.org/downloads.html</a> and extract. Set the environment variable SPARK_HOME to point to the extracted directory. <br />
+		
+		3) Install winutils <br />
+- Download winutils.exe from <a href="http://github.com/steveloughran/winutils/raw/master/hadoop-2.6.0/bin/winutils.exe">http://github.com/steveloughran/winutils/raw/master/hadoop-2.6.0/bin/winutils.exe</a>  <br />
+- Place it in c:\winutils\bin <br />
+- Set environment variable HADOOP_HOME to point to c:\winutils <br />
+- Add c:\winutils\bin to the environment variable PATH. <br />
+- Finally, modify permission of hive directory that will be used by Spark and check if Spark is correctly installed:
+
+                {% highlight bash %} 
+winutils.exe chmod 777 /tmp/hive
+%SPARK_HOME%\bin\spark-shell
+%SPARK_HOME%\bin\pyspark --master local[*] --driver-memory 8G{% endhighlight %}
+
+                3) Python and Jupyter <br />
+                Download and install Anaconda Python 3+ from <a href="https://www.anaconda.com/distribution/#download-section">https://www.anaconda.com/distribution/#download-section</a> (includes jupyter, and pip)
+                {% highlight bash %} 
+set PYSPARK_DRIVER_PYTHON=jupyter
+set PYSPARK_DRIVER_PYTHON_OPTS=notebook
+%SPARK_HOME%\bin\pyspark --master local[*] --driver-memory 8G{% endhighlight %}
+        	</div>
+
+	</div>
     </div>
 
     <!-- Step 2 -->
     <div class="col col-12">
-      <h3><span class="circle">2</span>Setup</h3>
+      <h3><span class="circle">2</span>Setup SystemML</h3>
     </div>
 
 <div id="setup-tabs">
