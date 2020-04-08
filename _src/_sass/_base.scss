@@ -30,7 +30,7 @@ p {
   margin: 0 0 1em 0;
 }
 
-&.indent {
+#{if(&, "&", "*")}.indent {
   margin-left: 2.6em;
 }
 
@@ -60,7 +60,7 @@ a {
   -moz-transition: all 0.2s ease-in-out;
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
-  &:hover {
+  #{if(&, "&", "*")}:hover {
     color: $color-systemml-accent-dark;
   }
 }

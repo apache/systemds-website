@@ -33,6 +33,7 @@ project/plugins/project/
 _site
 .sass-cache
 .jekyll-metadata
+.jekyll-cache
 
 #npm
 node_modules
