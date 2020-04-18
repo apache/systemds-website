@@ -69,6 +69,12 @@
   role: PMC Member
   org: IBM
 
+- name: Guobao Li
+  apacheId: liguobao
+  githubId: EdgarLGB
+  role: Committer
+  Org: 
+
 - name: Henry Saputra
   apacheId: hsaputra
   githubId: hsaputra
