@@ -21,6 +21,12 @@
   role: PMC Member
   org: IBM
 
+- name: Arnab Phani
+  apacheId: arnabp20
+  githubId: phaniarnab 
+  role: Committer
+  org: TU Graz
+
 - name: Arvind Surve
   apacheId: acs_s
   githubId: asurve
@@ -99,11 +105,17 @@
   role: PMC Member
   org: Databricks
 
+- name: Kevin Innerebner
+  apacheId: kinnerebner
+  githubId: kev-inn
+  role: Committer
+  org: TU Graz
+
 - name: Krishna Kalyan
   apacheId: kkalyan
   githubId: krishnakalyan3
   role: Committer
-  org:
+  org: Cloudera
 
 - name: Luciano Resende
   apacheId: lresende
@@ -111,11 +123,17 @@
   role: PMC Member, Mentor
   org: IBM
 
+- name: Mark Dokter
+  apacheId: markd
+  githubId: corepointer
+  role: Committer
+  org: TU Graz
+
 - name: Matthias Boehm
   apacheId: mboehm7
   githubId: mboehm7
   role: PMC Member
-  org: IBM
+  org: TU Graz, previously IBM
 
 - name: Mike Dusenberry
   apacheId: dusenberrymw
@@ -164,6 +182,12 @@
   githubId: shirisht
   role: PMC Member
   org: Target
+
+- name: Shafaq Siddiqi
+  apacheId: ssiddiqi
+  githubId: Shafaq-Siddiqi
+  role: Committer
+  org: TU Graz
 
 - name: Xiangrui Meng
   apacheId: meng
