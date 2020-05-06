@@ -79,7 +79,7 @@
   apacheId: liguobao
   githubId: EdgarLGB
   role: Committer
-  Org: Criteo
+  org: Criteo
 
 - name: Henry Saputra
   apacheId: hsaputra
@@ -97,7 +97,7 @@
   apacheId: janardhan
   githubId: j143
   role: Committer
-  org:
+  org: OneDesign
 
 - name: Joseph Bradley
   apacheId: jkbradley
