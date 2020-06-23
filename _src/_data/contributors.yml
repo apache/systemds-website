@@ -177,6 +177,12 @@
   role: PMC Member, Mentor
   org: Red Hat
 
+- name: Sebastian Baunsgaard
+  apacheId: baunsgaard
+  githubId: Baunsgaard
+  role: Committer
+  org: TU Graz
+
 - name: Shirish Tatikonda
   apacheId: shirisht
   githubId: shirisht
