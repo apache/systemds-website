@@ -26,7 +26,7 @@ limitations under the License.
       <p>A machine learning platform optimal for big data</p>
     </div>
     <div class="col col-12 content-group button-group">
-      <a class="button button-primary" href="download.html">Download SystemML</a>
+      <a class="button button-primary" href="download.html">Download SystemDS</a>
     </div>
   </div>
   <!-- video background  -->
@@ -40,8 +40,8 @@ limitations under the License.
     <div class="col-4" id="award">
     </div>
     <div class="col-8">
-      <h3>The Apache Software Foundation Announces {{ site.data.project.name }} as a Top-Level-Project</h3>
-      <p>Learn how {{ site.data.project.name }} is advancing machine learning. <a href="https://blogs.apache.org/foundation/entry/the-apache-software-foundation-announces13" target="_blank">Read Press Release</a></p>
+      <h3>Name change from SystemML to SystemDS</h3>
+      <p>To reflect the change of focus to the wider Data Science Lifecycle
     </div>
   </div>
 </section>
@@ -50,14 +50,18 @@ limitations under the License.
 <section class="full-stripe">
   <div class="ml-container ml-container--vertically-top ml-container--reverse-order">
     <div class="col col-6 content-group">
-      <img src="/assets/img/diagramAnim-v4.gif" alt="What is Apache SystemML?">
+      <img src="/assets/img/diagramAnim-v4.gif" alt="What is Apache SystemDS?">
     </div>
     <div class="col col-6 content-group content-group--more-padding">
       <!-- bdi tag prevents reverse punctuation when rtl direction property is applied -->
-      <h2><bdi>What is SystemML?&lrm;</bdi></h2>
-
-      <p>Apache SystemML provides an optimal workplace for machine learning using big data. It can be run on top of Apache Spark, where it automatically scales your data, line by line, determining whether your code should be run on the driver or an Apache Spark cluster. Future SystemML developments include additional deep learning with GPU capabilities such as importing and running neural network architectures and pre-trained models for training.&lrm;</p>
-      <p><a href="#systemml-video" class="modal-trigger jq-modal-trigger"><span class="icon play-button"></span><span>Learn more about SystemML</span></a></p>
+      <h2><bdi>What is SystemDS?</bdi></h2>
+      <p>Apache SystemDS provides an optimal workplace for machine learning using big data.
+        It can be run on top of Apache Spark or standalone, where it automatically scales your data, line by line,
+        determining whether your code should be run on the driver or an Apache Spark cluster.
+        SystemDS include additional deep learning with GPU capabilities such as importing and
+        running neural network architectures and pre-trained models for training.</p>
+      <p><a href="#systemml-video" class="modal-trigger jq-modal-trigger"><span
+            class="icon play-button"></span><span>Learn more about SystemDS</span></a></p>
     </div>
   </div>
 </section>
@@ -66,42 +70,47 @@ limitations under the License.
 <section class="full-stripe full-stripe--alternate">
   <div class="ml-container ml-container--vertically-centered">
     <div class="col col-6 content-group content-group--more-padding">
-      <img src="/assets/img/robotTutorialSm.png" alt="What is Apache SystemML?">
+      <img src="/assets/img/robotTutorialSm.png" alt="What is Apache SystemDS?">
     </div>
     <div class="col col-6 content-group content-group--more-padding button-group">
-      <h2>Install SystemML</h2>
-      <p>New to Apache SystemML? Try our quick install guide that will walk you through setting up your environment and getting you up and going with SystemML.</p>
-      <a class="button button-primary" href="install-systemml.html">Install SystemML</a>
-      <a class="button button-secondary" href="get-started.html#sample-notebook">Notebooks</a>
-      <a class="button button-secondary" href="documentation.html" target="_blank">Docs</a>
+      <h2>Install SystemDS</h2>
+      <p>New to Apache SystemDS? Try our quick install guide that will walk you through setting up your environment and
+        getting you up and going with SystemDS.</p>
+      <a class="button button-primary" href="/systemds/site/install">Install SystemDS</a>
+      <!-- <a class="button button-secondary" href="get-started.html#sample-notebook">Notebooks</a> -->
+      <!-- <a class="button button-secondary" href="documentation.html" target="_blank">Docs</a> -->
     </div>
   </div>
 
 </section>
 
 <!-- Awards -->
-<section class="full-stripe full-stripe--alternate-2">
+<!-- <section class="full-stripe full-stripe--alternate-2">
   <div class="ml-container ml-container--narrow">
     <div class="col col-4 content-group content-group--center-content vldb2016"></div>
     <div class="col col-8 content-group content-group--center-align content-group--center-content">
       <h3>VLDB 2016 Best Paper</h3>
-      <p>Read Compressed Linear Algebra for Large-Scale Machine Learning.<a href="http://www.vldb.org/pvldb/vol9/p960-elgohary.pdf" target="_blank"> Download Paper</a></p>
+      <p>Read Compressed Linear Algebra for Large-Scale Machine Learning.<a
+          href="http://www.vldb.org/pvldb/vol9/p960-elgohary.pdf" target="_blank"> Download Paper</a></p>
     </div>
   </div>
-</section>
+</section> -->
 
 <!-- Contact Us -->
 <section class="full-stripe">
   <div class="ml-container ml-container--horizontally-center">
     <div class="col col-12 content-group ">
       <h2>Contribute</h2>
-      <p>Contribute to Apache SystemML<sup>TM</sup> by subscribing to our developer mailing list for updates and news. Check out <a href="community.html#mailing-list">All Mailing Lists</a>.
+      <p>Contribute to Apache SystemDS<sup>TM</sup> by subscribing to our developer mailing list for updates and news.
+        Check out <a href="community.html#mailing-list">All Mailing Lists</a>.
       </p>
     </div>
     <div class="col col-12 content-group button-group">
-      <a href="mailto:{{ site.data.project.dev_list_subscribe }}?subject=send this email to subscribe" class="button button-primary">Subscribe</a>
-      <a href="{{ site.data.project.dev_list_archive }}" target="_blank" class="button button-secondary">View Archive</a>
-      <a href="https://systemml.apache.org/roadmap" target="_blank" class="button button-secondary">Roadmap</a>
+      <a href="mailto:{{ site.data.project.dev_list_subscribe }}?subject=send this email to subscribe"
+        class="button button-primary">Subscribe</a>
+      <a href="{{ site.data.project.dev_list_archive }}" target="_blank" class="button button-secondary">View
+        Archive</a>
+      <a href="/roadmap" target="_blank" class="button button-secondary">Roadmap</a>
     </div>
   </div>
 </section>
@@ -114,10 +123,12 @@ limitations under the License.
     </div>
     <div class="col col-12">
       <ul class="link-list bullet-pointless">
-        <li><a class="icon icon-youtube" href="https://www.youtube.com/channel/UCQwUHIc5SjqNIppUH6xbxXQ" target="_blank"></a></li>
-        <li><a class="icon icon-github" href="{{ site.data.project.source_repository_mirror }}" target="_blank"></a></li>
-        <li><a class="icon icon-twitter" href="https://twitter.com/ApacheSystemML" target="_blank"></a></li>
-        <li><a class="icon icon-medium" href="https://medium.com/@apachesystemml" target="_blank"></a></li>
+        <li><a class="icon icon-youtube" href="https://www.youtube.com/channel/UCQwUHIc5SjqNIppUH6xbxXQ"
+            target="_blank"></a></li>
+        <li><a class="icon icon-github" href="{{ site.data.project.source_repository_mirror }}" target="_blank"></a>
+        </li>
+        <!-- <li><a class="icon icon-twitter" href="https://twitter.com/ApacheSystemML" target="_blank"></a></li> -->
+        <!-- <li><a class="icon icon-medium" href="https://medium.com/@apachesystemml" target="_blank"></a></li> -->
       </ul>
     </div>
   </div>

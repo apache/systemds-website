@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Roadmap
-description: Apache SystemML Roadmap
+description: Apache SystemDS Roadmap
 group: nav-right
 ---
 <!--
@@ -45,7 +45,7 @@ limitations under the License.
             <li>NN optimization test suite with well known optimization test functions</li>
             <li>Model selection & hyper parameter tuning</li>
             <li>Additional distribution functions, e.g. weibull, gamma</li>
-     	    <li>Time Series Analysis and Anomaly Detection</li>
+            <li>Time Series Analysis and Anomaly Detection</li>
             <li>Scalable Decomposition Algorithms</li>
           </ul>
         </li>
@@ -75,7 +75,7 @@ limitations under the License.
             <li>Ultra-sparse datasets</li>
           </ul>
         </li>
-	<li>Model Serving</li>
+        <li>Model Serving</li>
         <li>Misc Runtime
           <ul>
             <li>NUMA-awareness (thread pools, matrix partitioning)</li>
@@ -102,21 +102,22 @@ limitations under the License.
       <ul>
         <li>
           <strong>SystemML 1.2.0 (<a href="release-notes/systemml-release-notes-1.2.0.html">released</a> in Aug, 2018)
-          <a href="https://issues.apache.org/jira/secure/ReleaseNote.jspa?version=12342959&projectId=12319522">details</a></strong>
+            <a
+              href="https://issues.apache.org/jira/secure/ReleaseNote.jspa?version=12342959&projectId=12319522">details</a></strong>
           <ul>
-	    <li>New data type list for lists and structs</li>
-	    <li>Built in deep learning functions, e.g. convolution, maxpooling, bias</li>
-	    <li>DML eval function</li>
-	    <li>Multiple new builtin functions, e.g. exists, lower.tri, upper.tri</li>
-	    <li>Code motion, global subexpression elimination, rewrites for codegen</li>
-	    <li>Performance improvements for ultra-sparse data and instruction generation
+            <li>New data type list for lists and structs</li>
+            <li>Built in deep learning functions, e.g. convolution, maxpooling, bias</li>
+            <li>DML eval function</li>
+            <li>Multiple new builtin functions, e.g. exists, lower.tri, upper.tri</li>
+            <li>Code motion, global subexpression elimination, rewrites for codegen</li>
+            <li>Performance improvements for ultra-sparse data and instruction generation
           </ul>
         </li>
         <li>
           Experimental Features
           <ul>
             <li>Parameter server</li>
-	    <li>Sparsity estimators</li>
+            <li>Sparsity estimators</li>
           </ul>
         </li>
         <li>
@@ -133,25 +134,32 @@ limitations under the License.
       <ul>
         <li>
           <strong>SystemML 1.1.0 (<a href="release-notes/systemml-release-notes-1.1.0.html">released</a> in March, 2018)
-          <a href="https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12319522&version=12342282">details</a></strong>
+            <a
+              href="https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12319522&version=12342282">details</a></strong>
           <ul>
-	    <li>New Builtin Functions: `ifelse`, `assert`, `eval`, `avg_pool`, `avg_pool_backward`</li>
-	    <li>Additional Layers in NN library: average pooling, upsampling, low-rank fully connected</li>
-	    <li>New Capabilities/Features such as dense matrix blocks >16GB, additional ParFor result aggregation operations, UDFs callable in expressions, zero rows/columns matrices, matrix-matrix multiplication over compressed matrices</li>
+            <li>New Builtin Functions: `ifelse`, `assert`, `eval`, `avg_pool`, `avg_pool_backward`</li>
+            <li>Additional Layers in NN library: average pooling, upsampling, low-rank fully connected</li>
+            <li>New Capabilities/Features such as dense matrix blocks >16GB, additional ParFor result aggregation
+              operations, UDFs callable in expressions, zero rows/columns matrices, matrix-matrix multiplication over
+              compressed matrices</li>
             <li>Extended Caffe2DML and Keras2DML APIs</li>
             <li>Compiler & Runtime enhancements</>
             <li>Performance improvements</li>
           </ul>
         </li>
         <li>
-          <strong>SystemML 1.0.0 (<a href="release-notes/systemml-release-notes-1.0.0.html">released</a> in December, 2017)
-          <a href="https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12319522&version=12338328">details</a></strong>
+          <strong>SystemML 1.0.0 (<a href="release-notes/systemml-release-notes-1.0.0.html">released</a> in December,
+            2017)
+            <a
+              href="https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12319522&version=12338328">details</a></strong>
           <ul>
-            <li>Enhanced Deep Learning support with enhanced NN layers and functions, Caffe2DML, and operator implementation</li>
+            <li>Enhanced Deep Learning support with enhanced NN layers and functions, Caffe2DML, and operator
+              implementation</li>
             <li>Native BLAS support</li>
             <li>Additional algorithms: autoencoder, enhanced PCA</li>
             <li>Enhanced rewrites, IPA, vectorization, and instruction generation</li>
-            <li>Enhanced JMLC API, e.g. prepared scripts with thread affinity for outputs and configs, script cloning, configuration management</li>
+            <li>Enhanced JMLC API, e.g. prepared scripts with thread affinity for outputs and configs, script cloning,
+              configuration management</li>
             <li>SystemML Lite artifact</li>
             <li>Compression on by default</li>
           </ul>
@@ -161,7 +169,7 @@ limitations under the License.
           <ul>
             <li>Keras2DML.</li>
             <li>Enhanced code generation, code gen optimizer, and multi-threaded codegen operators/li>
-              <li>Enhanced GPU support</li>
+            <li>Enhanced GPU support</li>
           </ul>
         </li>
         <li>
@@ -171,8 +179,10 @@ limitations under the License.
           </ul>
         </li>
         <li>
-          <strong>SystemML 0.15.0 (<a href="release-notes/systemml-release-notes-0.15.0.html">released</a> in September, 2017)
-          <a href="https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12319522&version=12341587">details</a></strong>
+          <strong>SystemML 0.15.0 (<a href="release-notes/systemml-release-notes-0.15.0.html">released</a> in September,
+            2017)
+            <a
+              href="https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12319522&version=12341587">details</a></strong>
           <ul>
             <li>Added several new 2D convolution layers</li>
             <li>Graduated `nn` library from staging to `scripts/nn`</li>
@@ -196,19 +206,30 @@ limitations under the License.
 
       <ul>
         <li>
-          <strong>SystemML 0.14.0-incubating (<a href="release-notes/systemml-release-notes-0.14.0-incubating.html">released</a> in May, 2017)
-          <a href="https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12319522&version=12340322">details</a></strong>
+          <strong>SystemML 0.14.0-incubating (<a
+              href="release-notes/systemml-release-notes-0.14.0-incubating.html">released</a> in May, 2017)
+            <a
+              href="https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12319522&version=12340322">details</a></strong>
           <ul>
-            <li>Runtime feature extensions (new libsvm-binary data converters, parfor spark buffer pool handling, parfor block partitioning of fixed size batches of rows or columns, native dataset support in parfor spark datapartition-execute)</li>
-            <li>Compiler feature extensions (improved parfor execution type selection, improved literal replacement for nrow/ncol, simplified instruction generation across back-ends, consolidated static/dynamic rewrite utilities)</li>
+            <li>Runtime feature extensions (new libsvm-binary data converters, parfor spark buffer pool handling, parfor
+              block partitioning of fixed size batches of rows or columns, native dataset support in parfor spark
+              datapartition-execute)</li>
+            <li>Compiler feature extensions (improved parfor execution type selection, improved literal replacement for
+              nrow/ncol, simplified instruction generation across back-ends, consolidated static/dynamic rewrite
+              utilities)</li>
           </ul>
         </li>
         <li>
           Experimental Features
           <ul>
-            <li>New Code Generation capabilities for automatic operator fusion (basic code generator, compiler integration, runtime integration, in-memory source code compilation, extended explain tool, support for right indexing and replace in cellwise and
-              row aggregate templates, support for row, column, or no aggregation in rowwise template). Note code generation provides significant performance gains with fewer read/write intermediates, reduced scans of inputs and intermediates, and enhanced
-              sparsity exploitation. To enable this feature, set codegen.enabled property to true in SystemML-config.xml file.</li>
+            <li>New Code Generation capabilities for automatic operator fusion (basic code generator, compiler
+              integration, runtime integration, in-memory source code compilation, extended explain tool, support for
+              right indexing and replace in cellwise and
+              row aggregate templates, support for row, column, or no aggregation in rowwise template). Note code
+              generation provides significant performance gains with fewer read/write intermediates, reduced scans of
+              inputs and intermediates, and enhanced
+              sparsity exploitation. To enable this feature, set codegen.enabled property to true in SystemML-config.xml
+              file.</li>
             <li>New instructions and operators for GPU support (relu_maxpooling, conv2d_bias_add, bias_multiply)</li>
           </ul>
         </li>
@@ -223,8 +244,10 @@ limitations under the License.
 
       <ul>
         <li>
-          <strong>SystemML 0.13.0-incubating (<a href="release-notes/systemml-release-notes-0.13.0-incubating.html">released</a> in March, 2017)
-          <a href="https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12319522&version=12339247">details</a></strong>
+          <strong>SystemML 0.13.0-incubating (<a
+              href="release-notes/systemml-release-notes-0.13.0-incubating.html">released</a> in March, 2017)
+            <a
+              href="https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12319522&version=12339247">details</a></strong>
           <ul>
             <li>Updated build for Spark 2.1.0</li>
             <li>New simplification rewrites for stratstats</li>
@@ -256,15 +279,18 @@ limitations under the License.
         <li>
           Experimental Features / Algorithms
           <ul>
-            <li>Compressed Linear Algebra v2 (new DDC encoding format, hardened sample-based estimators, debugging tools, new column grouping algorithm, additional operations)</li>
+            <li>Compressed Linear Algebra v2 (new DDC encoding format, hardened sample-based estimators, debugging
+              tools, new column grouping algorithm, additional operations)</li>
           </ul>
         </li>
       </ul>
 
       <ul>
         <li>
-          <strong>SystemML 0.12.0-incubating (<a href="release-notes/systemml-release-notes-0.12.0-incubating.html">released</a> in February, 2017)
-          <a href="https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12319522&version=12339246">details</a></strong>
+          <strong>SystemML 0.12.0-incubating (<a
+              href="release-notes/systemml-release-notes-0.12.0-incubating.html">released</a> in February, 2017)
+            <a
+              href="https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12319522&version=12339246">details</a></strong>
           <ul>
             <li>Support pip install of new python package</li>
             <li>Allow NumPy arrays, Pandas DataFrame and SciPy matrices as input to MLContext</li>
@@ -283,8 +309,10 @@ limitations under the License.
 
       <ul>
         <li>
-          <strong>SystemML 0.11.0-incubating (<a href="release-notes/systemml-release-notes-0.11.0-incubating.html">released</a> in November, 2016)
-          <a href="https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12319522&version=12335820">details</a></strong>
+          <strong>SystemML 0.11.0-incubating (<a
+              href="release-notes/systemml-release-notes-0.11.0-incubating.html">released</a> in November, 2016)
+            <a
+              href="https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12319522&version=12335820">details</a></strong>
           <ul>
             <li>SystemML frames</li>
             <li>New MLContext API</li>
@@ -321,8 +349,10 @@ limitations under the License.
 
       <ul>
         <li>
-          <strong>SystemML 0.10.0-incubating (<a href="release-notes/systemml-release-notes-0.10.0-incubating.html">released</a> in June, 2016)
-          <a href="https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12319522&version=12334651">details</a></strong>
+          <strong>SystemML 0.10.0-incubating (<a
+              href="release-notes/systemml-release-notes-0.10.0-incubating.html">released</a> in June, 2016)
+            <a
+              href="https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12319522&version=12334651">details</a></strong>
           <ul>
             <li>Different types of Spark Matrix Blocks: MCSR, CSR, COO</li>
             <li>SystemML Frame support in JMLC/CP</li>
@@ -348,8 +378,10 @@ limitations under the License.
 
       <ul>
         <li>
-          <strong>SystemML 0.9.0-incubating (<a href="release-notes/systemml-release-notes-0.9.0-incubating.html">released</a> in January, 2016)
-          <a href="https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12319522&version=12334650">details</a></strong>
+          <strong>SystemML 0.9.0-incubating (<a
+              href="release-notes/systemml-release-notes-0.9.0-incubating.html">released</a> in January, 2016)
+            <a
+              href="https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12319522&version=12334650">details</a></strong>
           <ul>
             <li>Improvements to MLContext and MLPipeline wrappers</li>
             <li>New converter utilities for RDDs and DataFrames</li>

@@ -1,32 +1,32 @@
 {
-  "name": "systemml-website",
-  "version": "0.1.0",
-  "description": "",
-  "main": "index.js",
-  "dependencies": {},
-  "devDependencies": {
-    "browser-sync": "^2.26.7",
-    "gulp": "^4.0.2",
-    "gulp-concat": "^2.6.1",
-    "gulp-if": "^3.0.0",
-    "gulp-sass": "^4.0.2",
-    "gulp-sourcemaps": "^2.6.5",
-    "gulp-uglify": "^3.0.2",
-    "gulp-useref": "^4.0.1",
-    "gulp-util": "^3.0.8",
-    "susy": "^2.2.14"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/apache/systemml-website.git"
-  },
-  "author": "",
-  "license": "Apache-2.0",
-  "bugs": {
-    "url": "https://github.com/apache/systemml-website/issues"
-  },
-  "homepage": "http://systemml.apache.org"
+    "name": "systemds-website",
+    "version": "2.0.0",
+    "description": "",
+    "main": "index.js",
+    "dependencies": {},
+    "devDependencies": {
+        "browser-sync": "^2.26.7",
+        "gulp": "^4.0.2",
+        "gulp-concat": "^2.6.1",
+        "gulp-if": "^3.0.0",
+        "gulp-sass": "^4.1.0",
+        "gulp-sourcemaps": "^2.6.5",
+        "gulp-uglify": "^3.0.2",
+        "gulp-useref": "^4.0.1",
+        "gulp-util": "^3.0.8",
+        "susy": "^2.2.14"
+    },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/apache/systemds-website.git"
+    },
+    "author": "",
+    "license": "Apache-2.0",
+    "bugs": {
+        "url": "https://github.com/apache/systemds-website/issues"
+    },
+    "homepage": "http://systemds.apache.org"
 }

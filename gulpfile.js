@@ -19,7 +19,8 @@ const config = {
       '_src/_scripts/jquery-2.1.1.min.js',
       '_src/_scripts/jquery.fitvids.js',
       '_src/_scripts/ap-components.min.js',
-      '_src/_scripts/main.js'
+      '_src/_scripts/main.js',
+      '_src/_scripts/pushy.js'
     ],
     markupFiles: [
       '_src/**/*.md',
