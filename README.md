@@ -6,7 +6,7 @@ Build System dependencies
 
 #### Node.js and npm
 
-In order to build this project you will need the latest version of [node.js and npm](https://nodejs.org/). Detailed instructions for the installation can found [here](https://github.com/nodejs/node#download).
+In order to build this project you will need the latest version of [node.js and npm](https://nodejs.org/). Detailed instructions for download and installation can be found [here](https://github.com/nodejs/node#download).
 
 #### Gulp
 
