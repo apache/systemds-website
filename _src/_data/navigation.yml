@@ -36,22 +36,22 @@ topnav:
   - title: Issue Tracker
     url: https://issues.apache.org/jira/browse/SYSTEMDS
   - title: Source Code
-    url: https://github.com/apache/systemml
+    url: https://github.com/apache/systemds
   - title: Website Source Code
-    url: https://github.com/apache/systemml-website
+    url: https://github.com/apache/systemds-website
   - title: Roadmap
     url: /roadmap
 
 - title: Apache
   subcategories:
   - title: Apache Software Foundation
-    url: http://www.apache.org/foundation/how-it-works.html
+    url: http://www.apache.org/foundation/how-it-works
   - title: Apache License
     url: http://www.apache.org/licenses/
   - title: Sponsorship
     url: http://www.apache.org/foundation/sponsorship
   - title: Thanks
-    url: http://www.apache.org/foundation/thanks.html
+    url: http://www.apache.org/foundation/thanks
   - title: Privacy Policy
     url: /privacy-policy
   - title: Security
