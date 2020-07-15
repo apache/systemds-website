@@ -6,6 +6,9 @@
 .project
 .settings/
 
+# VsCode
+.vscode
+
 # Intellij
 .idea/
 .idea_modules/
