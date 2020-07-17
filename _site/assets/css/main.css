@@ -4852,9 +4852,11 @@ input[type=number] {
         font-weight: 400;
         display: block;
         padding: 20px; }
+/* changed this padding above from 10px to 20px. */
         @media (min-width: 64em) {
           .main-nav ul li a {
             padding: 20px; } }
+/* changed this padding above from 10px to 20px. */
         .main-nav ul li a:hover {
           color: #fff; }
         .main-nav ul li a .icon-chevron-down {
@@ -5139,6 +5141,7 @@ figure {
 
 .content-group {
   text-align: center;
+/*  aligns the title of the page to the center which appears more apt  */
   justify-content: space-between;
   flex-direction: column;
   align-items: left; }
@@ -5168,7 +5171,7 @@ figure {
   .content-group--left-align {
     text-align: left; }
   .content-group--right-align {
-    text-align: center; }
+    text-align: right; }
     @media (min-width: 64em) {
       .content-group--right-align {
         text-align: right; } }
@@ -5332,6 +5335,7 @@ figure {
     font-weight: 400;
     line-height: 1;
     margin: 30px 0 20px 0; }
+/* here the margin bottom is increased from 0 to 20px */
     @media (min-width: 64em) {
       .site-header .logo {
         margin: 0; } }
