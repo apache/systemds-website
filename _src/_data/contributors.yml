@@ -171,12 +171,6 @@
   role: PMC Member, Mentor
   org: Databricks
 
-- name: Rich Bowen
-  apacheId: rbowen
-  githubId: rbowen
-  role: PMC Member, Mentor
-  org: Red Hat
-
 - name: Sebastian Baunsgaard
   apacheId: baunsgaard
   githubId: Baunsgaard
