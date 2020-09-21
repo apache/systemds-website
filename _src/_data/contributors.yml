@@ -48,7 +48,7 @@
 - name: Deron Eriksson
   apacheId: deron
   githubId: deroneriksson
-  role: PMC Member, Chair
+  role: PMC Member
   org: IBM
 
 - name: Faraz Makari
@@ -132,7 +132,7 @@
 - name: Matthias Boehm
   apacheId: mboehm7
   githubId: mboehm7
-  role: PMC Member
+  role: PMC Member, Chair
   org: TU Graz, previously IBM
 
 - name: Mike Dusenberry
