@@ -127,4 +127,8 @@ function watch() {
     gulp.series(jekyllBuild, browserSyncReload));
 }
 
+// Build
+gulp.task('build', gulp.series(style, js, jekyllBuild))
+
+// Build and serve (with incremental) for development
 gulp.task('default', gulp.series(style, js, jekyllBuild, browserSyncServe, watch))
