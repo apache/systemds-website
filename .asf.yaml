@@ -51,3 +51,11 @@ github:
       # Do not allow merge commits
       # by allowing linear history
       required_linear_history: true
+  
+  # Web hosting
+  staging:
+    profile: ~
+    whoami:  asf-staging
+    # top level directory for serving 
+    # index.html
+    outputdir: site
