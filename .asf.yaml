@@ -61,7 +61,7 @@ github:
     # Default directories are 
     #   content/
     # or output/
-    outputdir: site
+    # outputdir: site
   
   jekyll:
     whoami: master
