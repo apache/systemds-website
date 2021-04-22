@@ -56,6 +56,13 @@ github:
   staging:
     profile: ~
     whoami:  asf-staging
-    # top level directory for serving 
-    # index.html
-    # outputdir: site
+    # top level directory for serving index.html
+    # Refer: https://github.com/apache/struts-site
+    # Default directories are 
+    #   content/
+    # or output/
+    outputdir: site
+  
+  jekyll:
+    whoami: master
+    target: asf-staging-jekyll
