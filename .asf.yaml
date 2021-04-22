@@ -20,7 +20,7 @@
 #-------------------------------------------------------------
 
 # Document for .asf.yml file is available at
-# https://cwiki.apache.org/confluence/display/INFRA/Git+-+.asf.yaml+features
+# https://s.apache.org/asfyaml
 
 github:
   description: "Apache SystemDS Website"
@@ -52,17 +52,17 @@ github:
       # by allowing linear history
       required_linear_history: true
   
-  # Web hosting
-  staging:
-    profile: ~
-    whoami:  asf-staging
-    # top level directory for serving index.html
-    # Refer: https://github.com/apache/struts-site
-    # Default directories are 
-    #   content/
-    # or output/
-    # outputdir: site
+# Web hosting
+staging:
+  profile: ~
+  whoami:  asf-staging
+  # top level directory for serving index.html
+  # Refer: https://github.com/apache/struts-site
+  # Default directories are 
+  #   content/
+  # or output/
+  # outputdir: site
   
-  jekyll:
-    whoami: master
-    target: asf-staging-jekyll
+jekyll:
+  whoami: master
+  target: asf-staging-jekyll
