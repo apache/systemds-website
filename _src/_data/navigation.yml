@@ -40,13 +40,13 @@ topnav:
 - title: Apache
   subcategories:
   - title: Apache Software Foundation
-    url: http://www.apache.org/foundation/how-it-works
+    url: https://www.apache.org/foundation/how-it-works
   - title: Apache License
-    url: http://www.apache.org/licenses/
+    url: https://www.apache.org/licenses/
   - title: Sponsorship
-    url: http://www.apache.org/foundation/sponsorship
+    url: https://www.apache.org/foundation/sponsorship
   - title: Thanks
-    url: http://www.apache.org/foundation/thanks
+    url: https://www.apache.org/foundation/thanks
   - title: Privacy Policy
     url: /privacy-policy
   - title: Security

@@ -1,5 +1,7 @@
 # SystemDS Website
 
+This repository contains the code for the SystemDS main website.
+
 ## Dependencies
 
 ### Node.js and npm
