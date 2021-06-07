@@ -53,4 +53,4 @@ website_repository_mirror: https://github.com/apache/systemds-website
 
 podling: false
 
-docs: http://apache.github.io/systemds/
+docs: https://apache.github.io/systemds/
