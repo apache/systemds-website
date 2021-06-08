@@ -1,6 +1,6 @@
-# SystemDS Website
+# Apache SystemDS Website
 
-This repository contains the code for the SystemDS main website.
+This repository contains the code for the SystemDS [main website](https://github.com/apache/systemds-website).
 
 ## Dependencies
 
@@ -42,7 +42,7 @@ gem install jekyll
 ```
 
 If you are still facing the issue, perhaps the discussion
-might [here](https://github.com/j143/systemds-website/issues/3) would give some pointers.
+[here](https://github.com/j143/systemds-website/issues/3) might would give some pointers.
 
 
 ## Updating the website
@@ -64,7 +64,7 @@ git add content/*
 git commit -m "Update SystemDS website with latest changes"
 ```
 
-3. Add changes to the personal fork and create a PR.
+3. Add changes to the personal fork and create a PR against `asf-staging` branch.
 
 ```bash
 git push https://github.com/<id>/systemds-website update-website
