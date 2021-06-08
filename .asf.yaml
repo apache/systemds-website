@@ -51,6 +51,10 @@ github:
       # Do not allow merge commits
       # by allowing linear history
       required_linear_history: true
+    asf-staging:
+      # This ensures that accident
+      # Force `push`es won't happen.
+      required_linear_history: true
   
 # Web hosting
 staging:
