@@ -53,7 +53,7 @@ github:
       required_linear_history: true
     asf-staging:
       # This ensures that accident
-      # Force pushed won't happen.
+      # Force `push`es won't happen.
       required_linear_history: true
   
 # Web hosting
