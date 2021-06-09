@@ -1,0 +1,17 @@
+---
+layout: datasets
+title: Dataset catalog
+description: The datasets used for working with SystemDS
+---
+
+<ul>
+  {% for dataset in site.datasets %}
+    <li>
+      <section id="datasets-list">
+        <h4><a href="https://systemds.apache.org/datasets/{{ dataset.link }}">{{ dataset.title }}</a></h4>
+        <p>{{ dataset.description }}</p>
+      </section>
+
+    </li>
+  {% endfor %}
+</ul>
