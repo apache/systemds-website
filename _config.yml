@@ -26,3 +26,11 @@ source: _src
 exclude:
   - _sass
   - _scripts
+
+# https://jekyllrb.com/docs/collections/
+collections:
+  datasets:
+    output: true
+
+
+
