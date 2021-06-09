@@ -2,6 +2,7 @@
 layout: datasets
 title: MNIST Dataset
 description: The MNIST database of handwritten digits.
+link: mnist
 ---
 
 The MNIST database of handwritten digits, available from this page,
