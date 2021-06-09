@@ -311,8 +311,20 @@
 }
 
 .profile {
-  @include gallery(4 of 12);
-  margin-bottom: 1.953125%;
+  @include gallery(3 of 12);
+  // margin-bottom: 1.953125%;
+}
+
+@media(max-width:1000px){
+  .profile {
+    @include gallery(4 of 12);
+  }
+}
+
+@media(max-width:500px){
+  .profile {
+    @include gallery(6 of 12);
+  }
 }
 
 .content-g {
