@@ -153,6 +153,12 @@
   role: PMC Member
   org: IBM
 
+- name: Olga Ovcharenko
+  apacheId: oovcharenko
+  githubId: OlgaOvcharenko
+  role: Committer
+  org: TU Graz
+
 - name: Patrick Wendell
   apacheId: pwendell
   githubId: pwendell
