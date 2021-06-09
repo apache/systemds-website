@@ -1,4 +1,4 @@
-# Update and Commit workflow
+# Update and Commit workflow (Deprecated)
 
 ## Prerequisites
 
