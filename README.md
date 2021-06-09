@@ -71,3 +71,13 @@ git push https://github.com/<id>/systemds-website update-website
 ```
 
 An example, [PR#83](https://github.com/apache/systemds-website/pull/83).
+
+
+## How to add new dataset
+
+To add new dataset,
+
+1. create `<dataset-name>.md` file in the [`_src/_datasets`](._src/_datasets) folder.
+2. Upload dataset files to [`_src/assets/datasets/<dataset-name>`](._src/assets/datasets) folder.
+
+And follow the _Updating the website_ procedure.
