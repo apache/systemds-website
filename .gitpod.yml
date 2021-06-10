@@ -1,4 +1,16 @@
+
+ports:
+  - port: 3000
+    onOpen: open-preview
+  - port: 3001
+    onOpen: ignore
+
 tasks:
-  - init: npm install -g gulp
-    command: npm install
-    command: gem install jekyll
+  - init: npm install
+    command: |
+      npm install -g gulp
+      gem install jekyll
+      gulp
+  
+
+
