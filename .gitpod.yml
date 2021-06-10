@@ -1,0 +1,4 @@
+tasks:
+  - init: npm install -g gulp
+    command: npm install
+    command: gem install jekyll
