@@ -76,6 +76,49 @@ git push https://github.com/<id>/systemds-website update-website
 
 An example, [PR#83](https://github.com/apache/systemds-website/pull/83).
 
+### Release Docs
+
+Instruction for adding release specific version of docs to https://systemds.apache.org/docs
+
+**Step 0: Prerequisites**
+
+```sh
+git clone https://github.com/apache/systemds
+git clone https://github.com/apache/systemds-website
+```
+
+**Step 1:** 
+
+generate docs with as per https://github.com/apache/systemds/tree/master/docs
+
+```sh
+
+# In this case the release tag is 2.1.0-rc3
+git checkout 2.1.0-rc3
+
+cd systemds/docs
+
+./updateAPI.sh
+```
+
+**Step 2:**
+
+copy the contents to `systemds-website` repo
+
+```sh
+cd systemds-website
+
+# create a new directory with release no.
+mkdir content/docs/2.1.0
+
+# copy the files in docs/_site folder to 2.1.0
+cp -r ../systemds/docs/_site/* content/docs/2.1.0
+```
+
+Then follow, https://github.com/apache/systemds-website#updating-the-website
+
+Website Preview at https://systemds.staged.apache.org
+
 
 ## How to add new dataset
 
