@@ -27,6 +27,8 @@ github:
   homepage: https://systemds.apache.org/
   labels:
     - systemds
+    - jekyll
+    - gulp
     
   features:
     # Enable issues management
@@ -52,6 +54,10 @@ github:
       # by allowing linear history
       required_linear_history: true
     asf-staging:
+      # This ensures that accident
+      # Force `push`es won't happen.
+      required_linear_history: true
+    asf-site:
       # This ensures that accident
       # Force `push`es won't happen.
       required_linear_history: true
