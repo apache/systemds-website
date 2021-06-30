@@ -117,7 +117,20 @@ cp -r ../systemds/docs/_site/* content/docs/2.1.0
 
 Then follow, https://github.com/apache/systemds-website#updating-the-website
 
+**Step 3:**
+
+Open a PR against `asf-staging` branch.
+
+> Example PR: https://github.com/apache/systemds-website/pull/94
+
 Website Preview at https://systemds.staged.apache.org
+
+**Step 4:**
+
+Production release via `asf-site` branch. For this approval from the
+team is recommended.
+
+> Example PR: https://github.com/apache/systemds-website/pull/95
 
 
 ## How to add new dataset
