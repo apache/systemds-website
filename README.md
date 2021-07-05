@@ -132,6 +132,16 @@ team is recommended.
 
 > Example PR: https://github.com/apache/systemds-website/pull/95
 
+Now, sync `asf-staging` and `asf-site` as:
+
+```sh
+# apply asf-staging commits onto asf-site
+git rebase asf-staging asf-site
+
+git push origin asf-site
+```
+
+
 
 ## How to add new dataset
 
