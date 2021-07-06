@@ -1,6 +1,6 @@
 # Apache SystemDS Website
 
-This repository contains the code for the SystemDS [main website](https://github.com/apache/systemds-website).
+This repository contains the code for the SystemDS [main website](https://systemds.apache.org).
 
 > If you would like to develop on the browser:
 > 
@@ -141,7 +141,8 @@ git rebase asf-staging asf-site
 git push origin asf-site
 ```
 
-
+> Important: Along with this update project metadata by modifying `release_version:` in
+> [_src/_data/project.yml](https://github.com/apache/systemds-website/blob/master/_src/_data/project.yml#L46)
 
 ## How to add new dataset
 
