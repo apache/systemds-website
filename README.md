@@ -25,6 +25,9 @@ sudo npm install -g gulp
 
 ### Download website dependancies
 
+<details><summary>Click to see instructions</summary>
+<p>
+
 ```bash
 npm install
 ```
@@ -48,10 +51,15 @@ gem install jekyll
 If you are still facing the issue, perhaps the discussion
 [here](https://github.com/j143/systemds-website/issues/3) might would give some pointers.
 
+</p>
+</details>
 
 ## Updating the website
 
 After generating files by following above instructions.
+
+<details><summary>Click to see instructions</summary>
+<p>
 
 1. Create a new branch (for example, `update-website`) from the `asf-staging` branch.
 
@@ -74,11 +82,18 @@ git commit -m "Update SystemDS website with latest changes"
 git push https://github.com/<id>/systemds-website update-website
 ```
 
+</p>
+</details>
+  
 An example, [PR#83](https://github.com/apache/systemds-website/pull/83).
 
 ### Release Docs
 
 Instruction for adding release specific version of docs to https://systemds.apache.org/docs
+
+<details><summary>Click to see instructions</summary>
+<p>
+
 
 **Step 0: Prerequisites**
 
@@ -112,7 +127,7 @@ cd systemds-website
 mkdir content/docs/2.1.0
 
 # copy the files in docs/_site folder to 2.1.0
-cp -r ../systemds/docs/_site/* content/docs/2.1.0
+cp -r ../systemds/docs/api content/docs/2.1.0
 ```
 
 Then follow, https://github.com/apache/systemds-website#updating-the-website
@@ -143,6 +158,10 @@ git push origin asf-site
 
 > Important: Along with this update project metadata by modifying `release_version:` in
 > [_src/_data/project.yml](https://github.com/apache/systemds-website/blob/master/_src/_data/project.yml#L46)
+
+</p>
+</details>  
+
 
 ## How to add new dataset
 
