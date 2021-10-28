@@ -3,17 +3,17 @@
   "version": "2.0.0",
   "description": "",
   "main": "index.js",
-  "dependencies": {},
   "devDependencies": {
-    "browser-sync": "^2.26.14",
+    "browser-sync": "^2.27.7",
     "gulp": "^4.0.2",
     "gulp-concat": "^2.6.1",
     "gulp-if": "^3.0.0",
-    "gulp-sass": "^4.1.0",
-    "gulp-sourcemaps": "^2.6.5",
+    "gulp-sass": "^5.0.0",
+    "gulp-sourcemaps": "^3.0.0",
     "gulp-uglify": "^3.0.2",
-    "gulp-useref": "^4.0.1",
+    "gulp-useref": "^5.0.0",
     "gulp-util": "^3.0.8",
+    "node-sass": "^6.0.1",
     "susy": "^2.2.14"
   },
   "scripts": {
