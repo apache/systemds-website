@@ -3,7 +3,6 @@
   "version": "2.0.0",
   "description": "",
   "main": "index.js",
-  "dependencies": {},
   "devDependencies": {
     "browser-sync": "^2.27.7",
     "gulp": "^4.0.2",
@@ -14,7 +13,8 @@
     "gulp-uglify": "^3.0.2",
     "gulp-useref": "^5.0.0",
     "gulp-util": "^3.0.8",
-    "susy": "^3.0.7"
+    "node-sass": "^6.0.1",
+    "susy": "^2.2.14"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
