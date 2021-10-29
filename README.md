@@ -13,6 +13,8 @@ This repository contains the code for the SystemDS [main website](https://system
 In order to build this project you will need the latest version of [node.js and npm](https://nodejs.org/).
 Detailed instructions for download and installation can be found [here](https://github.com/nodejs/node#download).
 
+Recommended: Node 16.x, npm 8.x
+
 ### Gulp
 
 We use Gulp to compile Sass and JS as well as run the Jekyll build. You can install it with npm:
@@ -23,7 +25,7 @@ sudo npm install -g gulp
 
 ## Building the website
 
-### Download website dependancies
+### Download website dependencies
 
 <details><summary>Click to see instructions</summary>
 <p>
@@ -85,7 +87,7 @@ git push https://github.com/<id>/systemds-website update-website
 </p>
 </details>
   
-An example, [PR#83](https://github.com/apache/systemds-website/pull/83).
+An example, [`PR#83`](https://github.com/apache/systemds-website/pull/83).
 
 ### Release Docs
 
@@ -170,4 +172,13 @@ To add a new dataset,
 1. create `<dataset-name>.md` file in the [`_src/_datasets`](_src/_datasets) folder.
 2. Upload dataset files to [`_src/assets/datasets/<dataset-name>`](_src/assets/datasets) folder.
 
-And follow the _Updating the website_ procedure.
+And follow the [_Updating the website_](#updating-the-website) procedure.
+
+## How to add contributors to community page
+
+1. Get the details from https://people.apache.org/phonebook.html
+2. Example PR: [`PR#104`](https://github.com/apache/systemds-website/pull/104/files)
+
+And follow follow, [_Updating the website_](#updating-the-website) procedure.
+
+
