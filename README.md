@@ -25,11 +25,11 @@ sudo npm install -g gulp
 
 ## Building the website
 
-### Download website dependencies
-
 <details><summary>Click to see instructions</summary>
 <p>
 
+### Download website dependencies
+  
 ```bash
 npm install
 ```
@@ -89,7 +89,7 @@ git push https://github.com/<id>/systemds-website update-website
   
 An example, [`PR#83`](https://github.com/apache/systemds-website/pull/83).
 
-### Release Docs
+## Release Docs
 
 Instruction for adding release specific version of docs to https://systemds.apache.org/docs
 
@@ -160,6 +160,9 @@ git push origin asf-site
 
 > Important: Along with this update project metadata by modifying `release_version:` in
 > [_src/_data/project.yml](https://github.com/apache/systemds-website/blob/master/_src/_data/project.yml#L46)
+>
+> And Update links in the documentation page as 
+> [`9203626`](https://github.com/apache/systemds-website/commit/9203626f945e11706f36ff6693cd5eda454fe389)
 
 </p>
 </details>  
