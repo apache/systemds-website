@@ -39,6 +39,12 @@
   role: PMC Member
   org: IBM
 
+- name: David Weissteiner
+  apacheId: ywcb00
+  githubId: ywcb00
+  role: Committer
+  org: TU Graz
+
 - name: DB Tsai
   apacheId: dbtsai
   githubId: dbtsai
@@ -96,7 +102,7 @@
 - name: Janardhan Pulivarthi
   apacheId: janardhan
   githubId: j143
-  role: Committer
+  role: PMC Member
   org: OneDesign
 
 - name: Joseph Bradley
