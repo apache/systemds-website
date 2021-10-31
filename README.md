@@ -106,7 +106,7 @@ git clone https://github.com/apache/systemds-website
 
 **Step 1:** 
 
-generate docs with as per https://github.com/apache/systemds/tree/master/docs
+generate docs with as per https://github.com/apache/systemds/tree/main/docs
 
 ```sh
 
@@ -159,7 +159,7 @@ git push origin asf-site
 ```
 
 > Important: Along with this update project metadata by modifying `release_version:` in
-> [_src/_data/project.yml](https://github.com/apache/systemds-website/blob/master/_src/_data/project.yml#L46)
+> [_src/_data/project.yml](https://github.com/apache/systemds-website/blob/main/_src/_data/project.yml#L46)
 >
 > And Update links in the documentation page as 
 > [`9203626`](https://github.com/apache/systemds-website/commit/9203626f945e11706f36ff6693cd5eda454fe389)

@@ -19,7 +19,8 @@
     };
 
     if(!document.getElementById('fit-vids-style')) {
-      // appendStyles: https://github.com/toddmotto/fluidvids/blob/master/dist/fluidvids.js
+      // appendStyles:
+      // https://github.com/toddmotto/fluidvids/blob/b6ca991b5ac1f7792b3cfb992607284b21fb3177/dist/fluidvids.js
       var head = document.head || document.getElementsByTagName('head')[0];
       var css = '.fluid-width-video-wrapper{width:100%;position:relative;padding:0;}.fluid-width-video-wrapper iframe,.fluid-width-video-wrapper object,.fluid-width-video-wrapper embed {position:absolute;top:0;left:0;width:100%;height:100%;}';
       var div = document.createElement("div");
