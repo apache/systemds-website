@@ -108,6 +108,8 @@ git clone https://github.com/apache/systemds-website
 
 generate docs with as per https://github.com/apache/systemds/tree/master/docs
 
+**1.1. API Documentation**
+  
 ```sh
 
 # In this case the release tag is 2.1.0-rc3
@@ -116,6 +118,14 @@ git checkout 2.1.0-rc3
 cd systemds/docs
 
 ./updateAPI.sh
+```
+  
+**1.2. Documentation website**
+  
+```sh
+# Build jekyll based docs
+
+jekyll serve -w
 ```
 
 **Step 2:**
@@ -129,7 +139,7 @@ cd systemds-website
 mkdir content/docs/2.1.0
 
 # copy the files in docs/_site folder to 2.1.0
-cp -r ../systemds/docs/api content/docs/2.1.0
+cp -r ../systemds/docs/_site/* content/docs/2.1.0
 ```
 
 Then follow, https://github.com/apache/systemds-website#updating-the-website
