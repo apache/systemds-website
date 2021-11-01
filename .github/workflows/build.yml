@@ -2,13 +2,13 @@ name: Build website
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
     paths-ignore:
       - '*.md'
   pull_request:
     paths-ignore:
       - '*.md'
-    branches: [ master ]
+    branches: [ main ]
   # enable manual workflow trigger
   workflow_dispatch:
 

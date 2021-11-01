@@ -49,7 +49,7 @@ github:
     
 
   protected_branches:
-    master:
+    main:
       # Do not allow merge commits
       # by allowing linear history
       required_linear_history: true
@@ -74,5 +74,5 @@ staging:
   # outputdir: site
   
 jekyll:
-  whoami: master
+  whoami: main
   target: asf-staging-jekyll
