@@ -16,10 +16,6 @@ url: "https://systemds.apache.org" # the base hostname & protocol for your site
 # Build settings
 markdown: kramdown
 
-# if 'analytics_on' is true, analytics section will be rendered on the HTML pages
-analytics_on: true
-analytics_provider: google_universal
-analytics_google_universal_tracking_id : UA-71553733-1
 
 source: _src
 
