@@ -1,7 +1,5 @@
 # Apache SystemDS Website
 
-This repository contains the code for the SystemDS [main website](https://systemds.apache.org).
-
 > If you would like to develop on the browser:
 > 
 > [![Open in Gitpod online](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/apache/systemds-website)
@@ -10,18 +8,20 @@ This repository contains the code for the SystemDS [main website](https://system
 
 ### Node.js and npm
 
-In order to build this project you will need the latest version of [node.js and npm](https://nodejs.org/).
-Detailed instructions for download and installation can be found [here](https://github.com/nodejs/node#download).
+Install [node.js and npm](https://nodejs.org/).
 
 Recommended: Node 16.x, npm 8.x
 
 ### Gulp
 
-We use Gulp to compile Sass and JS as well as run the Jekyll build. You can install it with npm:
+We use Gulp to compile Sass and JS as well as run the Jekyll build. It can be
+installed with npm as:
 
 ```bash
 sudo npm install -g gulp
 ```
+
+📝If you are upgrading build system, checkout [notes on upgrades](https://github.com/apache/systemds-website/blob/main/CONTRIBUTING.md#notes-on-the-website-technology-stack).
 
 ## Building the website
 
