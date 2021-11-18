@@ -1,57 +1,66 @@
-# Update and Commit workflow (Deprecated)
 
-## Prerequisites
+## Notes on the Website technology stack
 
-Read through [Apache Version control infrastructure](https://infra.apache.org/version-control.html)
+For smooth upgrade of tech stack the following notes would help
+with understanding which technologies we are using and how to
+maintain or upgrade them.
 
-Note: Commit access to the apache svn repository is required.
+### Susy 2
 
-### shell or Windows Powershell
+[Susy 2](https://susy.readthedocs.io/) is no longer maintained.
+This is deprecated around 2017. Susy 3 exists but it is better to
+move to another type of grid system.
 
-```powershell
-F:\Repo> git clone https://github.com/apache/systemds-website
-F:\Repo> svn checkout https://svn.apache.org/repos/asf/systemds systemds-website-svn
-F:\Repo> ls
-systemds-website
-systemds-website-svn
+It is used in `_src/_sass/layout/_config.scss`
+as [global defaults](https://susy.readthedocs.io/settings/#global-defaults)
+
+```scss
+
+$susy: (
+  columns: 12,
+  gutters: 1.953125,
+  math: fluid,
+  output: float,
+  gutter-position: inside
+);
 ```
 
-### Build website contents
+> **Recommendation:** Investigate whether we could use a more stable grid
+> system.
 
-```Powershell
-F:\Repo\systemds-website> npm install
-F:\Repo\systemds-website> gulp
-```
 
-### Copy the website contents to svn repo
+### GulpJs
 
-- on Powershell
+We are already using the latest version. Website at https://gulpjs.com/
 
-```Powershell
-F:\Repo\systemds-website-svn\site> Copy-Item -Path F:\Repo\systemds-website\_site -Recurse -Container:$false
-```
+[version 4.0.2](https://github.com/gulpjs/gulp/releases/tag/v4.0.2) was release in May 2019.
+There are documentation related commits in the gulp repo in the last six months.
 
-- Instead of `Copy-Item -Path .. -Recurse`, one could simply use `cp` on a `linux` based system. On Linux
+### NodeJs
 
-```bash
-F:\Repo\systemds-website-svn\site> cp -r F:\Repo\systemds-website\_site
-```
+16.x is currently used. 16.x will be end of life by 2022.
 
-![image](https://user-images.githubusercontent.com/53068787/81162333-a396c200-8faa-11ea-9b8c-6a7539f83344.png)
+see [nodejs release policy](https://nodejs.org/en/about/releases/)
 
-**see Changes:**
-See modifications, to see only the expected changes were made. (If there are changes to other files simply do
-not add them!).
-![image](https://user-images.githubusercontent.com/53068787/81162446-d2149d00-8faa-11ea-95f2-ef84a69e117e.png)
+> **Recommendation:** Try to switch to nodejs 18.x in future.
 
-**svn commit:**
-Select `svn commit` option, after right clicking the `systemml-website-svn` folder.
-And add message based on the commits.
-![image](https://user-images.githubusercontent.com/53068787/81162752-51a26c00-8fab-11ea-996f-94ac1528dd4d.png)
+### CSS dependencies
 
-Provide your apache credentials, that you normally use to push for git repositories.
-![image](https://user-images.githubusercontent.com/53068787/81163010-b5c53000-8fab-11ea-9570-2de09598ebad.png)
+[noUiSlider](https://github.com/leongersen/noUiSlider) is a javascript library for range
+slider. Version used in this project 8.3.0 - 2016-02-14 17:37:20. The latest version is
+15.5.0 (Oct 2021).
 
-This would update the website.
+> **Recommendation:** Check whether this library is used and upgrade to the latest
 
-**ProTip:** Always do a sanity check by knowing what all files changed
+[normalize.css](https://github.com/necolas/normalize.css) is v3.0.3 (2015) to this project.
+
+> **Recommendation:** Upgrade to 8.0.1 version last released Nov 2018
+
+### Javascript dependencies
+
+Jquery
+
+1. `_src/_scripts/jquery-2.1.1.min.js`, version v2.1.1 (2014). Upgrade to [latest version](https://github.com/jquery/jquery)
+2. `_src/_scripts/jquery.fitvids.js`, version v1.1 (2013). For fitting the video. If possible avoid this one.
+3. `_src/assets/css/jquery-ui.css`, version v1.12.1 (2017-05-24). Upgrade to [latest version](https://github.com/jquery/jquery-ui/releases).
+
