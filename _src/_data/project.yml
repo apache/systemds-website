@@ -17,7 +17,7 @@
 
 name: Apache SystemDS<sup id="trademark">&trade;</sup>
 short_name: SystemDS<sup id="trademark">&trade;</sup>
-description: Apache SystemDS<sup id="trademark">&trade;</sup> is a distributed and declarative machine learning platform.
+description: Apache SystemDS<sup id="trademark">&trade;</sup> is an open source ML system for the end-to-end data science lifecycle.
 
 dev_list: dev@systemds.apache.org
 dev_list_subscribe: dev-subscribe@systemds.apache.org
@@ -43,7 +43,7 @@ issues_list_archive_markmail:
 jira: SYSTEMDS
 
 release_name: systemds
-release_version: 2.2.0
+release_version: 2.2.1
 
 source_repository: https://git-wip-us.apache.org/repos/asf/systemds.git
 source_repository_mirror: https://github.com/apache/systemds
