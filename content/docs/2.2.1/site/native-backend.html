@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+<!--
+
+-->
+
+<head>
+    <title>Native Backend guide for SystemDS - SystemDS 2.2.1</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="./../css/bootstrap.min.css">
+    <link rel="stylesheet" href="./../css/main.css">
+    <link rel="stylesheet" href="./../css/pygments-default.css">
+    <link rel="shortcut icon" href="./../img/favicon.png">
+    <script src="./../js/vendor/jquery-1.12.0.min.js"></script>
+    <script src="./../js/vendor/bootstrap.min.js"></script>
+    <script src="./../js/vendor/anchor.min.js"></script>
+    <script src="./../js/main.js"></script>
+</head>
+
+<body>
+    <!--
+
+-->
+<header class="navbar navbar-default navbar-fixed-top" id="topbar">
+    <div class="container">
+        <div class="navbar-header">
+            <div class="navbar-brand brand projectlogo">
+                <a href="https://systemds.apache.org/"><img class="logo" src="./../img/systemds-logo.png" alt="Apache SystemDS" title="Apache SystemDS" /></a>
+            </div>
+            <div class="navbar-brand brand projecttitle">
+                <a href="https://systemds.apache.org/">Apache SystemDS<sup id="trademark">™</sup></a><br />
+                <span class="version">2.2.1</span>
+            </div>
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <nav class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Overview<b class="caret"></b></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><b>Home:</b></li>
+                        <li><a href="./../">Docs Home</a></li>
+                        <li class="divider"></li>
+                        <li><b>Running SystemDS:</b></li>
+                        <li><a href="./../site/run">Standalone Guide</a></li>
+                        <li><a href="./../site/gpu">GPU Guide</a></li>
+                        <li><a href="./../site/native-backend">Native Backend (BLAS)</a></li>
+                        <li class="divider"></li>
+                        <li><b>Language Guides:</b></li>
+                        <li><a href="./../site/dml-language-reference.html">DML Language Reference</a></li>
+                        <li><a href="./../site/builtins-reference.html">Built-in Functions Reference</a></li>
+                        <li><a href="./../site/dml-vs-r-guide.html">DML vs R guide</a></li>
+                        <li class="divider"></li>
+                        <li><b>Algorithms:</b></li>
+                        <li><a href="./../site/algorithms-reference.html">ML Algorithms Reference</a></li>
+                        <li class="divider"></li>
+                        <li><b>Other:</b></li>
+                        <li><a href="https://github.com/apache/systemds/blob/master/CONTRIBUTING.md">Contributing to SystemDS 🡕</a></li>
+                    </ul>
+                </li>
+                <li><a href="https://github.com/apache/systemds">GitHub 🡕</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">API<b class="caret"></b></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="./../api/java/">Java</a></li>
+                        <li><a href="./../api/python/">Python</a></li>
+                    </ul>
+                </li>
+                <li><a href="https://issues.apache.org/jira/secure/Dashboard.jspa?selectPageId=12335852">Issues</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+    <div class="container" id="content">
+        <h1 class="title">Native Backend guide for SystemDS</h1>
+        <!--
+
+-->
+
+<p>This guide covers the Native BLAS optimizations and software setup for using SystemDS <code class="language-plaintext highlighter-rouge">native</code> mode.</p>
+
+<ul>
+  <li><a href="#requirements">Requirements</a>
+    <ul>
+      <li><a href="#hardware">Hardware</a></li>
+      <li><a href="#software">Software</a>
+        <ul>
+          <li><a href="#intel-mkl">INTEL MKL</a></li>
+          <li><a href="#openblas">OpenBLAS</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#native-blas-setup">Native BLAS setup</a>
+    <ul>
+      <li><a href="#add-library-to-the-system-path">Add library to the System path</a></li>
+      <li><a href="#enable-native-blas-in-systemds">Enable Native BLAS in SystemDS</a></li>
+      <li><a href="#troubleshooting">Troubleshooting</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="native-blas-mode">Native BLAS mode</h1>
+
+<p>SystemDS implements all the matrix operations in Java. This simplifies deployment especially in
+a distributed environment.</p>
+
+<p>In Some cases (such as Deep Neural Networks), to take advantage of native BLAS instead of SystemDS
+internal Java library for performing single node operations such as matrix multiplication, convolution etc.</p>
+
+<p>By default, SystemDS will first attempt to use Intel MKL (if installed), and then OpenBLAS (if installed).
+If none of the libraries are available, SystemDS falls back to its internal java library.</p>
+
+<blockquote>
+  <p>Note: Current SystemDS version supported on <strong>Linux</strong>, <strong>Windows</strong> x86-64 platform.</p>
+</blockquote>
+
+<h2 id="requirements">Requirements</h2>
+
+<h3 id="hardware">Hardware</h3>
+
+<p>To know Intel MKL system requirements, see
+<a href="https://software.intel.com/content/www/us/en/develop/articles/oneapi-math-kernel-library-system-requirements.html">Intel® oneAPI Math Kernel Library System Requirements</a></p>
+
+<h3 id="software">Software</h3>
+
+<p>Either of the following software is required to be installed in your system:</p>
+
+<h4 id="intel-mkl">INTEL MKL</h4>
+
+<p>Download <a href="https://software.intel.com/content/www/us/en/develop/tools/oneapi/components/onemkl.html">Intel MKL</a>.
+     Supported MKL version is <code class="language-plaintext highlighter-rouge">2017</code> to <code class="language-plaintext highlighter-rouge">2019.5</code>.</p>
+
+<h4 id="openblas">OpenBLAS</h4>
+
+<p>Install <a href="https://www.openblas.net/">OpenBLAS</a>. Installation instructions on <a href="https://github.com/xianyi/OpenBLAS#installation-from-source">GitHub</a>.</p>
+
+<p>Note: In Ubuntu 20.04, remove <code class="language-plaintext highlighter-rouge">libopenblas0-pthread</code> package and install <code class="language-plaintext highlighter-rouge">libopenblas0-openmp</code> 
+  instead. So that OpenBLAS will be installed with <a href="https://www.openmp.org/">OpenMP</a> support.</p>
+
+<h2 id="native-blas-setup">Native BLAS setup</h2>
+
+<h3 id="add-library-to-the-system-path">Add library to the System path</h3>
+
+<h4 id="intel-mkl-1">Intel MKL</h4>
+
+<p><a href="https://software.intel.com/content/www/us/en/develop/documentation/onemkl-linux-developer-guide/top/getting-started/setting-environment-variables/scripts-to-set-environment-variables.html">Scripts to set environmental variables</a></p>
+
+<p>For example, in Linux to set Intel MKL libraries in the Path:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># path adjustments to that script according to your installation</span>
+<span class="nb">source</span> /opt/intel/bin/compilervars.sh intel64
+</code></pre></div></div>
+
+<h4 id="openblas-1">OpenBLAS</h4>
+
+<p>Via commandline:</p>
+
+<p>Java:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">-Djava</span>.library.path<span class="o">=</span>/path/to/blas-n-other-dependencies
+</code></pre></div></div>
+
+<p>Note: This property can also be set with <code class="language-plaintext highlighter-rouge">sysds.native.blas.directory</code>.</p>
+
+<h3 id="enable-native-blas-in-systemds">Enable Native BLAS in SystemDS</h3>
+
+<p>Set <code class="language-plaintext highlighter-rouge">sysds.native.blas property</code> to <code class="language-plaintext highlighter-rouge">mkl</code>, <code class="language-plaintext highlighter-rouge">openblas</code> as shown.</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">&lt;!-- enables native blas for matrix multiplication and convolution, experimental feature (options: auto, mkl, openblas, none) --&gt;</span>
+    <span class="nt">&lt;sysds.native.blas&gt;</span>mkl<span class="nt">&lt;/sysds.native.blas&gt;</span>
+</code></pre></div></div>
+
+<h3 id="troubleshooting">Troubleshooting</h3>
+
+<p>If there are issues loading libs because the gcc ABI changed from gcc 4.x to 5 and above.
+In this case,</p>
+<ul>
+  <li>fiddle with the <a href="https://github.com/NixOS/patchelf">patchelf</a> utility or</li>
+  <li>Compile a recent gcc and adjust your env vars (<code class="language-plaintext highlighter-rouge">PATH</code>, <code class="language-plaintext highlighter-rouge">LD_LIBRARY_PATH</code>)</li>
+</ul>
+
+
+    </div>
+    <!--
+
+-->
+
+
+<!-- MathJax Section -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ TeX: { equationNumbers: { autoNumber: "AMS" } } });
+</script>
+<script>
+    // Note that we load MathJax this way to work with local file (file://), HTTP and HTTPS.
+    // We could use "//cdn.mathjax...", but that won't support "file://".
+    (function(d, script) {
+        script = d.createElement('script');
+        script.type = 'text/javascript';
+        script.async = true;
+        script.onload = function() {
+            MathJax.Hub.Config({
+                tex2jax: {
+                    inlineMath: [
+                        ["$", "$"],
+                        ["\\\\(", "\\\\)"]
+                    ],
+                    displayMath: [
+                        ["$$", "$$"],
+                        ["\\[", "\\]"]
+                    ],
+                    processEscapes: true,
+                    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+                }
+            });
+        };
+        script.src = ('https:' == document.location.protocol ? 'https://' : 'http://') +
+            'cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+        d.getElementsByTagName('head')[0].appendChild(script);
+    }(document));
+</script>
+
+</body>
+
+</html>
