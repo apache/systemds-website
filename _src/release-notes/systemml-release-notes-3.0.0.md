@@ -37,48 +37,14 @@ limitations under the License.
 
 ## Release notes for SystemDS 3.0.0
 
-SystemDS 3.0.0 is a minor release. This release contains major improvements to existing features,
-a large number of performance and robustness fixes, and some experimental features to better
-support the end-to-end data science lifecycle. Importantly, this release supports Spark 3.x, Hadoop 3.x series only.
+SystemDS 3.0 is a major release. This is the first release with Java 11 and Spark 3. Release 3.0 contains new features and major improvements to existing features.
 
-The major changes (compared to SystemDS 2.2) include:
-
-- Upgrade to jdk 11, spark 3, and Hadoop 3
-- update In-place for unary operations
-- Python federated api tutorials, python end-to-end tutorials
-- New builtins (for detecting and correcting value swap), random under-sampling, set operations on vectors,Extend min-max normalization built-in functions
-
-### federated
-
-- Improve federated tests
-- Multi-tenant federated workers with variable isolation
-
-- Frame map operations with margin parameter
-- Improved frame removeEmpty operations for rows and cols
-
-- Add docker image support
-- Compressed Linear Algebra (CLA) support for federated
-- CLA Spoof support
-- CLA Decouple row Aggregate dictionary from column group
-- CLA Offset memorizer
-
-- Improve IPAPass Rewrite for Federated Plan to IPA package
-
-
-### Python context
-
-- Stabilize python context creation
-- train and predict in different contexts
-
-
-- Multi-threaded metadata collection for transformencode
-- Multi-threaded allocation for transformencode
-- multi-threaded covariance/central-moment operations
-
-- CSR sparse support for transformapply
-- BinaryCell colVector and row Vector extensions
-- Patched frame of reference (PFOR) column group and PreAgg Cache block. Morphing between column groups, dense SDC or PFOR groupds now transform into
-
-- Add support for python functions with list arguments
-
-- Cache friendly apply phase for dense target matrix
+The major changes (compared to SystemDS 2.1/2.2) include:
+- Federated Backend: Multi-tenancy support with tenants isolation and reuse of intermediates across tenants for federated workers. Compression support for federated workloads. Extended support for the cost-based federated planner, and various robustness and performance improvements.
+- Full support for Top-K cleaning framework -- A framework for automatically generating the top-K most effective data cleaning pipelines.
+- Initial support for a Unified Memory Manager.
+- CUDA code generation and operator fusion [Experimental]
+- Robustness and performance improvements for Compressed Linear Algebra.
+- Performance and usability improvements for multi-threaded feature transformations.
+- Various new built-ins and apply functions for inference workloads.
+- Miscellaneous Improvements: Python end-to-end tutorials, improved documentation, and better testing
