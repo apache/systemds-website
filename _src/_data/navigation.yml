@@ -27,10 +27,13 @@ topnav:
   subcategories:
   - title: latest
     url: https://apache.github.io/systemds/
-  - title: 2.2.1 (stable)
-    url: https://systemds.apache.org/docs/2.2.1/
-  - title: Release Notes
-    url: https://systemds.apache.org/release-notes/systemds-release-notes-2.2.0
+  - title: 3.0.0 (stable)
+    url: https://systemds.apache.org/docs/3.0.0/
+  - title: Release Notes 3.0.0
+    url: https://systemds.apache.org/release-notes/systemds-release-notes-3.0.0
+  - title: 2.2.2 (stable)
+    url: https://systemds.apache.org/docs/2.2.2/
+    
   
 
 - title: Community
