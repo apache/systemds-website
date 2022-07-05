@@ -14,9 +14,9 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-  <title>Documentation</title>
+  <title>SystemDS 3.0.0 Release Notes</title>
   
-  <meta name="description" content="Project Documentation Page"> 
+  <meta name="description" content="Project Release Notes"> 
   <meta name="author" content="Apache SystemDS">
 
   <!-- Enable responsive viewport -->
@@ -27,7 +27,7 @@
   Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
   <meta property="og:url" content="https://systemds.apache.org/" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Documentation" />
+  <meta property="og:title" content="SystemDS 3.0.0 Release Notes" />
   <meta property="og:description" content="Apache SystemDS is an open source ML system for the end-to-end data science lifecycle" />
   <meta property="og:image" content="" />
 
@@ -146,41 +146,34 @@
 
 -->
 
-<!-- Hero  -->
 <section class="full-stripe full-stripe--subpage-header clear-header">
   <div class="ml-container ml-container--horizontally-center">
     <div class="col col-12 content-group content-group--center-content content-group--center-align">
-      <h1>Apache SystemDS<sup id="trademark">&trade;</sup> Documentation</h1>
+      <h1>Apache SystemDS<sup id="trademark">&trade;</sup> 3.0.0 Release Notes</h1>
     </div>
   </div>
 </section>
-<!-- Publish website test -->
-<section class="full-stripe full-stripe--alternate hero">
-  <div class="ml-container ml-container--three-column">
-    <div class="col col-4">
-      <p>Documentation such as programming guides, reference guides, and API docs is available for SystemDS below:</p>
-      <a class="button button-primary" href="https://apache.github.io/systemds/">Latest</a>
-      <p></p>
-      <a class="button button-primary" href="docs/3.0.0/index">3.0.0</a>
-      <a class="button button-primary" href="release-notes/systemds-release-notes-3.0.0">ReleaseNotes</a>
-    </div>
-    <div class="col col-4">
-      <p>each released version of SystemML/DS:</p>
+
+<section class="full-stripe full-stripe--alternate">
+  <div class="ml-container">
+    <div class="col col-12 content-group content-group--medium-bottom-margin">
+
+      <h2 id="release-notes-for-systemds-300">Release notes for SystemDS 3.0.0</h2>
+
+      <p>SystemDS 3.0 is a major release. This is the first release with Java 11 and Spark 3. Release 3.0 contains new features and major improvements to existing features.</p>
+
+      <p>The major changes (compared to SystemDS 2.1/2.2) include:</p>
       <ul>
-        <li><a href="docs/2.2.2/index">2.2.2</a>, <a href="release-notes/systemds-release-notes-2.2.2">ReleaseNotes</a></li>
-        <li><a href="docs/2.1.0/index">2.1.0</a>, <a href="release-notes/systemds-release-notes-2.1.0">ReleaseNotes</a></li>
-        <li><a href="docs/2.0.0/index">2.0.0</a>, <a href="release-notes/systemds-release-notes-2.0.0">ReleaseNotes</a></li>
-        <li><a href="docs/1.2.0/index">1.2.0</a>, <a href="release-notes/systemml-release-notes-1.2.0">ReleaseNotes</a></li>
-        <li><a href="docs/1.1.0/index">1.1.0</a>, <a href="release-notes/systemml-release-notes-1.1.0">ReleaseNotes</a></li>
-        <li><a href="docs/1.0.0/index">1.0.0</a>, <a href="release-notes/systemml-release-notes-1.0.0">ReleaseNotes</a></li>
-        <li><a href="docs/0.15.0/index">0.15.0</a>, <a href="release-notes/systemml-release-notes-0.15.0">ReleaseNotes</a></li>
-        <li><a href="docs/0.14.0/index">0.14.0</a>, <a href="release-notes/systemml-release-notes-0.14.0-incubating">ReleaseNotes</a></li>
-        <li><a href="docs/0.13.0/index">0.13.0</a>, <a href="release-notes/systemml-release-notes-0.13.0-incubating">ReleaseNotes</a></li>
-        <li><a href="docs/0.12.0/index">0.12.0</a>, <a href="release-notes/systemml-release-notes-0.12.0-incubating">ReleaseNotes</a></li>
+        <li>Federated Backend: Multi-tenancy support with tenants isolation and reuse of intermediates across tenants for federated workers. Compression support for federated workloads. Extended support for the cost-based federated planner, and various robustness and performance improvements.</li>
+        <li>Full support for Top-K cleaning framework – A framework for automatically generating the top-K most effective data cleaning pipelines.</li>
+        <li>Initial support for a Unified Memory Manager.</li>
+        <li>CUDA code generation and operator fusion [Experimental]</li>
+        <li>Robustness and performance improvements for Compressed Linear Algebra.</li>
+        <li>Performance and usability improvements for multi-threaded feature transformations.</li>
+        <li>Various new built-ins and apply functions for inference workloads.</li>
+        <li>Miscellaneous Improvements: Python end-to-end tutorials, improved documentation, and better testing</li>
       </ul>
-    </div>
-  </div>
-</section>
+    </div></div></section>
 
 </div>
 
