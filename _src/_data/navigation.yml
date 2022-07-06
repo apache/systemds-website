@@ -33,8 +33,9 @@ topnav:
     url: https://systemds.apache.org/release-notes/systemds-release-notes-3.0.0
   - title: 2.2.2 (stable)
     url: https://systemds.apache.org/docs/2.2.2/
+  - title: Release Notes 2.2.x
+    url: https://systemds.apache.org/release-notes/systemds-release-notes-2.2.x
     
-  
 
 - title: Community
   subcategories:

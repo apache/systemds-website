@@ -1,6 +1,6 @@
 ---
 layout: page
-title: SystemDS 2.2.0 Release Notes
+title: SystemDS 2.2.x Release Notes
 description: Project Release Notes
 group: nav-right
 ---
@@ -42,7 +42,7 @@ a large number of performance and robustness fixes, and some experimental featur
 support the end-to-end data science lifecycle. In addition to that, this is the last release
 with Java 8 and Spark 2.x.
 
-SECURITY NOTICE: This release and the above versions include fix for the CVE-2022-26477 (link: https://nvd.nist.gov/vuln/detail/CVE-2022-26477).
+**SECURITY NOTICE: This release and the above versions include fix for the [CVE-2022-26477](https://nvd.nist.gov/vuln/detail/CVE-2022-26477).**
 
 The major changes (compared to SystemDS 2.1) include:
 
