@@ -14,9 +14,9 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-  <title>Privacy Policy</title>
+  <title>SystemDS 2.2.0 Release Notes</title>
   
-  <meta name="description" content="Apache SystemDS website privacy policy"> 
+  <meta name="description" content="Project Release Notes"> 
   <meta name="author" content="Apache SystemDS">
 
   <!-- Enable responsive viewport -->
@@ -27,7 +27,7 @@
   Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
   <meta property="og:url" content="https://systemds.apache.org/" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Privacy Policy" />
+  <meta property="og:title" content="SystemDS 2.2.0 Release Notes" />
   <meta property="og:description" content="Apache SystemDS is an open source ML system for the end-to-end data science lifecycle" />
   <meta property="og:image" content="" />
 
@@ -152,13 +152,43 @@
 
 -->
 
-<div class="ml-container clear-header">
-  <h1>Apache SystemDS<sup id="trademark">&trade;</sup> Privacy Policy</h1>
-  <p>We do not collect any information about your usage of this website
-    to the best of our knowledge. If there is any info collected, please
-    let us know.
-  </p>
-</div>
+<section class="full-stripe full-stripe--subpage-header clear-header">
+  <div class="ml-container ml-container--horizontally-center">
+    <div class="col col-12 content-group content-group--center-content content-group--center-align">
+      <h1>Apache SystemDS<sup id="trademark">&trade;</sup> 2.2.x Release Notes</h1>
+    </div>
+  </div>
+</section>
+
+<section class="full-stripe full-stripe--alternate">
+  <div class="ml-container">
+    <div class="col col-12 content-group content-group--medium-bottom-margin">
+
+      <h2 id="release-notes-for-systemds-222">Release notes for SystemDS 2.2.2</h2>
+
+      <p>SystemDS 2.2.x is a minor release. This release contains major improvements to existing features,
+a large number of performance and robustness fixes, and some experimental features to better
+support the end-to-end data science lifecycle. In addition to that, this is the last release
+with Java 8 and Spark 2.x.</p>
+
+      <p>SECURITY NOTICE: This release and the above versions include fix for the CVE-2022-26477 (link: https://nvd.nist.gov/vuln/detail/CVE-2022-26477).</p>
+
+      <p>The major changes (compared to SystemDS 2.1) include:</p>
+
+      <ul>
+        <li>Federated Backend: Extended operations and built-ins to support various workflows and algorithms.</li>
+        <li>Full support for compressed linear algebra.</li>
+        <li>Full support for multithreaded feature transformation.</li>
+        <li>Various performance improvements to existing builtins in SystemDS’s local, distributed, and native runtimes.</li>
+        <li>Performance and robustness fixes for eval. Parfor support for eval.</li>
+        <li>Robust performance test suite.</li>
+        <li>Asynchronous triggering of spark operations via prefetch and broadcast</li>
+        <li>New feature: Generating custom readers by example [experimental]</li>
+        <li>Robust release automation scripts with dry-run support.</li>
+        <li>Miscellaneous Improvements: Improved documentation, better testing, Python API, GPU backend.</li>
+      </ul>
+    </div></div></section>
+
 </div>
 
  
