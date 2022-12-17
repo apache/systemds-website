@@ -32,6 +32,12 @@
   githubId: asurve
   role: PMC Member
   org: IBM
+  
+- name: Badrul Chowdhury
+  apacheId: bchowdhury
+  githubId: BACtaki
+  role: Committer
+  org: Apple
 
 - name: Berthold Reinwald
   apacheId: reinwald
@@ -103,7 +109,7 @@
   apacheId: janardhan
   githubId: j143
   role: PMC Member
-  org: OneDesign
+  org: Mavenir
 
 - name: Joseph Bradley
   apacheId: jkbradley
