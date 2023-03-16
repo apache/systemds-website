@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+<!--
+
+-->
+
+<head>
+    <title>Release Process - SystemDS 3.1.0</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="./../css/bootstrap.min.css">
+    <link rel="stylesheet" href="./../css/main.css">
+    <link rel="stylesheet" href="./../css/pygments-default.css">
+    <link rel="shortcut icon" href="./../img/favicon.png">
+    <script src="./../js/vendor/jquery-1.12.0.min.js"></script>
+    <script src="./../js/vendor/bootstrap.min.js"></script>
+    <script src="./../js/vendor/anchor.min.js"></script>
+    <script src="./../js/main.js"></script>
+</head>
+
+<body>
+    <!--
+
+-->
+<header class="navbar navbar-default navbar-fixed-top" id="topbar">
+    <div class="container">
+        <div class="navbar-header">
+            <div class="navbar-brand brand projectlogo">
+                <a href="https://systemds.apache.org/"><img class="logo" src="./../img/systemds-logo.png" alt="Apache SystemDS" title="Apache SystemDS" /></a>
+            </div>
+            <div class="navbar-brand brand projecttitle">
+                <a href="https://systemds.apache.org/">Apache SystemDS<sup id="trademark">™</sup></a><br />
+                <span class="version">3.1.0</span>
+            </div>
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <nav class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Overview<b class="caret"></b></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><b>Home:</b></li>
+                        <li><a href="./../">Docs Home</a></li>
+                        <li class="divider"></li>
+                        <li><b>Running SystemDS:</b></li>
+                        <li><a href="./../site/run">Standalone Guide</a></li>
+                        <li><a href="./../site/gpu">GPU Guide</a></li>
+                        <li><a href="./../site/native-backend">Native Backend (BLAS)</a></li>
+                        <li><a href="./../site/docker">Run with Docker</a></li>
+                        <li class="divider"></li>
+                        <li><b>Language Guides:</b></li>
+                        <li><a href="./../site/dml-language-reference.html">DML Language Reference</a></li>
+                        <li><a href="./../site/builtins-reference.html">Built-in Functions Reference</a></li>
+                        <li><a href="./../site/dml-vs-r-guide.html">DML vs R guide</a></li>
+                        <li class="divider"></li>
+                        <li><b>Algorithms:</b></li>
+                        <li><a href="./../site/algorithms-reference.html">ML Algorithms Reference</a></li>
+                        <li class="divider"></li>
+                        <li><b>Other:</b></li>
+                        <li><a href="https://github.com/apache/systemds/blob/main/CONTRIBUTING.md">Contributing to SystemDS 🡕</a></li>
+                    </ul>
+                </li>
+                <li><a href="https://github.com/apache/systemds">GitHub 🡕</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">API<b class="caret"></b></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="./../api/java/">Java</a></li>
+                        <li><a href="./../api/python/">Python</a></li>
+                    </ul>
+                </li>
+                <li><a href="https://issues.apache.org/jira/secure/Dashboard.jspa?selectPageId=12335852">Issues</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+    <div class="container" id="content">
+        <h1 class="title">Release Process</h1>
+        <!--
+
+-->
+
+<h2 id="release-process">Release Process</h2>
+
+<p>The Apache SystemDS project publishes new version of the software on a regular basis.
+Releases are the interface of the project with the public and most users interact with
+the project only through the released software (this is intentional!). Releases are a
+formal offering, which are publicly voted by the SystemDS community.</p>
+
+<p>Releases are executed by a Release Manager, who is one of the <a href="https://whimsy.apache.org/roster/committee/systemds">project committers</a>.</p>
+
+<p>Release has legal consequences to the team. Make sure to comply with all the procedures
+outlined by the ASF via <a href="https://www.apache.org/legal/release-policy.html">Release Policy</a> and
+<a href="https://infra.apache.org/release-distribution.html">Release Distribution</a>. Any deviations or
+compromises are to be discussed in private@ or dev@ mail list appropriately.</p>
+
+<h2 id="before-you-begin">Before you begin</h2>
+
+<p>Install the basic software and procure the required code and dependencies, credentials.</p>
+
+<p>OS Requirement: Linux</p>
+
+<p>RAM requirement: 8 GB +</p>
+
+<p>Software Requirements:</p>
+
+<ol>
+  <li>Apache Maven (3.8.1 or newer). <a href="https://maven.apache.org/download.cgi">link</a></li>
+  <li>GnuPG <a href="https://www.gnupg.org/download/index.html">link</a></li>
+  <li>Install jq utility (size 1MB). <a href="https://stedolan.github.io/jq/download/">link</a></li>
+</ol>
+
+<p>Credential Requirements:</p>
+
+<ul>
+  <li>GPG passphrase</li>
+  <li>Apache ID and Password</li>
+  <li>GitHub ID and Password</li>
+  <li>PyPi.org ID and password (if applicable)</li>
+</ul>
+
+<h2 id="architecture-of-the-release-pipeline">Architecture of the release pipeline</h2>
+
+<p>An important part of the software development life cycle (SDLC)
+is ensuring software release follow the ASF approved processes.</p>
+
+<p>The release pipeline consists of the following steps:</p>
+<ol>
+  <li>Builds the artifacts (binary, zip files) with source code.</li>
+  <li>Pushes the artifacts to staging repository</li>
+  <li>Check for the vulnerabilities. Voting process.</li>
+</ol>
+
+<p>The project PMC and community inspects the build files by 
+downloading and testing. If it passes their requirements, they vote
+appropriately in the mailing list. The release version metadata is
+updated and the application is deployed to the public release.</p>
+
+<h2 id="setting-up-your-environment">Setting up your environment</h2>
+
+<h2 id="access-to-apache-nexus-repository">Access to Apache Nexus repository</h2>
+
+<p>Note: Only PMC can push to the Release repo for legal reasons, but committer can also act as the Release Manager with consensus by
+the team on the dev@ mail list.</p>
+
+<p>Apache Nexus repository is located at <a href="https://repository.apache.org">repository.apache.org</a>, it is Nexus 2.x Profession edition.</p>
+
+<ol>
+  <li>Login with Apache Credentials</li>
+  <li>Confirm access to <code class="language-plaintext highlighter-rouge">org.apache.systemds</code> by visiting https://repository.apache.org/#stagingProfiles;1486a6e8f50cdf</li>
+</ol>
+
+<h2 id="add-future-release-version-to-jira">Add future release version to JIRA</h2>
+
+<ol>
+  <li>In JIRA, navigate to <code class="language-plaintext highlighter-rouge">SYSTEMDS &gt; Administration &gt; Versions</code>.</li>
+  <li>Add a new release version.</li>
+</ol>
+
+<p>Know more about versions in JIRA at 
+<a href="https://support.atlassian.com/jira-core-cloud/docs/view-and-manage-a-projects-versions/"><code class="language-plaintext highlighter-rouge">view-and-manage-a-projects-versions</code> guide</a></p>
+
+<h2 id="performance-regressions">Performance regressions</h2>
+
+<p>Investigating performance regressions is a collective effort. Regressions can happen during
+release process, but they should be investigated and fixed.</p>
+
+<p>Release Manger should make sure that the JIRA issues are filed for each regression and mark
+<code class="language-plaintext highlighter-rouge">Fix Version</code> to the to-be-released version.</p>
+
+<p>The regressions are to be informed to the dev@ mailing list, through release duration.</p>
+
+<h2 id="release-tags-or-branch">Release tags or branch</h2>
+
+<p>Create release branch from the <code class="language-plaintext highlighter-rouge">main</code> with version named <code class="language-plaintext highlighter-rouge">2.x.0-SNAPSHOT</code>.</p>
+
+<h3 id="the-chosen-commit-for-rc">The chosen commit for RC</h3>
+
+<p>Release candidates are built from single commits off the development branch. Before building,
+the version must be set to a non <code class="language-plaintext highlighter-rouge">SNAPSHOT</code>/<code class="language-plaintext highlighter-rouge">dev</code> version.</p>
+
+<p><a href="https://lists.apache.org/thread/277vks8q72cxxgmywxm7cblqvgn3yzgj">Discussion</a> on what is covered in voting for a commit.</p>
+
+<h3 id="inform-mailing-list">Inform mailing list</h3>
+
+<p>Mail dev@systemds.apache.org of the release tags and triage information.
+This list of pending issues will be refined and updated collaboratively.</p>
+
+<h2 id="creating-builds">Creating builds</h2>
+
+<h3 id="checklist">Checklist</h3>
+
+<ol>
+  <li>Release Manager&#8217;s GPG key is publised to <a href="https://dist.apache.org/repos/dist/release/systemds/KEYS">dist.apache.org</a></li>
+  <li>Release Manager&#8217;s GPG key is configured in <code class="language-plaintext highlighter-rouge">git</code> configuration</li>
+  <li>Set <code class="language-plaintext highlighter-rouge">JAVA_HOME</code> to JDK 8</li>
+  <li><code class="language-plaintext highlighter-rouge">export GNUPGHOME=$HOME/.gnupg</code></li>
+</ol>
+
+<h3 id="release-build-to-create-a-release-candidate">Release build to create a release candidate</h3>
+
+<ol>
+  <li>Dry run the release build</li>
+</ol>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./do-release.sh <span class="nt">-n</span>
+</code></pre></div></div>
+
+<ol>
+  <li>In the shell, build artifacts and deploy</li>
+</ol>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./do-release.sh
+</code></pre></div></div>
+
+<p>Answer the prompts with appropriate details as shown:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Branch [master]: master
+Current branch version is 2.1.0-SNAPSHOT.
+Release [2.1.0]: 
+RC # [1]: 1
+ASF user [ubuntu]: firstname
+Full name [Firstname Lastname]: 
+GPG key [firstname@apache.org]: 
+================
+Release details:
+BRANCH:     master
+VERSION:    2.1.0
+TAG:        2.1.0-rc1
+NEXT:       2.1.1-SNAPSHOT
+ASF USER:   firstname
+GPG KEY ID:    firstname@apache.org
+FULL NAME:  Firstname Lastname
+E-MAIL:     firstname@apache.org
+================
+Is this info correct [Y/n]? 
+</code></pre></div></div>
+
+<h2 id="upload-release-candidate-to-pypi">Upload release candidate to PyPi</h2>
+
+<ol>
+  <li>Download python binary artifacts</li>
+  <li>Deploy release candidate to PyPi</li>
+</ol>
+
+<h2 id="prepare-documentation">Prepare documentation</h2>
+
+<h3 id="build-and-verify-javadoc">Build and verify JavaDoc</h3>
+
+<ul>
+  <li>Confirm that version names are appropriate.</li>
+</ul>
+
+<h3 id="build-the-pydoc-api-reference">Build the Pydoc API reference</h3>
+
+<p>The docs will generated in <code class="language-plaintext highlighter-rouge">build</code> directory.</p>
+
+<h2 id="snapshot-deployment-setup">Snapshot deployment setup</h2>
+
+<h3 id="use-a-fresh-systemds-repository">Use a fresh SystemDS Repository</h3>
+
+<p>Since the artifacts will be deployed publicly, use a completely fresh
+copy of the SystemDS project used only for building and deploying.</p>
+
+<p>Therefore, create a directory such as</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mkdir</span> ~/systemds-release
+</code></pre></div></div>
+
+<p>In this directory, clone a copy of the project.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/apache/systemds.git
+</code></pre></div></div>
+
+<h2 id="post-release-publish">Post Release Publish</h2>
+
+<h3 id="checklist-1">Checklist</h3>
+
+<h4 id="1-all-artifacts-and-checksums-present">1. All artifacts and checksums present</h4>
+
+<p>Verify that each expected artifact is present at
+https://dist.apache.org/repos/dist/dev/systemds/ and that
+each artifact has accompanying checksums (such as .asc and .sha512)</p>
+
+<h4 id="2-release-candidate-build">2. Release candidate build</h4>
+
+<p>The release candidate should build on Windows, OS X, and Linux. To do
+this cleanly, the following procedure can be performed.</p>
+
+<p>Note: Use an empty local maven repository</p>
+
+<p>Example:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/apache/systemds.git
+<span class="nb">cd </span>systemds
+git tag <span class="nt">-l</span>
+git checkout tags/2.1.0-rc1 <span class="nt">-b</span> 2.1.0-rc1
+mvn <span class="nt">-Dmaven</span>.repo.local<span class="o">=</span><span class="nv">$HOME</span>/.m2/temp-repo clean package <span class="nt">-P</span> distribution
+</code></pre></div></div>
+
+<h4 id="3-test-suite-check">3. Test suite check</h4>
+
+<p>The entire test suite should pass on Windows, OS X, Linux.</p>
+
+<p>For verification:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mvn clean verify
+</code></pre></div></div>
+
+<h3 id="license-and-notice">LICENSE and NOTICE</h3>
+
+<p>Each artifact must contain LICENSE and NOTICE files. These files must
+reflect the contents of the artifacts. If the project dependencies
+(i.e., libraries) have changed since the last release, the LICENSE and
+NOTICE files to be updated to reflect these changes.</p>
+
+<p>For more information, see:</p>
+
+<ol>
+  <li>http://www.apache.org/dev/#releases</li>
+  <li>http://www.apache.org/dev/licensing-howto.html</li>
+</ol>
+
+<h3 id="build-src-artifact-and-verify">Build src artifact and verify</h3>
+
+<p>The project should also be built using the <code class="language-plaintext highlighter-rouge">src</code> (tgz and zip).</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">tar</span> <span class="nt">-xvzf</span> systemds-2.1.0-src.tgz
+<span class="nb">cd </span>systemds-2.1.0-src
+mvn clean package <span class="nt">-P</span> distribution
+mvn verify
+</code></pre></div></div>
+
+<h3 id="single-node-standalone">Single node standalone</h3>
+
+<p>The standalone <code class="language-plaintext highlighter-rouge">tgz</code> and <code class="language-plaintext highlighter-rouge">zip</code> artifacts contain <code class="language-plaintext highlighter-rouge">systemds</code> files.
+Verify that the algorithms can be run on single node using these 
+standalone distributions.</p>
+
+<p>Here is an example:</p>
+
+<p>see standalone guide of the documenation for more details.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">tar</span> <span class="nt">-xvzf</span> systemds-2.1.0-bin.tgz
+<span class="nb">cd </span>systemds-2.1.0-bin
+wget <span class="nt">-P</span> data/ http://archive.ics.uci.edu/ml/machine-learning-databases/haberman/haberman.data
+<span class="nb">echo</span> <span class="s1">'{"rows": 306, "cols": 4, "format": "csv"}'</span> <span class="o">&gt;</span> data/haberman.data.mtd
+<span class="nb">echo</span> <span class="s1">'1,1,1,2'</span> <span class="o">&gt;</span> data/types.csv
+<span class="nb">echo</span> <span class="s1">'{"rows": 1, "cols": 4, "format": "csv"}'</span> <span class="o">&gt;</span> data/types.csv.mtd
+
+systemds scripts/algorithms/Univar-Stats.dml <span class="nt">-nvargs</span> <span class="nv">X</span><span class="o">=</span>data/haberman.data <span class="nv">TYPES</span><span class="o">=</span>data/types.csv <span class="nv">STATS</span><span class="o">=</span>data/univarOut.mtx <span class="nv">CONSOLE_OUTPUT</span><span class="o">=</span>TRUE
+<span class="nb">cd</span> ..
+</code></pre></div></div>
+
+<p>Also check for Hadoop, and spark</p>
+
+<h4 id="performance-suite">Performance suite</h4>
+
+<p>Verify that the performance suite executes on Spark and Hadoop.
+The datasizes are 80MB, 800MB, 8GB, and 80GB.</p>
+
+<h2 id="voting-process">Voting process</h2>
+
+<p>Following a successful release candidate vote by SystemDS PMC members and the SystemDS community
+on the dev mailing list, the release candidate shall be approved.</p>
+
+<h2 id="release">Release</h2>
+
+<h3 id="release-deployment">Release deployment</h3>
+
+<p>The scripts will execute the release steps. and push the changes
+to the releases.</p>
+
+<h3 id="deploy-artifacts-to-maven-central">Deploy artifacts to Maven Central</h3>
+
+<p>In the <a href="https://repository.apache.org">Apache Nexus Repo</a>, release
+the staged artifacts to the Maven Central repository.</p>
+
+<p>Steps:</p>
+<ol>
+  <li>In the <code class="language-plaintext highlighter-rouge">Staging Repositories</code> section, find the relevant release candidate entry</li>
+  <li>Select <code class="language-plaintext highlighter-rouge">Release</code></li>
+  <li>Drop all the other release candidates</li>
+</ol>
+
+<h3 id="deploy-python-artifacts-to-pypi">Deploy Python artifacts to PyPI</h3>
+
+<ul>
+  <li>Use upload script.</li>
+  <li>Verify that the files at https://pypi.org/project/systemds/#files are correct.</li>
+</ul>
+
+<h3 id="update-website">Update website</h3>
+
+<ul>
+  <li>Listing the release</li>
+  <li>Publish Python API reference, and the Java API reference</li>
+</ul>
+
+<h3 id="mark-the-released-version-in-jira">Mark the released version in JIRA</h3>
+
+<ol>
+  <li>Go to https://issues.apache.org/jira/plugins/servlet/project-config/SYSTEMDS/versions</li>
+  <li>Hover over the released version and click <code class="language-plaintext highlighter-rouge">Release</code></li>
+</ol>
+
+<h3 id="recordkeeping">Recordkeeping</h3>
+
+<p>Update the record at https://reporter.apache.org/addrelease.html?systemds</p>
+
+<h3 id="checklist-2">Checklist</h3>
+
+<ol>
+  <li>Maven artifacts released and indexed in the <a href="https://search.maven.org/search?q=g:org.apache.systemds">Maven Central Repository</a></li>
+  <li>Source distribution available in the <a href="https://dist.apache.org/repos/dist/release/systemds/">release repository <code class="language-plaintext highlighter-rouge">/release/systemds/</code></a></li>
+  <li>Source distribution removed from the <a href="https://dist.apache.org/repos/dist/dev/systemds/">dev repository <code class="language-plaintext highlighter-rouge">/dev/systemds/</code></a></li>
+  <li>Website is completely updated (Release, API manuals)</li>
+  <li>The release tag available on GitHub at https://github.com/apache/systemds/tags</li>
+  <li>The release notes are published on GitHub at https://github.com/apache/systemds/release</li>
+  <li>Release version is listed at reporter.apache.org</li>
+</ol>
+
+<h3 id="announce-release">Announce Release</h3>
+
+<p>Announce Released version within the project and public.</p>
+
+<h4 id="apache-mailing-list">Apache Mailing List</h4>
+
+<ol>
+  <li>Announce on the dev@ mail list that the release has been completed</li>
+  <li>Announce the release on the announce@apache.org mail list, listing major improving and contributions.
+This can only be done from the <code class="language-plaintext highlighter-rouge">@apache.org</code> email address. This email has to be in plain text.</li>
+</ol>
+
+<h4 id="social-media">Social media</h4>
+
+<p>Publish on Twitter on @ApacheSystemDS.</p>
+
+<h2 id="checklist-to-declare-the-release-process-complete">Checklist to declare the release process complete</h2>
+
+<ol>
+  <li>Release announce on the dev@, announce@apache.org mail list</li>
+  <li>Release recorded in reporter.apache.org</li>
+  <li>Completion declared on the dev@ mail list</li>
+</ol>
+
+<h2 id="improve-the-process">Improve the process</h2>
+
+<p>Once the release is complete, let us retrospectively update changes and improvements
+to this guide. Help the community adapt this guide for release validation before casting their
+vote.</p>
+
+<p>Perhaps some steps can be simplified or require more clarification.</p>
+
+<h1 id="appendix">Appendix</h1>
+
+<h3 id="generate-gpg-key">Generate GPG key</h3>
+
+<ol>
+  <li>Create a folder for GNUPGHOME or use default <code class="language-plaintext highlighter-rouge">~/.gnupg</code>.</li>
+</ol>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo mkdir</span> <span class="nt">-m</span> 700 /usr/local/.gnupg
+</code></pre></div></div>
+
+<ol>
+  <li>Generate the gpg key</li>
+</ol>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span><span class="nv">GNUPGHOME</span><span class="o">=</span>/usr/local/.gnupg gpg <span class="nt">--gen-key</span>
+</code></pre></div></div>
+
+<p>output will be, like the following:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gpg: /usr/local/.gnupg/trustdb.gpg: trustdb created
+gpg: key F164B430F91D6*** marked as ultimately trusted
+gpg: directory '/usr/local/.gnupg/openpgp-revocs.d' created
+gpg: revocation certificate stored as '/usr/local/.gnupg/openpgp-revocs.d/AD**...*.rev'
+public and secret key created and signed.
+</code></pre></div></div>
+
+<ol>
+  <li>Export the environmental variable</li>
+</ol>
+
+<p>Note: Using <code class="language-plaintext highlighter-rouge">sudo</code> would add credentials in root users</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">export </span><span class="nv">GNUPGHOME</span><span class="o">=</span>/usr/local/.gnupg
+
+gpg <span class="nt">--homedir</span> <span class="nv">$GNUPGHOME</span> <span class="nt">--list-keys</span>
+gpg <span class="nt">--homedir</span> <span class="nv">$GNUPGHOME</span> <span class="nt">--list-secret-keys</span>
+</code></pre></div></div>
+
+    </div>
+    <!--
+
+-->
+
+
+<!-- MathJax Section -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ TeX: { equationNumbers: { autoNumber: "AMS" } } });
+</script>
+<script>
+    // Note that we load MathJax this way to work with local file (file://), HTTP and HTTPS.
+    // We could use "//cdn.mathjax...", but that won't support "file://".
+    (function(d, script) {
+        script = d.createElement('script');
+        script.type = 'text/javascript';
+        script.async = true;
+        script.onload = function() {
+            MathJax.Hub.Config({
+                tex2jax: {
+                    inlineMath: [
+                        ["$", "$"],
+                        ["\\\\(", "\\\\)"]
+                    ],
+                    displayMath: [
+                        ["$$", "$$"],
+                        ["\\[", "\\]"]
+                    ],
+                    processEscapes: true,
+                    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+                }
+            });
+        };
+        script.src = ('https:' == document.location.protocol ? 'https://' : 'http://') +
+            'cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+        d.getElementsByTagName('head')[0].appendChild(script);
+    }(document));
+</script>
+
+</body>
+
+</html>

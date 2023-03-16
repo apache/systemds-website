@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+<!--
+
+-->
+
+<head>
+    <title>Use SystemDS Federated Monitoring Software - SystemDS 3.1.0</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="./../css/bootstrap.min.css">
+    <link rel="stylesheet" href="./../css/main.css">
+    <link rel="stylesheet" href="./../css/pygments-default.css">
+    <link rel="shortcut icon" href="./../img/favicon.png">
+    <script src="./../js/vendor/jquery-1.12.0.min.js"></script>
+    <script src="./../js/vendor/bootstrap.min.js"></script>
+    <script src="./../js/vendor/anchor.min.js"></script>
+    <script src="./../js/main.js"></script>
+</head>
+
+<body>
+    <!--
+
+-->
+<header class="navbar navbar-default navbar-fixed-top" id="topbar">
+    <div class="container">
+        <div class="navbar-header">
+            <div class="navbar-brand brand projectlogo">
+                <a href="https://systemds.apache.org/"><img class="logo" src="./../img/systemds-logo.png" alt="Apache SystemDS" title="Apache SystemDS" /></a>
+            </div>
+            <div class="navbar-brand brand projecttitle">
+                <a href="https://systemds.apache.org/">Apache SystemDS<sup id="trademark">™</sup></a><br />
+                <span class="version">3.1.0</span>
+            </div>
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <nav class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Overview<b class="caret"></b></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><b>Home:</b></li>
+                        <li><a href="./../">Docs Home</a></li>
+                        <li class="divider"></li>
+                        <li><b>Running SystemDS:</b></li>
+                        <li><a href="./../site/run">Standalone Guide</a></li>
+                        <li><a href="./../site/gpu">GPU Guide</a></li>
+                        <li><a href="./../site/native-backend">Native Backend (BLAS)</a></li>
+                        <li><a href="./../site/docker">Run with Docker</a></li>
+                        <li class="divider"></li>
+                        <li><b>Language Guides:</b></li>
+                        <li><a href="./../site/dml-language-reference.html">DML Language Reference</a></li>
+                        <li><a href="./../site/builtins-reference.html">Built-in Functions Reference</a></li>
+                        <li><a href="./../site/dml-vs-r-guide.html">DML vs R guide</a></li>
+                        <li class="divider"></li>
+                        <li><b>Algorithms:</b></li>
+                        <li><a href="./../site/algorithms-reference.html">ML Algorithms Reference</a></li>
+                        <li class="divider"></li>
+                        <li><b>Other:</b></li>
+                        <li><a href="https://github.com/apache/systemds/blob/main/CONTRIBUTING.md">Contributing to SystemDS 🡕</a></li>
+                    </ul>
+                </li>
+                <li><a href="https://github.com/apache/systemds">GitHub 🡕</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">API<b class="caret"></b></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="./../api/java/">Java</a></li>
+                        <li><a href="./../api/python/">Python</a></li>
+                    </ul>
+                </li>
+                <li><a href="https://issues.apache.org/jira/secure/Dashboard.jspa?selectPageId=12335852">Issues</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+    <div class="container" id="content">
+        <h1 class="title">Use SystemDS Federated Monitoring Software</h1>
+        <!--
+
+-->
+
+<h2 id="systemds-federated-monitoring-software">SystemDS Federated Monitoring Software</h2>
+
+<h3 id="introduction">Introduction</h3>
+
+<p>To monitor the federated infrastructure of SystemDS, a monitoring tool was developed for this purpose.
+A general overview of the architecture can be seen in <a href="figure-1"><strong>Figure 1</strong></a>.
+The monitoring tool consists of two separate decoupled modules, the Java-based <strong>monitoring backend</strong> and
+the <strong>monitoring frontend</strong> developed in <a href="https://angular.io/">Angular</a>.</p>
+
+<p><strong>NOTE:</strong> To work with the monitoring tool both the back- and frontend services must be running!</p>
+
+<p><img src="../img/monitoring-arch-overview.png" alt="Figure 1" title="Figure 1" /></p>
+
+<h3 id="installation--build">Installation &amp; Build</h3>
+
+<h4 id="install-backend">Install Backend</h4>
+
+<p>To compile the project, run the following code, more information can be found <a href="./install.md">here</a>:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mvn package <span class="nt">-P</span> distribution
+</code></pre></div></div>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span>INFO] <span class="nt">------------------------------------------------------------------------</span>
+<span class="o">[</span>INFO] BUILD SUCCESS
+<span class="o">[</span>INFO] <span class="nt">------------------------------------------------------------------------</span>
+<span class="o">[</span>INFO] Total <span class="nb">time</span>:  31.730 s
+<span class="o">[</span>INFO] Finished at: 2020-06-18T11:00:29+02:00
+<span class="o">[</span>INFO] <span class="nt">------------------------------------------------------------------------</span>
+</code></pre></div></div>
+
+<p>The following example works if you open an terminal at the root of the downloaded release,
+or a cloned repository. (You can also change the <code class="language-plaintext highlighter-rouge">$(pwd)</code> with the full path to the folder.),
+more information can be found <a href="./run.md">here</a>:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">export </span><span class="nv">SYSTEMDS_ROOT</span><span class="o">=</span><span class="si">$(</span><span class="nb">pwd</span><span class="si">)</span>
+<span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$SYSTEMDS_ROOT</span>/bin:<span class="nv">$PATH</span>
+</code></pre></div></div>
+
+<h4 id="install-frontend">Install Frontend</h4>
+
+<p>Since the frontend is in <strong>Angular v13</strong>, a <strong>node version 12/14/16</strong> or later minor version is required.
+To install <code class="language-plaintext highlighter-rouge">nodejs</code> and <code class="language-plaintext highlighter-rouge">npm</code> go to <a href="https://nodejs.org/en/">https://nodejs.org/en/</a> and install version either <strong>12.x</strong>,
+<strong>14.x</strong> or <strong>16.x</strong>:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Verify installation -------</span>
+node <span class="nt">--version</span>
+<span class="c"># Output</span>
+<span class="c"># v14.2.0</span>
+
+npm <span class="nt">--version</span>
+<span class="c"># Output</span>
+<span class="c"># 6.14.4</span>
+<span class="c"># ---------------------------</span>
+</code></pre></div></div>
+
+<p>To install the npm packages required for the Angular app to run, open the directory with
+the SystemDS code and run:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 1. Go into the directory with the frontend app</span>
+<span class="nb">cd </span>scripts/monitoring
+<span class="c"># 2. Install all npm packages </span>
+npm <span class="nb">install</span>
+</code></pre></div></div>
+
+<p>After those steps all the packages needed for running the monitoring tool should be installed.</p>
+
+<h3 id="running">Running</h3>
+
+<p>Both back- and frontend applications are separate modules of the same tool, they can be independently started and stopped.
+Since they are designed with loose decoupling in mind, the frontend can integrate with different backends, and
+the backend can work with different frontends, provided that the format of the data and the communication protocol is
+preserved.</p>
+
+<h4 id="backend">Backend</h4>
+
+<p>To run the backend, use the <code class="language-plaintext highlighter-rouge">-fedMonitoring</code> flag followed by a <code class="language-plaintext highlighter-rouge">port</code> and can be executed using the systemds binary like this:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Start the backend with the binary</span>
+systemds FEDMONITORING 8080
+
+<span class="c"># You should see something like this</span>
+<span class="c">#[ INFO] Setting up Federated Monitoring Backend on port 8080</span>
+<span class="c">#[ INFO] Starting Federated Monitoring Backend server at port: 8080</span>
+<span class="c">#[ INFO] Started Federated Monitoring Backend at port: 8080</span>
+</code></pre></div></div>
+
+<p>This will start the backend server which will be listening for REST requests on <code class="language-plaintext highlighter-rouge">http://localhost:8080</code>.</p>
+
+<p><strong>NOTE:</strong> The backend is polling all registered workers with a given frequency, it can be changed by including
+the <code class="language-plaintext highlighter-rouge">&lt;sysds.federated.monitorFreq&gt;3&lt;/sysds.federated.monitorFreq&gt;</code> in the <code class="language-plaintext highlighter-rouge">SystemDS-config.xml</code> file, accepting
+<strong>doubles</strong>, representing seconds (0.5 can be used for setting the frequency to be half a second). The example shown
+here will start the backend with polling with frequency of <strong>3 seconds</strong>, which is also the default value.</p>
+
+<h4 id="frontend">Frontend</h4>
+
+<p>To run the Angular app:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 1. While in the systemds directory go to the folder holding the frontend app</span>
+<span class="nb">cd </span>scripts/monitoring
+<span class="c"># 2. Start the angular app </span>
+npm start
+</code></pre></div></div>
+
+<p>After this step the Angular UI should be started on <a href="http://localhost:4200">http://localhost:4200</a> and can be viewed by opening the
+browser on the same address.</p>
+
+<p><strong>NOTE:</strong> The address of the backend is hardcoded in the frontend application and can be changed by changing the <code class="language-plaintext highlighter-rouge">BASE_URI</code> in the <code class="language-plaintext highlighter-rouge">systemds/scripts/monitoring/app/constants.ts</code> file. <strong>DO NOT</strong> include a trailing slash <code class="language-plaintext highlighter-rouge">/</code>, at the end of the address.</p>
+
+<h4 id="3-coordinator-self-registration-for-monitoring">3. Coordinator self-registration for monitoring</h4>
+
+<p>In addition to the manual registration of coordinators for monitoring, the self-registration feature can be used by
+setting the <code class="language-plaintext highlighter-rouge">-fedMonitoringAddress</code> flag followed by the address of the backend:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Start the coordinator process with the -fedMonitoringAddress flag and the address of the backend</span>
+systemds <span class="nt">-f</span> testFederated.dml <span class="nt">-exec</span> singlenode <span class="nt">-explain</span> <span class="nt">-debug</span> <span class="nt">-stats</span> 20 <span class="nt">-fedMonitoringAddress</span> http://localhost:8080
+</code></pre></div></div>
+
+<p><strong>NOTE:</strong> The backend service should already be running, otherwise the coordinator will not start.</p>
+
+    </div>
+    <!--
+
+-->
+
+
+<!-- MathJax Section -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ TeX: { equationNumbers: { autoNumber: "AMS" } } });
+</script>
+<script>
+    // Note that we load MathJax this way to work with local file (file://), HTTP and HTTPS.
+    // We could use "//cdn.mathjax...", but that won't support "file://".
+    (function(d, script) {
+        script = d.createElement('script');
+        script.type = 'text/javascript';
+        script.async = true;
+        script.onload = function() {
+            MathJax.Hub.Config({
+                tex2jax: {
+                    inlineMath: [
+                        ["$", "$"],
+                        ["\\\\(", "\\\\)"]
+                    ],
+                    displayMath: [
+                        ["$$", "$$"],
+                        ["\\[", "\\]"]
+                    ],
+                    processEscapes: true,
+                    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+                }
+            });
+        };
+        script.src = ('https:' == document.location.protocol ? 'https://' : 'http://') +
+            'cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+        d.getElementsByTagName('head')[0].appendChild(script);
+    }(document));
+</script>
+
+</body>
+
+</html>
