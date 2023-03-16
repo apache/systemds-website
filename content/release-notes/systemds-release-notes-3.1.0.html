@@ -1,0 +1,274 @@
+<!--
+
+-->
+<!--
+
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <!--
+
+-->
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <title>SystemDS 3.1.0 Release Notes</title>
+  
+  <meta name="description" content="Project Release Notes"> 
+  <meta name="author" content="Apache SystemDS">
+
+  <!-- Enable responsive viewport -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- You can use Open Graph tags to customize link previews.
+  Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+  <meta property="og:url" content="https://systemds.apache.org/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="SystemDS 3.1.0 Release Notes" />
+  <meta property="og:description" content="Apache SystemDS is an open source ML system for the end-to-end data science lifecycle" />
+  <meta property="og:image" content="" />
+
+  <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <!-- Le styles -->
+  <link rel="stylesheet" href="/assets/css/main.css">
+
+  <!-- favicons -->
+  <link rel="shortcut icon" href="/assets/img/favicon.png">
+</head> <!-- META -->
+  <body class="vcard">
+    <!--
+
+-->
+<header class="site-header site-header--not-home">
+  <h1 class="logo"><a class="url" href="/"><i class="logo-mark"></i><span class="fn org">Apache SystemDS<sup
+          id="trademark">&trade;</sup></span></a></h1>
+  <nav class="main-nav">
+    <ul>
+      
+      <li role="presentation">
+        
+        
+        <a href="/download" target="_self">Download</a>
+        
+      </li>
+      
+      <li role="presentation">
+        
+        
+        <a href="/get-started" target="_self">Get Started</a>
+        
+      </li>
+      
+      <li role="presentation">
+        
+        <a class="nav-link--hover">Docs <i class="icon icon-chevron-down"></i></a>
+        <ul>
+          
+          
+          <li><a href="https://apache.github.io/systemds/" target="_blank">latest</a></li>
+          
+          
+          <li><a href="https://systemds.apache.org/docs/3.1.0/" target="_blank">3.1.0 (stable)</a></li>
+          
+          
+          <li><a href="https://systemds.apache.org/release-notes/systemds-release-notes-3.1.0" target="_blank">Release Notes 3.1.0</a></li>
+          
+        </ul>
+        
+      </li>
+      
+      <li role="presentation">
+        
+        <a class="nav-link--hover">Community <i class="icon icon-chevron-down"></i></a>
+        <ul>
+          
+          
+          <li><a href="/community" target="_self">Get Involved</a></li>
+          
+          
+          <li><a href="https://issues.apache.org/jira/browse/SYSTEMDS" target="_blank">Issue Tracker</a></li>
+          
+          
+          <li><a href="https://github.com/apache/systemds" target="_blank">Source Code</a></li>
+          
+          
+          <li><a href="https://github.com/apache/systemds-website" target="_blank">Website Source Code</a></li>
+          
+        </ul>
+        
+      </li>
+      
+      <li role="presentation">
+        
+        <a class="nav-link--hover">Apache <i class="icon icon-chevron-down"></i></a>
+        <ul>
+          
+          
+          <li><a href="https://www.apache.org/foundation/how-it-works" target="_blank">Apache Software Foundation</a></li>
+          
+          
+          <li><a href="https://www.apache.org/licenses/" target="_blank">Apache License</a></li>
+          
+          
+          <li><a href="https://www.apache.org/foundation/sponsorship" target="_blank">Sponsorship</a></li>
+          
+          
+          <li><a href="https://www.apache.org/foundation/thanks" target="_blank">Thanks</a></li>
+          
+          
+          <li><a href="/privacy-policy" target="_self">Privacy Policy</a></li>
+          
+          
+          <li><a href="/security" target="_self">Security</a></li>
+          
+        </ul>
+        
+      </li>
+      
+    </ul>
+  </nav>
+</header> <!-- GLOBAL HEADER -->
+    <!--
+
+-->
+<!--
+
+-->
+<div>
+  <!--
+
+-->
+
+<section class="full-stripe full-stripe--subpage-header clear-header">
+  <div class="ml-container ml-container--horizontally-center">
+    <div class="col col-12 content-group content-group--center-content content-group--center-align">
+      <h1>Apache SystemDS<sup id="trademark">&trade;</sup> 3.1.0 Release Notes</h1>
+    </div>
+  </div>
+</section>
+
+<section class="full-stripe full-stripe--alternate">
+  <div class="ml-container">
+    <div class="col col-12 content-group content-group--medium-bottom-margin">
+
+      <h2 id="release-notes-for-systemds-310">Release notes for SystemDS 3.1.0</h2>
+
+      <p>SystemDS 3.1 is a minor release. Release 3.1 contains new features and major improvements to existing features.</p>
+
+      <h3 id="features-and-improvements">Features and Improvements</h3>
+
+      <ul>
+        <li>Performance codegen kmeans mnist80m w/ compression</li>
+        <li>Prefetch instruction</li>
+        <li>Broadcast instruction</li>
+        <li>Create apply functions for cleaning primitives</li>
+        <li>LogicalEnumerator change with transitions concept and cleanups</li>
+        <li>Flatten the nested loop for parallel pipelines execution</li>
+        <li>Adding apply_pipeline() builtin for cleaning pipelines API</li>
+        <li>Release docker images with GitHub actions</li>
+        <li>Add monitoring tool testing workflows</li>
+        <li>Asynchronous Execution and Persist Spark Transformations</li>
+        <li>Future-based asynchronous execution of Spark actions</li>
+        <li>New operator linearization order to maximize inter-operator parallelism</li>
+        <li>Lineage-based reuse of Spark actions</li>
+        <li>Push down rmvar instructions for asynchronous instructions</li>
+        <li>Lineage-based reuse of asynchronous operators</li>
+        <li>Persist and reuse Spark RDDs</li>
+        <li>Refactor to add LOP rewrite step in compilation</li>
+        <li>Federated Compression Instruction</li>
+        <li>CLA IO Compressed Matrices</li>
+        <li>Compressed Max/Min Index support.</li>
+        <li>Federated async compression</li>
+        <li>Federated Workload-aware Compression</li>
+        <li>Python 3.9 support</li>
+        <li>Parallel Compressed Encode</li>
+        <li>New builtin function auc (area under ROC curve)</li>
+        <li>Unique() function for performance</li>
+      </ul>
+
+      <h3 id="bug">Bug</h3>
+
+      <ul>
+        <li>Fix memory configuration in sparkDML.sh</li>
+        <li>OOM Error On Binary Write</li>
+        <li>Out of memory error</li>
+        <li>CLA Improved Run estimation</li>
+        <li>AttributeError: Function definition not found</li>
+        <li>applySchema built-in to set the schema of frame from DML</li>
+        <li>CSR TSMM left with filled rows bug</li>
+        <li>Sparse TSMM dense row blocks CSR</li>
+        <li>py4j.Py4JException: Method exceptionString([class org.apache.spark.SparkConf]) does not exist</li>
+        <li>MatrixBlock size using CSR when allowed</li>
+        <li>Federated Nan Values</li>
+        <li>countDistinctApprox() operation in AggregateUnaryCPInstruction is inefficient for row/col aggregations</li>
+        <li>Correct the release artifact generation date</li>
+        <li>Log4j incompatible dependencies</li>
+        <li>ConcurrentModificationException in federated execution</li>
+        <li>Jackson Core missing for json writing and reading in reduced binary</li>
+        <li>Fix Java doc warnings</li>
+        <li>Enque output not UTF-8 python</li>
+        <li>Read CSV directly without mtd python</li>
+        <li>Python configuration not loading defaults</li>
+        <li>Matrix Multiplication crash in Spark</li>
+        <li>Pipelines failing in Hybrid execution</li>
+        <li>Built-in tests failure in Git actions</li>
+        <li>Cleaning Pipelines failed with No space left on device</li>
+        <li>IndexOutOfBounds due to int overflow on replace</li>
+        <li>Cleaning Pipelines: Replace function failure in hybrid execution</li>
+        <li>Cleaning Pipelines: Block Sizes mismatch</li>
+        <li>Cleaning Pipelines in hybrid mode: Invalid block dimensions error</li>
+        <li>Federated Statistics print in non federated scenario</li>
+        <li>Spark Aggregate Binary operations parse to Fed instruction</li>
+        <li>FederationUtils.bindResponses causes out of memory because of sparse matrices.</li>
+        <li>Python IDE test Docs fail</li>
+        <li>MSVM robustness for non-existing classes</li>
+        <li>CLA ArrayOutOfBounds in sample</li>
+        <li>CLA Invalid Unique estimate DDC</li>
+        <li>Federated read cache cannot be disabled</li>
+        <li>Monitoring Heavy hitters not always correct list</li>
+        <li>Slow Federated Mlogreg on Criteo (dummy-coded)</li>
+        <li>Incorrect warning when reading scalars</li>
+        <li>Spark with default settings</li>
+        <li>Cleaning Pipelines: Task Parallel Experiments failing in spark mode</li>
+        <li>Unique() crashes with iterator EOF on vectors with &gt;1K distinct items</li>
+        <li>Perftest: Mlogreg on 1M_1k_dense w/ unnecessary spark jobs</li>
+        <li>Perftest: lmDS on 1M_1k_dense with unnecessary spark tsmm</li>
+        <li>Java doc warnings</li>
+      </ul>
+    </div></div></section>
+
+</div>
+
+ 
+    <!--
+
+-->
+<footer class="site-footer">
+  <div class="ml-container ml-container--horizontally-center">
+    <div class="footer-col-wrapper">
+      <div style="margin-top: 20px; margin-bottom: 20px;">
+        <a href="https://www.apache.org"><img src="/assets/img/apache-foundation-logo.png" alt="Apache Incubator" /></a>
+      </div>
+      <!--Footer copyright year update credit: http://updateyourfooter.com/-->
+      <div>
+        Copyright &copy; 2015
+        <script>new Date().getFullYear() > 2015 && document.write("-" + new Date().getFullYear());</script>
+        <a href="https://www.apache.org">The Apache Software Foundation</a>.
+        Licensed under the <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache License, Version 2.0</a>.
+        <br>
+        Apache and the Apache Feather logo are trademarks of The Apache Software Foundation.
+      </div>
+    </div>
+  </div>
+</footer> <!-- GLOBAL FOOTER-->
+    <script src="assets/js/bundle.min.js"></script>
+  </body>
+</html>
+
