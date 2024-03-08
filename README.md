@@ -185,6 +185,15 @@ To add a new dataset,
 1. create `<dataset-name>.md` file in the [`_src/_datasets`](_src/_datasets) folder.
 2. Upload dataset files to [`_src/assets/datasets/<dataset-name>`](_src/assets/datasets) folder.
 
+If the file sizes are big, use LFS
+
+```bash
+git lfs install
+git add file.zip
+git commit -m "Add big file"
+git push origin main
+```
+
 And follow the [_Updating the website_](#updating-the-website) procedure.
 
 ## How to add contributors to community page
