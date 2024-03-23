@@ -14,7 +14,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-  <title>SystemDS 2.1.0 Release Notes</title>
+  <title>SystemDS 3.2.0 Release Notes</title>
   
   <meta name="description" content="Project Release Notes"> 
   <meta name="author" content="Apache SystemDS">
@@ -27,7 +27,7 @@
   Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
   <meta property="og:url" content="https://systemds.apache.org/" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="SystemDS 2.1.0 Release Notes" />
+  <meta property="og:title" content="SystemDS 3.2.0 Release Notes" />
   <meta property="og:description" content="Apache SystemDS is an open source ML system for the end-to-end data science lifecycle" />
   <meta property="og:image" content="" />
 
@@ -149,7 +149,7 @@
 <section class="full-stripe full-stripe--subpage-header clear-header">
   <div class="ml-container ml-container--horizontally-center">
     <div class="col col-12 content-group content-group--center-content content-group--center-align">
-      <h1>Apache SystemDS<sup id="trademark">&trade;</sup> 2.1.0 Release Notes</h1>
+      <h1>Apache SystemDS<sup id="trademark">&trade;</sup> 3.2.0 Release Notes</h1>
     </div>
   </div>
 </section>
@@ -158,39 +158,62 @@
   <div class="ml-container">
     <div class="col col-12 content-group content-group--medium-bottom-margin">
 
-      <h2 id="release-notes-for-systemds-210">Release notes for SystemDS 2.1.0</h2>
+      <h2 id="release-notes-for-systemds-320">Release notes for SystemDS 3.2.0</h2>
 
-      <p>SystemDS 2.1 is a minor release. This release contains major improvements
-to existing features, a large number of fixes, and some experimental
-features to better support the end-to-end data science lifecycle.
-In addition to that, this is the last release with Java 8 and Spark 2.x.</p>
+      <p>SystemDS 3.2 is a minor release. Release 3.2 contains new features and major improvements to existing features.</p>
 
-      <p>The major changes (compared to SystemDS 2.0) include</p>
+      <h3 id="new-features">New Features</h3>
 
       <ul>
-        <li>Federated Backend: Extended operations and built-ins to support various
-workflows and algorithms. Extended parameter server for federated training
-of Neural Networks.</li>
-        <li>A wealth of new and improved built-in functions including support for
-string operations, time-series analysis, data cleaning, grid search
-hyperparameter tuning, multi-threaded feature transformations.</li>
-        <li>Better support for Eval and list data structure.</li>
-        <li>Various performance improvements in SystemDS’ local, distributed, and
-native runtimes.</li>
-        <li>Python API: Source functionality to allow arbitrary DML script,
-auto-generated Python API for all built-in functions,  list support
-allowing Pytonic access and manipulation of lazily evaluated DML elements,
-multi return continuation, allowing continued execution past calls to
-builtin functions.</li>
-        <li>GPU Backend: Various performance improvements and fixes, cuda code
-refactor, cuda code generation [experimental].</li>
-        <li>Lineage Tracing and Reuse: Initial support for federated and GPU
-backends, new hybrid lineage deduplication and reuse of compressed lineage
-DAGs, lineage cache benefits estimator, improved cache eviction logic.</li>
-        <li>Usability: Better Log4j integration, debug flag to reduce error logging,
-support for remote debugging.</li>
-        <li>Miscellaneous Improvements: Improved documentation, better testing,
-streamlined release process.</li>
+        <li>Reuse, recycling, and memory management of GPU</li>
+        <li>New operator placement strategy to maximize parallelism across backends (CPU, Spark, GPU)</li>
+        <li>Improved compiler integration of multi-backend reuse: delayed caching, eviction placement, checkpoint placement, and asynchronous operators</li>
+        <li>Frame compression and lossy compression with binning</li>
+        <li>Improved compression support for transform encode</li>
+        <li>Ultra sparse matrix multiplication optimization</li>
+        <li>Improved parallel writing to the local file system</li>
+        <li>Extended sparsity propagation in federated backend</li>
+        <li>Deduplicated matrix block for word embedding</li>
+        <li>Double compressed sparse row block</li>
+        <li>Time-series Alignment library (Python API)</li>
+      </ul>
+
+      <h3 id="new-builtins">New Builtins</h3>
+
+      <ul>
+        <li>Linearized image transformations</li>
+        <li>Anomaly detection via IsolationForest</li>
+        <li>Better support for DNN models</li>
+        <li>Performance improvement of many existing builtins</li>
+      </ul>
+
+      <h3 id="other-optimizations">Other Optimizations</h3>
+
+      <ul>
+        <li>Various new compiler rewrites</li>
+        <li>Extended constant folding</li>
+        <li>Improved handling of ultra-sparse matrices</li>
+        <li>Rewrites for GPU operators</li>
+        <li>Robustness for decision tree and random forest</li>
+        <li>Improved performance of transform encode/apply</li>
+        <li>Various bug fixes in memory estimates, Spark checkpointing, frame operations, IO, and other areas</li>
+      </ul>
+
+      <h3 id="software-build">Software Build</h3>
+
+      <ul>
+        <li>Upgrade spark 3.5 and corresponding dependencies and fix imports</li>
+        <li>Slf4j and log4j update to the latest version</li>
+        <li>GitHub actions improvements for Windows, upgrade the actions dependencies to the latest. Fix all the flagged dependencies</li>
+        <li>Fix GitHub actions failure related to federated tests</li>
+        <li>Code coverage and actions artifact lifecycle</li>
+      </ul>
+
+      <h3 id="documentation">Documentation</h3>
+
+      <ul>
+        <li>Fix federated tutorial commands.</li>
+        <li>Builtin functions, Random Forest and decision tree algorithms</li>
       </ul>
     </div></div></section>
 
