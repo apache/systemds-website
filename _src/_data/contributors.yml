@@ -25,7 +25,7 @@
   apacheId: arnabp20
   githubId: phaniarnab 
   role: PMC Member
-  org: TU Graz
+  org: TU Berlin
 
 - name: Arvind Surve
   apacheId: acs_s
@@ -145,7 +145,7 @@
   apacheId: mboehm7
   githubId: mboehm7
   role: PMC Member, Chair
-  org: TU Graz, previously IBM
+  org: TU Berlin, previously IBM
 
 - name: Mike Dusenberry
   apacheId: dusenberrymw
@@ -169,7 +169,7 @@
   apacheId: oovcharenko
   githubId: OlgaOvcharenko
   role: PMC Member
-  org: TU Graz
+  org: ETH Zürich
 
 - name: Patrick Wendell
   apacheId: pwendell
@@ -193,7 +193,7 @@
   apacheId: baunsgaard
   githubId: Baunsgaard
   role: PMC Member
-  org: TU Graz
+  org: TU Berlin
 
 - name: Shirish Tatikonda
   apacheId: shirisht
@@ -204,7 +204,7 @@
 - name: Shafaq Siddiqi
   apacheId: ssiddiqi
   githubId: Shafaq-Siddiqi
-  role: Committer
+  role: PMC Member
   org: TU Graz
 
 - name: Xiangrui Meng
