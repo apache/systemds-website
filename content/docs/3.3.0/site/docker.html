@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+<!--
+
+-->
+
+<head>
+    <title>Use SystemDS with Docker - SystemDS 3.3.0-SNAPSHOT</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="./../css/bootstrap.min.css">
+    <link rel="stylesheet" href="./../css/main.css">
+    <link rel="stylesheet" href="./../css/pygments-default.css">
+    <link rel="shortcut icon" href="./../img/favicon.png">
+    <script src="./../js/vendor/jquery-1.12.0.min.js"></script>
+    <script src="./../js/vendor/bootstrap.min.js"></script>
+    <script src="./../js/vendor/anchor.min.js"></script>
+    <script src="./../js/main.js"></script>
+</head>
+
+<body>
+    <!--
+
+-->
+<header class="navbar navbar-default navbar-fixed-top" id="topbar">
+    <div class="container">
+        <div class="navbar-header">
+            <div class="navbar-brand brand projectlogo">
+                <a href="https://systemds.apache.org/"><img class="logo" src="./../img/systemds-logo.png" alt="Apache SystemDS" title="Apache SystemDS" /></a>
+            </div>
+            <div class="navbar-brand brand projecttitle">
+                <a href="https://systemds.apache.org/">Apache SystemDS<sup id="trademark">™</sup></a><br />
+                <span class="version">3.3.0-SNAPSHOT</span>
+            </div>
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <nav class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Overview<b class="caret"></b></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><b>Home:</b></li>
+                        <li><a href="./../">Docs Home</a></li>
+                        <li class="divider"></li>
+                        <li><b>Running SystemDS:</b></li>
+                        <li><a href="./../site/run">Standalone Guide</a></li>
+                        <li><a href="./../site/gpu">GPU Guide</a></li>
+                        <li><a href="./../site/native-backend">Native Backend (BLAS)</a></li>
+                        <li><a href="./../site/docker">Run with Docker</a></li>
+                        <li class="divider"></li>
+                        <li><b>Language Guides:</b></li>
+                        <li><a href="./../site/dml-language-reference.html">DML Language Reference</a></li>
+                        <li><a href="./../site/builtins-reference.html">Built-in Functions Reference</a></li>
+                        <li><a href="./../site/dml-vs-r-guide.html">DML vs R guide</a></li>
+                        <li class="divider"></li>
+                        <li><b>Algorithms:</b></li>
+                        <li><a href="./../site/algorithms-reference.html">ML Algorithms Reference</a></li>
+                        <li class="divider"></li>
+                        <li><b>Other:</b></li>
+                        <li><a href="https://github.com/apache/systemds/blob/main/CONTRIBUTING.md">Contributing to SystemDS 🡕</a></li>
+                    </ul>
+                </li>
+                <li><a href="https://github.com/apache/systemds">GitHub 🡕</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">API<b class="caret"></b></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="./../api/java/">Java</a></li>
+                        <li><a href="./../api/python/">Python</a></li>
+                    </ul>
+                </li>
+                <li><a href="https://issues.apache.org/jira/secure/Dashboard.jspa?selectPageId=12335852">Issues</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+    <div class="container" id="content">
+        <h1 class="title">Use SystemDS with Docker</h1>
+        <!--
+
+-->
+
+<p><a href="https://docs.docker.com/get-docker/">Docker</a> enables you to separate applications from
+your infrastructure. This provides a way to manage the infrastructure the same way
+you do with the software.</p>
+
+<p>With Docker, enabling GPU support would be much easier on linux. Since only the NVIDIA
+GPU drivers are required on the host machine (NVIDIA CUDA toolkit is not required).</p>
+
+<h2 id="systemds-docker-requirements">SystemDS Docker requirements</h2>
+
+<p>Install <a href="https://docs.docker.com/get-docker/">Docker</a> specific to your machine</p>
+
+<p>Note: If you would like to manage docker as a non-root user, refer to
+<a href="https://docs.docker.com/engine/install/linux-postinstall/">linux-postinstall</a></p>
+
+<h2 id="download-systemds-docker-image">Download SystemDS Docker image</h2>
+
+<p>The official SystemDS docker images are located at <a href="https://hub.docker.com/r/apache/systemds">apache/systemds</a>
+Docker Hub repository. Image releases are tagged based on the release channel:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Tag</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">nightly</code></td>
+      <td>Builds for SystemDS <code class="language-plaintext highlighter-rouge">main</code> branch. Used by SystemDS developers</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Usage examples:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker pull apache/systemds:nightly         <span class="c"># Nightly release with CPU</span>
+</code></pre></div></div>
+
+<h3 id="start-the-docker-container">Start the Docker container</h3>
+
+<p>Options:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">-it</code> - interactive</li>
+  <li><code class="language-plaintext highlighter-rouge">--rm</code> - cleanup</li>
+  <li><code class="language-plaintext highlighter-rouge">-p</code> - port forwarding</li>
+</ul>
+
+<p>For comprehensive guide, refer <a href="https://docs.docker.com/engine/reference/run/"><code class="language-plaintext highlighter-rouge">docker run</code></a></p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+docker run <span class="o">[</span><span class="nt">-it</span><span class="o">]</span> <span class="o">[</span><span class="nt">--rm</span><span class="o">]</span> <span class="o">[</span><span class="nt">-p</span> hostPort:containerPort] apache/systemds[:tag] <span class="o">[</span><span class="nb">command</span><span class="o">]</span>
+</code></pre></div></div>
+
+<h4 id="examples">Examples</h4>
+
+<p>To verify the SystemDS installation,</p>
+
+<p>Create a <code class="language-plaintext highlighter-rouge">dml</code> file, for example</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">touch </span>hello.dml
+
+<span class="nb">cat</span> <span class="o">&lt;&lt;</span><span class="no">EOF</span><span class="sh"> &gt;&gt;./hello.dml
+print("This is SystemDS")
+</span><span class="no">EOF
+</span></code></pre></div></div>
+<p>and run it.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker run <span class="nt">-it</span> <span class="nt">--rm</span> <span class="nt">-v</span> <span class="nv">$PWD</span>:/tmp <span class="nt">-w</span> /tmp apache/systemds:nightly systemds ./hello.dml
+</code></pre></div></div>
+
+<p>The output is <code class="language-plaintext highlighter-rouge">"This is SystemDS"</code> after successful installation.
+For SystemDS usage instructions, see <a href="./run">standalone instructions</a>.</p>
+
+<p>This way you can run a DML program developed on the host machine, mount the host directory and change the
+working directory with <a href="https://docs.docker.com/engine/reference/run/#volume-shared-filesystems"><code class="language-plaintext highlighter-rouge">-v</code> flag</a>
+and <a href="https://docs.docker.com/engine/reference/run/#workdir"><code class="language-plaintext highlighter-rouge">-w</code> flags</a>.</p>
+
+
+    </div>
+    <!--
+
+-->
+
+
+<!-- MathJax Section -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ TeX: { equationNumbers: { autoNumber: "AMS" } } });
+</script>
+<script>
+    // Note that we load MathJax this way to work with local file (file://), HTTP and HTTPS.
+    // We could use "//cdn.mathjax...", but that won't support "file://".
+    (function(d, script) {
+        script = d.createElement('script');
+        script.type = 'text/javascript';
+        script.async = true;
+        script.onload = function() {
+            MathJax.Hub.Config({
+                tex2jax: {
+                    inlineMath: [
+                        ["$", "$"],
+                        ["\\\\(", "\\\\)"]
+                    ],
+                    displayMath: [
+                        ["$$", "$$"],
+                        ["\\[", "\\]"]
+                    ],
+                    processEscapes: true,
+                    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+                }
+            });
+        };
+        script.src = ('https:' == document.location.protocol ? 'https://' : 'http://') +
+            'cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+        d.getElementsByTagName('head')[0].appendChild(script);
+    }(document));
+</script>
+
+</body>
+
+</html>
