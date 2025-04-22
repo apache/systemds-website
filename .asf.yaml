@@ -35,7 +35,6 @@ staging:
 
 # Official website publishing
 publish:
-  profile: ~
   whoami:  asf-site
   # top level directory for serving index.html
   # Refer: https://github.com/apache/struts-site
