@@ -43,7 +43,7 @@ issues_list_archive_markmail:
 jira: SYSTEMDS
 
 release_name: systemds
-release_version: 3.2.0
+release_version: 3.3.0
 
 source_repository: https://git-wip-us.apache.org/repos/asf/systemds.git
 source_repository_mirror: https://github.com/apache/systemds
