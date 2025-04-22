@@ -1,0 +1,297 @@
+<!--
+
+-->
+<!--
+
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <!--
+
+-->
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <title>SystemDS 3.3.0 Release Notes</title>
+  
+  <meta name="description" content="Project Release Notes"> 
+  <meta name="author" content="Apache SystemDS">
+
+  <!-- Enable responsive viewport -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- You can use Open Graph tags to customize link previews.
+  Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+  <meta property="og:url" content="https://systemds.apache.org/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="SystemDS 3.3.0 Release Notes" />
+  <meta property="og:description" content="Apache SystemDS is an open source ML system for the end-to-end data science lifecycle" />
+  <meta property="og:image" content="" />
+
+  <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <!-- Le styles -->
+  <link rel="stylesheet" href="/assets/css/main.css">
+
+  <!-- favicons -->
+  <link rel="shortcut icon" href="/assets/img/favicon.png">
+</head> <!-- META -->
+  <body class="vcard">
+    <!--
+
+-->
+<header class="site-header site-header--not-home">
+  <h1 class="logo"><a class="url" href="/"><i class="logo-mark"></i><span class="fn org">Apache SystemDS<sup
+          id="trademark">&trade;</sup></span></a></h1>
+  <nav class="main-nav">
+    <ul>
+      
+      <li role="presentation">
+        
+        
+        <a href="/download" target="_self">Download</a>
+        
+      </li>
+      
+      <li role="presentation">
+        
+        
+        <a href="/get-started" target="_self">Get Started</a>
+        
+      </li>
+      
+      <li role="presentation">
+        
+        <a class="nav-link--hover">Docs <i class="icon icon-chevron-down"></i></a>
+        <ul>
+          
+          
+          <li><a href="https://apache.github.io/systemds/" target="_blank">latest</a></li>
+          
+          
+          <li><a href="https://systemds.apache.org/docs/3.3.0/" target="_blank">3.3.0 (stable)</a></li>
+          
+          
+          <li><a href="https://systemds.apache.org/release-notes/systemds-release-notes-3.3.0" target="_blank">Release Notes 3.3.0</a></li>
+          
+        </ul>
+        
+      </li>
+      
+      <li role="presentation">
+        
+        <a class="nav-link--hover">Community <i class="icon icon-chevron-down"></i></a>
+        <ul>
+          
+          
+          <li><a href="/community" target="_self">Get Involved</a></li>
+          
+          
+          <li><a href="https://issues.apache.org/jira/browse/SYSTEMDS" target="_blank">Issue Tracker</a></li>
+          
+          
+          <li><a href="https://github.com/apache/systemds" target="_blank">Source Code</a></li>
+          
+          
+          <li><a href="https://github.com/apache/systemds-website" target="_blank">Website Source Code</a></li>
+          
+        </ul>
+        
+      </li>
+      
+      <li role="presentation">
+        
+        <a class="nav-link--hover">Apache <i class="icon icon-chevron-down"></i></a>
+        <ul>
+          
+          
+          <li><a href="https://www.apache.org/foundation/how-it-works" target="_blank">Apache Software Foundation</a></li>
+          
+          
+          <li><a href="https://www.apache.org/licenses/" target="_blank">Apache License</a></li>
+          
+          
+          <li><a href="https://www.apache.org/foundation/sponsorship" target="_blank">Sponsorship</a></li>
+          
+          
+          <li><a href="https://www.apache.org/foundation/thanks" target="_blank">Thanks</a></li>
+          
+          
+          <li><a href="/privacy-policy" target="_self">Privacy Policy</a></li>
+          
+          
+          <li><a href="/security" target="_self">Security</a></li>
+          
+        </ul>
+        
+      </li>
+      
+    </ul>
+  </nav>
+</header> <!-- GLOBAL HEADER -->
+    <!--
+
+-->
+<!--
+
+-->
+<div>
+  <!--
+
+-->
+
+<section class="full-stripe full-stripe--subpage-header clear-header">
+  <div class="ml-container ml-container--horizontally-center">
+    <div class="col col-12 content-group content-group--center-content content-group--center-align">
+      <h1>Apache SystemDS<sup id="trademark">&trade;</sup> 3.3.0 Release Notes</h1>
+    </div>
+  </div>
+</section>
+
+<section class="full-stripe full-stripe--alternate">
+  <div class="ml-container">
+    <div class="col col-12 content-group content-group--medium-bottom-margin">
+
+      <h2 id="release-notes-for-systemds-330">Release notes for SystemDS 3.3.0</h2>
+
+      <p>SystemDS 3.3 is a minor release. Release 3.3 contains new features and major improvements to existing features.</p>
+
+      <h3 id="new-features">New Features</h3>
+
+      <h4 id="built-in-functions">Built-in Functions</h4>
+      <ul>
+        <li>Added <code class="language-plaintext highlighter-rouge">sliceLineExtract</code> for efficient slicing operations.</li>
+        <li>Introduced <code class="language-plaintext highlighter-rouge">adasyn</code> for synthetic data generation in imbalanced datasets.</li>
+        <li>Added <code class="language-plaintext highlighter-rouge">GELU Activation Function</code> (approximation) for deep learning tasks.</li>
+        <li>New built-in for <code class="language-plaintext highlighter-rouge">vectorized simple exponential smoothing</code>.</li>
+        <li><strong>Python API Enhancements</strong>:
+          <ul>
+            <li>Added built-ins for <code class="language-plaintext highlighter-rouge">solve</code>, <code class="language-plaintext highlighter-rouge">median</code>, <code class="language-plaintext highlighter-rouge">quantile</code>, <code class="language-plaintext highlighter-rouge">lu</code>, <code class="language-plaintext highlighter-rouge">qr</code>, <code class="language-plaintext highlighter-rouge">cov</code>, and more.</li>
+            <li>Introduced cumulative aggregate functions like <code class="language-plaintext highlighter-rouge">cumsum</code>, <code class="language-plaintext highlighter-rouge">cumprod</code>, etc.</li>
+            <li>Added support for matrix operations like <code class="language-plaintext highlighter-rouge">diag</code>, <code class="language-plaintext highlighter-rouge">trace</code>, <code class="language-plaintext highlighter-rouge">sqrt</code>, <code class="language-plaintext highlighter-rouge">exp</code>, <code class="language-plaintext highlighter-rouge">floor</code>, and <code class="language-plaintext highlighter-rouge">ceil</code>.</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h4 id="performance-enhancements">Performance Enhancements</h4>
+      <ul>
+        <li>Optimized matrix multiplication, including multi-threaded dot-product operations.</li>
+        <li>Improved performance for CSV and MatrixMarket readers with parallelism.</li>
+        <li>Enhanced incremental slice-line pruning for better efficiency.</li>
+        <li>Optimized federated operations with improved threading and cost estimation.</li>
+      </ul>
+
+      <h4 id="federated-learning">Federated Learning</h4>
+      <ul>
+        <li>Fixed threading bugs in federated operations.</li>
+        <li>Improved federated planner memoization and added support for weighted covariance.</li>
+      </ul>
+
+      <h4 id="compression">Compression</h4>
+      <ul>
+        <li>Introduced workload-aware compression for intermediates.</li>
+        <li>Enhanced compressed matrix operations with new tests and optimizations.</li>
+      </ul>
+
+      <h4 id="scuro-framework">Scuro Framework</h4>
+      <ul>
+        <li>Added support for multi-head attention layers and LSTM representations.</li>
+        <li>Introduced new modalities and data representations for Scuro.</li>
+      </ul>
+
+      <h3 id="bug-fixes">Bug Fixes</h3>
+      <ul>
+        <li>Fixed robustness issues in built-in functions:
+          <ul>
+            <li>Corrected <code class="language-plaintext highlighter-rouge">trace</code> handling for non-square matrices.</li>
+            <li>Fixed <code class="language-plaintext highlighter-rouge">seq()</code> length computation for edge cases.</li>
+            <li>Resolved issues in <code class="language-plaintext highlighter-rouge">transformencode</code> for federated backends.</li>
+          </ul>
+        </li>
+        <li>Addressed edge cases in matrix operations:
+          <ul>
+            <li>Sparse-dense matrix multiplication.</li>
+            <li>Incremental slice-line pruning.</li>
+          </ul>
+        </li>
+        <li>Fixed federated operation bugs:
+          <ul>
+            <li>Improved robustness for federated weighted covariance.</li>
+            <li>Resolved flaky tests in federated primitives.</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h3 id="code-quality-and-testing">Code Quality and Testing</h3>
+      <ul>
+        <li>Improved test coverage:
+          <ul>
+            <li>Simplification rewrites, federated operations, and Python APIs.</li>
+            <li>Added new tests for matrix operations and compression.</li>
+          </ul>
+        </li>
+        <li>Refactored and cleaned up code for better maintainability and performance.</li>
+      </ul>
+
+      <h3 id="documentation">Documentation</h3>
+      <ul>
+        <li>Updated Python API documentation with examples for new built-ins.</li>
+        <li>Improved overall documentation for better usability.</li>
+      </ul>
+
+      <h3 id="dependency-updates">Dependency Updates</h3>
+      <ul>
+        <li>Updated library versions and dependencies:
+          <ul>
+            <li>Bumped <code class="language-plaintext highlighter-rouge">codecov-action</code> to the latest version.</li>
+            <li>Updated other dependencies for compatibility and security.</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h3 id="miscellaneous">Miscellaneous</h3>
+      <ul>
+        <li>Added new rewrite rules for simplifications:
+          <ul>
+            <li><code class="language-plaintext highlighter-rouge">pushdown-sum</code> and <code class="language-plaintext highlighter-rouge">rm-reorg</code> for better performance.</li>
+          </ul>
+        </li>
+        <li>Introduced new I/O support for cloud-optimized GeoTIFF files.</li>
+        <li>Added new determinant function and kernels for matrix operations.</li>
+      </ul>
+    </div></div></section>
+
+</div>
+
+ 
+    <!--
+
+-->
+<footer class="site-footer">
+  <div class="ml-container ml-container--horizontally-center">
+    <div class="footer-col-wrapper">
+      <div style="margin-top: 20px; margin-bottom: 20px;">
+        <a href="https://www.apache.org"><img src="/assets/img/apache-foundation-logo.png" alt="Apache Incubator" /></a>
+      </div>
+      <!--Footer copyright year update credit: http://updateyourfooter.com/-->
+      <div>
+        Copyright &copy; 2015
+        <script>new Date().getFullYear() > 2015 && document.write("-" + new Date().getFullYear());</script>
+        <a href="https://www.apache.org">The Apache Software Foundation</a>.
+        Licensed under the <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache License, Version 2.0</a>.
+        <br>
+        Apache and the Apache Feather logo are trademarks of The Apache Software Foundation.
+      </div>
+    </div>
+  </div>
+</footer> <!-- GLOBAL FOOTER-->
+    <script src="assets/js/bundle.min.js"></script>
+  </body>
+</html>
+
