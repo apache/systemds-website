@@ -24,7 +24,6 @@
 
 # Web hosting
 staging:
-  profile: ~
   whoami:  asf-staging
   # top level directory for serving index.html
   # Refer: https://github.com/apache/struts-site
