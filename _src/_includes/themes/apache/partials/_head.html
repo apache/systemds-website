@@ -51,5 +51,7 @@ limitations under the License.
   <link rel="shortcut icon" href="/assets/img/favicon.png">
   
   <!-- allow github profile images -->
-  <meta http-equiv="Content-Security-Policy" content="img-src 'self' data: blob: https://avatars.githubusercontent.com/;">
+  {% if page.title == "Community" %}
+      <meta http-equiv="Content-Security-Policy" content="img-src 'self' data: blob: https://avatars.githubusercontent.com/;">
+  {% endif %}
 </head>
