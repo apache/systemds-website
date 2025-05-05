@@ -73,7 +73,7 @@ limitations under the License.
       <div class="profile">
         <a href="http://github.com/{{ member.githubId }}">
           <img class="profile--img"
-            src="{% unless member.avatar %}https://avatars.githubusercontent.com/{{ member.githubId }}{% else %}{{ member.avatar }}{% endunless %}">
+            src="{% unless member.avatar %}{{ site.baseurl }}/assets/img/avatars/{{ member.githubId }}.jpg{% else %}{{ member.avatar }}{% endunless %}">
         </a>
         <div class="profile--info">
           <a class="profile--name" href="http://github.com/{{ member.githubId }}">{{member.name}}</a>
