@@ -45,6 +45,12 @@
   role: PMC Member
   org: IBM
 
+- name: Christina Dionysio
+  apacheId: cdionysio
+  githubId: christinadionysio
+  role: Committer
+  org: TU Berlin
+
 - name: David Weissteiner
   apacheId: ywcb00
   githubId: ywcb00
