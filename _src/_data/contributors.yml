@@ -69,6 +69,12 @@
   role: PMC Member
   org: IBM
 
+- name: Elias Strauss
+  apacheId: estrauss
+  githubId: e-strauss
+  role: PMC Member
+  org: TU Berlin
+
 - name: Faraz Makari
   apacheId: fmakari
   githubId: fmakari
