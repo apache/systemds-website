@@ -10,7 +10,7 @@
 
 Install [node.js and npm](https://nodejs.org/).
 
-Recommended: Node 16.x, npm 8.x. Node 19.x is not supported yet.
+Recommended: Node 22.x, npm 10.x.
 
 ### Gulp
 

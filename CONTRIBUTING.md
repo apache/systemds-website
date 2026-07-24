@@ -38,11 +38,11 @@ There are documentation related commits in the gulp repo in the last six months.
 
 ### NodeJs
 
-16.x is currently used. 16.x will be end of life by 2022.
+22.x is currently used (upgraded from 16.x in 2024).
 
 see [nodejs release policy](https://nodejs.org/en/about/releases/)
 
-> **Recommendation:** Try to switch to nodejs 18.x in future.
+> **Note:** Successfully upgraded to Node.js 22.x LTS for better security and performance.
 
 ### CSS dependencies
 
