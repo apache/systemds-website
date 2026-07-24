@@ -1,0 +1,599 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Building a Movie Recommender System &mdash; SystemDS 3.4.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../static/css/theme.css?v=9edc463e" />
+
+  
+      <script src="../static/jquery.js?v=5d32c60e"></script>
+      <script src="../static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../static/documentation_options.js?v=b0e360d0"></script>
+      <script src="../static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <script src="../static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="SystemDSContext" href="../api/context/systemds_context.html" />
+    <link rel="prev" title="Python end-to-end tutorial" href="python_end_to_end_tut.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            SystemDS
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/install.html">Install SystemDS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/simple_examples.html">QuickStart</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Guides</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="federated.html">Federated Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="algorithms_basics.html">Built-in Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_end_to_end_tut.html">Python end-to-end tutorial</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Building a Movie Recommender System</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#dataset">Dataset</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#preprocessing-for-cosine-similarity-and-matrix-factorization">Preprocessing for Cosine Similarity and Matrix Factorization</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#cosine-similarity">Cosine Similarity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#matrix-factorization">Matrix Factorization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#linear-regression">Linear Regression</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#preprocessing">Preprocessing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linear-regression-with-pytorch">Linear Regression with PyTorch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linear-regression-with-systemds">Linear Regression with SystemDS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#comparison">Comparison</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api/context/systemds_context.html">SystemDSContext</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/operator/algorithms.html">Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/operator/node/matrix.html">Matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/operator/node/frame.html">Frame</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/operator/node/list.html">List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/operator/node/scalar.html">Scalar</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/operator/node/source.html">Source</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Internals API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api/operator/operation_node.html">Operation Node</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/script_building/dag.html">Dag</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/script_building/script.html">Script</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/utils/converters.html">Converters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/utils/helpers.html">Helpers</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">SystemDS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Building a Movie Recommender System</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../sources/guide/movie_recommender.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="building-a-movie-recommender-system">
+<h1>Building a Movie Recommender System<a class="headerlink" href="#building-a-movie-recommender-system" title="Link to this heading"></a></h1>
+<p>Have you ever wondered how Netflix, Disney+, and other streaming
+platforms know exactly which movies or TV shows to recommend to you? In
+this tutorial, we will explore how recommender systems work and show how
+to implement them using SystemDS, as well as NumPy and PyTorch for
+comparison. The goal of this tutorial is to showcase different features
+of the SystemDS framework that can be accessed with the Python API.</p>
+<p>In this tutorial, we will explore the implementation of a recommender
+system using three distinct mathematical and machine learning
+approaches:</p>
+<ul class="simple">
+<li><p><strong>Cosine Similarity</strong>: A geometric approach to measure the similarity
+between users or items based on the angle between their preference
+vectors.</p></li>
+<li><p><strong>Matrix Factorization</strong>: A technique often used in latent factor
+models (like ALS) to decompose the user-item interaction matrix into
+lower-dimensional representations.</p></li>
+<li><p><strong>Linear Regression</strong>: A supervised learning approach used to predict
+specific ratings by modeling the relationship between user/item
+features and the target rating.</p></li>
+</ul>
+<p>This tutorial shows only snippets of the code and the whole code can be
+found
+<a class="reference external" href="https://github.com/apache/systemds/tree/main/src/main/python/systemds/examples/tutorials/movie_recommender_system.py">here</a>.</p>
+<p>To start with the tutorial, you first have to install SystemDS: <a class="reference internal" href="../getting_started/install.html"><span class="doc">Install SystemDS</span></a>.</p>
+<section id="dataset">
+<h2>Dataset<a class="headerlink" href="#dataset" title="Link to this heading"></a></h2>
+<p>As a dataset we chose the <a class="reference external" href="https://grouplens.org/datasets/movielens/100k/">MovieLens 100K
+Dataset</a>. It consists
+of 100.000 movie ratings from 943 different users on 1682 movies from
+the late 1990s. In the following, we will often refer to movies as
+items. The data is stored in different files:</p>
+<ul class="simple">
+<li><p><strong>u.data</strong> (contains user_id, item_id (movie), rating and timestamp),</p></li>
+<li><p><strong>u.user</strong> (contains user_id, age, gender, occupation and zip code),</p></li>
+<li><p><strong>u.item</strong> (contains item_id, movie name, release date, ImDb link, genre in a hot-one format).</p></li>
+</ul>
+<section id="preprocessing-for-cosine-similarity-and-matrix-factorization">
+<h3>Preprocessing for Cosine Similarity and Matrix Factorization<a class="headerlink" href="#preprocessing-for-cosine-similarity-and-matrix-factorization" title="Link to this heading"></a></h3>
+<p>To prepare our data for Cosine Similarity and Matrix Factorization, we
+must convert the raw ratings into a User-Item Interaction Matrix. In
+this structure, each row represents a unique user, and each column
+represents a specific movie. The intersection of a row and column
+contains the user’s rating for that movie.</p>
+<p>Because the average user has only seen a small percentage of the
+thousands of movies available, this matrix is extremely sparse. Most
+cells will contain missing values (NaN), which we must handle
+differently depending on the algorithm we choose.</p>
+<p>First, we load the MovieLens 100k dataset:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load the MovieLens 100k dataset</span>
+<span class="n">header</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;user_id&#39;</span><span class="p">,</span> <span class="s1">&#39;item_id&#39;</span><span class="p">,</span> <span class="s1">&#39;rating&#39;</span><span class="p">,</span> <span class="s1">&#39;timestamp&#39;</span><span class="p">]</span>
+<span class="n">ratings_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;movie_data/ml-100k/u.data&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="n">header</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We then use the Pandas <code class="docutils literal notranslate"><span class="pre">.pivot()</span></code> function to transform the data. This
+gives us the User-Item table.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pivot_df</span> <span class="o">=</span> <span class="n">ratings_df</span><span class="o">.</span><span class="n">pivot</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s1">&#39;user_id&#39;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="s1">&#39;item_id&#39;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s1">&#39;rating&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The resulting matrix provides a high-level view of our dataset’s
+interaction patterns:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>User</p></th>
+<th class="head"><p>Item 1</p></th>
+<th class="head"><p>Item 2</p></th>
+<th class="head"><p>Item 3</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>user 1</p></td>
+<td><p>5</p></td>
+<td></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-odd"><td><p>user 2</p></td>
+<td></td>
+<td><p>4</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-even"><td><p>user 3</p></td>
+<td><p>1</p></td>
+<td><p>5</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="cosine-similarity">
+<h2>Cosine Similarity<a class="headerlink" href="#cosine-similarity" title="Link to this heading"></a></h2>
+<p>Collaborative Filtering is an umbrella term for algorithms that generate
+recommendations by identifying patterns in user ratings. One of the most
+common techniques is User-Based Collaborative Filtering, where we
+calculate the similarity between users based on their rating history. To
+do this, we treat each user as a vector in a high-dimensional space and
+measure the “distance” between them using <a class="reference external" href="https://towardsdatascience.com/cosine-similarity-how-does-it-measure-the-similarity-maths-behind-and-usage-in-python-50ad30aad7db/">Cosine Similarity</a>.</p>
+<p>To calculate the cosine similarity between all users (rows) in a matrix
+<span class="math notranslate nohighlight">\(X\)</span>, we normalize this matrix and then multiply it with its
+transposose.</p>
+<p>If <span class="math notranslate nohighlight">\(\hat{X}\)</span> is the row-normalized version of <span class="math notranslate nohighlight">\(X\)</span> such that
+each row <span class="math notranslate nohighlight">\(i\)</span> is defined as
+<span class="math notranslate nohighlight">\(\hat{x}_i = \frac{x_i}{\|x_i\|}\)</span>, then the entire Cosine
+Similarity matrix <span class="math notranslate nohighlight">\(S\)</span> is calculated via the gramian matrix:</p>
+<div class="math notranslate nohighlight">
+\[S = \hat{X}\hat{X}^T\]</div>
+<p>Using NumPy, we perform these operations using vectorization for
+efficiency:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># L2 norm of each user vector</span>
+<span class="n">norms</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Normalize user vectors</span>
+<span class="n">X_norm</span> <span class="o">=</span> <span class="n">X</span> <span class="o">/</span> <span class="n">norms</span>
+
+<span class="c1"># Cosine similarity = dot product of normalized vectors</span>
+<span class="n">user_similarity</span> <span class="o">=</span> <span class="n">X_norm</span> <span class="o">@</span> <span class="n">X_norm</span><span class="o">.</span><span class="n">T</span>
+</pre></div>
+</div>
+<p>In SystemDS, we follow a similar logic. First, we import and initialize
+the SystemDSContext.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">systemds.context</span><span class="w"> </span><span class="kn">import</span> <span class="n">SystemDSContext</span>
+
+<span class="k">with</span> <span class="n">SystemDSContext</span><span class="p">()</span> <span class="k">as</span> <span class="n">sds</span><span class="p">:</span>
+</pre></div>
+</div>
+<p>In this context window, we load the data into SystemDS and do our
+calculations, using simple matrix
+functions: <a class="reference internal" href="../api/operator/node/matrix.html"><span class="doc">Matrix</span></a>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load into SystemDS</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">sds</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">X_np</span><span class="p">)</span>
+
+<span class="c1"># Compute L2 norms</span>
+<span class="n">row_sums</span> <span class="o">=</span> <span class="p">(</span><span class="n">X</span> <span class="o">*</span> <span class="n">X</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">norms</span> <span class="o">=</span> <span class="n">row_sums</span><span class="o">.</span><span class="n">sqrt</span><span class="p">()</span>
+
+<span class="c1"># Normalize user vectors</span>
+<span class="n">X_norm</span> <span class="o">=</span> <span class="n">X</span> <span class="o">/</span> <span class="n">norms</span>
+
+<span class="c1"># Cosine similarity = dot product of normalized vectors</span>
+<span class="n">user_similarity</span> <span class="o">=</span> <span class="n">X_norm</span> <span class="o">@</span> <span class="n">X_norm</span><span class="o">.</span><span class="n">t</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>In SystemDS, the line <code class="docutils literal notranslate"><span class="pre">user_similarity_op</span> <span class="pre">=</span> <span class="pre">X_norm</span> <span class="pre">&#64;</span> <span class="pre">X_norm.t()</span></code> does
+not execute any math. Instead, it creates an execution plan. The actual
+computation only occurs when we call <code class="docutils literal notranslate"><span class="pre">.compute()</span></code>, allowing SystemDS
+to optimize the entire operation.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">user_similarity</span> <span class="o">=</span> <span class="n">user_similarity</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>In both cases <code class="docutils literal notranslate"><span class="pre">user_similarity</span></code> gives us a diagonal matrix that shows the
+similarity for every user-user pair.</p>
+<p>While both methods produce the same results, SystemDS takes slightly
+longer for this specific dataset.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Method</p></th>
+<th class="head"><p>NumPy</p></th>
+<th class="head"><p>SystemDS</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Time in seconds</p></td>
+<td><p>0.02</p></td>
+<td><p>0.47</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="matrix-factorization">
+<h2>Matrix Factorization<a class="headerlink" href="#matrix-factorization" title="Link to this heading"></a></h2>
+<p>Another powerful method for generating movie recommendations is Matrix
+Factorization. Instead of looking at surface-level data, this technique
+uncovers latent factors, the hidden patterns that represent a user’s
+specific tastes (like a preference for 90s rom-coms) and a movie’s
+unique characteristics (like its level of whimsy).</p>
+<p>In a real-world scenario, our user-item interaction matrix <span class="math notranslate nohighlight">\(R\)</span>
+is incredibly sparse because most users have only rated a tiny fraction
+of the available movies. Matrix factorization solves this by decomposing
+<span class="math notranslate nohighlight">\(R\)</span> into two much smaller, lower-dimensional matrices:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(P\)</span>: Representing user preferences.</p></li>
+<li><p><span class="math notranslate nohighlight">\(Q\)</span>: Representing item characteristics.</p></li>
+</ul>
+<p>By multiplying these two matrices back together, we can estimate the
+missing values in our original matrix:</p>
+<div class="math notranslate nohighlight">
+\[R \approx P \cdot Q^T\]</div>
+<p>To find <span class="math notranslate nohighlight">\(P\)</span> and <span class="math notranslate nohighlight">\(Q\)</span>, we use the optimization algorithm
+called
+<a class="reference external" href="https://www.shaped.ai/blog/matrix-factorization-the-bedrock-of-collaborative-filtering-recommendations">Alternating Least Squares (ALS)</a>.</p>
+<p>In NumPy, we manually iterate through users and items, solving a
+least-squares problem for each. This gives us full control but can be
+computationally expensive as the dataset grows. We can compute
+<span class="math notranslate nohighlight">\(\hat{R} = P \cdot Q^T\)</span> like this
+<a class="reference external" href="https://codesignal.com/learn/courses/diving-deep-into-collaborative-filtering-techniques-with-als/lessons/implementing-the-alternating-least-squares-algorithm">(cf. CodeSignal)</a>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Random initialization of user and item factors</span>
+<span class="n">P</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">num_users</span><span class="p">,</span> <span class="n">rank</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.01</span>
+<span class="n">Q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">num_items</span><span class="p">,</span> <span class="n">rank</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.01</span>
+
+<span class="k">for</span> <span class="n">iteration</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">maxi</span><span class="p">):</span>
+
+    <span class="c1"># Update user factors</span>
+    <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_users</span><span class="p">):</span>
+
+        <span class="c1"># Get only items user &#39;u&#39; actually rated</span>
+        <span class="n">user_mask</span> <span class="o">=</span> <span class="n">mask</span><span class="p">[</span><span class="n">u</span><span class="p">,</span> <span class="p">:]</span>
+        <span class="n">Q_u</span> <span class="o">=</span> <span class="n">Q</span><span class="p">[</span><span class="n">user_mask</span><span class="p">,</span> <span class="p">:]</span>
+        <span class="n">R_u</span> <span class="o">=</span> <span class="n">R</span><span class="p">[</span><span class="n">u</span><span class="p">,</span> <span class="n">user_mask</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="n">Q_u</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">P</span><span class="p">[</span><span class="n">u</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">Q_u</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">Q_u</span><span class="p">)</span> <span class="o">+</span> <span class="n">reg</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">rank</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">Q_u</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">R_u</span><span class="p">))</span>
+
+    <span class="c1"># Update item factors</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_items</span><span class="p">):</span>
+
+        <span class="c1"># Get only users who actually rated item &#39;i&#39;</span>
+        <span class="n">item_mask</span> <span class="o">=</span> <span class="n">mask</span><span class="p">[:,</span> <span class="n">i</span><span class="p">]</span>
+        <span class="n">P_i</span> <span class="o">=</span> <span class="n">P</span><span class="p">[</span><span class="n">item_mask</span><span class="p">,</span> <span class="p">:]</span>
+        <span class="n">R_i</span> <span class="o">=</span> <span class="n">R</span><span class="p">[</span><span class="n">item_mask</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="n">P_i</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">Q</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">P_i</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">P_i</span><span class="p">)</span> <span class="o">+</span> <span class="n">reg</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">rank</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">P_i</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">R_i</span><span class="p">))</span>
+
+<span class="n">R_hat</span> <span class="o">=</span> <span class="n">P</span> <span class="o">@</span> <span class="n">Q</span><span class="o">.</span><span class="n">T</span>
+</pre></div>
+</div>
+<p>SystemDS allows us to execute the same logic using high-level
+script-like functions that are internally optimized. It offers a wide
+variety of built-in algorithms  <a class="reference internal" href="../api/operator/algorithms.html"><span class="doc">Algorithms</span></a>, including ALS.
+First, we import our algorithm.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">systemds.operator.algorithm</span><span class="w"> </span><span class="kn">import</span> <span class="n">als</span>
+</pre></div>
+</div>
+<p>Then, we initialize the SystemDS context:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">SystemDSContext</span><span class="p">()</span> <span class="k">as</span> <span class="n">sds</span><span class="p">:</span>
+</pre></div>
+</div>
+<p>To tune the model for our specific dataset, we configure the following
+hyperparameters:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">rank</span> <span class="pre">=</span> <span class="pre">20</span></code> The number of latent factors (hidden features) used to
+describe users and movies. A higher rank allows for more complexity
+but increases the risk of overfitting.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">reg</span> <span class="pre">=</span> <span class="pre">1.0</span></code> The regularization parameter. This prevents the model
+from becoming too complex by penalizing large weights, helping it
+generalize better to unseen data.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">maxi</span> <span class="pre">=</span> <span class="pre">20</span></code> The maximum number of iterations. ALS is an iterative
+process.</p></li>
+</ul>
+<p>Then we can do the computation.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load data into SystemDS</span>
+<span class="n">R</span> <span class="o">=</span> <span class="n">sds</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">pivot_df</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+
+<span class="c1"># Approximate factorization of R into two matrices P and Q using ALS</span>
+<span class="n">P</span><span class="p">,</span> <span class="n">Q</span> <span class="o">=</span> <span class="n">als</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">reg</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">maxi</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
+
+<span class="n">R_hat</span> <span class="o">=</span> <span class="n">P</span> <span class="o">@</span> <span class="n">Q</span>
+</pre></div>
+</div>
+<p>To test how well our models generalize to new data, we performed an
+80/20 split, using the first 80,000 ratings for training and the
+remainder for testing. We compared both approaches based on execution
+time and Root Mean Squared Error (RMSE).</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Method</p></th>
+<th class="head"><p>NumPy</p></th>
+<th class="head"><p>SystemDS</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Time in seconds</p></td>
+<td><p>1.09</p></td>
+<td><p>2.48</p></td>
+</tr>
+<tr class="row-odd"><td><p>Train RMSE</p></td>
+<td><p>0.67</p></td>
+<td><p>0.67</p></td>
+</tr>
+<tr class="row-even"><td><p>Test RMSE</p></td>
+<td><p>1.03</p></td>
+<td><p>1.01</p></td>
+</tr>
+</tbody>
+</table>
+<p>Both implementations are mathematically consistent. SystemDS achieved a
+slightly better Test RMSE.</p>
+</section>
+<section id="linear-regression">
+<h2>Linear Regression<a class="headerlink" href="#linear-regression" title="Link to this heading"></a></h2>
+<p>Unlike Matrix Factorization, which relies purely on interaction
+patterns, Linear Regression allows us to incorporate “side information”
+about users and items. By using features like user demographics and
+movie genres, we can build a Content-Based Filtering model that predicts
+ratings based on specific attributes.</p>
+<section id="preprocessing">
+<h3>Preprocessing<a class="headerlink" href="#preprocessing" title="Link to this heading"></a></h3>
+<p>For Linear Regression and Neural Networks, our data must be strictly
+numerical and properly scaled. We begin by loading the MovieLens
+datasets:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ratings_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;movie_data/ml-100k/u.data&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;user_id&#39;</span><span class="p">,</span> <span class="s1">&#39;item_id&#39;</span><span class="p">,</span> <span class="s1">&#39;rating&#39;</span><span class="p">,</span> <span class="s1">&#39;timestamp&#39;</span><span class="p">])</span>
+<span class="n">user_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;movie_data/ml-100k/u.user&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;|&#39;</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;user_id&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;gender&#39;</span><span class="p">,</span> <span class="s1">&#39;occupation&#39;</span><span class="p">,</span> <span class="s1">&#39;zip_code&#39;</span><span class="p">])</span>
+<span class="n">item_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;movie_data/ml-100k/u.item&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;|&#39;</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">[</span>
+    <span class="s1">&#39;item_id&#39;</span><span class="p">,</span> <span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;release_date&#39;</span><span class="p">,</span> <span class="s1">&#39;video_release_date&#39;</span><span class="p">,</span> <span class="s1">&#39;IMDb_URL&#39;</span><span class="p">,</span> <span class="s1">&#39;unknown&#39;</span><span class="p">,</span> <span class="s1">&#39;Action&#39;</span><span class="p">,</span> <span class="s1">&#39;Adventure&#39;</span><span class="p">,</span> <span class="s1">&#39;Animation&#39;</span><span class="p">,</span>
+    <span class="s2">&quot;Children&#39;s&quot;</span><span class="p">,</span> <span class="s1">&#39;Comedy&#39;</span><span class="p">,</span> <span class="s1">&#39;Crime&#39;</span><span class="p">,</span> <span class="s1">&#39;Documentary&#39;</span><span class="p">,</span> <span class="s1">&#39;Drama&#39;</span><span class="p">,</span> <span class="s1">&#39;Fantasy&#39;</span><span class="p">,</span> <span class="s1">&#39;Film-Noir&#39;</span><span class="p">,</span> <span class="s1">&#39;Horror&#39;</span><span class="p">,</span> <span class="s1">&#39;Musical&#39;</span><span class="p">,</span> <span class="s1">&#39;Mystery&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Romance&#39;</span><span class="p">,</span> <span class="s1">&#39;Sci-Fi&#39;</span><span class="p">,</span> <span class="s1">&#39;Thriller&#39;</span><span class="p">,</span> <span class="s1">&#39;War&#39;</span><span class="p">,</span> <span class="s1">&#39;Western&#39;</span><span class="p">],</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;latin-1&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Libraries like NumPy and SystemDS cannot process strings (e.g.,
+“Student” or “Female”). We must transform these into numerical
+representations:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Turn categorical data into numerical</span>
+<span class="n">user_df</span><span class="p">[</span><span class="s1">&#39;gender&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">user_df</span><span class="p">[</span><span class="s1">&#39;gender&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="s1">&#39;F&#39;</span> <span class="k">else</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">user_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">user_df</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;occupation&#39;</span><span class="p">])</span>
+<span class="n">item_df</span><span class="p">[</span><span class="s1">&#39;release_date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">item_df</span><span class="p">[</span><span class="s1">&#39;release_date&#39;</span><span class="p">],</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;raise&#39;</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">-%b-%Y&#39;</span><span class="p">)</span>
+<span class="n">item_df</span><span class="p">[</span><span class="s1">&#39;release_year&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">item_df</span><span class="p">[</span><span class="s1">&#39;release_date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span>
+</pre></div>
+</div>
+<p>Features like <code class="docutils literal notranslate"><span class="pre">age</span></code> and <code class="docutils literal notranslate"><span class="pre">release_year</span></code> have different scales. If
+left unscaled, the model might incorrectly give more “weight” to the
+larger year values. We normalize them to a 0–1 range to ensure equal
+influence.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Normalize data</span>
+<span class="n">user_df</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">user_df</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">user_df</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">())</span> <span class="o">/</span> <span class="p">(</span><span class="n">user_df</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">-</span> <span class="n">user_df</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
+<span class="n">item_df</span><span class="p">[</span><span class="s1">&#39;release_year&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">item_df</span><span class="p">[</span><span class="s1">&#39;release_year&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">item_df</span><span class="p">[</span><span class="s1">&#39;release_year&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">())</span> <span class="o">/</span> <span class="p">(</span><span class="n">item_df</span><span class="p">[</span><span class="s1">&#39;release_year&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">-</span> <span class="n">item_df</span><span class="p">[</span><span class="s1">&#39;release_year&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>Finally, we merge these datasets into a single table. Each row
+represents a specific rating, enriched with all available user and movie
+features. After merging, we drop non-numerical columns (like <code class="docutils literal notranslate"><span class="pre">title</span></code>
+or <code class="docutils literal notranslate"><span class="pre">IMDb_URL</span></code>), remove rows with NaN-values and split the data into
+Training and Testing sets.</p>
+</section>
+<section id="linear-regression-with-pytorch">
+<h3>Linear Regression with PyTorch<a class="headerlink" href="#linear-regression-with-pytorch" title="Link to this heading"></a></h3>
+<p>PyTorch is a popular deep learning framework that approaches linear
+regression as an iterative optimization problem. We use Gradient Descent
+to minimize the Mean Squared Error (MSE) by repeatedly updating the
+model’s weights based on calculated gradients.</p>
+<p>Data must be converted to <code class="docutils literal notranslate"><span class="pre">torch.Tensor</span></code> format.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X_train_tensor</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span><span class="o">.</span><span class="n">float</span><span class="p">()</span>
+<span class="n">y_train_tensor</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">y_train</span><span class="p">)</span><span class="o">.</span><span class="n">float</span><span class="p">()</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">X_test_tensor</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span><span class="o">.</span><span class="n">float</span><span class="p">()</span>
+<span class="n">y_test_tensor</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">y_test</span><span class="p">)</span><span class="o">.</span><span class="n">float</span><span class="p">()</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We define a model class and an optimizer (SGD). The learning rate
+(<code class="docutils literal notranslate"><span class="pre">lr</span></code>) determines the step size for each update.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">n_features</span> <span class="o">=</span> <span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">linearRegression</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">linearRegression</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="c1"># input size: n_features, output size: 1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">linear</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">n_features</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">linear</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">out</span>
+
+<span class="n">lr_model</span> <span class="o">=</span> <span class="n">linearRegression</span><span class="p">()</span>
+<span class="n">criterion</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">MSELoss</span><span class="p">()</span>
+<span class="n">optimizer</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">SGD</span><span class="p">(</span><span class="n">lr_model</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span> <span class="o">=</span> <span class="mf">0.01</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The model iterates through the dataset for a set number of epochs. In
+each iteration, it performs a forward pass, calculates the loss, and
+backpropagates the gradients to update the weights.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">):</span>
+
+    <span class="c1"># Forward pass and loss</span>
+    <span class="n">pred_y</span> <span class="o">=</span> <span class="n">lr_model</span><span class="p">(</span><span class="n">X_train_tensor</span><span class="p">)</span>
+    <span class="n">loss</span> <span class="o">=</span> <span class="n">criterion</span><span class="p">(</span><span class="n">pred_y</span><span class="p">,</span> <span class="n">y_train_tensor</span><span class="p">)</span>
+
+    <span class="c1"># Backward pass and optimization</span>
+    <span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+    <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+    <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>We use <code class="docutils literal notranslate"><span class="pre">.eval()</span></code> and <code class="docutils literal notranslate"><span class="pre">torch.no_grad()</span></code> to disable gradient tracking
+during inference</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">lr_model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+<span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+    <span class="n">y_pred_test</span> <span class="o">=</span> <span class="n">lr_model</span><span class="p">(</span><span class="n">X_test_tensor</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Then, we can calculate the RMSE.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">y_pred</span> <span class="o">=</span> <span class="n">y_pred_test</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+<span class="n">y_true</span> <span class="o">=</span> <span class="n">y_test_tensor</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+<span class="n">rmse</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">((</span><span class="n">y_pred</span> <span class="o">-</span> <span class="n">y_true</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+<section id="linear-regression-with-systemds">
+<h3>Linear Regression with SystemDS<a class="headerlink" href="#linear-regression-with-systemds" title="Link to this heading"></a></h3>
+<p>Following the same pattern as ALS, SystemDS
+provides a highly optimized, built-in algorithm for linear regression.
+This implementation is designed to handle large-scale data by
+automatically deciding between direct solvers and conjugate gradient
+methods based on the data’s characteristics.</p>
+<p>First, we import the <code class="docutils literal notranslate"><span class="pre">lm</span></code> training algorithm and the <code class="docutils literal notranslate"><span class="pre">lmPredict</span></code>
+function for inference.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">systemds.operator.algorithm</span><span class="w"> </span><span class="kn">import</span> <span class="n">lm</span><span class="p">,</span> <span class="n">lmPredict</span>
+</pre></div>
+</div>
+<p>We transfer our NumPy arrays into the SystemDS context.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X_ds</span> <span class="o">=</span> <span class="n">sds</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+<span class="n">y_ds</span> <span class="o">=</span> <span class="n">sds</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">y_train</span><span class="p">)</span>
+<span class="n">X_test_ds</span> <span class="o">=</span> <span class="n">sds</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We call the <code class="docutils literal notranslate"><span class="pre">lm</span></code> function to train our model.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">lm</span><span class="p">(</span><span class="n">X</span><span class="o">=</span><span class="n">X_ds</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y_ds</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>To generate predictions for the test set, we use <code class="docutils literal notranslate"><span class="pre">lmPredict</span></code>. Because
+SystemDS uses Lazy Evaluation, the actual computation is only triggered
+when we call <code class="docutils literal notranslate"><span class="pre">.compute()</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">predictions</span> <span class="o">=</span> <span class="n">lmPredict</span><span class="p">(</span><span class="n">X_test_ds</span><span class="p">,</span> <span class="n">model</span><span class="p">)</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Finally, we calculate the RMSE to compare the performance against your
+PyTorch implementation.</p>
+</section>
+<section id="comparison">
+<h3>Comparison<a class="headerlink" href="#comparison" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Method</p></th>
+<th class="head"><p>PyTorch</p></th>
+<th class="head"><p>SystemDS</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Time in seconds</p></td>
+<td><p>1.77</p></td>
+<td><p>0.87</p></td>
+</tr>
+<tr class="row-odd"><td><p>Test RMSE</p></td>
+<td><p>1.13</p></td>
+<td><p>1.08</p></td>
+</tr>
+</tbody>
+</table>
+<p>Using linear regression, SystemDS worked way faster than our PyTorch
+approach and achieved better results.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="python_end_to_end_tut.html" class="btn btn-neutral float-left" title="Python end-to-end tutorial" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../api/context/systemds_context.html" class="btn btn-neutral float-right" title="SystemDSContext" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Apache SystemDS.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

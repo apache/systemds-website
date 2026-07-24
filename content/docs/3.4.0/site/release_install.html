@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+<!--
+
+-->
+
+<head>
+    <title>Install SystemDS from a Release - SystemDS 3.4.0</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="Installation guide for SystemDS using release archives">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="./../css/bootstrap.min.css">
+    <link rel="stylesheet" href="./../css/main.css">
+    <link rel="stylesheet" href="./../css/pygments-default.css">
+    <link rel="shortcut icon" href="./../img/favicon.png">
+    <script src="./../js/vendor/jquery-1.12.0.min.js"></script>
+    <script src="./../js/vendor/bootstrap.min.js"></script>
+    <script src="./../js/vendor/anchor.min.js"></script>
+    <script src="./../js/main.js"></script>
+</head>
+
+<body>
+    <!--
+
+-->
+<header class="navbar navbar-default navbar-fixed-top" id="topbar">
+    <div class="container">
+        <div class="navbar-header">
+            <div class="navbar-brand brand projectlogo">
+                <a href="https://systemds.apache.org/"><img class="logo" src="./../img/systemds-logo.png" alt="Apache SystemDS" title="Apache SystemDS" /></a>
+            </div>
+            <div class="navbar-brand brand projecttitle">
+                <a href="https://systemds.apache.org/">Apache SystemDS<sup id="trademark">™</sup></a><br />
+                <span class="version">3.4.0</span>
+            </div>
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <nav class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Overview<b class="caret"></b></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><b>Home:</b></li>
+                        <li><a href="./../">Docs Home</a></li>
+                        <li class="divider"></li>
+                        <li><b>Running SystemDS:</b></li>
+                        <li><a href="./../site/run">Standalone Guide</a></li>
+                        <li><a href="./../site/gpu">GPU Guide</a></li>
+                        <li><a href="./../site/native-backend">Native Backend (BLAS)</a></li>
+                        <li><a href="./../site/docker">Run with Docker</a></li>
+                        <li class="divider"></li>
+                        <li><b>Language Guides:</b></li>
+                        <li><a href="./../site/dml-language-reference.html">DML Language Reference</a></li>
+                        <li><a href="./../site/builtins-reference.html">Built-in Functions Reference</a></li>
+                        <li><a href="./../site/dml-vs-r-guide.html">DML vs R guide</a></li>
+                        <li class="divider"></li>
+                        <li><b>Algorithms:</b></li>
+                        <li><a href="./../site/algorithms-reference.html">ML Algorithms Reference</a></li>
+                        <li class="divider"></li>
+                        <li><b>Other:</b></li>
+                        <li><a href="https://github.com/apache/systemds/blob/main/CONTRIBUTING.md">Contributing to SystemDS 🡕</a></li>
+                    </ul>
+                </li>
+                <li><a href="https://github.com/apache/systemds">GitHub 🡕</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">API<b class="caret"></b></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="./../api/java/">Java</a></li>
+                        <li><a href="./../api/python/">Python</a></li>
+                    </ul>
+                </li>
+                <li><a href="https://issues.apache.org/jira/secure/Dashboard.jspa?selectPageId=12335852">Issues</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+    <div class="container" id="content">
+        <h1 class="title">Install SystemDS from a Release</h1>
+        <!--
+
+-->
+
+<p>This guide explains how to install and set up SystemDS using the pre-built release archives.</p>
+
+<hr />
+
+<ul>
+  <li><a href="#1-download-a-release">1. Download a Release</a></li>
+  <li><a href="#2-install-on-windows">2. Install on Windows</a></li>
+  <li><a href="#3-install-on-ubuntu-2204">3. Install on Ubuntu 22.04</a></li>
+  <li><a href="#4-install-on-macos">4. Install on MacOS</a></li>
+</ul>
+
+<hr />
+
+<h1 id="1-download-a-release">1. Download a Release</h1>
+
+<p>Download the official release archive from the Apache SystemDS website:</p>
+
+<p><a href="https://systemds.apache.org/download/">https://systemds.apache.org/download/</a></p>
+
+<p>After downloading the file <code class="language-plaintext highlighter-rouge">systemds-&lt;VERSION&gt;.tar.gz</code>, place the file in any directory you choose for installation.</p>
+
+<h3 id="java-requirement">Java Requirement</h3>
+<p>For compatability with Spark execution and parser components, <strong>Java 17</strong> is strongly recommended for SystemDS.</p>
+
+<p>Verify Java 17:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>java <span class="nt">-version</span>
+</code></pre></div></div>
+
+<p>If missing, install a JDK 17 distribution.</p>
+
+<hr />
+
+<h1 id="2-install-on-windows">2. Install on Windows</h1>
+
+<h3 id="21-extract-the-release-archive">2.1 Extract the Release Archive</h3>
+
+<p>Use Windows built-in extractor.</p>
+
+<h3 id="22-verify-the-installation-by-checking-the-cli">2.2 Verify the Installation by Checking the CLI</h3>
+
+<p>On Windows, the <code class="language-plaintext highlighter-rouge">systemds</code>CLI wrapper may not be executable. This is expected because the <code class="language-plaintext highlighter-rouge">bin/systemds</code>launcher is implemented as a shell script, which Windows cannot execute natively. To verify the installation on Windows, navigate to the bin directory and run the JAR directly. Note that running <code class="language-plaintext highlighter-rouge">systemds -help</code> without JAR may result in a CommandNotFoundExeption:</p>
+
+<pre><code class="language-ps1">java -jar systemds-&lt;VERSION&gt;.jar -help
+</code></pre>
+
+<p>You should see usage information as an output printed to the console.</p>
+
+<h3 id="23-create-a-simple-script">2.3 Create a Simple Script</h3>
+
+<p>On Windows, especially when using PowerShell, creating text files via shell redirection (e.g., echo&#8230;) may result in unexpected encoding or invisible characters. This can lead to parsing errors when executing the script, even though the file appears correct in an editor. Therefore, you may try creating the file explicitly using PowerShell:</p>
+<pre><code class="language-ps1">Set-Content -Path .\hello.dml -Value 'print("Hello World!")' -Encoding Ascii
+</code></pre>
+
+<p>This ensures the script is stored as plain text without additional encoding metadata.
+Note: This behavior depends on the shell and environment configuration and may not affect all Windows setups.</p>
+
+<p>Verify the file contents:</p>
+<pre><code class="language-ps1">Get-Content .\hello.dml
+</code></pre>
+
+<p>Expected output:</p>
+<pre><code class="language-ps1">print("Hello World!")
+</code></pre>
+
+<h3 id="24-run-the-script">2.4 Run the Script</h3>
+
+<p>Now run the script:</p>
+<pre><code class="language-ps1">java -jar systemds-3.3.0.jar -f .\hello.dml
+</code></pre>
+
+<p>Expected output:</p>
+<pre><code class="language-ps1">Hello World!
+SystemDS Statistics:
+Total execution time: 0.012 sec.
+</code></pre>
+
+<h1 id="3-install-on-ubuntu">3. Install on Ubuntu</h1>
+
+<h3 id="31-extract-the-release">3.1 Extract the Release</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> /path/to/install
+<span class="nb">tar</span> <span class="nt">-xvf</span> systemds-&lt;VERSION&gt;-bin.tgz
+<span class="nb">cd </span>systemds-&lt;VERSION&gt;-bin
+</code></pre></div></div>
+
+<h3 id="32-configure-environment-variables">3.2 Configure Environment Variables</h3>
+
+<p>The SystemDS CLI requires an environment variable pointing to the SystemDS JAR. Make sure to export both <code class="language-plaintext highlighter-rouge">SYSTEMDS_ROOT</code> and <code class="language-plaintext highlighter-rouge">SYSTEMDS_JAR_FILE</code>.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">export </span><span class="nv">SYSTEMDS_ROOT</span><span class="o">=</span><span class="si">$(</span><span class="nb">pwd</span><span class="si">)</span>
+<span class="nb">export </span><span class="nv">SYSTEMDS_JAR_FILE</span><span class="o">=</span><span class="si">$(</span>find <span class="s2">"</span><span class="nv">$SYSTEMDS_ROOT</span><span class="s2">"</span> <span class="nt">-maxdepth</span> 1 <span class="nt">-type</span> f <span class="nt">-name</span> <span class="s2">"systemds-*.jar"</span> | <span class="nb">head</span> <span class="nt">-n</span> 1<span class="si">)</span>
+<span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span><span class="s2">"</span><span class="nv">$SYSTEMDS_ROOT</span><span class="s2">/bin:</span><span class="nv">$PATH</span><span class="s2">"</span>
+</code></pre></div></div>
+
+<p>Verify that the JAR was found correctly:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">echo</span> <span class="s2">"Using SystemDS JAR: </span><span class="nv">$SYSTEMDS_JAR_FILE</span><span class="s2">"</span>
+</code></pre></div></div>
+
+<p>(Optional but recommended) To make SystemDS available in new terminals, add the following lines to your shell configuration (e.g., <code class="language-plaintext highlighter-rouge">~/.bashrc</code> or <code class="language-plaintext highlighter-rouge">~/.profile</code>):</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">export </span><span class="nv">SYSTEMDS_ROOT</span><span class="o">=</span>/absolute/path/to/systemds-&lt;VERSION&gt;
+<span class="nb">export </span><span class="nv">SYSTEMDS_JAR_FILE</span><span class="o">=</span>/absolute/path/to/systemds-&lt;VERSION&gt;-bin/lib/systemds-&lt;VERSION&gt;.jar
+<span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span><span class="s2">"</span><span class="nv">$SYSTEMDS_ROOT</span><span class="s2">/bin:</span><span class="nv">$PATH</span><span class="s2">"</span>
+</code></pre></div></div>
+
+<h3 id="33-verify-the-installation-by-checking-the-cli">3.3 Verify the Installation by Checking the CLI</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemds <span class="nt">-help</span>
+</code></pre></div></div>
+
+<p>You should see usage information printed to the console.</p>
+
+<h3 id="34-create-a-simple-script">3.4 Create a Simple Script</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">echo</span> <span class="s1">'print("Hello World!")'</span> <span class="o">&gt;</span> hello.dml
+</code></pre></div></div>
+
+<h3 id="35-run-the-script">3.5 Run the Script</h3>
+
+<p>With <code class="language-plaintext highlighter-rouge">SYSTEMDS_JAR_FILE</code> properly set, the script can be executed directly via the CLI:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemds <span class="nt">-f</span> hello.dml
+</code></pre></div></div>
+
+<p>Expected output:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Hello World!
+</code></pre></div></div>
+
+<h1 id="4-install-on-macos">4. Install on MacOS</h1>
+
+<h3 id="41-extract-the-release">4.1 Extract the Release</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> /path/to/install
+<span class="nb">tar</span> <span class="nt">-xvf</span> systemds-&lt;VERSION&gt;-bin.tgz
+<span class="nb">cd </span>systemds-&lt;VERSION&gt;-bin
+</code></pre></div></div>
+<h3 id="42-add-systemds-to-path">4.2 Add SystemDS to PATH</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">export </span><span class="nv">SYSTEMDS_ROOT</span><span class="o">=</span><span class="si">$(</span><span class="nb">pwd</span><span class="si">)</span>
+<span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span><span class="s2">"</span><span class="nv">$SYSTEMDS_ROOT</span><span class="s2">/bin:</span><span class="nv">$PATH</span><span class="s2">"</span>
+</code></pre></div></div>
+
+<p>(Optional but recommended)
+To make SystemDS available in new terminals, add the following lines
+to your shell configuration (e.g., ~/.bashrc or ~/.profile):</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">export </span><span class="nv">SYSTEMDS_ROOT</span><span class="o">=</span>/absolute/path/to/systemds-&lt;VERSION&gt;
+<span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$SYSTEMDS_ROOT</span>/bin:<span class="nv">$PATH</span>
+</code></pre></div></div>
+
+<h3 id="43-verify-the-installation-by-checking-the-cli">4.3 Verify the Installation by Checking the CLI</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemds <span class="nt">-help</span>
+</code></pre></div></div>
+
+<p>You should see usage information printed to the console.</p>
+
+<h3 id="44-create-a-simple-script">4.4 Create a Simple Script</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">echo</span> <span class="s1">'print("Hello World!")'</span> <span class="o">&gt;</span> hello.dml
+</code></pre></div></div>
+
+<h3 id="45-run-the-script">4.5 Run the Script</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemds <span class="nt">-f</span> hello.dml
+</code></pre></div></div>
+
+<p>Expected output:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Hello World!
+</code></pre></div></div>
+
+<h1 id="next-steps">Next Steps</h1>
+
+<p>For running scripts in Spark mode or experimenting with federated workers, see the Execution Guide: <a href="run">Execute SystemDS</a></p>
+
+    </div>
+    <!--
+
+-->
+
+
+<!-- MathJax Section -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ TeX: { equationNumbers: { autoNumber: "AMS" } } });
+</script>
+<script>
+    // Note that we load MathJax this way to work with local file (file://), HTTP and HTTPS.
+    // We could use "//cdn.mathjax...", but that won't support "file://".
+    (function(d, script) {
+        script = d.createElement('script');
+        script.type = 'text/javascript';
+        script.async = true;
+        script.onload = function() {
+            MathJax.Hub.Config({
+                tex2jax: {
+                    inlineMath: [
+                        ["$", "$"],
+                        ["\\\\(", "\\\\)"]
+                    ],
+                    displayMath: [
+                        ["$$", "$$"],
+                        ["\\[", "\\]"]
+                    ],
+                    processEscapes: true,
+                    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+                }
+            });
+        };
+        script.src = ('https:' == document.location.protocol ? 'https://' : 'http://') +
+            'cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+        d.getElementsByTagName('head')[0].appendChild(script);
+    }(document));
+</script>
+
+</body>
+
+</html>

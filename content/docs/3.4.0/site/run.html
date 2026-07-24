@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+<!--
+
+-->
+
+<head>
+    <title>Running SystemDS - SystemDS 3.4.0</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="./../css/bootstrap.min.css">
+    <link rel="stylesheet" href="./../css/main.css">
+    <link rel="stylesheet" href="./../css/pygments-default.css">
+    <link rel="shortcut icon" href="./../img/favicon.png">
+    <script src="./../js/vendor/jquery-1.12.0.min.js"></script>
+    <script src="./../js/vendor/bootstrap.min.js"></script>
+    <script src="./../js/vendor/anchor.min.js"></script>
+    <script src="./../js/main.js"></script>
+</head>
+
+<body>
+    <!--
+
+-->
+<header class="navbar navbar-default navbar-fixed-top" id="topbar">
+    <div class="container">
+        <div class="navbar-header">
+            <div class="navbar-brand brand projectlogo">
+                <a href="https://systemds.apache.org/"><img class="logo" src="./../img/systemds-logo.png" alt="Apache SystemDS" title="Apache SystemDS" /></a>
+            </div>
+            <div class="navbar-brand brand projecttitle">
+                <a href="https://systemds.apache.org/">Apache SystemDS<sup id="trademark">™</sup></a><br />
+                <span class="version">3.4.0</span>
+            </div>
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <nav class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Overview<b class="caret"></b></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><b>Home:</b></li>
+                        <li><a href="./../">Docs Home</a></li>
+                        <li class="divider"></li>
+                        <li><b>Running SystemDS:</b></li>
+                        <li><a href="./../site/run">Standalone Guide</a></li>
+                        <li><a href="./../site/gpu">GPU Guide</a></li>
+                        <li><a href="./../site/native-backend">Native Backend (BLAS)</a></li>
+                        <li><a href="./../site/docker">Run with Docker</a></li>
+                        <li class="divider"></li>
+                        <li><b>Language Guides:</b></li>
+                        <li><a href="./../site/dml-language-reference.html">DML Language Reference</a></li>
+                        <li><a href="./../site/builtins-reference.html">Built-in Functions Reference</a></li>
+                        <li><a href="./../site/dml-vs-r-guide.html">DML vs R guide</a></li>
+                        <li class="divider"></li>
+                        <li><b>Algorithms:</b></li>
+                        <li><a href="./../site/algorithms-reference.html">ML Algorithms Reference</a></li>
+                        <li class="divider"></li>
+                        <li><b>Other:</b></li>
+                        <li><a href="https://github.com/apache/systemds/blob/main/CONTRIBUTING.md">Contributing to SystemDS 🡕</a></li>
+                    </ul>
+                </li>
+                <li><a href="https://github.com/apache/systemds">GitHub 🡕</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">API<b class="caret"></b></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="./../api/java/">Java</a></li>
+                        <li><a href="./../api/python/">Python</a></li>
+                    </ul>
+                </li>
+                <li><a href="https://issues.apache.org/jira/secure/Dashboard.jspa?selectPageId=12335852">Issues</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+    <div class="container" id="content">
+        <h1 class="title">Running SystemDS</h1>
+        <!--
+
+-->
+
+<p>This guide explains how to run SystemDS regardless of whether you installed it from a Release or built it from Source. All execution modes -local, Spark, and federated- are covered in this document.</p>
+
+<hr />
+
+<ul>
+  <li><a href="#1-prerequisites">1. Prerequisites</a></li>
+  <li><a href="#2-run-a-simple-script-locally">2. Run a Simple Script Locally</a></li>
+  <li><a href="#3-run-a-script-on-spark">3. Run a Script on Spark</a></li>
+  <li><a href="#4-run-a-script-in-federated-mode">4. Run a Script in Federated Mode</a></li>
+</ul>
+
+<hr />
+
+<h1 id="1-prerequisites">1. Prerequisites</h1>
+
+<p>This guide assumes that SystemDS has already been installed successfully.</p>
+
+<p>Please make sure you have followed one of the installation guides:</p>
+<ul>
+  <li><a href="release_install">Install SystemDS from a Release</a></li>
+  <li><a href="source_install">Install SystemDS from Source</a></li>
+</ul>
+
+<p>In particular, ensure that:</p>
+<ul>
+  <li>Java 17 is installed</li>
+  <li>Spark 3.x is available if you plan to run SystemDS on Spark</li>
+  <li>SystemDS is installed following the Release or Source installation guide</li>
+  <li>Required environment variables (<code class="language-plaintext highlighter-rouge">SYSTEMDS_ROOT</code>, <code class="language-plaintext highlighter-rouge">PATH</code>, and if applicable <code class="language-plaintext highlighter-rouge">SYSTEMDS_JAR_FILE</code>) are set</li>
+</ul>
+
+<hr />
+
+<h1 id="2-run-a-simple-script-locally">2. Run a Simple Script Locally</h1>
+
+<p>This mode does not require Spark. It only needs Java 17.</p>
+
+<h3 id="21-create-and-run-a-hello-world">2.1 Create and Run a Hello World</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">echo</span> <span class="s1">'print("Hello, World!")'</span> <span class="o">&gt;</span> hello.dml
+</code></pre></div></div>
+
+<p>Run:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemds hello.dml
+</code></pre></div></div>
+
+<p>Expected output:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Hello, World!
+</code></pre></div></div>
+
+<h3 id="optional-macos-note-realpath-illegal-option------error">(Optional) MacOS Note: <code class="language-plaintext highlighter-rouge">realpath: illegal option -- -</code> Error</h3>
+<p>If you are running MacOS and encounter an error message similar to <code class="language-plaintext highlighter-rouge">realpath: illegal option -- -</code> when executing <code class="language-plaintext highlighter-rouge">systemds hello.dml</code>. You may try to replace the system-wide command <code class="language-plaintext highlighter-rouge">realpath</code> with the homebrew version <code class="language-plaintext highlighter-rouge">grealpath</code> that comes with the <code class="language-plaintext highlighter-rouge">coreutils</code>. Alternatively, you may change all occurrences within the script accordingly, i.e., by prepending a <code class="language-plaintext highlighter-rouge">g</code> to avoid any side effects.</p>
+
+<h3 id="optional-ubuntu-note-invalid-or-corrupt-jarfile-hellodml">(Optional) Ubuntu Note: <code class="language-plaintext highlighter-rouge">Invalid or corrupt jarfile hello.dml</code></h3>
+<p>On some Ubuntu setups (especially clean environments such as Docker images), running <code class="language-plaintext highlighter-rouge">systemds -f hello.dml</code> may result in an error like <code class="language-plaintext highlighter-rouge">Invalid or corrupt jarfile hello.dml</code>. If this happens, the SystemDS launcher may not automatically locate the correct JAR. To fix this, export <code class="language-plaintext highlighter-rouge">SYSTEMDS_JAR_FILE</code> to point to the JAR shipped with the release. Please refer to the Ubuntu troubleshooting section in the installation guide for a detailed workaround: <a href="release_install#35-run-the-script">Release Installation – Ubuntu Note</a></p>
+
+<h3 id="optional-windows-note-systemds-command-not-found">(Optional) Windows Note: <code class="language-plaintext highlighter-rouge">systemds</code> Command Not Found</h3>
+<p>On Windows (e.g., PowerShell), running <code class="language-plaintext highlighter-rouge">systemds -f hello.dml</code> may fail with an error indicating that <code class="language-plaintext highlighter-rouge">systemds</code> is not recognized as a command. This is expected, since the <code class="language-plaintext highlighter-rouge">systemds</code> launcher in <code class="language-plaintext highlighter-rouge">bin/</code> is implemented as a shell script,
+which cannot be executed natively on Windows. In this case, SystemDS should be invoked directly via the runnable JAR using <code class="language-plaintext highlighter-rouge">java -jar</code>. For a detailed Windows-specific walkthrough, please refer to the installation guide: <a href="release_install#2-install-on-windows">Release Installation – Windows Notes</a></p>
+
+<h3 id="22-create-a-real-example">2.2 Create a Real Example</h3>
+
+<p>This example demonstrates local execution of a real script <code class="language-plaintext highlighter-rouge">Univar-stats.dml</code>. The relevant commands to run this example with SystemDS is described in the DML Language reference guide at <a href="dml-language-reference">DML Language Reference</a>.</p>
+
+<p>Prepare the data (macOS: use <code class="language-plaintext highlighter-rouge">curl</code>instead of <code class="language-plaintext highlighter-rouge">wget</code>):</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># download test data</span>
+wget <span class="nt">-P</span> data/ http://archive.ics.uci.edu/ml/machine-learning-databases/haberman/haberman.data
+
+<span class="c"># generate a metadata file for the dataset</span>
+<span class="nb">echo</span> <span class="s1">'{"rows": 306, "cols": 4, "format": "csv"}'</span> <span class="o">&gt;</span> data/haberman.data.mtd
+
+<span class="c"># generate type description for the data</span>
+<span class="nb">echo</span> <span class="s1">'1,1,1,2'</span> <span class="o">&gt;</span> data/types.csv
+<span class="nb">echo</span> <span class="s1">'{"rows": 1, "cols": 4, "format": "csv"}'</span> <span class="o">&gt;</span> data/types.csv.mtd
+</code></pre></div></div>
+
+<p>Execute the DML Script:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemds <span class="s2">"</span><span class="nv">$SYSTEMDS_ROOT</span><span class="s2">/scripts/algorithms/Univar-Stats.dml"</span> <span class="nt">-nvargs</span> <span class="se">\</span>
+  <span class="nv">X</span><span class="o">=</span>data/haberman.data <span class="se">\</span>
+  <span class="nv">TYPES</span><span class="o">=</span>data/types.csv <span class="se">\</span>
+  <span class="nv">STATS</span><span class="o">=</span>data/univarOut.mtx <span class="se">\</span>
+  <span class="nv">CONSOLE_OUTPUT</span><span class="o">=</span>TRUE
+</code></pre></div></div>
+
+<h3 id="optional-macos-note-sparkexception-error">(Optional) MacOS Note: <code class="language-plaintext highlighter-rouge">SparkException</code> Error</h3>
+<p>If SystemDS tries to initialize Spark and you see <code class="language-plaintext highlighter-rouge">SparkException: A master URL must be set in your configuration</code>, you can force single-node execution without Spark/Hadoop initialization via:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemds <span class="nt">-exec</span> singlenode scripts/algorithms/Univar-Stats.dml <span class="nt">-nvargs</span> <span class="se">\</span>
+  <span class="nv">X</span><span class="o">=</span>data/haberman.data <span class="se">\</span>
+  <span class="nv">TYPES</span><span class="o">=</span>data/types.csv <span class="se">\</span>
+  <span class="nv">STATS</span><span class="o">=</span>data/univarOut.mtx <span class="se">\</span>
+  <span class="nv">CONSOLE_OUTPUT</span><span class="o">=</span>TRUE
+</code></pre></div></div>
+
+<h3 id="23-run-the-real-example">2.3 Run the Real Example</h3>
+
+<p>The script computes basic statistics (min, max, variance, skewness, etc) for each column of a dataset. Expected output (example):</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">-------------------------------------------------</span>
+Feature <span class="o">[</span>1]: Scale
+ <span class="o">(</span>01<span class="o">)</span> Minimum             | 30.0
+ <span class="o">(</span>02<span class="o">)</span> Maximum             | 83.0
+ <span class="o">(</span>03<span class="o">)</span> Range               | 53.0
+ <span class="o">(</span>04<span class="o">)</span> Mean                | 52.45751633986928
+ <span class="o">(</span>05<span class="o">)</span> Variance            | 116.71458266366658
+ <span class="o">(</span>06<span class="o">)</span> Std deviation       | 10.803452349303281
+ <span class="o">(</span>07<span class="o">)</span> Std err of mean     | 0.6175922641866753
+ <span class="o">(</span>08<span class="o">)</span> Coeff of variation  | 0.20594669940735139
+ <span class="o">(</span>09<span class="o">)</span> Skewness            | 0.1450718616532357
+ <span class="o">(</span>10<span class="o">)</span> Kurtosis            | <span class="nt">-0</span>.6150152487211726
+ <span class="o">(</span>11<span class="o">)</span> Std err of skewness | 0.13934809593495995
+ <span class="o">(</span>12<span class="o">)</span> Std err of kurtosis | 0.277810485320835
+ <span class="o">(</span>13<span class="o">)</span> Median              | 52.0
+ <span class="o">(</span>14<span class="o">)</span> Interquartile mean  | 52.16013071895425
+<span class="nt">-------------------------------------------------</span>
+Feature <span class="o">[</span>2]: Scale
+ <span class="o">(</span>01<span class="o">)</span> Minimum             | 58.0
+ <span class="o">(</span>02<span class="o">)</span> Maximum             | 69.0
+ <span class="o">(</span>03<span class="o">)</span> Range               | 11.0
+ <span class="o">(</span>04<span class="o">)</span> Mean                | 62.85294117647059
+ <span class="o">(</span>05<span class="o">)</span> Variance            | 10.558630665380907
+ <span class="o">(</span>06<span class="o">)</span> Std deviation       | 3.2494046632238507
+ <span class="o">(</span>07<span class="o">)</span> Std err of mean     | 0.18575610076612029
+ <span class="o">(</span>08<span class="o">)</span> Coeff of variation  | 0.051698529971741194
+ <span class="o">(</span>09<span class="o">)</span> Skewness            | 0.07798443581479181
+ <span class="o">(</span>10<span class="o">)</span> Kurtosis            | <span class="nt">-1</span>.1324380182967442
+ <span class="o">(</span>11<span class="o">)</span> Std err of skewness | 0.13934809593495995
+ <span class="o">(</span>12<span class="o">)</span> Std err of kurtosis | 0.277810485320835
+ <span class="o">(</span>13<span class="o">)</span> Median              | 63.0
+ <span class="o">(</span>14<span class="o">)</span> Interquartile mean  | 62.80392156862745
+<span class="nt">-------------------------------------------------</span>
+Feature <span class="o">[</span>3]: Scale
+ <span class="o">(</span>01<span class="o">)</span> Minimum             | 0.0
+ <span class="o">(</span>02<span class="o">)</span> Maximum             | 52.0
+ <span class="o">(</span>03<span class="o">)</span> Range               | 52.0
+ <span class="o">(</span>04<span class="o">)</span> Mean                | 4.026143790849673
+ <span class="o">(</span>05<span class="o">)</span> Variance            | 51.691117539912135
+ <span class="o">(</span>06<span class="o">)</span> Std deviation       | 7.189653506248555
+ <span class="o">(</span>07<span class="o">)</span> Std err of mean     | 0.41100513466216837
+ <span class="o">(</span>08<span class="o">)</span> Coeff of variation  | 1.7857418611299172
+ <span class="o">(</span>09<span class="o">)</span> Skewness            | 2.954633471088322
+ <span class="o">(</span>10<span class="o">)</span> Kurtosis            | 11.425776549251449
+ <span class="o">(</span>11<span class="o">)</span> Std err of skewness | 0.13934809593495995
+ <span class="o">(</span>12<span class="o">)</span> Std err of kurtosis | 0.277810485320835
+ <span class="o">(</span>13<span class="o">)</span> Median              | 1.0
+ <span class="o">(</span>14<span class="o">)</span> Interquartile mean  | 1.2483660130718954
+<span class="nt">-------------------------------------------------</span>
+Feature <span class="o">[</span>4]: Categorical <span class="o">(</span>Nominal<span class="o">)</span>
+ <span class="o">(</span>15<span class="o">)</span> Num of categories   | 2
+ <span class="o">(</span>16<span class="o">)</span> Mode                | 1
+ <span class="o">(</span>17<span class="o">)</span> Num of modes        | 1
+SystemDS Statistics:
+Total execution <span class="nb">time</span>:   0,470 sec.
+</code></pre></div></div>
+
+<p>To check the location of output file created:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">ls</span> <span class="nt">-l</span> data/univarOut.mtx
+</code></pre></div></div>
+
+<hr />
+<h1 id="3-run-a-script-on-spark">3. Run a Script on Spark</h1>
+
+<p>SystemDS can be executed on Spark using the main executable JAR. The location of this JAR differs depending on whether you installed SystemDS from:</p>
+
+<ul>
+  <li>a <strong>Release archive</strong>, or</li>
+  <li>a <strong>Source-build installation</strong> (built with Maven)</li>
+</ul>
+
+<h3 id="31-running-with-a-release-installation">3.1 Running with a Release Installation</h3>
+
+<p>If you installed SystemDS from a release archive, locate the runnable JAR in the release root directory. It is typically named like <code class="language-plaintext highlighter-rouge">systemds-&lt;version&gt;.jar</code>.</p>
+
+<p>Example:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">ls</span> <span class="nt">-1</span> <span class="s2">"</span><span class="nv">$SYSTEMDS_ROOT</span><span class="s2">"</span>/<span class="k">*</span>.jar
+</code></pre></div></div>
+
+<p>Run:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>spark-submit <span class="s2">"</span><span class="nv">$SYSTEMDS_ROOT</span><span class="s2">/systemds-&lt;version&gt;.jar"</span> <span class="nt">-f</span> hello.dml
+</code></pre></div></div>
+
+<h3 id="32-running-with-a-source-build-installation">3.2 Running with a Source-build Installation</h3>
+
+<p>If you cloned the SystemDS repository and built it yourself, you must first run Maven to generate the executable JAR.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mvn <span class="nt">-P</span> distribution package
+</code></pre></div></div>
+<p>This creates several JAR files in <code class="language-plaintext highlighter-rouge">target/</code>:</p>
+
+<p>Example output:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>target/systemds-3.3.0-shaded.jar
+target/systemds-3.3.0.jar
+target/systemds-3.3.0-unshaded.jar
+target/systemds-3.3.0-extra.jar
+target/SystemDS.jar            &lt;<span class="nt">--</span> main runnable JAR
+target/systemds-3.3.0-ropt.jar
+target/systemds-3.3.0-javadoc.jar
+</code></pre></div></div>
+
+<p>Run:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>spark-submit target/SystemDS.jar <span class="nt">-f</span> hello.dml
+</code></pre></div></div>
+
+<hr />
+<h1 id="4-run-a-script-in-federated-mode">4. Run a Script in Federated Mode</h1>
+
+<p>Federated mode allows SystemDS to execute operations on data located on remote or distributed workers. Federated execution requires:</p>
+
+<ol>
+  <li>One or more <strong>federated workers</strong></li>
+  <li>A <strong>driver program</strong> (DML or Python) that sends operations to those workers.</li>
+</ol>
+
+<p>Note: The SystemDS documentation provides federated execution examples primarily via the Python API. This Quickstart demonstrates only how to start a federated worker, and refers users to the official Federated Environment guide for complete end-to-end examples.</p>
+
+<h3 id="41-start-a-federated-worker">4.1 Start a Federated Worker</h3>
+
+<p>Run in a separate terminal:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemds WORKER 8001
+</code></pre></div></div>
+
+<p>This starts a worker on port <code class="language-plaintext highlighter-rouge">8001</code>.</p>
+
+<h3 id="42-next-steps-and-full-examples">4.2 Next Steps and Full Examples</h3>
+
+<p>For complete, runnable examples of federated execution (including data files, metadata, and Python code), see the official <a href="https://systemds.apache.org/docs/3.3.0/api/python/guide/federated">Federated Environment guide</a></p>
+
+<h3 id="using-intel-mkl-native-instructions">Using Intel MKL Native Instructions</h3>
+
+<p>To use the MKL acceleration download and install the latest supported MKL library (&lt;=2019.5) from <a href="https://software.intel.com/mkl" title="Intel Math Kernel Library">1</a>,
+set the environment variables with the MKL-provided script <code class="language-plaintext highlighter-rouge">. /opt/intel/bin/compilervars.sh intel64</code> (note the dot and
+the default install location) and set the option <code class="language-plaintext highlighter-rouge">sysds.native.blas</code> in <code class="language-plaintext highlighter-rouge">SystemDS-config.xml</code> to mkl.</p>
+
+
+    </div>
+    <!--
+
+-->
+
+
+<!-- MathJax Section -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ TeX: { equationNumbers: { autoNumber: "AMS" } } });
+</script>
+<script>
+    // Note that we load MathJax this way to work with local file (file://), HTTP and HTTPS.
+    // We could use "//cdn.mathjax...", but that won't support "file://".
+    (function(d, script) {
+        script = d.createElement('script');
+        script.type = 'text/javascript';
+        script.async = true;
+        script.onload = function() {
+            MathJax.Hub.Config({
+                tex2jax: {
+                    inlineMath: [
+                        ["$", "$"],
+                        ["\\\\(", "\\\\)"]
+                    ],
+                    displayMath: [
+                        ["$$", "$$"],
+                        ["\\[", "\\]"]
+                    ],
+                    processEscapes: true,
+                    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+                }
+            });
+        };
+        script.src = ('https:' == document.location.protocol ? 'https://' : 'http://') +
+            'cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+        d.getElementsByTagName('head')[0].appendChild(script);
+    }(document));
+</script>
+
+</body>
+
+</html>
