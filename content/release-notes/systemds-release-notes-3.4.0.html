@@ -14,7 +14,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-  <title>SystemML 1.2.0 Release Notes</title>
+  <title>SystemDS 3.4.0 Release Notes</title>
   
   <meta name="description" content="Project Release Notes"> 
   <meta name="author" content="Apache SystemDS">
@@ -27,7 +27,7 @@
   Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
   <meta property="og:url" content="https://systemds.apache.org/" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="SystemML 1.2.0 Release Notes" />
+  <meta property="og:title" content="SystemDS 3.4.0 Release Notes" />
   <meta property="og:description" content="Apache SystemDS is an open source ML system for the end-to-end data science lifecycle" />
   <meta property="og:image" content="" />
 
@@ -149,7 +149,7 @@
 <section class="full-stripe full-stripe--subpage-header clear-header">
   <div class="ml-container ml-container--horizontally-center">
     <div class="col col-12 content-group content-group--center-content content-group--center-align">
-      <h1>Apache SystemDS<sup id="trademark">&trade;</sup> 1.2.0 Release Notes</h1>
+      <h1>Apache SystemDS<sup id="trademark">&trade;</sup> 3.4.0 Release Notes</h1>
     </div>
   </div>
 </section>
@@ -158,87 +158,58 @@
   <div class="ml-container">
     <div class="col col-12 content-group content-group--medium-bottom-margin">
 
-      <p>The Apache SystemML 1.2.0 release was approved on Aug. 24th, 2018. The release includes enhancements, features, and additions as listed below.</p>
+      <h2 id="release-notes-for-systemds-340">Release notes for SystemDS 3.4.0</h2>
 
-      <h3 id="new-builtin-functionsoperationsscriptsfeatures">New Builtin Functions/Operations/Scripts/Features</h3>
+      <p>SystemDS 3.4.0 is a minor release with Java 17 support, native Delta Lake I/O, Vector API execution paths, and runtime improvements.</p>
+
+      <h3 id="runtime-requirements">Runtime Requirements</h3>
+
       <ul>
-        <li>Factorization Machines</li>
-        <li>Support for functions with default parameters</li>
-        <li><code class="language-plaintext highlighter-rouge">exists()</code> for checking of existing variables</li>
-        <li>Triangular matrix functions: <code class="language-plaintext highlighter-rouge">lower.tri()</code> and <code class="language-plaintext highlighter-rouge">upper.tri()</code></li>
-        <li>New nary min/max operations</li>
-        <li><code class="language-plaintext highlighter-rouge">as.matrix()</code> over list of scalars</li>
-        <li>Function calls with named function arguments</li>
-        <li>Convolution operations (forward/backward)</li>
-        <li>Maxpooling operations (forward)</li>
-        <li>Support for bias_add and bias_mult</li>
-        <li>Global constants</li>
-        <li>Added support for rowProd/colProd</li>
-        <li>DML eval function</li>
-        <li>New data type list for lists and structs</li>
+        <li>Java 17 is required.</li>
+        <li>JVMs that launch SystemDS must enable the Vector API with <code class="language-plaintext highlighter-rouge">--add-modules=jdk.incubator.vector</code>.</li>
+        <li>Custom Java launchers and <code class="language-plaintext highlighter-rouge">spark-submit</code> deployments must pass the required Java 17 module and package-open options to every JVM.</li>
       </ul>
 
-      <h3 id="api">API</h3>
+      <h3 id="new-features">New Features</h3>
+
       <ul>
-        <li>JMLC API extension for passing multiple dml scripts</li>
+        <li>Native Delta Lake readers and writers for matrices and frames, built on Delta Kernel with Parquet data-file support.</li>
+        <li>Vectorized execution and optimized Einstein summation (<code class="language-plaintext highlighter-rouge">einsum</code>).</li>
+        <li>Expanded Scuro multimodal and time-series processing.</li>
+        <li>New built-ins and algorithms, including:
+          <ul>
+            <li>LARS, missing-data mechanism detection, Hidden Markov Models, and HDBSCAN.</li>
+            <li>Clustered classification, BERT layers, GloVe, and counter-based random generation.</li>
+          </ul>
+        </li>
       </ul>
 
-      <h3 id="compiler--runtime">Compiler &amp; Runtime</h3>
+      <h3 id="runtime-and-performance-improvements">Runtime and Performance Improvements</h3>
+
       <ul>
-        <li>Code motion framework</li>
-        <li>Global subexpression elimination</li>
-        <li>Optional rewrite for hoisting loop-invariant operations</li>
-        <li>Improved IPA constant propagation and replacement</li>
-        <li>ParFor Data Partitioning Rewrite on Hops instead of Statements</li>
-        <li>New rewrites for chains of comparisons</li>
-        <li>Extended rewrite framework for codegen plans</li>
-        <li>Improved parfor optimizer rewrite for in-place-update</li>
-        <li>Rework function block recompilation</li>
-        <li>Support rowMeans in codegen row templates</li>
+        <li>Improved compressed execution, matrix multiplication, transforms, and workload-aware intermediate compression.</li>
+        <li>Faster frame conversion and Python/JVM data transfer.</li>
+        <li>Improved Spark context management, compiler rewrites, and GPU compatibility.</li>
       </ul>
 
-      <h3 id="performance-improvements">Performance Improvements</h3>
+      <h3 id="federated-runtime">Federated Runtime</h3>
+
       <ul>
-        <li>Improved multi-threading of unary aggregates</li>
-        <li>Reuse of fair scheduler pools in local parfor workers</li>
-        <li>Performance issues Spark ctable(X,Y) w/ large num distinct</li>
-        <li>Performance instruction generation</li>
-        <li>Performance sample operations</li>
-        <li>Performance ultra-sparse block operations</li>
-        <li>New native tsmm operator and its integration</li>
-        <li>Multi-threaded unary operations (e.g., exp, log, sigmoid)</li>
+        <li>Improved worker lifecycle handling, planning, and workload analysis.</li>
+        <li>Fixed threading and synchronization issues.</li>
       </ul>
 
-      <h3 id="bug-fixes">Bug Fixes</h3>
-      <ul>
-        <li>Memory leak buffer pool due to missing variable cleanup</li>
-        <li>Missing buffer pool serialization of compressed matrices</li>
-        <li>Compilation failure on inferring size of reshapes w/ zero rows/columns</li>
-        <li>Incorrect result for min/max over matrices with NaNs</li>
-        <li>Missing support for external functions with variable number of outputs</li>
-        <li>Reblock ultra-sparse matrix fails with index out of bounds</li>
-        <li>Performance issue CSE on DAGs w/ many root nodes (e.g., resnet200)</li>
-        <li>Non-fused bias_add builtin creates incorrect results over sparse inputs</li>
-        <li>Inconsistent namespace naming depending on OS</li>
-        <li>Codegen failing on three-way multi-aggregate</li>
-        <li>Codegen optimizer failing for MLogreg special cases</li>
-        <li>Failing matrix market to binary reblock with zero rows/columns</li>
-      </ul>
+      <h3 id="experimental-out-of-core-execution">Experimental Out-of-Core Execution</h3>
 
-      <h3 id="deprecatedremovedcleanup">Deprecated/Removed/Cleanup</h3>
-      <ul>
-        <li>Opt level 4</li>
-        <li>File-based removeEmpty()</li>
-        <li>Cleanup exception handling apis/compiler/runtime</li>
-      </ul>
+      <p>SystemDS 3.4.0 introduces an experimental out-of-core framework for workloads that exceed the JVM heap. It supports selected matrix operations, I/O, streams, caches, and iterative algorithms, but is incomplete and not recommended for production use.</p>
 
-      <h3 id="experimental">Experimental</h3>
-      <ul>
-        <li>Parameter server: local backend and distributed</li>
-        <li>Sparsity estimators</li>
-      </ul>
+      <h3 id="bug-fixes-and-other-improvements">Bug Fixes and Other Improvements</h3>
 
-      <h3 id="jira-release-notes"><a href="https://issues.apache.org/jira/secure/ReleaseNote.jspa?version=12342959&amp;projectId=12319522">JIRA release notes</a></h3>
+      <ul>
+        <li>Fixed issues in <code class="language-plaintext highlighter-rouge">mdedup</code>, <code class="language-plaintext highlighter-rouge">ampute</code>, Isolation Forest, <code class="language-plaintext highlighter-rouge">unique</code>, trace compatibility, compiler rewrites, and federated execution.</li>
+        <li>Updated Java 17 build, Docker, CI, and release infrastructure; added Databricks deployment material and documentation.</li>
+        <li>Updated key dependencies: Spark 3.5.7, Hadoop 3.3.6 client libraries, Scala 2.12.18, Delta Kernel 3.3.2, Parquet 1.13.1, and JCuda 12.6.0.</li>
+      </ul>
     </div></div></section>
 
 </div>
