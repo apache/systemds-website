@@ -67,7 +67,9 @@ SystemDS 3.4.0 is a minor release with Java 17 support, native Delta Lake I/O, V
 
 ### Experimental Out-of-Core Execution
 
-SystemDS 3.4.0 introduces an experimental out-of-core framework for workloads that exceed the JVM heap. It supports selected matrix operations, I/O, streams, caches, and iterative algorithms, but is incomplete and not recommended for production use.
+- Introduces an experimental out-of-core framework for workloads that exceed the JVM heap.
+- Supports selected matrix operations, I/O, streams, caches, and iterative algorithms.
+- Remains incomplete and is not recommended for production use.
 
 ### Bug Fixes and Other Improvements
 
