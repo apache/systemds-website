@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+<!--
+
+-->
+
+<head>
+    <title>SystemDS Quickstart Guide - SystemDS 3.4.0</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="Quickstart guide for installing and running SystemDS on Windows, Linux, and macOS">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="./../css/bootstrap.min.css">
+    <link rel="stylesheet" href="./../css/main.css">
+    <link rel="stylesheet" href="./../css/pygments-default.css">
+    <link rel="shortcut icon" href="./../img/favicon.png">
+    <script src="./../js/vendor/jquery-1.12.0.min.js"></script>
+    <script src="./../js/vendor/bootstrap.min.js"></script>
+    <script src="./../js/vendor/anchor.min.js"></script>
+    <script src="./../js/main.js"></script>
+</head>
+
+<body>
+    <!--
+
+-->
+<header class="navbar navbar-default navbar-fixed-top" id="topbar">
+    <div class="container">
+        <div class="navbar-header">
+            <div class="navbar-brand brand projectlogo">
+                <a href="https://systemds.apache.org/"><img class="logo" src="./../img/systemds-logo.png" alt="Apache SystemDS" title="Apache SystemDS" /></a>
+            </div>
+            <div class="navbar-brand brand projecttitle">
+                <a href="https://systemds.apache.org/">Apache SystemDS<sup id="trademark">™</sup></a><br />
+                <span class="version">3.4.0</span>
+            </div>
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <nav class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Overview<b class="caret"></b></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><b>Home:</b></li>
+                        <li><a href="./../">Docs Home</a></li>
+                        <li class="divider"></li>
+                        <li><b>Running SystemDS:</b></li>
+                        <li><a href="./../site/run">Standalone Guide</a></li>
+                        <li><a href="./../site/gpu">GPU Guide</a></li>
+                        <li><a href="./../site/native-backend">Native Backend (BLAS)</a></li>
+                        <li><a href="./../site/docker">Run with Docker</a></li>
+                        <li class="divider"></li>
+                        <li><b>Language Guides:</b></li>
+                        <li><a href="./../site/dml-language-reference.html">DML Language Reference</a></li>
+                        <li><a href="./../site/builtins-reference.html">Built-in Functions Reference</a></li>
+                        <li><a href="./../site/dml-vs-r-guide.html">DML vs R guide</a></li>
+                        <li class="divider"></li>
+                        <li><b>Algorithms:</b></li>
+                        <li><a href="./../site/algorithms-reference.html">ML Algorithms Reference</a></li>
+                        <li class="divider"></li>
+                        <li><b>Other:</b></li>
+                        <li><a href="https://github.com/apache/systemds/blob/main/CONTRIBUTING.md">Contributing to SystemDS 🡕</a></li>
+                    </ul>
+                </li>
+                <li><a href="https://github.com/apache/systemds">GitHub 🡕</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">API<b class="caret"></b></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="./../api/java/">Java</a></li>
+                        <li><a href="./../api/python/">Python</a></li>
+                    </ul>
+                </li>
+                <li><a href="https://issues.apache.org/jira/secure/Dashboard.jspa?selectPageId=12335852">Issues</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+    <div class="container" id="content">
+        <h1 class="title">SystemDS Quickstart Guide</h1>
+        <!--
+
+-->
+
+<p>Welcome to the quickstart guide for Apache SystemDS. This quickstart page provides a high-level overview of both installation and points you to the detailed documentation for each path.</p>
+
+<p>SystemDS can be installed and used in two different ways:</p>
+
+<ol>
+  <li>Using a <strong>downloaded release</strong></li>
+  <li>Using a <strong>source build</strong></li>
+</ol>
+
+<p>If you are primarily a user of SystemDS, start with the Release installation. If you plan to contribute or modify internals, follow the Source installation.</p>
+
+<p>Each method is demonstrated in:</p>
+<ul>
+  <li>Local mode</li>
+  <li>Spark mode</li>
+  <li>Federated mode (simple example)</li>
+</ul>
+
+<p>For detailed configuration topics (BLAS, GPU, federated setup, contributing), see the links at the end.</p>
+
+<hr />
+
+<h1 id="1-install-from-a-release">1. Install from a Release</h1>
+
+<p>If you simply want to <em>use</em> SystemDS without modifying the source code, the recommended approach is to install SystemDS from an official Apache release.</p>
+
+<p><strong>Full Release Installation Guide:</strong> <a href="release_install">Install SystemDS from a Release</a></p>
+
+<h1 id="2-install-from-source">2. Install from Source</h1>
+
+<p>If you plan to contribute to SystemDS or need to modify its internals, you can build SystemDS from source.</p>
+
+<p><strong>Full Source Build Guide:</strong> <a href="source_install">Install SystemDS from Source</a></p>
+
+<h1 id="3-after-installation">3. After Installation</h1>
+
+<p>Once either installation path is completed, you can start running scripts:</p>
+
+<ul>
+  <li>Local Mode - Run SystemDS locally</li>
+  <li>Spark Mode - Execute scripts on Spark through <code class="language-plaintext highlighter-rouge">spark-submit</code></li>
+  <li>Federated Mode - Run operations on remote data using federated workers</li>
+</ul>
+
+<p>For detailed commands and examples: <a href="run">Execute SystemDS</a></p>
+
+<h1 id="4-more-configuration">4. More Configuration</h1>
+
+<p>SystemDS provides advanced configuration options for performance tuning and specialized execution environments.</p>
+
+<ul>
+  <li>GPU Support — <a href="https://apache.github.io/systemds/site/gpu">GPU Guide</a></li>
+  <li>BLAS / Native Acceleration — <a href="native-backend">Native Backend (BLAS) Guide</a></li>
+  <li>Federated Backend Deployment — <a href="federated-monitoring">Federated Guide</a></li>
+  <li>Contributing to SystemDS — <a href="https://github.com/apache/systemds/blob/main/CONTRIBUTING.md">Contributing Guide</a></li>
+</ul>
+
+
+    </div>
+    <!--
+
+-->
+
+
+<!-- MathJax Section -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ TeX: { equationNumbers: { autoNumber: "AMS" } } });
+</script>
+<script>
+    // Note that we load MathJax this way to work with local file (file://), HTTP and HTTPS.
+    // We could use "//cdn.mathjax...", but that won't support "file://".
+    (function(d, script) {
+        script = d.createElement('script');
+        script.type = 'text/javascript';
+        script.async = true;
+        script.onload = function() {
+            MathJax.Hub.Config({
+                tex2jax: {
+                    inlineMath: [
+                        ["$", "$"],
+                        ["\\\\(", "\\\\)"]
+                    ],
+                    displayMath: [
+                        ["$$", "$$"],
+                        ["\\[", "\\]"]
+                    ],
+                    processEscapes: true,
+                    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+                }
+            });
+        };
+        script.src = ('https:' == document.location.protocol ? 'https://' : 'http://') +
+            'cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+        d.getElementsByTagName('head')[0].appendChild(script);
+    }(document));
+</script>
+
+</body>
+
+</html>

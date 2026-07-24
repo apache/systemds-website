@@ -1,0 +1,378 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>apply_pipeline &mdash; SystemDS 3.4.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../static/css/theme.css?v=9edc463e" />
+
+  
+      <script src="../../../static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../static/documentation_options.js?v=b0e360d0"></script>
+      <script src="../../../static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../../static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="arima" href="arima.html" />
+    <link rel="prev" title="ampute" href="ampute.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            SystemDS
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/install.html">Install SystemDS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/simple_examples.html">QuickStart</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Guides</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../guide/federated.html">Federated Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../guide/algorithms_basics.html">Built-in Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../guide/python_end_to_end_tut.html">Python end-to-end tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../guide/movie_recommender.html">Building a Movie Recommender System</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../context/systemds_context.html">SystemDSContext</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../algorithms.html">Algorithms</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="WoE.html">WoE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="WoEApply.html">WoEApply</a></li>
+<li class="toctree-l2"><a class="reference internal" href="abstain.html">abstain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="adasyn.html">adasyn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="als.html">als</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alsCG.html">alsCG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alsDS.html">alsDS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alsPredict.html">alsPredict</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alsTopkPredict.html">alsTopkPredict</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ampute.html">ampute</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">apply_pipeline</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#systemds.operator.algorithm.apply_pipeline"><code class="docutils literal notranslate"><span class="pre">apply_pipeline()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="arima.html">arima</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auc.html">auc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autoencoder_2layer.html">autoencoder_2layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bandit.html">bandit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bivar.html">bivar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="components.html">components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="confusionMatrix.html">confusionMatrix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cooccurrenceMatrix.html">cooccurrenceMatrix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cor.html">cor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="correctTypos.html">correctTypos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="correctTyposApply.html">correctTyposApply</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cox.html">cox</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cspline.html">cspline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="csplineCG.html">csplineCG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="csplineDS.html">csplineDS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cvlm.html">cvlm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dbscan.html">dbscan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dbscanApply.html">dbscanApply</a></li>
+<li class="toctree-l2"><a class="reference internal" href="decisionTree.html">decisionTree</a></li>
+<li class="toctree-l2"><a class="reference internal" href="decisionTreePredict.html">decisionTreePredict</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dedup.html">dedup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="deepWalk.html">deepWalk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="denialConstraints.html">denialConstraints</a></li>
+<li class="toctree-l2"><a class="reference internal" href="differenceStatistics.html">differenceStatistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="discoverFD.html">discoverFD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dist.html">dist</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dmv.html">dmv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ema.html">ema</a></li>
+<li class="toctree-l2"><a class="reference internal" href="executePipeline.html">executePipeline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="f1Score.html">f1Score</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fdr.html">fdr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ffPredict.html">ffPredict</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ffTrain.html">ffTrain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fit_pipeline.html">fit_pipeline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fixInvalidLengths.html">fixInvalidLengths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fixInvalidLengthsApply.html">fixInvalidLengthsApply</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flattenQuantile.html">flattenQuantile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="frameSort.html">frameSort</a></li>
+<li class="toctree-l2"><a class="reference internal" href="frequencyEncode.html">frequencyEncode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="frequencyEncodeApply.html">frequencyEncodeApply</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garch.html">garch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gaussianClassifier.html">gaussianClassifier</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getAccuracy.html">getAccuracy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="glm.html">glm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="glmPredict.html">glmPredict</a></li>
+<li class="toctree-l2"><a class="reference internal" href="glove.html">glove</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gmm.html">gmm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gmmPredict.html">gmmPredict</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnmf.html">gnmf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gridSearch.html">gridSearch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hospitalResidencyMatch.html">hospitalResidencyMatch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hyperband.html">hyperband</a></li>
+<li class="toctree-l2"><a class="reference internal" href="img_brightness.html">img_brightness</a></li>
+<li class="toctree-l2"><a class="reference internal" href="img_brightness_linearized.html">img_brightness_linearized</a></li>
+<li class="toctree-l2"><a class="reference internal" href="img_crop.html">img_crop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="img_crop_linearized.html">img_crop_linearized</a></li>
+<li class="toctree-l2"><a class="reference internal" href="img_cutout.html">img_cutout</a></li>
+<li class="toctree-l2"><a class="reference internal" href="img_cutout_linearized.html">img_cutout_linearized</a></li>
+<li class="toctree-l2"><a class="reference internal" href="img_invert.html">img_invert</a></li>
+<li class="toctree-l2"><a class="reference internal" href="img_invert_linearized.html">img_invert_linearized</a></li>
+<li class="toctree-l2"><a class="reference internal" href="img_mirror.html">img_mirror</a></li>
+<li class="toctree-l2"><a class="reference internal" href="img_mirror_linearized.html">img_mirror_linearized</a></li>
+<li class="toctree-l2"><a class="reference internal" href="img_posterize.html">img_posterize</a></li>
+<li class="toctree-l2"><a class="reference internal" href="img_posterize_linearized.html">img_posterize_linearized</a></li>
+<li class="toctree-l2"><a class="reference internal" href="img_rotate.html">img_rotate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="img_rotate_linearized.html">img_rotate_linearized</a></li>
+<li class="toctree-l2"><a class="reference internal" href="img_sample_pairing.html">img_sample_pairing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="img_sample_pairing_linearized.html">img_sample_pairing_linearized</a></li>
+<li class="toctree-l2"><a class="reference internal" href="img_shear.html">img_shear</a></li>
+<li class="toctree-l2"><a class="reference internal" href="img_shear_linearized.html">img_shear_linearized</a></li>
+<li class="toctree-l2"><a class="reference internal" href="img_transform.html">img_transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="img_transform_linearized.html">img_transform_linearized</a></li>
+<li class="toctree-l2"><a class="reference internal" href="img_translate.html">img_translate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="img_translate_linearized.html">img_translate_linearized</a></li>
+<li class="toctree-l2"><a class="reference internal" href="impurityMeasures.html">impurityMeasures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="imputeByFD.html">imputeByFD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="imputeByFDApply.html">imputeByFDApply</a></li>
+<li class="toctree-l2"><a class="reference internal" href="imputeByKNN.html">imputeByKNN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="imputeByMean.html">imputeByMean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="imputeByMeanApply.html">imputeByMeanApply</a></li>
+<li class="toctree-l2"><a class="reference internal" href="imputeByMedian.html">imputeByMedian</a></li>
+<li class="toctree-l2"><a class="reference internal" href="imputeByMedianApply.html">imputeByMedianApply</a></li>
+<li class="toctree-l2"><a class="reference internal" href="imputeByMode.html">imputeByMode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="imputeByModeApply.html">imputeByModeApply</a></li>
+<li class="toctree-l2"><a class="reference internal" href="incSliceLine.html">incSliceLine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="intersect.html">intersect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="km.html">km</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kmeans.html">kmeans</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kmeansPredict.html">kmeansPredict</a></li>
+<li class="toctree-l2"><a class="reference internal" href="knn.html">knn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="knnGraph.html">knnGraph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="knnbf.html">knnbf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="l2svm.html">l2svm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="l2svmPredict.html">l2svmPredict</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lasso.html">lasso</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lenetPredict.html">lenetPredict</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lenetTrain.html">lenetTrain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lm.html">lm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lmCG.html">lmCG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lmDS.html">lmDS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lmPredict.html">lmPredict</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lmPredictStats.html">lmPredictStats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logSumExp.html">logSumExp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mae.html">mae</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mape.html">mape</a></li>
+<li class="toctree-l2"><a class="reference internal" href="matrixProfile.html">matrixProfile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mcc.html">mcc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mdedup.html">mdedup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mice.html">mice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="miceApply.html">miceApply</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mse.html">mse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="msmape.html">msmape</a></li>
+<li class="toctree-l2"><a class="reference internal" href="msvm.html">msvm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="msvmPredict.html">msvmPredict</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multiLogReg.html">multiLogReg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multiLogRegPredict.html">multiLogRegPredict</a></li>
+<li class="toctree-l2"><a class="reference internal" href="na_locf.html">na_locf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="naiveBayes.html">naiveBayes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="naiveBayesPredict.html">naiveBayesPredict</a></li>
+<li class="toctree-l2"><a class="reference internal" href="normalize.html">normalize</a></li>
+<li class="toctree-l2"><a class="reference internal" href="normalizeApply.html">normalizeApply</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nrmse.html">nrmse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="outlier.html">outlier</a></li>
+<li class="toctree-l2"><a class="reference internal" href="outlierByArima.html">outlierByArima</a></li>
+<li class="toctree-l2"><a class="reference internal" href="outlierByIQR.html">outlierByIQR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="outlierByIQRApply.html">outlierByIQRApply</a></li>
+<li class="toctree-l2"><a class="reference internal" href="outlierBySd.html">outlierBySd</a></li>
+<li class="toctree-l2"><a class="reference internal" href="outlierBySdApply.html">outlierBySdApply</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pageRank.html">pageRank</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pca.html">pca</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pcaInverse.html">pcaInverse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pcaTransform.html">pcaTransform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pnmf.html">pnmf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ppca.html">ppca</a></li>
+<li class="toctree-l2"><a class="reference internal" href="psnr.html">psnr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quantizeByCluster.html">quantizeByCluster</a></li>
+<li class="toctree-l2"><a class="reference internal" href="raGroupby.html">raGroupby</a></li>
+<li class="toctree-l2"><a class="reference internal" href="raJoin.html">raJoin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="raSelection.html">raSelection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="randomForest.html">randomForest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="randomForestPredict.html">randomForestPredict</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rmse.html">rmse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scale.html">scale</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scaleApply.html">scaleApply</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scaleMinMax.html">scaleMinMax</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scaleRobustApply.html">scaleRobustApply</a></li>
+<li class="toctree-l2"><a class="reference internal" href="selectByVarThresh.html">selectByVarThresh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ses.html">ses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="setdiff.html">setdiff</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shapExplainer.html">shapExplainer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sherlock.html">sherlock</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sherlockPredict.html">sherlockPredict</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shortestPath.html">shortestPath</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sigmoid.html">sigmoid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="skewness.html">skewness</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sliceLine.html">sliceLine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sliceLineDebug.html">sliceLineDebug</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sliceLineExtract.html">sliceLineExtract</a></li>
+<li class="toctree-l2"><a class="reference internal" href="slicefinder.html">slicefinder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smape.html">smape</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smote.html">smote</a></li>
+<li class="toctree-l2"><a class="reference internal" href="softmax.html">softmax</a></li>
+<li class="toctree-l2"><a class="reference internal" href="split.html">split</a></li>
+<li class="toctree-l2"><a class="reference internal" href="splitBalanced.html">splitBalanced</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sqrtMatrix.html">sqrtMatrix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stableMarriage.html">stableMarriage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="statsNA.html">statsNA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="steplm.html">steplm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stratstats.html">stratstats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="symmetricDifference.html">symmetricDifference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tSNE.html">tSNE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toOneHot.html">toOneHot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tomeklink.html">tomeklink</a></li>
+<li class="toctree-l2"><a class="reference internal" href="topk_cleaning.html">topk_cleaning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="underSampling.html">underSampling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="union.html">union</a></li>
+<li class="toctree-l2"><a class="reference internal" href="univar.html">univar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vectorToCsv.html">vectorToCsv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wer.html">wer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="winsorize.html">winsorize</a></li>
+<li class="toctree-l2"><a class="reference internal" href="winsorizeApply.html">winsorizeApply</a></li>
+<li class="toctree-l2"><a class="reference internal" href="xdummy1.html">xdummy1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="xdummy2.html">xdummy2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="xgboost.html">xgboost</a></li>
+<li class="toctree-l2"><a class="reference internal" href="xgboostPredictClassification.html">xgboostPredictClassification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="xgboostPredictRegression.html">xgboostPredictRegression</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../node/matrix.html">Matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../node/frame.html">Frame</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../node/list.html">List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../node/scalar.html">Scalar</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../node/source.html">Source</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Internals API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../operation_node.html">Operation Node</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../script_building/dag.html">Dag</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../script_building/script.html">Script</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../utils/converters.html">Converters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../utils/helpers.html">Helpers</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">SystemDS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../algorithms.html">Algorithms</a></li>
+      <li class="breadcrumb-item active">apply_pipeline</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../sources/api/operator/algorithms/apply_pipeline.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="apply-pipeline">
+<h1>apply_pipeline<a class="headerlink" href="#apply-pipeline" title="Link to this heading"></a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="systemds.operator.algorithm.apply_pipeline">
+<span class="sig-prename descclassname"><span class="pre">systemds.operator.algorithm.</span></span><span class="sig-name descname"><span class="pre">apply_pipeline</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">testData</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../node/frame.html#systemds.operator.Frame" title="systemds.operator.nodes.frame.Frame"><span class="pre">Frame</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">pip</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../node/frame.html#systemds.operator.Frame" title="systemds.operator.nodes.frame.Frame"><span class="pre">Frame</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">applyFunc</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../node/frame.html#systemds.operator.Frame" title="systemds.operator.nodes.frame.Frame"><span class="pre">Frame</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">hp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../node/matrix.html#systemds.operator.Matrix" title="systemds.operator.nodes.matrix.Matrix"><span class="pre">Matrix</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">exState</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../node/list.html#systemds.operator.List" title="systemds.operator.nodes.list.List"><span class="pre">List</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">iState</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../node/list.html#systemds.operator.List" title="systemds.operator.nodes.list.List"><span class="pre">List</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="../../script_building/dag.html#systemds.script_building.dag.DAGNode" title="systemds.script_building.dag.DAGNode"><span class="pre">DAGNode</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#systemds.operator.algorithm.apply_pipeline" title="Link to this definition"></a></dt>
+<dd><blockquote>
+<div><p>This script will read the dirty and clean data, then it will apply the best pipeline on dirty data
+and then will classify both cleaned dataset and check if the cleaned dataset is performing same as original dataset
+in terms of classification accuracy</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>trainData</strong> – <p>—</p>
+</p></li>
+<li><p><strong>testData</strong> – <p>—</p>
+</p></li>
+<li><p><strong>metaData</strong> – <p>—</p>
+</p></li>
+<li><p><strong>lp</strong> – <p>—</p>
+</p></li>
+<li><p><strong>pip</strong> – <p>—</p>
+</p></li>
+<li><p><strong>hp</strong> – <p>—</p>
+</p></li>
+<li><p><strong>evaluationFunc</strong> – <p>—</p>
+</p></li>
+<li><p><strong>evalFunHp</strong> – <p>—</p>
+</p></li>
+<li><p><strong>isLastLabel</strong> – <p>—</p>
+</p></li>
+<li><p><strong>correctTypos</strong> – <p>—</p>
+</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><p>—</p>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="ampute.html" class="btn btn-neutral float-left" title="ampute" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="arima.html" class="btn btn-neutral float-right" title="arima" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Apache SystemDS.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
